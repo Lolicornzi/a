@@ -8,81 +8,47 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Firebase Legacy SDKs (v8 Compat for quick drop-in setup) -->
+    <!-- Firebase Legacy SDKs (for compatibility with the existing code) -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-    
+
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #131f24;
-            color: white;
-        }
-        .duo-btn {
-            box-shadow: 0 4px 0 #46a302;
-            transition: all 0.1s ease;
-        }
-        .duo-btn:active {
-            transform: translateY(4px);
-            box-shadow: 0 0 0 #46a302;
-        }
-        .option-btn {
-            box-shadow: 0 4px 0 #37464f;
-        }
-        .option-btn:active {
-            transform: translateY(4px);
-            box-shadow: 0 0 0 #37464f;
-        }
-        /* Custom scrollbar for leaderboard list */
-        #leaderboard-list::-webkit-scrollbar {
-            width: 4px;
-        }
-        #leaderboard-list::-webkit-scrollbar-thumb {
-            background-color: #37464f;
-            border-radius: 9999px;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #131f24; color: white; }
+        .duo-btn { box-shadow: 0 4px 0 #46a302; transition: all 0.1s ease; }
+        .duo-btn:active { transform: translateY(4px); box-shadow: 0 0 0 #46a302; }
+        .option-btn { box-shadow: 0 4px 0 #37464f; }
+        .option-btn:active { transform: translateY(4px); box-shadow: 0 0 0 #37464f; }
     </style>
 </head>
 <body class="flex flex-col min-h-screen justify-between max-w-md mx-auto border-x border-gray-800">
-
-    <!-- TOP BAR -->
+    <!-- TOP BAR, MAIN CONTAINER, etc. (All your HTML structure remains the same) -->
     <div class="p-4 flex justify-between items-center border-b border-gray-800 bg-[#131f24] sticky top-0 z-10">
         <div class="flex items-center gap-2">
             <i class="fa-solid fa-bolt text-amber-500 text-xl"></i>
             <span id="score-display" class="font-bold text-amber-500 text-base">0 XP</span>
         </div>
-        <!-- Progress Bar -->
         <div class="w-1/3 bg-gray-700 h-4 rounded-full overflow-hidden">
             <div id="progress-bar" class="bg-[#58cc02] h-full w-0 transition-all duration-300"></div>
         </div>
-        <!-- Accuracy Display -->
         <div class="flex items-center gap-1.5">
             <i class="fa-solid fa-bullseye text-cyan-400 text-xl"></i>
             <span id="accuracy-display" class="font-bold text-cyan-400 text-base">100%</span>
         </div>
     </div>
-
-    <!-- MAIN CONTAINER -->
     <main class="p-5 flex-1 flex flex-col justify-center">
-
-        <!-- AUTH SCREEN (Login / Signup) -->
+        <!-- AUTH SCREEN -->
         <div id="auth-screen" class="space-y-4">
             <div class="text-center">
                 <div id="auth-main-icon" class="text-6xl text-[#58cc02] mb-2"><i class="fa-solid fa-user-lock"></i></div>
                 <h2 id="auth-title" class="text-2xl font-extrabold text-white">Sign In to ChemLingo</h2>
                 <p class="text-gray-400 text-xs mt-1">Keep your highscore secure & join the world leaderboard</p>
             </div>
-            
             <div class="space-y-3 bg-gray-800/50 p-5 rounded-2xl border border-gray-700">
-                <!-- AVATAR SELECTOR (Sign up only) -->
                 <div id="auth-avatar-container" class="hidden">
                     <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 text-center">Choose an Avatar</label>
-                    <div class="grid grid-cols-6 gap-2 justify-center" id="avatar-grid">
-                        <!-- Populated dynamically via JS -->
-                    </div>
+                    <div class="grid grid-cols-6 gap-2 justify-center" id="avatar-grid"></div>
                 </div>
-
                 <div id="auth-username-container" class="hidden">
                     <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Display Name</label>
                     <input type="text" id="auth-username" placeholder="e.g. ProtonChamp" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm">
@@ -95,592 +61,126 @@
                     <label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Password</label>
                     <input type="password" id="auth-password" placeholder="••••••••" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm">
                 </div>
-
                 <div id="auth-error" class="hidden text-xs text-red-500 font-bold bg-red-950/40 p-3 rounded-lg border border-red-900"></div>
-
-                <button id="auth-main-btn" onclick="handleAuthSubmit()" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3 rounded-xl uppercase tracking-wider text-sm">
-                    Login
-                </button>
+                <button id="auth-main-btn" onclick="handleAuthSubmit()" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3 rounded-xl uppercase tracking-wider text-sm">Login</button>
             </div>
-
             <div class="text-center text-xs space-y-2">
                 <p class="text-gray-400">
                     <span id="auth-toggle-text">Don't have an account?</span> 
                     <button onclick="toggleAuthMode()" id="auth-toggle-btn" class="text-[#58cc02] font-bold underline ml-1 focus:outline-none">Sign Up</button>
                 </p>
-                <button onclick="skipAuth()" class="text-gray-500 hover:text-gray-400 underline font-semibold block mx-auto">
-                    Play Guest Mode (Rankings won't persist securely)
-                </button>
+                <button onclick="skipAuth()" class="text-gray-500 hover:text-gray-400 underline font-semibold block mx-auto">Play Guest Mode</button>
             </div>
         </div>
 
-        <!-- START SCREEN -->
-        <div id="start-screen" class="hidden text-center space-y-4">
+        <!-- START SCREEN, QUIZ SCREEN, LEADERBOARD SCREEN -->
+        <!-- The rest of your HTML remains unchanged... -->
+         <div id="start-screen" class="hidden text-center space-y-4">
             <div class="flex justify-between items-center bg-gray-800/40 p-3 rounded-xl border border-gray-700 mb-2">
                 <div class="flex items-center gap-2">
                     <span id="user-display-avatar" class="text-2xl">🧪</span>
                     <span id="user-display-name" class="font-bold text-sm text-gray-200">Loading...</span>
                 </div>
-                <button id="logout-btn" onclick="logoutUser()" class="text-xs font-bold text-red-400 hover:text-red-300 underline">
-                    Log out
-                </button>
+                <button id="logout-btn" onclick="logoutUser()" class="text-xs font-bold text-red-400 hover:text-red-300 underline">Log out</button>
             </div>
-
             <div class="text-6xl text-[#58cc02]"><i class="fa-solid fa-flask"></i></div>
             <h1 class="text-3xl font-extrabold text-white">ChemLingo</h1>
             <p class="text-gray-400 text-sm">Practice Chemistry & Compete Globally</p>
-            
             <div class="space-y-3 pt-2">
-                <button onclick="startGame(1)" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-atom"></i> Semester 1 (Inorganic)
-                </button>
-                <button onclick="startGame(3)" class="duo-btn w-full bg-[#1cb0f6] hover:bg-[#1899d6] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #1899d6;">
-                    <i class="fa-solid fa-dna"></i> Semester 3 (Organic)
-                </button>
-                <button onclick="startGame('all')" class="duo-btn w-full bg-[#ffb800] hover:bg-[#e0a200] text-gray-900 font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #d69b00;">
-                    <i class="fa-solid fa-bolt"></i> Mixed Mode
-                </button>
+                <button onclick="startGame(1)" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2"><i class="fa-solid fa-atom"></i> Semester 1 (Inorganic)</button>
+                <button onclick="startGame(3)" class="duo-btn w-full bg-[#1cb0f6] hover:bg-[#1899d6] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #1899d6;"><i class="fa-solid fa-dna"></i> Semester 3 (Organic)</button>
+                <button onclick="startGame('all')" class="duo-btn w-full bg-[#ffb800] hover:bg-[#e0a200] text-gray-900 font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #d69b00;"><i class="fa-solid fa-bolt"></i> Mixed Mode</button>
             </div>
-            
-            <button onclick="showGlobalLeaderboard()" class="w-full bg-gray-800 border-2 border-gray-700 text-gray-300 font-bold py-3 rounded-xl uppercase tracking-wider text-sm mt-4 hover:border-amber-400 transition">
-                <i class="fa-solid fa-globe text-amber-400 mr-2"></i> Global Leaderboard
-            </button>
+            <button onclick="showGlobalLeaderboard()" class="w-full bg-gray-800 border-2 border-gray-700 text-gray-300 font-bold py-3 rounded-xl uppercase tracking-wider text-sm mt-4 hover:border-amber-400 transition"><i class="fa-solid fa-globe text-amber-400 mr-2"></i> Global Leaderboard</button>
         </div>
-
-        <!-- QUIZ SCREEN -->
         <div id="quiz-screen" class="hidden flex-col justify-between flex-1">
             <div>
                 <div class="flex justify-between items-center mb-4">
-                    <span id="semester-badge" class="bg-gray-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-[#58cc02]">
-                        Semester
-                    </span>
-                    <span id="category-badge" class="bg-gray-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-gray-400">
-                        Category
-                    </span>
+                    <span id="semester-badge" class="bg-gray-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-[#58cc02]">Semester</span>
+                    <span id="category-badge" class="bg-gray-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-gray-400">Category</span>
                 </div>
-                <h2 id="question-text" class="text-lg sm:text-xl font-bold mb-6 text-white leading-relaxed">
-                    Question text will appear here...
-                </h2>
-                <div id="options-container" class="space-y-3">
-                    <!-- Dynamic Options -->
-                </div>
+                <h2 id="question-text" class="text-lg sm:text-xl font-bold mb-6 text-white leading-relaxed">Question text will appear here...</h2>
+                <div id="options-container" class="space-y-3"></div>
             </div>
-
-            <!-- FEEDBACK BAR -->
             <div id="feedback-card" class="hidden rounded-xl p-4 mt-6">
                 <div class="flex items-center gap-3 mb-2">
                     <i id="feedback-icon" class="text-2xl"></i>
                     <span id="feedback-title" class="font-bold text-lg"></span>
                 </div>
                 <p id="feedback-detail" class="text-sm font-medium mb-4"></p>
-                <button id="next-btn" onclick="nextQuestion()" class="w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider">
-                    Continue
-                </button>
+                <button id="next-btn" onclick="nextQuestion()" class="w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider">Continue</button>
             </div>
         </div>
-
-        <!-- GLOBAL LEADERBOARD SCREEN -->
         <div id="leaderboard-screen" class="hidden space-y-4">
             <div class="text-center">
                 <h2 class="text-2xl font-extrabold text-amber-400"><i class="fa-solid fa-earth-americas mr-2"></i> World Leaderboard</h2>
                 <p class="text-xs text-gray-400 mt-1">Live rankings for all players globally (Accuracy % → XP)</p>
             </div>
-            
-            <div id="leaderboard-list" class="space-y-2 max-h-80 overflow-y-auto pr-1">
-                <!-- Dynamic Global Rankings -->
-            </div>
-            
-            <button onclick="restartApp()" class="duo-btn w-full bg-[#58cc02] text-white font-bold py-3 rounded-xl uppercase">
-                Main Menu
-            </button>
+            <div id="leaderboard-list" class="space-y-2 max-h-80 overflow-y-auto pr-1"></div>
+            <button onclick="restartApp()" class="duo-btn w-full bg-[#58cc02] text-white font-bold py-3 rounded-xl uppercase">Main Menu</button>
         </div>
     </main>
 
-    <!-- JAVASCRIPT & REACTION DATASETS -->
     <script>
         // ==========================================
-        // ⚠️ INSERT YOUR FIREBASE CONFIGURATION HERE
+        //  ✅ YOUR FIREBASE CONFIGURATION IS NOW HERE
         // ==========================================
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_PROJECT.firebaseapp.com",
-            databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-            projectId: "YOUR_PROJECT",
-            storageBucket: "YOUR_PROJECT.appspot.com",
-            messagingSenderId: "YOUR_SENDER_ID",
-            appId: "YOUR_APP_ID"
+            apiKey: "AIzaSyA-eZfmcPjW1kFLTT9N1mxIm60HmK_5oG4",
+            authDomain: "a-test-chem.firebaseapp.com",
+            projectId: "a-test-chem",
+            storageBucket: "a-test-chem.appspot.com",
+            messagingSenderId: "1030899671595",
+            appId: "1:1030899671595:web:7dbc83440ea459cfea806e",
+            measurementId: "G-9D3VE5HHFJ"
         };
+        
+        // --- The rest of the Javascript is below ---
 
         let db = null;
         let auth = null;
         let currentUser = null;
         let isAuthSignUpMode = false;
-
         const AVAILABLE_AVATARS = ["🧪", "🔬", "⚛️", "🧬", "⚡", "🌟", "🔥", "🪐", "🥽", "🧠", "🦖", "💻"];
-        let selectedAvatar = AVAILABLE_AVATARS[0]; // default selection
-
+        let selectedAvatar = AVAILABLE_AVATARS[0];
+        let username = "Player";
+        let userAvatar = "🧪";
+        
         try {
             firebase.initializeApp(firebaseConfig);
             db = firebase.database();
             auth = firebase.auth();
         } catch(e) {
-            console.warn("Firebase not configured correctly. Running in fallback mode.");
+            console.warn("Firebase not configured correctly. App will run in fallback mode.", e);
+            // In case of error, immediately try to skip auth to show something
+            document.addEventListener('DOMContentLoaded', skipAuth);
         }
 
-        // CHEMISTRY DATASET (Sem 1 + Sem 3)
-        const reactionsData = [
-            // SEMESTER 1
-            { sem: 1, category: "Period 3 Oxygen", question: "Complete the reaction: 4Na + O₂ ➔ ?", options: ["2Na₂O", "Na₂O₂", "2NaO", "Na₂O₃"], answer: "2Na₂O" },
-            { sem: 1, category: "Period 3 Oxygen", question: "What is formed when Sodium reacts with excess Oxygen under heat?", options: ["2Na + O₂ ➔ Na₂O₂", "4Na + O₂ ➔ 2Na₂O", "Na + O₂ ➔ NaO₂", "2Na + 2O₂ ➔ Na₂O₄"], answer: "2Na + O₂ ➔ Na₂O₂" },
-            { sem: 1, category: "Period 3 Acid/Base", question: "What product forms when Al₂O₃ reacts with hot aqueous NaOH?", options: ["2NaAl(OH)₄", "Na₂AlO₂ + H₂O", "Al(OH)₃ + 2NaCl", "Na₂SO₄"], answer: "2NaAl(OH)₄" },
-            { sem: 1, category: "Group 17 Halogens", question: "What are the main products of Cl₂ + 2NaOH (COLD)?", options: ["NaCl + NaClO + H₂O", "5NaCl + NaClO₃ + 3H₂O", "NaCl + HClO", "NaClO₃ + H₂"], answer: "NaCl + NaClO + H₂O" },
-            { sem: 1, category: "Halides Test", question: "What precipitate color is formed when Ag⁺ reacts with I⁻?", options: ["AgI (yellow)", "AgCl (white)", "AgBr (cream)", "Ag₂O (black)"], answer: "AgI (yellow)" },
-            // SEMESTER 3 - Hydrocarbons & Functional Groups
-            { sem: 3, category: "Alkanes", question: "Alkane + X₂ ➔ Haloalkane + HX requires which condition?", options: ["UV Light", "FeX₃ catalyst", "Reflux with NaOH", "Ni at 180°C"], answer: "UV Light" },
-            { sem: 3, category: "Alkanes", question: "What are the coefficients for complete combustion of C_x H_y + ? O₂ ➔ x CO₂ + (y/2) H₂O?", options: ["(x + y/4)", "(x + y/2)", "(2x + y/4)", "(x/2 + y)"], answer: "(x + y/4)" },
-            { sem: 3, category: "Alkenes (EAR)", question: "Catalytic hydrogenation of Alkene (>C=C< + H₂) to Alkane requires:", options: ["Ni catalyst at 140°C", "UV Light", "Conc. H₂SO₄", "FeX₃"], answer: "Ni catalyst at 140°C" },
-            { sem: 3, category: "Alkenes (EAR)", question: "What product is formed when an alkene reacts with X₂ in CH₂Cl₂ at room temp?", options: ["Vicinal Dihaloalkane (-CX-CX-)", "Halohydrin (-CX-COH-)", "Alkane", "Haloalkane + HX"], answer: "Vicinal Dihaloalkane (-CX-CX-)" },
-            { sem: 3, category: "Alkenes (EAR)", question: "Reaction of Alkene with X₂ + H₂O yields what product?", options: ["Halohydrin (-CX-COH-) + H₃O⁺ + X⁻", "Dihaloalkane", "Alcohol", "Alkane"], answer: "Halohydrin (-CX-COH-) + H₃O⁺ + X⁻" },
-            { sem: 3, category: "Alkenes (EAR)", question: "Cleavage of R(R')C=CH(R'') with hot acidified KMnO₄ yields:", options: ["Ketone + Carboxylic Acid", "Two Aldehydes", "Two Alcohols", "Ozonide"], answer: "Ketone + Carboxylic Acid" },
-            { sem: 3, category: "Alkenes (EAR)", question: "Reaction of alkene with O₃ at -78°C followed by (CH₃)₂S treatment yields:", options: ["Ketone + Aldehyde", "Carboxylic Acid + CO₂", "Dihaloalkane", "Alcohol"], answer: "Ketone + Aldehyde" },
-            { sem: 3, category: "Arenes (EAS)", question: "Benzene + X₂ ➔ Halobenzene + HX requires which catalyst?", options: ["FeX₃", "AlCl₃", "Conc. H₂SO₄", "UV Light"], answer: "FeX₃" },
-            { sem: 3, category: "Arenes (EAS)", question: "Nitration of Benzene to form Nitrobenzene requires:", options: ["Conc. HNO₃ + Conc. H₂SO₄ (< 55°C)", "Dilute HNO₃ at r.t.", "HNO₃ + FeX₃", "KMnO₄ / H⁺"], answer: "Conc. HNO₃ + Conc. H₂SO₄ (< 55°C)" },
-            { sem: 3, category: "Haloalkanes", question: "RX + KCN (aq) in ethanol under heat produces:", options: ["Nitrile (R-C≡N) + KX", "Primary Amine", "Alcohol", "Grignard Reagent"], answer: "Nitrile (R-C≡N) + KX" },
-            { sem: 3, category: "Haloalkanes", question: "Reaction to form a Grignard Reagent (RMgX):", options: ["R-X + Mg in dry ether", "R-X + Mg in H₂O", "R-X + NaOH", "R-X + Na in ether"], answer: "R-X + Mg in dry ether" },
-            { sem: 3, category: "Carboxylic Acids", question: "RMgBr + CO₂ in dry ether (r.t.) followed by H₃O⁺ / Δ yields:", options: ["RCOOH + Mg(OH)Br", "RCH₂OH", "RCHO", "RCOOR'"], answer: "RCOOH + Mg(OH)Br" },
-            { sem: 3, category: "Carboxylic Acids", question: "Oxidation of RCH₂OH with KMnO₄ / H⁺ at room temperature produces:", options: ["RCOOH + H₂O", "RCHO + H₂", "RCOR' + H₂O", "RCOCl"], answer: "RCOOH + H₂O" },
-            { sem: 3, category: "Carboxylic Acids", question: "Hydrolysis of Nitrile with aqueous acid (RCN + H₂O + H⁺ / Δ) yields:", options: ["RCOOH + NH₄⁺", "RCOO⁻ + NH₃", "RCH₂NH₂", "RCONH₂"], answer: "RCOOH + NH₄⁺" },
-            { sem: 3, category: "Carboxylic Acids", question: "Hydrolysis of Nitrile with aqueous base (RCN + H₂O + OH⁻ / Δ) yields:", options: ["RCOO⁻ + NH₃", "RCOOH + NH₄⁺", "RCH₂NH₂", "RCONH₂"], answer: "RCOO⁻ + NH₃" },
-            { sem: 3, category: "Carboxylic Acids", question: "Reaction of Primary Amide with Nitrous Acid (RCONH₂ + NaNO₂ + HCl at r.t.) produces:", options: ["RCOOH + N₂ + H₂O + NaCl", "RCH₂NH₂ + NaCl", "RCN + H₂O", "RCOCl + NH₄Cl"], answer: "RCOOH + N₂ + H₂O + NaCl" },
-            { sem: 3, category: "Carbonyls", question: "Hydrogenation of Ketone (R₂C=O + H₂ over Ni at 180°C) yields:", options: ["Secondary Alcohol (R₂CHOH)", "Primary Alcohol", "Carboxylic Acid", "Alkene"], answer: "Secondary Alcohol (R₂CHOH)" },
-            { sem: 3, category: "Carbonyls", question: "Reduction of Aldehyde (RCHO) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["Primary Alcohol (RCH₂OH)", "Secondary Alcohol", "Carboxylic Acid", "Alkane"], answer: "Primary Alcohol (RCH₂OH)" },
-            { sem: 3, category: "Esters & Amides", question: "Reduction of Ester (R'COOR) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["R'CH₂OH + ROH", "R'COOH + ROH", "R'CH₃ + ROH", "R'CHO + ROH"], answer: "R'CH₂OH + ROH" },
-            { sem: 3, category: "Esters & Amides", question: "Reduction of Amide (R'CONH₂) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["Primary Amine (R'CH₂NH₂) + H₂O", "R'COOH + NH₃", "R'CN + H₂O", "R'CH₂OH + NH₃"], answer: "Primary Amine (R'CH₂NH₂) + H₂O" },
-            { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + Na₂CO₃ under heat produces:", options: ["RCOONa + CO₂ + H₂O", "RCOONa + H₂", "RCOOCH₃", "RCOCl + NaHCO₃"], answer: "RCOONa + CO₂ + H₂O" },
-            { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + SOCl₂ at room temperature produces:", options: ["RCOCl + SO₂ + HCl", "RCOCl + POCl₃ + HCl", "RCOCl + H₃PO₃", "RCOOR' + H₂O"], answer: "RCOCl + SO₂ + HCl" },
-            { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + PCl₅ at room temperature produces:", options: ["RCOCl + POCl₃ + HCl", "RCOCl + SO₂ + HCl", "RCOCl + H₃PO₃", "RCOOR'"], answer: "RCOCl + POCl₃ + HCl" },
-            { sem: 3, category: "Carboxylic Acid Reactions", question: "Electrophilic Nitration of Benzoic Acid (Benzoic Acid + HNO₃ with conc. H₂SO₄ at <55°C) yields:", options: ["m-nitrobenzoic acid + H₂O", "o-nitrobenzoic acid", "p-nitrobenzoic acid", "Nitrobenzene"], answer: "m-nitrobenzoic acid + H₂O" },
-            { sem: 3, category: "Acyl Chloride", question: "RCOCl + H₂O at room temperature produces:", options: ["RCOOH + HCl", "RCOOCH₃", "RCONH₂", "RCHO"], answer: "RCOOH + HCl" },
-            { sem: 3, category: "Acyl Chloride", question: "Reaction of Sodium Phenoxide (PhONa) + RCOCl at room temp yields:", options: ["Phenyl Ester (RCOOPh) + NaCl", "Benzoic Acid", "Phenyl Acetate + HCl", "Phenol + RCOOH"], answer: "Phenyl Ester (RCOOPh) + NaCl" },
-            { sem: 3, category: "Acyl Chloride", question: "RCOCl + Primary Amine (R'NH₂) at room temp yields:", options: ["Secondary Amide (RCONHR') + HCl", "Primary Amide + HCl", "Tertiary Amide", "Nitrile"], answer: "Secondary Amide (RCONHR') + HCl" },
-            { sem: 3, category: "Esters & Amides", question: "Alkaline Hydrolysis of Ester (RCOOR' + NaOH under heat) yields:", options: ["RCOONa + R'OH", "RCOOH + R'OH", "RCH₂OH + R'OH", "RCOONa + H₂O"], answer: "RCOONa + R'OH" },
-            { sem: 3, category: "Amines", question: "Which reagents are used for the preparation of aniline by reduction of nitrobenzene?", options: ["Zn or Sn in HCl", "LiAlH₄, dry ether followed by H₃O⁺", "KMnO₄ / H⁺", "NaOH / H₂O"], answer: "Zn or Sn in HCl" },
-            { sem: 3, category: "Amines", question: "What is observed when a primary aliphatic amine (RNH₂) reacts with HNO₂ at 0–5°C?", options: ["Effervescence of N₂ gas & ROH formation", "Yellowish oily liquid", "Benzenediazonium salt", "No observable change"], answer: "Effervescence of N₂ gas & ROH formation" },
-            { sem: 3, category: "Amines", question: "Reaction of a secondary amine (R₂NH) with HNO₂ at 0–5°C produces:", options: ["Yellowish oily liquid (R₂N-N=O)", "Effervescence of N₂ gas", "Clear solution", "White precipitate"], answer: "Yellowish oily liquid (R₂N-N=O)" },
-            { sem: 3, category: "Amines", question: "What product is formed when Aniline reacts with HNO₂ at 0–5°C?", options: ["Benzenediazonium salt", "Phenol + N₂", "2,4,6-tribromoaniline", "Azo dye"], answer: "Benzenediazonium salt" },
-            { sem: 3, category: "Amines", question: "Aniline reacts with aqueous Br₂ to produce which precipitate?", options: ["2,4,6-tribromoaniline (white ppt)", "Bromobenzene", "Yellowish oily liquid", "Azo dye (orange ppt)"], answer: "2,4,6-tribromoaniline (white ppt)" },
-            { sem: 3, category: "Diazonium Salts", question: "Hydrolysis of Benzenediazonium salt with H₂O under heat yields:", options: ["Phenol + N₂ + HCl", "Aniline + HCl", "Nitrobenzene", "Benzenediol"], answer: "Phenol + N₂ + HCl" },
-            { sem: 3, category: "Diazonium Salts", question: "Coupling reaction of Benzenediazonium salt with phenol in NaOH yields:", options: ["Azo dye (orange solid)", "Benzenediol", "White precipitate", "Nitrobenzene"], answer: "Azo dye (orange solid)" },
-            { sem: 3, category: "Amines Identification", question: "In the Hinsberg test, a primary amine initially produces a clear solution that forms a white precipitate upon:", options: ["Acidification", "Heating with NaOH", "Addition of HNO₂", "Oxidation"], answer: "Acidification" },
-            { sem: 3, category: "Amino Acids", question: "Which α-amino acid is optically inactive because it lacks a chiral carbon atom?", options: ["Glycine", "Alanine", "Valine", "Lysine"], answer: "Glycine" },
-            { sem: 3, category: "Amino Acids", question: "In an acidic medium, an α-amino acid exists primarily in which form?", options: ["Cationic form (H₃N⁺-CHR-COOH)", "Anionic form (H₂N-CHR-COO⁻)", "Zwitterion form", "Non-polar molecule"], answer: "Cationic form (H₃N⁺-CHR-COOH)" },
-            { sem: 3, category: "Amino Acids & Peptides", question: "Condensation of three different amino acids can produce how many different tripeptides?", options: ["6", "3", "4", "9"], answer: "6" }
-        ];
-
-        // APP STATE
-        let currentQuestions = [];
-        let currentIdx = 0;
-        let score = 0;
-        let totalAnswered = 0;
-        let correctCount = 0;
-        let username = "Player";
-        let userAvatar = "🧪";
-
-        // ==========================================
-        // AUTHENTICATION LOGIC & LIFE CYCLE
-        // ==========================================
-        window.addEventListener('DOMContentLoaded', () => {
-            renderAvatarGrid();
-            if (auth) {
-                auth.onAuthStateChanged((user) => {
-                    if (user) {
-                        currentUser = user;
-                        // Fetch verified username & avatar
-                        db.ref('users/' + user.uid).once('value').then((snapshot) => {
-                            const data = snapshot.val();
-                            username = (data && data.username) ? data.username : "Player";
-                            userAvatar = (data && data.avatar) ? data.avatar : "🧪";
-                            
-                            document.getElementById("user-display-name").innerText = username;
-                            document.getElementById("user-display-avatar").innerText = userAvatar;
-                            
-                            showStartScreen();
-                        });
-                    } else {
-                        currentUser = null;
-                        showAuthScreen();
-                    }
-                });
-            } else {
-                skipAuth();
-            }
-        });
-
-        function renderAvatarGrid() {
-            const grid = document.getElementById("avatar-grid");
-            grid.innerHTML = "";
-            AVAILABLE_AVATARS.forEach((avatar) => {
-                const btn = document.createElement("button");
-                btn.type = "button";
-                btn.className = `text-2xl p-2 rounded-xl border-2 transition-all duration-150 active:scale-95 ${
-                    selectedAvatar === avatar ? "bg-gray-700 border-[#58cc02]" : "bg-gray-800 border-gray-700 hover:border-gray-500"
-                }`;
-                btn.innerText = avatar;
-                btn.onclick = () => selectAvatar(avatar, btn);
-                grid.appendChild(btn);
-            });
-        }
-
-        function selectAvatar(avatar, element) {
-            selectedAvatar = avatar;
-            // Re-render to clear and update borders
-            renderAvatarGrid();
-        }
-
-        function showAuthScreen() {
-            document.getElementById("auth-screen").classList.remove("hidden");
-            document.getElementById("start-screen").classList.add("hidden");
-            document.getElementById("quiz-screen").classList.add("hidden");
-            document.getElementById("leaderboard-screen").classList.add("hidden");
-        }
-
-        function showStartScreen() {
-            document.getElementById("auth-screen").classList.add("hidden");
-            document.getElementById("start-screen").classList.remove("hidden");
-            document.getElementById("quiz-screen").classList.add("hidden");
-            document.getElementById("leaderboard-screen").classList.add("hidden");
-        }
-
-        function toggleAuthMode() {
-            isAuthSignUpMode = !isAuthSignUpMode;
-            const title = document.getElementById("auth-title");
-            const avatarField = document.getElementById("auth-avatar-container");
-            const userField = document.getElementById("auth-username-container");
-            const btn = document.getElementById("auth-main-btn");
-            const toggleText = document.getElementById("auth-toggle-text");
-            const toggleBtn = document.getElementById("auth-toggle-btn");
-            const errorDiv = document.getElementById("auth-error");
-            const mainIcon = document.getElementById("auth-main-icon");
-
-            errorDiv.classList.add("hidden");
-
-            if (isAuthSignUpMode) {
-                title.innerText = "Create ChemLingo Account";
-                avatarField.classList.remove("hidden");
-                userField.classList.remove("hidden");
-                mainIcon.classList.add("hidden");
-                btn.innerText = "Sign Up & Register";
-                toggleText.innerText = "Already have an account?";
-                toggleBtn.innerText = "Login";
-            } else {
-                title.innerText = "Sign In to ChemLingo";
-                avatarField.classList.add("hidden");
-                userField.classList.add("hidden");
-                mainIcon.classList.remove("hidden");
-                btn.innerText = "Login";
-                toggleText.innerText = "Don't have an account?";
-                toggleBtn.innerText = "Sign Up";
-            }
-        }
-
-        function handleAuthSubmit() {
-            const email = document.getElementById("auth-email").value.trim();
-            const password = document.getElementById("auth-password").value.trim();
-            const errorDiv = document.getElementById("auth-error");
-            
-            errorDiv.classList.add("hidden");
-
-            if (!email || !password) {
-                showAuthError("Please fill out all required fields.");
-                return;
-            }
-
-            if (isAuthSignUpMode) {
-                const display = document.getElementById("auth-username").value.trim();
-                if (!display) {
-                    showAuthError("Please pick a display name.");
-                    return;
-                }
-
-                auth.createUserWithEmailAndPassword(email, password)
-                    .then((userCredential) => {
-                        const user = userCredential.user;
-                        return db.ref('users/' + user.uid).set({
-                            username: display,
-                            avatar: selectedAvatar,
-                            email: email,
-                            createdAt: Date.now()
-                        }).then(() => {
-                            username = display;
-                            userAvatar = selectedAvatar;
-                        });
-                    })
-                    .catch((err) => {
-                        showAuthError(err.message);
-                    });
-            } else {
-                auth.signInWithEmailAndPassword(email, password)
-                    .catch((err) => {
-                        showAuthError(err.message);
-                    });
-            }
-        }
-
-        function showAuthError(msg) {
-            const errorDiv = document.getElementById("auth-error");
-            errorDiv.innerText = msg;
-            errorDiv.classList.remove("hidden");
-        }
-
-        function skipAuth() {
-            currentUser = null;
-            username = "Guest_" + Math.floor(100 + Math.random() * 900);
-            userAvatar = AVAILABLE_AVATARS[Math.floor(Math.random() * AVAILABLE_AVATARS.length)];
-            
-            document.getElementById("user-display-name").innerText = `${username} (Guest)`;
-            document.getElementById("user-display-avatar").innerText = userAvatar;
-            showStartScreen();
-        }
-
-        function logoutUser() {
-            if (auth) {
-                auth.signOut().then(() => {
-                    document.getElementById("auth-email").value = "";
-                    document.getElementById("auth-password").value = "";
-                    document.getElementById("auth-username").value = "";
-                    selectedAvatar = AVAILABLE_AVATARS[0];
-                    renderAvatarGrid();
-                    showAuthScreen();
-                });
-            } else {
-                showAuthScreen();
-            }
-        }
-
-        // ==========================================
-        // GAMEPLAY ENGINE
-        // ==========================================
-        function shuffleArray(array) {
-            const arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        }
-
-        function startGame(selectedSem) {
-            if (selectedSem === 'all') {
-                currentQuestions = [...reactionsData];
-            } else {
-                currentQuestions = reactionsData.filter(q => q.sem === selectedSem);
-            }
-            currentQuestions = shuffleArray(currentQuestions);
-            document.getElementById("start-screen").classList.add("hidden");
-            document.getElementById("quiz-screen").classList.remove("hidden");
-            document.getElementById("quiz-screen").classList.add("flex");
-            currentIdx = 0;
-            score = 0;
-            totalAnswered = 0;
-            correctCount = 0;
-            updateHeader();
-            loadQuestion();
-        }
-
-        function getAccuracy() {
-            if (totalAnswered === 0) return 100;
-            return Math.round((correctCount / totalAnswered) * 100);
-        }
-
-        function updateHeader() {
-            document.getElementById("score-display").innerText = `${score} XP`;
-            document.getElementById("accuracy-display").innerText = `${getAccuracy()}%`;
-            const progressPercent = ((currentIdx) / currentQuestions.length) * 100;
-            document.getElementById("progress-bar").style.width = `${progressPercent}%`;
-        }
-
-        function loadQuestion() {
-            if (currentIdx >= currentQuestions.length) {
-                finishGame();
-                return;
-            }
-            const q = currentQuestions[currentIdx];
-            document.getElementById("semester-badge").innerText = `Semester ${q.sem}`;
-            document.getElementById("category-badge").innerText = q.category;
-            document.getElementById("question-text").innerText = q.question;
-            document.getElementById("feedback-card").classList.add("hidden");
-            
-            const container = document.getElementById("options-container");
-            container.innerHTML = "";
-            
-            const shuffledOptions = shuffleArray(q.options);
-            shuffledOptions.forEach(opt => {
-                const btn = document.createElement("button");
-                btn.className = "option-btn w-full bg-gray-800 border-2 border-gray-700 text-white font-semibold py-3.5 px-4 rounded-xl text-left hover:border-gray-500 transition text-sm sm:text-base";
-                btn.innerText = opt;
-                btn.onclick = () => checkAnswer(opt, q.answer, btn);
-                container.appendChild(btn);
-            });
-        }
-
-        function checkAnswer(selected, correct, selectedBtn) {
-            const buttons = document.querySelectorAll(".option-btn");
-            buttons.forEach(b => b.disabled = true);
-            totalAnswered++;
-            
-            const feedbackCard = document.getElementById("feedback-card");
-            const feedbackTitle = document.getElementById("feedback-title");
-            const feedbackDetail = document.getElementById("feedback-detail");
-            const feedbackIcon = document.getElementById("feedback-icon");
-            const nextBtn = document.getElementById("next-btn");
-            feedbackCard.classList.remove("hidden");
-
-            if (selected === correct) {
-                score += 10;
-                correctCount++;
-                selectedBtn.classList.add("bg-green-900/50", "border-[#58cc02]");
-                feedbackCard.className = "rounded-xl p-4 mt-6 bg-[#20380a] border border-[#58cc02]";
-                feedbackIcon.className = "fa-solid fa-circle-check text-[#58cc02] text-2xl";
-                feedbackTitle.className = "font-bold text-lg text-[#58cc02]";
-                feedbackTitle.innerText = "Correct!";
-                feedbackDetail.innerText = "+10 XP Earned";
-                nextBtn.className = "w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider bg-[#58cc02]";
-            } else {
-                selectedBtn.classList.add("bg-red-900/50", "border-red-500");
-                feedbackCard.className = "rounded-xl p-4 mt-6 bg-[#37191e] border border-red-500";
-                feedbackIcon.className = "fa-solid fa-circle-xmark text-red-500 text-2xl";
-                feedbackTitle.className = "font-bold text-lg text-red-500";
-                feedbackTitle.innerText = "Incorrect!";
-                feedbackDetail.innerText = `Correct Answer: ${correct}`;
-                nextBtn.className = "w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider bg-red-500";
-            }
-            updateHeader();
-        }
-
-        function nextQuestion() {
-            currentIdx++;
-            loadQuestion();
-        }
-
-        function finishGame() {
-            if (db) {
-                const currentAcc = getAccuracy();
-                
-                // Construct score payload with avatar field
-                const scorePayload = {
-                    name: username,
-                    avatar: userAvatar,
-                    score: score,
-                    accuracy: currentAcc,
-                    correct: correctCount,
-                    total: totalAnswered,
-                    updatedAt: Date.now()
-                };
-
-                if (currentUser) {
-                    // Secure authenticated path: Write with Unique User ID (uid)
-                    const userLeaderboardRef = db.ref('global_leaderboard/' + currentUser.uid);
-                    userLeaderboardRef.once('value', (snapshot) => {
-                        const prev = snapshot.val();
-                        // Update if accuracy is higher, or if same accuracy but higher score
-                        if (!prev || currentAcc > prev.accuracy || (currentAcc === prev.accuracy && score > prev.score)) {
-                            userLeaderboardRef.set(scorePayload);
-                        }
-                    });
-                } else {
-                    // Guest fallback: Write using transient username clean string
-                    const cleanName = username.replace(/[.#$/\[\]]/g, "_");
-                    const guestRef = db.ref('global_leaderboard/guest_' + cleanName);
-                    guestRef.once('value', (snapshot) => {
-                        const prev = snapshot.val();
-                        if (!prev || currentAcc > prev.accuracy || (currentAcc === prev.accuracy && score > prev.score)) {
-                            guestRef.set(scorePayload);
-                        }
-                    });
-                }
-            }
-            showGlobalLeaderboard();
-        }
-
-        // ==========================================
-        // REAL-TIME GLOBAL LEADERBOARD SYNC
-        // ==========================================
+        const reactionsData = [ { sem: 1, category: "Period 3 Oxygen", question: "Complete the reaction: 4Na + O₂ ➔ ?", options: ["2Na₂O", "Na₂O₂", "2NaO", "Na₂O₃"], answer: "2Na₂O" }, { sem: 1, category: "Period 3 Oxygen", question: "What is formed when Sodium reacts with excess Oxygen under heat?", options: ["2Na + O₂ ➔ Na₂O₂", "4Na + O₂ ➔ 2Na₂O", "Na + O₂ ➔ NaO₂", "2Na + 2O₂ ➔ Na₂O₄"], answer: "2Na + O₂ ➔ Na₂O₂" }, { sem: 1, category: "Period 3 Acid/Base", question: "What product forms when Al₂O₃ reacts with hot aqueous NaOH?", options: ["2NaAl(OH)₄", "Na₂AlO₂ + H₂O", "Al(OH)₃ + 2NaCl", "Na₂SO₄"], answer: "2NaAl(OH)₄" }, { sem: 1, category: "Group 17 Halogens", question: "What are the main products of Cl₂ + 2NaOH (COLD)?", options: ["NaCl + NaClO + H₂O", "5NaCl + NaClO₃ + 3H₂O", "NaCl + HClO", "NaClO₃ + H₂"], answer: "NaCl + NaClO + H₂O" }, { sem: 1, category: "Halides Test", question: "What precipitate color is formed when Ag⁺ reacts with I⁻?", options: ["AgI (yellow)", "AgCl (white)", "AgBr (cream)", "Ag₂O (black)"], answer: "AgI (yellow)" }, { sem: 3, category: "Alkanes", question: "Alkane + X₂ ➔ Haloalkane + HX requires which condition?", options: ["UV Light", "FeX₃ catalyst", "Reflux with NaOH", "Ni at 180°C"], answer: "UV Light" }, { sem: 3, category: "Alkanes", question: "What are the coefficients for complete combustion of C_x H_y + ? O₂ ➔ x CO₂ + (y/2) H₂O?", options: ["(x + y/4)", "(x + y/2)", "(2x + y/4)", "(x/2 + y)"], answer: "(x + y/4)" }, { sem: 3, category: "Alkenes (EAR)", question: "Catalytic hydrogenation of Alkene (>C=C< + H₂) to Alkane requires:", options: ["Ni catalyst at 140°C", "UV Light", "Conc. H₂SO₄", "FeX₃"], answer: "Ni catalyst at 140°C" }, { sem: 3, category: "Alkenes (EAR)", question: "What product is formed when an alkene reacts with X₂ in CH₂Cl₂ at room temp?", options: ["Vicinal Dihaloalkane (-CX-CX-)", "Halohydrin (-CX-COH-)", "Alkane", "Haloalkane + HX"], answer: "Vicinal Dihaloalkane (-CX-CX-)" }, { sem: 3, category: "Alkenes (EAR)", question: "Reaction of Alkene with X₂ + H₂O yields what product?", options: ["Halohydrin (-CX-COH-) + H₃O⁺ + X⁻", "Dihaloalkane", "Alcohol", "Alkane"], answer: "Halohydrin (-CX-COH-) + H₃O⁺ + X⁻" }, { sem: 3, category: "Alkenes (EAR)", question: "Cleavage of R(R')C=CH(R'') with hot acidified KMnO₄ yields:", options: ["Ketone + Carboxylic Acid", "Two Aldehydes", "Two Alcohols", "Ozonide"], answer: "Ketone + Carboxylic Acid" }, { sem: 3, category: "Alkenes (EAR)", question: "Reaction of alkene with O₃ at -78°C followed by (CH₃)₂S treatment yields:", options: ["Ketone + Aldehyde", "Carboxylic Acid + CO₂", "Dihaloalkane", "Alcohol"], answer: "Ketone + Aldehyde" }, { sem: 3, category: "Arenes (EAS)", question: "Benzene + X₂ ➔ Halobenzene + HX requires which catalyst?", options: ["FeX₃", "AlCl₃", "Conc. H₂SO₄", "UV Light"], answer: "FeX₃" }, { sem: 3, category: "Arenes (EAS)", question: "Nitration of Benzene to form Nitrobenzene requires:", options: ["Conc. HNO₃ + Conc. H₂SO₄ (< 55°C)", "Dilute HNO₃ at r.t.", "HNO₃ + FeX₃", "KMnO₄ / H⁺"], answer: "Conc. HNO₃ + Conc. H₂SO₄ (< 55°C)" }, { sem: 3, category: "Haloalkanes", question: "RX + KCN (aq) in ethanol under heat produces:", options: ["Nitrile (R-C≡N) + KX", "Primary Amine", "Alcohol", "Grignard Reagent"], answer: "Nitrile (R-C≡N) + KX" }, { sem: 3, category: "Haloalkanes", question: "Reaction to form a Grignard Reagent (RMgX):", options: ["R-X + Mg in dry ether", "R-X + Mg in H₂O", "R-X + NaOH", "R-X + Na in ether"], answer: "R-X + Mg in dry ether" }, { sem: 3, category: "Carboxylic Acids", question: "RMgBr + CO₂ in dry ether (r.t.) followed by H₃O⁺ / Δ yields:", options: ["RCOOH + Mg(OH)Br", "RCH₂OH", "RCHO", "RCOOR'"], answer: "RCOOH + Mg(OH)Br" }, { sem: 3, category: "Carboxylic Acids", question: "Oxidation of RCH₂OH with KMnO₄ / H⁺ at room temperature produces:", options: ["RCOOH + H₂O", "RCHO + H₂", "RCOR' + H₂O", "RCOCl"], answer: "RCOOH + H₂O" }, { sem: 3, category: "Carboxylic Acids", question: "Hydrolysis of Nitrile with aqueous acid (RCN + H₂O + H⁺ / Δ) yields:", options: ["RCOOH + NH₄⁺", "RCOO⁻ + NH₃", "RCH₂NH₂", "RCONH₂"], answer: "RCOOH + NH₄⁺" }, { sem: 3, category: "Carboxylic Acids", question: "Hydrolysis of Nitrile with aqueous base (RCN + H₂O + OH⁻ / Δ) yields:", options: ["RCOO⁻ + NH₃", "RCOOH + NH₄⁺", "RCH₂NH₂", "RCONH₂"], answer: "RCOO⁻ + NH₃" }, { sem: 3, category: "Carboxylic Acids", question: "Reaction of Primary Amide with Nitrous Acid (RCONH₂ + NaNO₂ + HCl at r.t.) produces:", options: ["RCOOH + N₂ + H₂O + NaCl", "RCH₂NH₂ + NaCl", "RCN + H₂O", "RCOCl + NH₄Cl"], answer: "RCOOH + N₂ + H₂O + NaCl" }, { sem: 3, category: "Carbonyls", question: "Hydrogenation of Ketone (R₂C=O + H₂ over Ni at 180°C) yields:", options: ["Secondary Alcohol (R₂CHOH)", "Primary Alcohol", "Carboxylic Acid", "Alkene"], answer: "Secondary Alcohol (R₂CHOH)" }, { sem: 3, category: "Carbonyls", question: "Reduction of Aldehyde (RCHO) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["Primary Alcohol (RCH₂OH)", "Secondary Alcohol", "Carboxylic Acid", "Alkane"], answer: "Primary Alcohol (RCH₂OH)" }, { sem: 3, category: "Esters & Amides", question: "Reduction of Ester (R'COOR) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["R'CH₂OH + ROH", "R'COOH + ROH", "R'CH₃ + ROH", "R'CHO + ROH"], answer: "R'CH₂OH + ROH" }, { sem: 3, category: "Esters & Amides", question: "Reduction of Amide (R'CONH₂) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["Primary Amine (R'CH₂NH₂) + H₂O", "R'COOH + NH₃", "R'CN + H₂O", "R'CH₂OH + NH₃"], answer: "Primary Amine (R'CH₂NH₂) + H₂O" }, { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + Na₂CO₃ under heat produces:", options: ["RCOONa + CO₂ + H₂O", "RCOONa + H₂", "RCOOCH₃", "RCOCl + NaHCO₃"], answer: "RCOONa + CO₂ + H₂O" }, { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + SOCl₂ at room temperature produces:", options: ["RCOCl + SO₂ + HCl", "RCOCl + POCl₃ + HCl", "RCOCl + H₃PO₃", "RCOOR' + H₂O"], answer: "RCOCl + SO₂ + HCl" }, { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + PCl₅ at room temperature produces:", options: ["RCOCl + POCl₃ + HCl", "RCOCl + SO₂ + HCl", "RCOCl + H₃PO₃", "RCOOR'"], answer: "RCOCl + POCl₃ + HCl" }, { sem: 3, category: "Carboxylic Acid Reactions", question: "Electrophilic Nitration of Benzoic Acid (Benzoic Acid + HNO₃ with conc. H₂SO₄ at <55°C) yields:", options: ["m-nitrobenzoic acid + H₂O", "o-nitrobenzoic acid", "p-nitrobenzoic acid", "Nitrobenzene"], answer: "m-nitrobenzoic acid + H₂O" }, { sem: 3, category: "Acyl Chloride", question: "RCOCl + H₂O at room temperature produces:", options: ["RCOOH + HCl", "RCOOCH₃", "RCONH₂", "RCHO"], answer: "RCOOH + HCl" }, { sem: 3, category: "Acyl Chloride", question: "Reaction of Sodium Phenoxide (PhONa) + RCOCl at room temp yields:", options: ["Phenyl Ester (RCOOPh) + NaCl", "Benzoic Acid", "Phenyl Acetate + HCl", "Phenol + RCOOH"], answer: "Phenyl Ester (RCOOPh) + NaCl" }, { sem: 3, category: "Acyl Chloride", question: "RCOCl + Primary Amine (R'NH₂) at room temp yields:", options: ["Secondary Amide (RCONHR') + HCl", "Primary Amide + HCl", "Tertiary Amide", "Nitrile"], answer: "Secondary Amide (RCONHR') + HCl" }, { sem: 3, category: "Esters & Amides", question: "Alkaline Hydrolysis of Ester (RCOOR' + NaOH under heat) yields:", options: ["RCOONa + R'OH", "RCOOH + R'OH", "RCH₂OH + R'OH", "RCOONa + H₂O"], answer: "RCOONa + R'OH" }, { sem: 3, category: "Amines", question: "Which reagents are used for the preparation of aniline by reduction of nitrobenzene?", options: ["Zn or Sn in HCl", "LiAlH₄, dry ether followed by H₃O⁺", "KMnO₄ / H⁺", "NaOH / H₂O"], answer: "Zn or Sn in HCl" }, { sem: 3, category: "Amines", question: "What is observed when a primary aliphatic amine (RNH₂) reacts with HNO₂ at 0–5°C?", options: ["Effervescence of N₂ gas & ROH formation", "Yellowish oily liquid", "Benzenediazonium salt", "No observable change"], answer: "Effervescence of N₂ gas & ROH formation" }, { sem: 3, category: "Amines", question: "Reaction of a secondary amine (R₂NH) with HNO₂ at 0–5°C produces:", options: ["Yellowish oily liquid (R₂N-N=O)", "Effervescence of N₂ gas", "Clear solution", "White precipitate"], answer: "Yellowish oily liquid (R₂N-N=O)" }, { sem: 3, category: "Amines", question: "What product is formed when Aniline reacts with HNO₂ at 0–5°C?", options: ["Benzenediazonium salt", "Phenol + N₂", "2,4,6-tribromoaniline", "Azo dye"], answer: "Benzenediazonium salt" }, { sem: 3, category: "Amines", question: "Aniline reacts with aqueous Br₂ to produce which precipitate?", options: ["2,4,6-tribromoaniline (white ppt)", "Bromobenzene", "Yellowish oily liquid", "Azo dye (orange ppt)"], answer: "2,4,6-tribromoaniline (white ppt)" }, { sem: 3, category: "Diazonium Salts", question: "Hydrolysis of Benzenediazonium salt with H₂O under heat yields:", options: ["Phenol + N₂ + HCl", "Aniline + HCl", "Nitrobenzene", "Benzenediol"], answer: "Phenol + N₂ + HCl" }, { sem: 3, category: "Diazonium Salts", question: "Coupling reaction of Benzenediazonium salt with phenol in NaOH yields:", options: ["Azo dye (orange solid)", "Benzenediol", "White precipitate", "Nitrobenzene"], answer: "Azo dye (orange solid)" }, { sem: 3, category: "Amines Identification", question: "In the Hinsberg test, a primary amine initially produces a clear solution that forms a white precipitate upon:", options: ["Acidification", "Heating with NaOH", "Addition of HNO₂", "Oxidation"], answer: "Acidification" }, { sem: 3, category: "Amino Acids", question: "Which α-amino acid is optically inactive because it lacks a chiral carbon atom?", options: ["Glycine", "Alanine", "Valine", "Lysine"], answer: "Glycine" }, { sem: 3, category: "Amino Acids", question: "In an acidic medium, an α-amino acid exists primarily in which form?", options: ["Cationic form (H₃N⁺-CHR-COOH)", "Anionic form (H₂N-CHR-COO⁻)", "Zwitterion form", "Non-polar molecule"], answer: "Cationic form (H₃N⁺-CHR-COOH)" }, { sem: 3, category: "Amino Acids & Peptides", question: "Condensation of three different amino acids can produce how many different tripeptides?", options: ["6", "3", "4", "9"], answer: "6" } ];
+        
+        let currentQuestions = [], currentIdx = 0, score = 0, totalAnswered = 0, correctCount = 0;
+        
+        window.addEventListener('DOMContentLoaded', () => { renderAvatarGrid(); if (auth) { auth.onAuthStateChanged(user => { if (user) { currentUser = user; db.ref('users/' + user.uid).once('value').then(snapshot => { const data = snapshot.val(); username = (data && data.username) ? data.username : "Player"; userAvatar = (data && data.avatar) ? data.avatar : "🧪"; document.getElementById("user-display-name").innerText = username; document.getElementById("user-display-avatar").innerText = userAvatar; showStartScreen(); }); } else { currentUser = null; showAuthScreen(); } }); } else { skipAuth(); } });
+        function renderAvatarGrid() { const grid = document.getElementById("avatar-grid"); grid.innerHTML = ""; AVAILABLE_AVATARS.forEach(avatar => { const btn = document.createElement("button"); btn.type = "button"; btn.className = `text-2xl p-2 rounded-xl border-2 transition-all duration-150 active:scale-95 ${selectedAvatar===avatar?"bg-gray-700 border-[#58cc02]":"bg-gray-800 border-gray-700 hover:border-gray-500"}`; btn.innerText = avatar; btn.onclick = () => selectAvatar(avatar); grid.appendChild(btn); }); }
+        function selectAvatar(avatar) { selectedAvatar = avatar; renderAvatarGrid(); }
+        function showAuthScreen() { document.getElementById("auth-screen").classList.remove("hidden"); document.getElementById("start-screen").classList.add("hidden"); document.getElementById("quiz-screen").classList.add("hidden"); document.getElementById("leaderboard-screen").classList.add("hidden"); }
+        function showStartScreen() { document.getElementById("auth-screen").classList.add("hidden"); document.getElementById("start-screen").classList.remove("hidden"); document.getElementById("quiz-screen").classList.add("hidden"); document.getElementById("leaderboard-screen").classList.add("hidden"); }
+        function toggleAuthMode() { isAuthSignUpMode = !isAuthSignUpMode; const title = document.getElementById("auth-title"), avatarField = document.getElementById("auth-avatar-container"), userField = document.getElementById("auth-username-container"), btn = document.getElementById("auth-main-btn"), toggleText = document.getElementById("auth-toggle-text"), toggleBtn = document.getElementById("auth-toggle-btn"), errorDiv = document.getElementById("auth-error"), mainIcon = document.getElementById("auth-main-icon"); errorDiv.classList.add("hidden"); if (isAuthSignUpMode) { title.innerText = "Create ChemLingo Account"; avatarField.classList.remove("hidden"); userField.classList.remove("hidden"); mainIcon.classList.add("hidden"); btn.innerText = "Sign Up & Register"; toggleText.innerText = "Already have an account?"; toggleBtn.innerText = "Login"; } else { title.innerText = "Sign In to ChemLingo"; avatarField.classList.add("hidden"); userField.classList.add("hidden"); mainIcon.classList.remove("hidden"); btn.innerText = "Login"; toggleText.innerText = "Don't have an account?"; toggleBtn.innerText = "Sign Up"; } }
+        function handleAuthSubmit() { const email = document.getElementById("auth-email").value.trim(), password = document.getElementById("auth-password").value.trim(), errorDiv = document.getElementById("auth-error"); errorDiv.classList.add("hidden"); if (!email || !password) { showAuthError("Please fill out all required fields."); return; } if (isAuthSignUpMode) { const display = document.getElementById("auth-username").value.trim(); if (!display) { showAuthError("Please pick a display name."); return; } auth.createUserWithEmailAndPassword(email, password).then(userCredential => { const user = userCredential.user; return db.ref('users/' + user.uid).set({ username: display, avatar: selectedAvatar, email: email, createdAt: Date.now() }).then(() => { username = display; userAvatar = selectedAvatar; }); }).catch(err => { showAuthError(err.message); }); } else { auth.signInWithEmailAndPassword(email, password).catch(err => { showAuthError(err.message); }); } }
+        function showAuthError(msg) { const errorDiv = document.getElementById("auth-error"); errorDiv.innerText = msg; errorDiv.classList.remove("hidden"); }
+        function skipAuth() { currentUser = null; username = "Guest_" + Math.floor(100 + Math.random() * 900); userAvatar = AVAILABLE_AVATARS[Math.floor(Math.random() * AVAILABLE_AVATARS.length)]; document.getElementById("user-display-name").innerText = `${username} (Guest)`; document.getElementById("user-display-avatar").innerText = userAvatar; showStartScreen(); }
+        function logoutUser() { if (auth) { auth.signOut().then(() => { document.getElementById("auth-email").value = ""; document.getElementById("auth-password").value = ""; document.getElementById("auth-username").value = ""; selectedAvatar = AVAILABLE_AVATARS[0]; renderAvatarGrid(); showAuthScreen(); }); } else { showAuthScreen(); } }
+        function shuffleArray(array) { const arr = [...array]; for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
+        function startGame(selectedSem) { if (selectedSem === 'all') { currentQuestions = [...reactionsData]; } else { currentQuestions = reactionsData.filter(q => q.sem === selectedSem); } currentQuestions = shuffleArray(currentQuestions); document.getElementById("start-screen").classList.add("hidden"); document.getElementById("quiz-screen").classList.remove("hidden"); document.getElementById("quiz-screen").classList.add("flex"); currentIdx = 0; score = 0; totalAnswered = 0; correctCount = 0; updateHeader(); loadQuestion(); }
+        function getAccuracy() { if (totalAnswered === 0) return 100; return Math.round((correctCount / totalAnswered) * 100); }
+        function updateHeader() { document.getElementById("score-display").innerText = `${score} XP`; document.getElementById("accuracy-display").innerText = `${getAccuracy()}%`; const progressPercent = ((currentIdx) / currentQuestions.length) * 100; document.getElementById("progress-bar").style.width = `${progressPercent}%`; }
+        function loadQuestion() { if (currentIdx >= currentQuestions.length) { finishGame(); return; } const q = currentQuestions[currentIdx]; document.getElementById("semester-badge").innerText = `Semester ${q.sem}`; document.getElementById("category-badge").innerText = q.category; document.getElementById("question-text").innerText = q.question; document.getElementById("feedback-card").classList.add("hidden"); const container = document.getElementById("options-container"); container.innerHTML = ""; const shuffledOptions = shuffleArray(q.options); shuffledOptions.forEach(opt => { const btn = document.createElement("button"); btn.className = "option-btn w-full bg-gray-800 border-2 border-gray-700 text-white font-semibold py-3.5 px-4 rounded-xl text-left hover:border-gray-500 transition text-sm sm:text-base"; btn.innerText = opt; btn.onclick = () => checkAnswer(opt, q.answer, btn); container.appendChild(btn); }); }
+        function checkAnswer(selected, correct, selectedBtn) { const buttons = document.querySelectorAll(".option-btn"); buttons.forEach(b => b.disabled = true); totalAnswered++; const feedbackCard = document.getElementById("feedback-card"), feedbackTitle = document.getElementById("feedback-title"), feedbackDetail = document.getElementById("feedback-detail"), feedbackIcon = document.getElementById("feedback-icon"), nextBtn = document.getElementById("next-btn"); feedbackCard.classList.remove("hidden"); if (selected === correct) { score += 10; correctCount++; selectedBtn.classList.add("bg-green-900/50", "border-[#58cc02]"); feedbackCard.className = "rounded-xl p-4 mt-6 bg-[#20380a] border border-[#58cc02]"; feedbackIcon.className = "fa-solid fa-circle-check text-[#58cc02] text-2xl"; feedbackTitle.className = "font-bold text-lg text-[#58cc02]"; feedbackTitle.innerText = "Correct!"; feedbackDetail.innerText = "+10 XP Earned"; nextBtn.className = "w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider bg-[#58cc02]"; } else { selectedBtn.classList.add("bg-red-900/50", "border-red-500"); feedbackCard.className = "rounded-xl p-4 mt-6 bg-[#37191e] border border-red-500"; feedbackIcon.className = "fa-solid fa-circle-xmark text-red-500 text-2xl"; feedbackTitle.className = "font-bold text-lg text-red-500"; feedbackTitle.innerText = "Incorrect!"; feedbackDetail.innerText = `Correct Answer: ${correct}`; nextBtn.className = "w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider bg-red-500"; } updateHeader(); }
+        function nextQuestion() { currentIdx++; loadQuestion(); }
+        function finishGame() { if (db) { const currentAcc = getAccuracy(); const scorePayload = { name: username, avatar: userAvatar, score: score, accuracy: currentAcc, correct: correctCount, total: totalAnswered, updatedAt: Date.now() }; if (currentUser) { const userLeaderboardRef = db.ref('global_leaderboard/' + currentUser.uid); userLeaderboardRef.once('value', snapshot => { const prev = snapshot.val(); if (!prev || currentAcc > prev.accuracy || (currentAcc === prev.accuracy && score > prev.score)) { userLeaderboardRef.set(scorePayload); } }); } else { const cleanName = username.replace(/[.#$\\[\\]]/g, "_"); const guestRef = db.ref('global_leaderboard/guest_' + cleanName); guestRef.once('value', snapshot => { const prev = snapshot.val(); if (!prev || currentAcc > prev.accuracy || (currentAcc === prev.accuracy && score > prev.score)) { guestRef.set(scorePayload); } }); } } showGlobalLeaderboard(); }
         let leaderboardListener = null;
-
-        function showGlobalLeaderboard() {
-            document.getElementById("start-screen").classList.add("hidden");
-            document.getElementById("quiz-screen").classList.add("hidden");
-            document.getElementById("quiz-screen").classList.remove("flex");
-            document.getElementById("leaderboard-screen").classList.remove("hidden");
-            
-            const list = document.getElementById("leaderboard-list");
-            list.innerHTML = `<div class="text-center py-6 text-gray-400"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><br>Loading live global rankings...</div>`;
-
-            if (!db) {
-                list.innerHTML = `<div class="text-center p-4 bg-gray-800 rounded-xl text-amber-400 text-sm">Firebase database is not connected.<br><span class="text-xs text-gray-400">Please paste your firebaseConfig in the code to enable world rankings.</span></div>`;
-                return;
-            }
-
-            // Remove any previous active listeners to prevent duplicated triggers
-            if (leaderboardListener) {
-                db.ref('global_leaderboard').off('value', leaderboardListener);
-            }
-
-            // Bind REALTIME database listener (.on)
-            leaderboardListener = db.ref('global_leaderboard').on('value', (snapshot) => {
-                const data = snapshot.val();
-                list.innerHTML = "";
-                
-                if (!data) {
-                    list.innerHTML = `<div class="text-center text-gray-400 py-4">No scores yet. Be the first on the global leaderboard!</div>`;
-                    return;
-                }
-
-                const playersArr = Object.values(data);
-                
-                // Sort Rule: Higher accuracy % wins. Tiebreaker is XP.
-                playersArr.sort((a, b) => {
-                    if (b.accuracy !== a.accuracy) return b.accuracy - a.accuracy;
-                    return b.score - a.score;
-                });
-
-                playersArr.slice(0, 50).forEach((entry, rank) => {
-                    const item = document.createElement("div");
-                    const isMe = entry.name === username;
-                    const avatar = entry.avatar || "🧪"; // Fallback to test tube if legacy user has no avatar
-                    
-                    item.className = `flex justify-between items-center p-3 rounded-xl border ${
-                        isMe ? "bg-[#20380a] border-[#58cc02]" : "bg-gray-800 border-gray-700"
-                    }`;
-                    
-                    item.innerHTML = `
-                        <div class="flex items-center gap-3">
-                            <span class="font-bold w-6 ${
-                                rank === 0 ? "text-amber-400" : rank === 1 ? "text-gray-300" : rank === 2 ? "text-amber-600" : "text-gray-500"
-                            }">#${rank + 1}</span>
-                            <!-- Avatar Icon -->
-                            <span class="text-2xl">${avatar}</span>
-                            <div>
-                                <div class="font-bold text-white text-sm sm:text-base">${entry.name}</div>
-                                <div class="text-xs text-gray-400">${entry.correct}/${entry.total} Correct (${entry.score} XP)</div>
-                            </div>
-                        </div>
-                        <div class="font-extrabold text-cyan-400 text-md sm:text-lg">${entry.accuracy}%</div>
-                    `;
-                    list.appendChild(item);
-                });
-            });
-        }
-
-        function restartApp() {
-            // Clean up leaderboard listener to save network query calls when menu is active
-            if (db && leaderboardListener) {
-                db.ref('global_leaderboard').off('value', leaderboardListener);
-                leaderboardListener = null;
-            }
-            document.getElementById("leaderboard-screen").classList.add("hidden");
-            document.getElementById("start-screen").classList.remove("hidden");
-        }
+        function showGlobalLeaderboard() { document.getElementById("start-screen").classList.add("hidden"); document.getElementById("quiz-screen").classList.add("hidden"); document.getElementById("quiz-screen").classList.remove("flex"); document.getElementById("leaderboard-screen").classList.remove("hidden"); const list = document.getElementById("leaderboard-list"); list.innerHTML = `<div class="text-center py-6 text-gray-400"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><br>Loading live global rankings...</div>`; if (!db) { list.innerHTML = `<div class="text-center p-4 bg-gray-800 rounded-xl text-amber-400 text-sm">Firebase database is not connected.</div>`; return; } if (leaderboardListener) { db.ref('global_leaderboard').off('value', leaderboardListener); } leaderboardListener = db.ref('global_leaderboard').on('value', snapshot => { const data = snapshot.val(); list.innerHTML = ""; if (!data) { list.innerHTML = `<div class="text-center text-gray-400 py-4">No scores yet. Be the first!</div>`; return; } const playersArr = Object.values(data); playersArr.sort((a, b) => { if (b.accuracy !== a.accuracy) return b.accuracy - a.accuracy; return b.score - a.score; }); playersArr.slice(0, 50).forEach((entry, rank) => { const item = document.createElement("div"); const isMe = entry.name === username; const avatar = entry.avatar || "🧪"; item.className = `flex justify-between items-center p-3 rounded-xl border ${isMe?"bg-[#20380a] border-[#58cc02]":"bg-gray-800 border-gray-700"}`; item.innerHTML = `<div class="flex items-center gap-3"><span class="font-bold w-6 ${rank===0?"text-amber-400":rank===1?"text-gray-300":rank===2?"text-amber-600":"text-gray-500"}">#${rank+1}</span><span class="text-2xl">${avatar}</span><div><div class="font-bold text-white text-sm sm:text-base">${entry.name}</div><div class="text-xs text-gray-400">${entry.correct}/${entry.total} Correct (${entry.score} XP)</div></div></div><div class="font-extrabold text-cyan-400 text-md sm:text-lg">${entry.accuracy}%</div>`; list.appendChild(item); }); }); }
+        function restartApp() { if (db && leaderboardListener) { db.ref('global_leaderboard').off('value', leaderboardListener); leaderboardListener = null; } document.getElementById("leaderboard-screen").classList.add("hidden"); document.getElementById("start-screen").classList.remove("hidden"); }
     </script>
 </body>
 </html>
