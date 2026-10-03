@@ -1,14 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChemLingo - Chemistry Practice</title>
+  <title>ChemLingo - Organic Mind Map & Leaderboard</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 
   <style>
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #131f24; color: white; }
@@ -35,7 +38,7 @@
   <div class="p-4 flex justify-between items-center border-b border-gray-800 bg-[#131f24] sticky top-0 z-10">
     <div class="flex items-center gap-2">
       <i class="fa-solid fa-bolt text-amber-500 text-xl"></i>
-      <span id="score-display" class="font-bold text-amber-500 text-base sm:text-lg">0 XP</span>
+      <span id="score-display" class="font-bold text-amber-500 text-base">0 XP</span>
     </div>
 
     <!-- Progress Bar -->
@@ -43,41 +46,46 @@
       <div id="progress-bar" class="bg-[#58cc02] h-full w-0 transition-all duration-300"></div>
     </div>
 
-    <!-- Accuracy Display (Replaced Life System) -->
+    <!-- Accuracy Display -->
     <div class="flex items-center gap-1.5">
       <i class="fa-solid fa-bullseye text-cyan-400 text-xl"></i>
-      <span id="accuracy-display" class="font-bold text-cyan-400 text-base sm:text-lg">100%</span>
+      <span id="accuracy-display" class="font-bold text-cyan-400 text-base">100%</span>
     </div>
   </div>
 
   <!-- MAIN CONTAINER -->
   <main class="p-5 flex-1 flex flex-col justify-center">
 
-    <!-- START & SEMESTER SELECTION SCREEN -->
-    <div id="start-screen" class="text-center space-y-5">
-      <div class="text-6xl text-[#58cc02]"><i class="fa-solid fa-flask"></i></div>
+    <!-- START SCREEN -->
+    <div id="start-screen" class="text-center space-y-3">
+      <div class="text-5xl text-[#58cc02]"><i class="fa-solid fa-flask"></i></div>
       <h1 class="text-3xl font-extrabold text-white">ChemLingo</h1>
-      <p class="text-gray-400 text-sm">Select a semester level to start practicing!</p>
+      <p class="text-gray-400 text-xs">STPM Organic Chemistry Masterclass</p>
       
-      <input type="text" id="username-input" placeholder="Enter your player name" 
-        class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-center">
-      
-      <div class="space-y-3 pt-2">
-        <button onclick="startGame(1)" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2">
-          <i class="fa-solid fa-atom"></i> Semester 1 (Inorganic)
+      <div class="space-y-2.5 pt-2">
+        <input type="text" id="username-input" placeholder="Enter your player name" 
+          class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-center">
+
+        <button onclick="startGame(1)" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3 rounded-xl uppercase tracking-wider text-sm flex items-center justify-center gap-2">
+          <i class="fa-solid fa-atom"></i> Semester 1 Quiz
         </button>
 
-        <button onclick="startGame(3)" class="duo-btn w-full bg-[#1cb0f6] hover:bg-[#1899d6] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #1899d6;">
-          <i class="fa-solid fa-dna"></i> Semester 3 (Organic)
+        <button onclick="startGame(3)" class="duo-btn w-full bg-[#1cb0f6] hover:bg-[#1899d6] text-white font-bold py-3 rounded-xl uppercase tracking-wider text-sm flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #1899d6;">
+          <i class="fa-solid fa-dna"></i> Semester 3 Quiz
         </button>
 
-        <button onclick="startGame('all')" class="duo-btn w-full bg-[#ffb800] hover:bg-[#e0a200] text-gray-900 font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #d69b00;">
-          <i class="fa-solid fa-bolt"></i> Mixed (Sem 1 + Sem 3)
+        <button onclick="startGame('all')" class="duo-btn w-full bg-[#ffb800] hover:bg-[#e0a200] text-gray-900 font-extrabold py-3 rounded-xl uppercase tracking-wider text-sm flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #d69b00;">
+          <i class="fa-solid fa-bolt"></i> Mixed Quiz Mode
+        </button>
+
+        <!-- MIND MAP MODE BUTTON -->
+        <button onclick="showMindMap()" class="duo-btn w-full bg-[#a45ee5] hover:bg-[#8e44ad] text-white font-extrabold py-3 rounded-xl uppercase tracking-wider text-sm flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #7d3c98;">
+          <i class="fa-solid fa-sitemap"></i> Sem 3 Mind Map Mode
         </button>
       </div>
 
-      <button onclick="showLeaderboard()" class="w-full bg-gray-800 border-2 border-gray-700 text-gray-300 font-bold py-3 rounded-xl uppercase tracking-wider text-sm mt-4">
-        <i class="fa-solid fa-trophy text-amber-400 mr-2"></i> View Leaderboard
+      <button onclick="showGlobalLeaderboard()" class="w-full bg-gray-800 border-2 border-gray-700 text-gray-300 font-bold py-2.5 rounded-xl uppercase tracking-wider text-xs mt-3 hover:border-amber-400 transition">
+        <i class="fa-solid fa-globe text-amber-400 mr-1.5"></i> Global Leaderboard
       </button>
     </div>
 
@@ -114,15 +122,50 @@
       </div>
     </div>
 
-    <!-- LEADERBOARD SCREEN -->
+    <!-- MIND MAP MODE SCREEN -->
+    <div id="mindmap-screen" class="hidden flex-col space-y-4">
+      <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+        <div>
+          <h2 class="text-xl font-extrabold text-[#a45ee5] flex items-center gap-2">
+            <i class="fa-solid fa-sitemap"></i> Organic Mind Map
+          </h2>
+          <p class="text-xs text-gray-400">STPM Sem 3 Reaction Interconversions</p>
+        </div>
+        <button onclick="restartApp()" class="bg-gray-800 px-3 py-1.5 rounded-lg text-xs font-bold text-gray-300 hover:text-white">
+          <i class="fa-solid fa-xmark"></i> Close
+        </button>
+      </div>
+
+      <!-- Mind Map Filters -->
+      <div class="flex gap-2 overflow-x-auto pb-1 text-xs scrollbar-none">
+        <button onclick="filterMindMap('all')" class="mm-filter-btn px-3 py-1.5 rounded-lg bg-[#a45ee5] text-white font-bold whitespace-nowrap">All Groups</button>
+        <button onclick="filterMindMap('Propene')" class="mm-filter-btn px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 font-bold whitespace-nowrap hover:bg-gray-700">Alkenes</button>
+        <button onclick="filterMindMap('Haloalkanes')" class="mm-filter-btn px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 font-bold whitespace-nowrap hover:bg-gray-700">Haloalkanes</button>
+        <button onclick="filterMindMap('Alcohols')" class="mm-filter-btn px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 font-bold whitespace-nowrap hover:bg-gray-700">Alcohols</button>
+        <button onclick="filterMindMap('Carbonyls')" class="mm-filter-btn px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 font-bold whitespace-nowrap hover:bg-gray-700">Carbonyls</button>
+        <button onclick="filterMindMap('Acids')" class="mm-filter-btn px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 font-bold whitespace-nowrap hover:bg-gray-700">Carboxylic Acids</button>
+        <button onclick="filterMindMap('Grignard')" class="mm-filter-btn px-3 py-1.5 rounded-lg bg-gray-800 text-gray-300 font-bold whitespace-nowrap hover:bg-gray-700">Grignard</button>
+      </div>
+
+      <!-- Search Input -->
+      <input type="text" id="mindmap-search" onkeyup="searchMindMap()" placeholder="Search compound, reagent or test..." 
+        class="w-full p-2.5 rounded-xl bg-gray-800 border border-gray-700 text-xs text-white focus:outline-none focus:border-[#a45ee5]">
+
+      <!-- Mind Map Nodes Container -->
+      <div id="mindmap-nodes-container" class="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
+        <!-- Dynamic Reaction Cards Generated Here -->
+      </div>
+    </div>
+
+    <!-- GLOBAL LEADERBOARD SCREEN -->
     <div id="leaderboard-screen" class="hidden space-y-4">
       <div class="text-center">
-        <h2 class="text-2xl font-extrabold text-amber-400"><i class="fa-solid fa-trophy mr-2"></i> Real-Time Leaderboard</h2>
-        <p class="text-xs text-gray-400 mt-1">Rankings are ordered by Accuracy (%) first, then Total XP.</p>
+        <h2 class="text-2xl font-extrabold text-amber-400"><i class="fa-solid fa-earth-americas mr-2"></i> World Leaderboard</h2>
+        <p class="text-xs text-gray-400 mt-1">Live rankings for all players globally (Accuracy % → XP)</p>
       </div>
       
-      <div id="leaderboard-list" class="space-y-2 max-h-80 overflow-y-auto">
-        <!-- Dynamic Leaderboard Content -->
+      <div id="leaderboard-list" class="space-y-2 max-h-80 overflow-y-auto pr-1">
+        <!-- Dynamic Global Rankings -->
       </div>
 
       <button onclick="restartApp()" class="duo-btn w-full bg-[#58cc02] text-white font-bold py-3 rounded-xl uppercase">
@@ -134,61 +177,110 @@
 
   <!-- JAVASCRIPT & REACTION DATASETS -->
   <script>
-    // DATASET INCLUDING ALL SEMESTER 1 & EXPANDED SEMESTER 3 REACTIONS
+    // FIREBASE CONFIGURATION
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+      projectId: "YOUR_PROJECT",
+      storageBucket: "YOUR_PROJECT.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    let db = null;
+    try {
+      firebase.initializeApp(firebaseConfig);
+      db = firebase.database();
+    } catch(e) {
+      console.warn("Firebase not configured yet.");
+    }
+
+    // CHEMISTRY QUIZ DATASET
     const reactionsData = [
-      // SEMESTER 1 - Inorganic Chemistry
+      // SEMESTER 1
       { sem: 1, category: "Period 3 Oxygen", question: "Complete the reaction: 4Na + O₂ ➔ ?", options: ["2Na₂O", "Na₂O₂", "2NaO", "Na₂O₃"], answer: "2Na₂O" },
       { sem: 1, category: "Period 3 Oxygen", question: "What is formed when Sodium reacts with excess Oxygen under heat?", options: ["2Na + O₂ ➔ Na₂O₂", "4Na + O₂ ➔ 2Na₂O", "Na + O₂ ➔ NaO₂", "2Na + 2O₂ ➔ Na₂O₄"], answer: "2Na + O₂ ➔ Na₂O₂" },
       { sem: 1, category: "Period 3 Acid/Base", question: "What product forms when Al₂O₃ reacts with hot aqueous NaOH?", options: ["2NaAl(OH)₄", "Na₂AlO₂ + H₂O", "Al(OH)₃ + 2NaCl", "Na₂SO₄"], answer: "2NaAl(OH)₄" },
-      { sem: 1, category: "Group 17 Halogens", question: "What are the main products of Cl₂ + 2NaOH (COLD)?", options: ["NaCl + NaClO + H₂O", "5NaCl + NaClO₃ + 3H₂O", "NaCl + HClO", "NaClO₃ + H₂"], answer: "NaCl + NaClO + H₂O" },
-      { sem: 1, category: "Halides Test", question: "What precipitate color is formed when Ag⁺ reacts with I⁻?", options: ["AgI (yellow)", "AgCl (white)", "AgBr (cream)", "Ag₂O (black)"], answer: "AgI (yellow)" },
 
-      // SEMESTER 3 - Organic Chemistry
-      // Alkanes
-      { sem: 3, category: "Alkanes", question: "Alkane + X₂ ➔ Haloalkane + HX requires which condition?", options: ["UV Light", "FeX₃ catalyst", "Reflux with NaOH", "Ni at 180°C"], answer: "UV Light" },
-      { sem: 3, category: "Alkanes", question: "What are the coefficients for complete combustion of C_x H_y + ? O₂ ➔ x CO₂ + (y/2) H₂O?", options: ["(x + y/4)", "(x + y/2)", "(2x + y/4)", "(x/2 + y)"], answer: "(x + y/4)" },
+      // SEMESTER 3 (CHAPTER 20 EXTRACED + MIND MAP)
+      { sem: 3, category: "Alkenes", question: "Propene + H₂ (Ni, Δ) produces which alkane?", options: ["Propane", "Ethane", "Butane", "Propan-1-ol"], answer: "Propane" },
+      { sem: 3, category: "Alkenes", question: "What product is formed when propene reacts with hot, concentrated acidified KMnO₄?", options: ["Ethanoic acid + CO₂ + H₂O", "Propan-1,2-diol", "Propanal", "Propanoic acid"], answer: "Ethanoic acid + CO₂ + H₂O" },
+      { sem: 3, category: "Haloalkanes", question: "Reaction of 1-chloropropane with KCN in ethanol under reflux yields:", options: ["Butanenitrile (CH₃CH₂CH₂CN)", "Propylamine", "Propanoic acid", "Propan-1-ol"], answer: "Butanenitrile (CH₃CH₂CH₂CN)" },
+      { sem: 3, category: "Grignard Reagents", question: "Propylmagnesium chloride (CH₃CH₂CH₂MgCl) + CO₂ followed by H₃O⁺ yields:", options: ["Butanoic acid", "Propanoic acid", "Butan-1-ol", "Propanal"], answer: "Butanoic acid" },
+      { sem: 3, category: "Carbonyls Identification", question: "Propanal gives a silver mirror with Tollens' reagent, forming which organic ion?", options: ["Propanoate ion (CH₃CH₂COO⁻)", "Ethanol", "Propanoate ester", "Propanone"], answer: "Propanoate ion (CH₃CH₂COO⁻)" },
+      { sem: 3, category: "Carbonyls Identification", question: "Propanone gives a yellow precipitate with I₂ in NaOH (Iodine test) forming:", options: ["Triiodomethane (CHI₃)", "Iodobenzene", "Propanal", "Propanoic acid"], answer: "Triiodomethane (CHI₃)" },
+      { sem: 3, category: "Amines", question: "Which reagents are used for the preparation of aniline by reduction of nitrobenzene?", options: ["Zn or Sn in HCl", "LiAlH₄, dry ether followed by H₃O⁺", "KMnO₄ / H⁺", "NaOH / H₂O"], answer: "Zn or Sn in HCl" },
+      { sem: 3, category: "Amines", question: "What is observed when a primary aliphatic amine reacts with HNO₂ at 0–5°C?", options: ["Effervescence of N₂ gas & ROH formation", "Yellowish oily liquid", "Benzenediazonium salt", "No observable change"], answer: "Effervescence of N₂ gas & ROH formation" },
+      { sem: 3, category: "Amino Acids", question: "Which α-amino acid is optically inactive because it lacks a chiral carbon atom?", options: ["Glycine", "Alanine", "Valine", "Lysine"], answer: "Glycine" }
+    ];
 
-      // Alkenes
-      { sem: 3, category: "Alkenes (EAR)", question: "Catalytic hydrogenation of Alkene (>C=C< + H₂) to Alkane requires:", options: ["Ni catalyst at 140°C", "UV Light", "Conc. H₂SO₄", "FeX₃"], answer: "Ni catalyst at 140°C" },
-      { sem: 3, category: "Alkenes (EAR)", question: "What product is formed when an alkene reacts with X₂ in CH₂Cl₂ at room temp?", options: ["Vicinal Dihaloalkane (-CX-CX-)", "Halohydrin (-CX-COH-)", "Alkane", "Haloalkane + HX"], answer: "Vicinal Dihaloalkane (-CX-CX-)" },
-      { sem: 3, category: "Alkenes (EAR)", question: "Reaction of Alkene with X₂ + H₂O yields what product?", options: ["Halohydrin (-CX-COH-) + H₃O⁺ + X⁻", "Dihaloalkane", "Alcohol", "Alkane"], answer: "Halohydrin (-CX-COH-) + H₃O⁺ + X⁻" },
-      { sem: 3, category: "Alkenes (EAR)", question: "Cleavage of R(R')C=CH(R'') with hot acidified KMnO₄ yields:", options: ["Ketone + Carboxylic Acid", "Two Aldehydes", "Two Alcohols", "Ozonide"], answer: "Ketone + Carboxylic Acid" },
-      { sem: 3, category: "Alkenes (EAR)", question: "Reaction of alkene with O₃ at -78°C followed by (CH₃)₂S treatment yields:", options: ["Ketone + Aldehyde", "Carboxylic Acid + CO₂", "Dihaloalkane", "Alcohol"], answer: "Ketone + Aldehyde" },
-
-      // Arenes
-      { sem: 3, category: "Arenes (EAS)", question: "Benzene + X₂ ➔ Halobenzene + HX requires which catalyst?", options: ["FeX₃", "AlCl₃", "Conc. H₂SO₄", "UV Light"], answer: "FeX₃" },
-      { sem: 3, category: "Arenes (EAS)", question: "Nitration of Benzene to form Nitrobenzene requires:", options: ["Conc. HNO₃ + Conc. H₂SO₄ (< 55°C)", "Dilute HNO₃ at r.t.", "HNO₃ + FeX₃", "KMnO₄ / H⁺"], answer: "Conc. HNO₃ + Conc. H₂SO₄ (< 55°C)" },
-
-      // Haloalkanes & Grignard
-      { sem: 3, category: "Haloalkanes", question: "RX + KCN (aq) in ethanol under heat produces:", options: ["Nitrile (R-C≡N) + KX", "Primary Amine", "Alcohol", "Grignard Reagent"], answer: "Nitrile (R-C≡N) + KX" },
-      { sem: 3, category: "Haloalkanes", question: "Reaction to form a Grignard Reagent (RMgX):", options: ["R-X + Mg in dry ether", "R-X + Mg in H₂O", "R-X + NaOH", "R-X + Na in ether"], answer: "R-X + Mg in dry ether" },
-
-      // Formation of Carboxylic Acids (From Notebook Images)
-      { sem: 3, category: "Carboxylic Acids", question: "RMgBr + CO₂ in dry ether (r.t.) followed by H₃O⁺ / Δ yields:", options: ["RCOOH + Mg(OH)Br", "RCH₂OH", "RCHO", "RCOOR'"], answer: "RCOOH + Mg(OH)Br" },
-      { sem: 3, category: "Carboxylic Acids", question: "Oxidation of RCH₂OH with KMnO₄ / H⁺ at room temperature produces:", options: ["RCOOH + H₂O", "RCHO + H₂", "RCOR' + H₂O", "RCOCl"], answer: "RCOOH + H₂O" },
-      { sem: 3, category: "Carboxylic Acids", question: "Hydrolysis of Nitrile with aqueous acid (RCN + H₂O + H⁺ / Δ) yields:", options: ["RCOOH + NH₄⁺", "RCOO⁻ + NH₃", "RCH₂NH₂", "RCONH₂"], answer: "RCOOH + NH₄⁺" },
-      { sem: 3, category: "Carboxylic Acids", question: "Hydrolysis of Nitrile with aqueous base (RCN + H₂O + OH⁻ / Δ) yields:", options: ["RCOO⁻ + NH₃", "RCOOH + NH₄⁺", "RCH₂NH₂", "RCONH₂"], answer: "RCOO⁻ + NH₃" },
-      { sem: 3, category: "Carboxylic Acids", question: "Reaction of Primary Amide with Nitrous Acid (RCONH₂ + NaNO₂ + HCl at r.t.) produces:", options: ["RCOOH + N₂ + H₂O + NaCl", "RCH₂NH₂ + NaCl", "RCN + H₂O", "RCOCl + NH₄Cl"], answer: "RCOOH + N₂ + H₂O + NaCl" },
-
-      // Carbonyl Compounds
-      { sem: 3, category: "Carbonyls", question: "Hydrogenation of Ketone (R₂C=O + H₂ over Ni at 180°C) yields:", options: ["Secondary Alcohol (R₂CHOH)", "Primary Alcohol", "Carboxylic Acid", "Alkene"], answer: "Secondary Alcohol (R₂CHOH)" },
-      { sem: 3, category: "Carbonyls", question: "Reduction of Aldehyde (RCHO) with 1. LiAlH₄ in dry ether, 2. H₃O⁺ / Δ yields:", options: ["Primary Alcohol (RCH₂OH)", "Secondary Alcohol", "Carboxylic Acid", "Alkane"], answer: "Primary Alcohol (RCH₂OH)" },
-
-      // Chemical Reactions of RCOOH
-      { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + Na₂CO₃ under heat produces:", options: ["RCOONa + CO₂ + H₂O", "RCOONa + H₂", "RCOOCH₃", "RCOCl + NaHCO₃"], answer: "RCOONa + CO₂ + H₂O" },
-      { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + SOCl₂ at room temperature produces:", options: ["RCOCl + SO₂ + HCl", "RCOCl + POCl₃ + HCl", "RCOCl + H₃PO₃", "RCOOR' + H₂O"], answer: "RCOCl + SO₂ + HCl" },
-      { sem: 3, category: "Carboxylic Acid Reactions", question: "RCOOH + PCl₅ at room temperature produces:", options: ["RCOCl + POCl₃ + HCl", "RCOCl + SO₂ + HCl", "RCOCl + H₃PO₃", "RCOOR'"], answer: "RCOCl + POCl₃ + HCl" },
-      { sem: 3, category: "Carboxylic Acid Reactions", question: "Electrophilic Nitration of Benzoic Acid (Benzoic Acid + HNO₃ with conc. H₂SO₄ at <55°C) yields:", options: ["m-nitrobenzoic acid + H₂O", "o-nitrobenzoic acid", "p-nitrobenzoic acid", "Nitrobenzene"], answer: "m-nitrobenzoic acid + H₂O" },
-
-      // Acyl Chlorides
-      { sem: 3, category: "Acyl Chloride", question: "RCOCl + H₂O at room temperature produces:", options: ["RCOOH + HCl", "RCOOCH₃", "RCONH₂", "RCHO"], answer: "RCOOH + HCl" },
-      { sem: 3, category: "Acyl Chloride", question: "Reaction of Sodium Phenoxide (PhONa) + RCOCl at room temp yields:", options: ["Phenyl Ester (RCOOPh) + NaCl", "Benzoic Acid", "Phenyl Acetate + HCl", "Phenol + RCOOH"], answer: "Phenyl Ester (RCOOPh) + NaCl" },
-      { sem: 3, category: "Acyl Chloride", question: "RCOCl + Primary Amine (R'NH₂) at room temp yields:", options: ["Secondary Amide (RCONHR') + HCl", "Primary Amide + HCl", "Tertiary Amide", "Nitrile"], answer: "Secondary Amide (RCONHR') + HCl" },
-
-      // Esters & Amides
-      { sem: 3, category: "Esters & Amides", question: "Alkaline Hydrolysis of Ester (RCOOR' + NaOH under heat) yields:", options: ["RCOONa + R'OH", "RCOOH + R'OH", "RCH₂OH + R'OH", "RCOONa + H₂O"], answer: "RCOONa + R'OH" },
-      { sem: 3, category: "Esters & Amides", question: "Reduction of Ester (R'COOR) with 1. LiAlH₄ (dry ether) / 2. H₃O⁺, Δ yields:", options: ["R'CH₂OH + ROH", "R'COOH + ROH", "R'CH₃ + ROH", "R'CHO + ROH"], answer: "R'CH₂OH + ROH" },
-      { sem: 3, category: "Esters & Amides", question: "Reduction of Amide (R'CONH₂) with 1. LiAlH₄ (dry ether) / 2. H₃O⁺, Δ yields:", options: ["Primary Amine (R'CH₂NH₂) + H₂O", "R'COOH + NH₃", "R'CN + H₂O", "R'CH₂OH + NH₃"], answer: "Primary Amine (R'CH₂NH₂) + H₂O" }
+    // SEMESTER 3 ORGANIC MIND MAP DATASET (EXTRACTED FROM UPLOADED IMAGE)
+    const mindMapData = [
+      {
+        start: "Propene (CH₃CH=CH₂)",
+        group: "Propene",
+        routes: [
+          { reagent: "H₂, Ni, Δ", product: "Propane (CH₃CH₂CH₃)", note: "Catalytic Hydrogenation" },
+          { reagent: "Cl₂ in CH₂Cl₂", product: "1,2-dichloropropane", note: "Electrophilic Addition" },
+          { reagent: "KMnO₄ / H⁺ (hot, conc.)", product: "Ethanoic acid + CO₂ + H₂O", note: "Oxidative Cleavage" },
+          { reagent: "KMnO₄ / H⁺ (cold, dil.)", product: "Propan-1,2-diol", note: "Mild Oxidation" },
+          { reagent: "H₂O, H₃PO₄, Δ (or conc. H₂SO₄)", product: "Propan-1-ol (minor) / Propan-2-ol (major)", note: "Hydration (Markovnikov)" },
+          { reagent: "HCl", product: "1-chloropropane (minor) / 2-chloropropane (major)", note: "Hydrohalogenation" }
+        ]
+      },
+      {
+        start: "1-Chloropropane (CH₃CH₂CH₂Cl)",
+        group: "Haloalkanes",
+        routes: [
+          { reagent: "NaOH (aq), Δ", product: "Propan-1-ol (CH₃CH₂CH₂OH)", note: "Nucleophilic Substitution (SN2)" },
+          { reagent: "NaOH (alcoholic), Δ", product: "Propene (CH₃CH=CH₂)", note: "Elimination (E2)" },
+          { reagent: "KCN, ethanol, Δ", product: "Butanenitrile (CH₃CH₂CH₂CN)", note: "Chain Lengthening (+1 C)" },
+          { reagent: "Mg, dry ether", product: "Propylmagnesium chloride (CH₃CH₂CH₂MgCl)", note: "Grignard Reagent Formation" },
+          { reagent: "Conc. NH₃, ethanol, Δ, excess", product: "Propylamine / Diethylamine / Triethylamine", note: "Ammonolysis" }
+        ]
+      },
+      {
+        start: "Propan-1-ol & Propan-2-ol",
+        group: "Alcohols",
+        routes: [
+          { reagent: "Cu, Δ (or KMnO₄/H⁺)", product: "Propanal (CH₃CH₂CHO) from Propan-1-ol", note: "Primary Alcohol Oxidation" },
+          { reagent: "Cu, Δ (or KMnO₄/H⁺)", product: "Propanone (CH₃COCH₃) from Propan-2-ol", note: "Secondary Alcohol Oxidation" },
+          { reagent: "SOCl₂ / PCl₅", product: "1-chloropropane", note: "Conversion to Haloalkane" },
+          { reagent: "Propanoic acid, conc. H₂SO₄, Δ", product: "Propyl propanoate (Ester)", note: "Esterification" }
+        ]
+      },
+      {
+        start: "Propanal & Propanone",
+        group: "Carbonyls",
+        routes: [
+          { reagent: "2,4-DNPH", product: "Orange/Yellow Precipitate", note: "General Carbonyl Test" },
+          { reagent: "Tollens' Reagent [Ag(NH₃)₂]⁺, Δ", product: "Propanoate ion + Silver Mirror (Ag)", note: "Aldehyde Specific Test" },
+          { reagent: "Fehling's Solution (Cu²⁺), Δ", product: "Propanoate ion + Cu₂O (Brick red ppt)", note: "Aliphatic Aldehyde Test" },
+          { reagent: "I₂ in NaOH, Δ", product: "Triiodomethane (CHI₃ yellow ppt) + CH₃CH₂COO⁻", note: "Iodine Test (Methyl Ketones)" },
+          { reagent: "HCN, NaCN", product: "2-hydroxybutanenitrile / 2-hydroxy-2-methylpropanenitrile", note: "Cyanohydrin Formation" }
+        ]
+      },
+      {
+        start: "Propanoic Acid (CH₃CH₂COOH)",
+        group: "Acids",
+        routes: [
+          { reagent: "Na / NaOH / Na₂CO₃", product: "Sodium propanoate + H₂ / H₂O / CO₂", note: "Salt Formation" },
+          { reagent: "SOCl₂, Δ", product: "Propanoyl chloride (CH₃CH₂COCl)", note: "Acyl Chloride Formation" },
+          { reagent: "Propan-1-ol, conc. H₂SO₄, Δ", product: "Propyl propanoate (Ester)", note: "Esterification" },
+          { reagent: "1. LiAlH₄, dry ether  2. H₃O⁺", product: "Propan-1-ol", note: "Reduction to Alcohol" }
+        ]
+      },
+      {
+        start: "Propylmagnesium Chloride (Grignard)",
+        group: "Grignard",
+        routes: [
+          { reagent: "1. CO₂  2. H₃O⁺", product: "Butanoic acid (CH₃CH₂CH₂COOH)", note: "Carbonation (+1 C Acid)" },
+          { reagent: "1. HCHO  2. H₃O⁺", product: "Butan-1-ol (1° Alcohol)", note: "Chain Extension (+1 C)" },
+          { reagent: "1. RCHO  2. H₃O⁺", product: "Secondary Alcohol", note: "Yields 2° Alcohol" },
+          { reagent: "1. RCOR' 2. H₃O⁺", product: "Tertiary Alcohol", note: "Yields 3° Alcohol" }
+        ]
+      }
     ];
 
     // APP STATE
@@ -199,14 +291,6 @@
     let correctCount = 0;
     let username = "Player";
 
-    // INITIAL LEADERBOARD DATA (Ranked by Accuracy %)
-    let localLeaderboard = [
-      { name: "ChemPro", score: 200, correct: 20, total: 20, accuracy: 100 },
-      { name: "OrganicMaster", score: 180, correct: 18, total: 20, accuracy: 90 },
-      { name: "AtomGuru", score: 120, correct: 12, total: 15, accuracy: 80 }
-    ];
-
-    // Fisher-Yates Shuffle
     function shuffleArray(array) {
       const arr = [...array];
       for (let i = arr.length - 1; i > 0; i--) {
@@ -218,7 +302,7 @@
 
     function startGame(selectedSem) {
       const input = document.getElementById("username-input").value.trim();
-      if(input) username = input;
+      username = input ? input : "Player_" + Math.floor(100 + Math.random() * 900);
       
       if (selectedSem === 'all') {
         currentQuestions = [...reactionsData];
@@ -229,6 +313,7 @@
       currentQuestions = shuffleArray(currentQuestions);
 
       document.getElementById("start-screen").classList.add("hidden");
+      document.getElementById("mindmap-screen").classList.add("hidden");
       document.getElementById("quiz-screen").classList.remove("hidden");
       document.getElementById("quiz-screen").classList.add("flex");
       
@@ -250,9 +335,6 @@
       document.getElementById("accuracy-display").innerText = `${getAccuracy()}%`;
       const progressPercent = ((currentIdx) / currentQuestions.length) * 100;
       document.getElementById("progress-bar").style.width = `${progressPercent}%`;
-
-      // Update Real-time leaderboard entry
-      updateLiveLeaderboard();
     }
 
     function loadQuestion() {
@@ -318,72 +400,166 @@
       updateHeader();
     }
 
-    function updateLiveLeaderboard() {
-      // Find or create player's entry
-      const existingIdx = localLeaderboard.findIndex(item => item.name === username);
-      const playerData = {
-        name: username,
-        score: score,
-        correct: correctCount,
-        total: totalAnswered,
-        accuracy: getAccuracy()
-      };
-
-      if (existingIdx !== -1) {
-        localLeaderboard[existingIdx] = playerData;
-      } else if (totalAnswered > 0) {
-        localLeaderboard.push(playerData);
-      }
-
-      // Sort Real-Time Leaderboard based on Accuracy (%) first, then Score (XP) second
-      localLeaderboard.sort((a, b) => {
-        if (b.accuracy !== a.accuracy) {
-          return b.accuracy - a.accuracy;
-        }
-        return b.score - a.score;
-      });
-    }
-
     function nextQuestion() {
       currentIdx++;
       loadQuestion();
     }
 
     function finishGame() {
-      updateLiveLeaderboard();
-      showLeaderboard();
+      if (db) {
+        const cleanName = username.replace(/[.#$/\[\]]/g, "_");
+        const playerRef = db.ref('global_leaderboard/' + cleanName);
+
+        playerRef.once('value', (snapshot) => {
+          const prev = snapshot.val();
+          const currentAcc = getAccuracy();
+          
+          if (!prev || currentAcc > prev.accuracy || (currentAcc === prev.accuracy && score > prev.score)) {
+            playerRef.set({
+              name: username,
+              score: score,
+              accuracy: currentAcc,
+              correct: correctCount,
+              total: totalAnswered,
+              updatedAt: Date.now()
+            });
+          }
+        });
+      }
+      showGlobalLeaderboard();
     }
 
-    function showLeaderboard() {
+    // MIND MAP FUNCTIONS
+    function showMindMap() {
       document.getElementById("start-screen").classList.add("hidden");
       document.getElementById("quiz-screen").classList.add("hidden");
-      document.getElementById("quiz-screen").classList.remove("flex");
+      document.getElementById("leaderboard-screen").classList.add("hidden");
+      document.getElementById("mindmap-screen").classList.remove("hidden");
+      document.getElementById("mindmap-screen").classList.add("flex");
+      
+      renderMindMap(mindMapData);
+    }
+
+    function renderMindMap(data) {
+      const container = document.getElementById("mindmap-nodes-container");
+      container.innerHTML = "";
+
+      if(data.length === 0) {
+        container.innerHTML = `<div class="text-center text-gray-400 py-6 text-sm">No reactions found matching query.</div>`;
+        return;
+      }
+
+      data.forEach(node => {
+        const card = document.createElement("div");
+        card.className = "bg-gray-800 border border-gray-700 rounded-xl p-3.5 space-y-2";
+        
+        let routesHTML = node.routes.map(r => `
+          <div class="bg-gray-900/80 p-2.5 rounded-lg border-l-4 border-[#a45ee5] text-xs">
+            <div class="flex justify-between text-gray-400 mb-1">
+              <span class="font-bold text-[#1cb0f6]">${r.reagent}</span>
+              <span class="italic text-[10px]">${r.note}</span>
+            </div>
+            <div class="text-white font-semibold">➔ ${r.product}</div>
+          </div>
+        `).join("");
+
+        card.innerHTML = `
+          <div class="flex justify-between items-center">
+            <h3 class="font-extrabold text-sm text-amber-400">${node.start}</h3>
+            <span class="text-[10px] bg-purple-900/60 text-purple-300 px-2 py-0.5 rounded-full uppercase font-bold">${node.group}</span>
+          </div>
+          <div class="space-y-2 pt-1">${routesHTML}</div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function filterMindMap(group) {
+      document.querySelectorAll(".mm-filter-btn").forEach(btn => {
+        btn.classList.remove("bg-[#a45ee5]", "text-white");
+        btn.classList.add("bg-gray-800", "text-gray-300");
+      });
+
+      event.target.classList.remove("bg-gray-800", "text-gray-300");
+      event.target.classList.add("bg-[#a45ee5]", "text-white");
+
+      if (group === 'all') {
+        renderMindMap(mindMapData);
+      } else {
+        const filtered = mindMapData.filter(item => item.group === group);
+        renderMindMap(filtered);
+      }
+    }
+
+    function searchMindMap() {
+      const query = document.getElementById("mindmap-search").value.toLowerCase();
+      const filtered = mindMapData.filter(node => {
+        const startMatch = node.start.toLowerCase().includes(query);
+        const routeMatch = node.routes.some(r => 
+          r.reagent.toLowerCase().includes(query) || 
+          r.product.toLowerCase().includes(query) || 
+          r.note.toLowerCase().includes(query)
+        );
+        return startMatch || routeMatch;
+      });
+      renderMindMap(filtered);
+    }
+
+    function showGlobalLeaderboard() {
+      document.getElementById("start-screen").classList.add("hidden");
+      document.getElementById("quiz-screen").classList.add("hidden");
+      document.getElementById("mindmap-screen").classList.add("hidden");
       document.getElementById("leaderboard-screen").classList.remove("hidden");
 
       const list = document.getElementById("leaderboard-list");
-      list.innerHTML = "";
+      list.innerHTML = `<div class="text-center py-6 text-gray-400"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><br>Loading global rankings...</div>`;
 
-      localLeaderboard.slice(0, 10).forEach((entry, rank) => {
-        const item = document.createElement("div");
-        item.className = `flex justify-between items-center p-3 rounded-xl border ${
-          entry.name === username ? "bg-[#20380a] border-[#58cc02]" : "bg-gray-800 border-gray-700"
-        }`;
-        item.innerHTML = `
-          <div class="flex items-center gap-3">
-            <span class="font-bold text-gray-400 w-6">#${rank + 1}</span>
-            <div>
-              <div class="font-bold text-white text-sm sm:text-base">${entry.name}</div>
-              <div class="text-xs text-gray-400">${entry.correct}/${entry.total} Correct (${entry.score} XP)</div>
+      if (!db) {
+        list.innerHTML = `<div class="text-center p-4 bg-gray-800 rounded-xl text-amber-400 text-sm">Firebase database is not connected yet.<br><span class="text-xs text-gray-400">Please paste your firebaseConfig in the code to enable world rankings.</span></div>`;
+        return;
+      }
+
+      db.ref('global_leaderboard').on('value', (snapshot) => {
+        const data = snapshot.val();
+        list.innerHTML = "";
+
+        if (!data) {
+          list.innerHTML = `<div class="text-center text-gray-400 py-4">No scores yet. Be the first on the global leaderboard!</div>`;
+          return;
+        }
+
+        const playersArr = Object.values(data);
+        
+        playersArr.sort((a, b) => {
+          if (b.accuracy !== a.accuracy) return b.accuracy - a.accuracy;
+          return b.score - a.score;
+        });
+
+        playersArr.slice(0, 50).forEach((entry, rank) => {
+          const item = document.createElement("div");
+          const isMe = entry.name === username;
+          item.className = `flex justify-between items-center p-3 rounded-xl border ${
+            isMe ? "bg-[#20380a] border-[#58cc02]" : "bg-gray-800 border-gray-700"
+          }`;
+          item.innerHTML = `
+            <div class="flex items-center gap-3">
+              <span class="font-bold w-6 ${rank === 0 ? "text-amber-400" : rank === 1 ? "text-gray-300" : rank === 2 ? "text-amber-600" : "text-gray-500"}">#${rank + 1}</span>
+              <div>
+                <div class="font-bold text-white text-sm sm:text-base">${entry.name}</div>
+                <div class="text-xs text-gray-400">${entry.correct}/${entry.total} Correct (${entry.score} XP)</div>
+              </div>
             </div>
-          </div>
-          <div class="font-extrabold text-cyan-400 text-md sm:text-lg">${entry.accuracy}%</div>
-        `;
-        list.appendChild(item);
+            <div class="font-extrabold text-cyan-400 text-md sm:text-lg">${entry.accuracy}%</div>
+          `;
+          list.appendChild(item);
+        });
       });
     }
 
     function restartApp() {
       document.getElementById("leaderboard-screen").classList.add("hidden");
+      document.getElementById("mindmap-screen").classList.add("hidden");
       document.getElementById("start-screen").classList.remove("hidden");
     }
   </script>
