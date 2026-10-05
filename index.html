@@ -1,179 +1,713 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChemLingo - Working Build</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- ✅ Corrected: Using the single, all-in-one Firebase 8 SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
+      return `<div class="step" style="--dx:${OFFS[i % OFFS.length]}px">
+        <button class="hex ${state}" data-act="open" data-id="${id}" aria-label="${esc(L.title)}${open ? '' : ' (locked)'}">
+          <span class="hb"></span><span class="hf">${open ? L.icon : '🔒'}</span>
+        </button>
+        <div class="sl">${esc(L.title)}</div>
+        ${st ? `<div class="stars">${st}</div>` : ''}
+      </div>`;
+    }).join('');
+    return head + '<div class="path">' + steps + '</div>';
+  }).join('');
 
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #131f24; color: white; }
-        .duo-btn { box-shadow: 0 4px 0 #46a302; transition: all 0.1s ease; }
-        .duo-btn:active { transform: translateY(4px); box-shadow: 0 0 0 #46a302; }
-        .option-btn { box-shadow: 0 4px 0 #37464f; }
-        .option-btn:active { transform: translateY(4px); box-shadow: 0 0 0 #37464f; }
-    </style>
-</head>
-<body class="flex flex-col min-h-screen justify-between max-w-md mx-auto border-x border-gray-800">
+  const semTabs = CUR[sk].sems.map((s, i) =>
+    `<button class="${si === i ? 'on' : ''}" data-act="sem" data-idx="${i}">Sem ${i + 1}</button>`
+  ).join('');
 
-    <!-- UI Elements -->
-    <div class="p-4 flex justify-between items-center border-b border-gray-800 bg-[#131f24] sticky top-0 z-10">
-        <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-amber-500 text-xl"></i><span id="score-display" class="font-bold text-amber-500 text-base">0 XP</span></div>
-        <div class="w-1/3 bg-gray-700 h-4 rounded-full overflow-hidden"><div id="progress-bar" class="bg-[#58cc02] h-full w-0 transition-all duration-300"></div></div>
-        <div class="flex items-center gap-1.5"><i class="fa-solid fa-bullseye text-cyan-400 text-xl"></i><span id="accuracy-display" class="font-bold text-cyan-400 text-base">100%</span></div>
+  return `
+    <div class="top">
+      <div class="seg">
+        <button class="${sk === 'chem' ? 'on' : ''}" data-act="subj" data-sub="chem">Chemistry</button>
+        <button class="${sk === 'bio' ? 'on' : ''}" data-act="subj" data-sub="bio">Biology</button>
+      </div>
+      <div class="chip total">⚡ ${T.total} pts</div>
     </div>
-    
-    <main class="p-5 flex-1 flex flex-col justify-center">
-        <!-- START SCREEN -->
-        <div id="start-screen" class="hidden text-center space-y-4">
-            <h1 class="text-3xl font-extrabold text-white">ChemLingo</h1>
-            <p class="text-gray-400 text-sm">Practice Chemistry & Compete Globally</p>
-            <div class="space-y-3 pt-2">
-                <button onclick="startGame()" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md">Start Quiz</button>
-            </div>
+    <div class="semtabs">${semTabs}</div>
+    <div class="sembanner">
+      <div class="n">Semester ${si + 1}</div>
+      <h2>${esc(sem.title)}</h2>
+      <p class="b">${esc(sem.blurb)}</p>
+    </div>
+    ${path}
+  `;
+}
+
+function sheetHTML() {
+  if (!S.sheet) return '';
+  const id = S.sheet;
+  const L = LESSONS[id];
+  const p = (S.user && S.user.progress && S.user.progress[id]) || {};
+  const best = p.best || 0;
+  const stars = p.stars ? '★'.repeat(p.stars) + '☆'.repeat(3 - p.stars) : 'Not played yet';
+
+  return `
+    <div class="overlay" data-act="close-sheet">
+      <div class="sheet" onclick="event.stopPropagation()">
+        <div class="ic">${L.icon}</div>
+        <h3>${esc(L.title)}</h3>
+        <p class="sub">${esc(L.group)}</p>
+        <div class="stats">
+          <div class="stat"><b>${best}</b><span>Best score</span></div>
+          <div class="stat"><b>${stars}</b><span>Rating</span></div>
         </div>
-        <!-- QUIZ SCREEN -->
-        <div id="quiz-screen" class="hidden flex-col justify-between flex-1">
-            <div>
-                <h2 id="question-text" class="text-xl font-bold mb-6"></h2>
-                <div id="options-container" class="space-y-3"></div>
-            </div>
-            <div id="feedback-card" class="hidden rounded-xl p-4 mt-6">
-                <h3 id="feedback-title" class="font-bold text-lg"></h3>
-                <p id="feedback-detail" class="text-sm"></p>
-                <button id="next-btn" onclick="nextQuestion()" class="w-full py-3 rounded-xl font-bold text-white uppercase mt-4">Continue</button>
-            </div>
+        <div class="row">
+          <button class="btn ghost" data-act="close-sheet">Close</button>
+          <button class="btn" data-act="start" data-id="${id}">Start</button>
         </div>
-    </main>
+      </div>
+    </div>
+  `;
+}
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const firebaseConfig = {
-                apiKey: "AIzaSyDh-sZfMcPjW1kFLTT9N1mxIm60HmK_5oG4",
-                authDomain: "a-test-chem.firebaseapp.com",
-                databaseURL: "https://a-test-chem-default-rtdb.firebaseio.com",
-                projectId: "a-test-chem",
-                storageBucket: "a-test-chem.appspot.com",
-                messagingSenderId: "1030899671595",
-                appId: "1:1030899671595:web:7dbc83440ea459cfea806e"
-            };
-            
-            try {
-                firebase.initializeApp(firebaseConfig);
-            } catch (e) {
-                console.error("Firebase initialization failed:", e);
-                alert("CRITICAL ERROR: Could not initialize Firebase. The app cannot run.");
-                return;
-            }
+function boardHTML() {
+  const f = S.boardFilter;
+  const sorted = [...S.board].sort((a, b) => (b[f] || 0) - (a[f] || 0));
+  const myRank = rankOf(f);
 
-            const db = firebase.database();
-            const auth = firebase.auth();
+  const pills = [
+    ['total', 'Total Score'],
+    ['chem', 'Chemistry'],
+    ['bio', 'Biology']
+  ].map(([k, label]) =>
+    `<button class="${f === k ? 'on' : ''}" data-act="board-filter" data-filter="${k}">${label}</button>`
+  ).join('');
 
-            const reactionsData = [
-                { sem: 1, category: "Stoichiometry", question: "Which statement is correct?", options: ["A mass spectrum provides evidence of isotopes.", "A mass spectrum proves protons exist.", "A mass spectrum proves protons and neutrons exist."], answer: "A mass spectrum provides evidence of isotopes." },
-                { sem: 1, category: "Stoichiometry", question: "Boron has a relative atomic mass of 10.8 and two isotopes, ¹⁰B and ¹¹B. What is the abundance ratio of the heavier to the lighter isotope?", options: ["1:4", "4:1", "1:5", "5:1"], answer: "4:1" },
-                { sem: 1, category: "Atomic Structure", question: "What is the maximum number of atomic orbitals for principal quantum number n=3?", options: ["3", "5", "9", "18"], answer: "9" },
-            ];
-            
-            let currentQuestions = [], currentIdx = 0, score = 0, totalAnswered = 0, correctCount = 0;
-            
-            const startScreen = document.getElementById('start-screen');
-            const quizScreen = document.getElementById('quiz-screen');
-            const questionText = document.getElementById('question-text');
-            const optionsContainer = document.getElementById('options-container');
-            const feedbackCard = document.getElementById('feedback-card');
-            const feedbackTitle = document.getElementById('feedback-title');
-            const feedbackDetail = document.getElementById('feedback-detail');
-            const nextBtn = document.getElementById('next-btn');
+  const listItems = sorted.length ? sorted.slice(0, 50).map((r, i) => {
+    const isMe = S.user && r.pid === S.user.pid;
+    const rk = i + 1;
+    const medal = rk === 1 ? '🥇' : rk === 2 ? '🥈' : rk === 3 ? '🥉' : rk;
+    return `
+      <li class="${isMe ? 'me' : ''}">
+        <span class="rk">${medal}</span>
+        <span class="nm">${esc(r.name)}${isMe ? ' (You)' : ''}</span>
+        <span class="sc">${r[f] || 0}</span>
+      </li>
+    `;
+  }).join('') : `<div class="empty">No scores recorded yet. Play a lesson to get on the leaderboard!</div>`;
 
-            window.startGame = function() {
-                currentQuestions = reactionsData;
-                currentIdx = 0; score = 0; totalAnswered = 0; correctCount = 0;
-                updateHeader();
-                loadQuestion();
-                showScreen('quiz');
-            }
+  return `
+    <h2 class="pg">Leaderboard</h2>
+    <p class="sub">${myRank ? `Your rank: #${myRank}` : 'Complete lessons to join the ranks!'}</p>
+    <div class="pills">${pills}</div>
+    <ul class="lb">${listItems}</ul>
+  `;
+}
 
-            window.nextQuestion = function() {
-                currentIdx++;
-                loadQuestion();
-            }
+function bankHTML() {
+  const tab = S.bankTab;
+  const unitOpts = Object.keys(QUESTIONS).map(u =>
+    `<option value="${u}" ${S.bankUnit === u ? 'selected' : ''}>${LESSONS[u].icon} ${esc(LESSONS[u].title)}</option>`
+  ).join('');
 
-            function showScreen(screenName) {
-                startScreen.classList.add('hidden');
-                quizScreen.classList.add('hidden');
-                if (screenName === 'start') {
-                    startScreen.classList.remove('hidden');
-                } else if (screenName === 'quiz') {
-                    quizScreen.classList.remove('hidden');
-                    quizScreen.classList.add('flex');
-                }
-            }
+  let body = '';
+  if (tab === 'add') {
+    body = `
+      <form id="addQForm" onsubmit="event.preventDefault();">
+        <label class="f">Target Unit</label>
+        <select id="qUnit">${unitOpts}</select>
+        <label class="f">Question Text</label>
+        <textarea id="qText" required placeholder="e.g. What is the product of ethene + HBr?"></textarea>
+        <label class="f">Correct Answer</label>
+        <input type="text" id="qCorrect" required placeholder="Bromoethane">
+        <label class="f">Wrong Option 1</label>
+        <input type="text" id="qW1" required placeholder="Ethanol">
+        <label class="f">Wrong Option 2</label>
+        <input type="text" id="qW2" required placeholder="1,2-dibromoethane">
+        <label class="f">Wrong Option 3</label>
+        <input type="text" id="qW3" required placeholder="Ethane">
+        <label class="f">Explanation</label>
+        <textarea id="qExp" required placeholder="Electrophilic addition of HBr across the double bond yields bromoethane."></textarea>
+        <div style="margin-top:16px">
+          <button class="btn" type="button" data-act="submit-q">Add Question</button>
+        </div>
+      </form>
+    `;
+  } else if (tab === 'browse') {
+    const bOpts = `<option value="all">All Units</option>` + Object.keys(QUESTIONS).map(u =>
+      `<option value="${u}" ${S.browseUnit === u ? 'selected' : ''}>${LESSONS[u].icon} ${esc(LESSONS[u].title)}</option>`
+    ).join('');
+    const filteredCom = S.community.filter(q => S.browseUnit === 'all' || q.unit === S.browseUnit);
 
-            function updateHeader() {
-                document.getElementById("score-display").innerText = `${score} XP`;
-                const accuracy = totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 100;
-                document.getElementById("accuracy-display").innerText = `${accuracy}%`;
-                const progress = currentQuestions.length > 0 ? (currentIdx / currentQuestions.length) * 100 : 0;
-                document.getElementById("progress-bar").style.width = `${progress}%`;
-            }
+    const cards = filteredCom.length ? filteredCom.map(q => `
+      <div class="card q-item">
+        <div class="meta">${LESSONS[q.unit] ? LESSONS[q.unit].title : q.unit} • Community Question</div>
+        <div class="qq">${esc(q.q)}</div>
+        <ul>
+          ${q.opts.map((opt, i) => `<li class="${i === q.c ? 'c' : ''}">${esc(opt)}${i === q.c ? '✓' : ''}</li>`).join('')}
+        </ul>
+        <div class="meta" style="margin-top:6px"><i>${esc(q.exp)}</i></div>
+      </div>
+    `).join('') : `<div class="empty">No custom questions added yet for this filter.</div>`;
 
-            function loadQuestion() {
-                feedbackCard.classList.add('hidden');
-                if (currentIdx >= currentQuestions.length) {
-                    finishGame();
-                    return;
-                }
-                const q = currentQuestions[currentIdx];
-                questionText.innerText = q.question;
-                optionsContainer.innerHTML = "";
-                q.options.forEach(opt => {
-                    const btn = document.createElement("button");
-                    btn.className = "option-btn w-full bg-gray-800 border-2 border-gray-700 text-white font-semibold py-3.5 px-4 rounded-xl text-left hover:border-gray-500 transition";
-                    btn.innerText = opt;
-                    btn.onclick = () => checkAnswer(opt, q.answer, btn);
-                    optionsContainer.appendChild(btn);
-                });
-                updateHeader();
-            }
+    body = `
+      <label class="f">Filter by Unit</label>
+      <select id="bUnit" data-act="change-browse-unit">${bOpts}</select>
+      <div style="margin-top:14px">${cards}</div>
+    `;
+  } else if (tab === 'bulk') {
+    const sample = JSON.stringify(S.community.slice(0, 2), null, 2);
+    body = `
+      <p class="sub">Import or export custom questions in JSON format.</p>
+      <label class="f">JSON Data</label>
+      <textarea id="bulkJson" style="font-family:monospace;height:160px;" placeholder="Paste JSON array here...">${esc(sample)}</textarea>
+      <div class="row" style="margin-top:14px">
+        <button class="btn ghost" data-act="export-bulk">Export Custom</button>
+        <button class="btn" data-act="import-bulk">Import JSON</button>
+      </div>
+    `;
+  }
 
-            function checkAnswer(selected, correct, btn) {
-                document.querySelectorAll(".option-btn").forEach(b => { b.disabled = true; });
-                totalAnswered++;
-                const isCorrect = selected === correct;
-                if (isCorrect) {
-                    score += 10;
-                    correctCount++;
-                    feedbackTitle.innerText = "Correct!";
-                    feedbackDetail.innerText = "+10 XP";
-                    nextBtn.className = "w-full py-3 rounded-xl font-bold text-white uppercase mt-4 bg-[#58cc02]";
-                    btn.classList.add("bg-green-900/50", "border-[#58cc02]");
-                } else {
-                    feedbackTitle.innerText = "Incorrect";
-                    feedbackDetail.innerText = `Correct Answer: ${correct}`;
-                    nextBtn.className = "w-full py-3 rounded-xl font-bold text-white uppercase mt-4 bg-red-500";
-                    btn.classList.add("bg-red-900/50", "border-red-500");
-                }
-                feedbackCard.classList.remove('hidden');
-                updateHeader();
-            }
+  return `
+    <h2 class="pg">Question Bank</h2>
+    <p class="sub">Manage and contribute custom practice questions.</p>
+    <div class="pills">
+      <button class="${tab === 'add' ? 'on' : ''}" data-act="bank-tab" data-tab="add">Add New</button>
+      <button class="${tab === 'browse' ? 'on' : ''}" data-act="bank-tab" data-tab="browse">Community (${S.community.length})</button>
+      <button class="${tab === 'bulk' ? 'on' : ''}" data-act="bank-tab" data-tab="bulk">Import / Export</button>
+    </div>
+    ${body}
+  `;
+}
 
-            function finishGame() {
-                alert(`Quiz Complete!\nYour score: ${score} XP\nAccuracy: ${totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 100}%`);
-                showScreen('start');
-            }
+function meHTML() {
+  const T = totals();
+  const name = S.user ? S.user.name : 'Player';
+  const email = S.user ? S.user.email : '';
+  const initial = name[0] ? name[0].toUpperCase() : 'P';
 
-            // Initial App Load
-            function init() {
-                showScreen('start');
-            }
+  return `
+    <h2 class="pg">Profile</h2>
+    <div class="who">
+      <div class="av">${initial}</div>
+      <div>
+        <h3>${esc(name)}</h3>
+        <p class="sub">${esc(email)}</p>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h3>⚡ ${T.total}</h3>
+        <p class="sub">Total Score</p>
+      </div>
+      <div class="card">
+        <h3>🧪 ${T.chem}</h3>
+        <p class="sub">Chemistry Score</p>
+      </div>
+      <div class="card">
+        <h3>🧬 ${T.bio}</h3>
+        <p class="sub">Biology Score</p>
+      </div>
+      <div class="card">
+        <h3>🏆 ${rankOf('total') ? '#' + rankOf('total') : '-'}</h3>
+        <p class="sub">Global Rank</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
+      <button class="btn ghost" data-act="edit-profile">Edit Display Name</button>
+      <button class="btn bad ghost" data-act="logout">Log Out</button>
+    </div>
+  `;
+}
 
-            init();
-        });
-    </script>
+/* ---------------------------------------------------------------------
+   6. PLAY & GAME SCREENS
+   --------------------------------------------------------------------- */
+function renderPlay() {
+  const app = $('#app');
+  if (!G) return;
+  const q = G.questions[G.idx];
+  const pct = Math.round((G.time / TIME_LIMIT_Q) * 100);
+
+  const optionsHTML = q.opts.map((opt, i) => {
+    let cls = '';
+    if (G.sel !== null) {
+      if (i === q.c) cls = 'ok';
+      else if (i === G.sel) cls = 'bad';
+      else cls = 'dim';
+    }
+    const key = String.fromCharCode(65 + i);
+    return `
+      <button class="opt ${cls}" data-act="ans" data-idx="${i}" ${G.sel !== null ? 'disabled' : ''}>
+        <span class="k">${key}</span>
+        <span>${esc(opt)}</span>
+      </button>
+    `;
+  }).join('');
+
+  let feedbackHTML = '';
+  if (G.sel !== null) {
+    const isCorrect = G.sel === q.c;
+    const calc = isCorrect ? G.lastCalc : null;
+    feedbackHTML = `
+      <div class="fb ${isCorrect ? 'ok' : 'bad'}">
+        <h3>${isCorrect ? 'Correct! 🎉' : 'Incorrect ❌'}</h3>
+        ${calc ? `<div class="calc">+${calc.pts} pts (${calc.speed} speed × ${calc.streak} streak × ${Math.round(calc.acc * 100)}% acc)</div>` : ''}
+        <div class="exp">${esc(q.exp)}</div>
+        <button class="btn ${isCorrect ? 'ok' : ''}" data-act="next-q">
+          ${G.idx + 1 < G.questions.length ? 'Next Question →' : 'See Results'}
+        </button>
+      </div>
+    `;
+  }
+
+  app.innerHTML = `
+    <div class="play">
+      <div class="ptop">
+        <button class="x" data-act="quit-play" aria-label="Exit">✕</button>
+        <div class="spectrum">
+          <div class="cover" style="width:${100 - pct}%"></div>
+        </div>
+        <div class="live">
+          <span>⚡ ${G.score}</span>
+          <span>🔥 ${G.streak}</span>
+        </div>
+      </div>
+      <div class="qtag">Question ${G.idx + 1} of ${G.questions.length}</div>
+      <div class="qtext">${esc(q.q)}</div>
+      <div class="opts">${optionsHTML}</div>
+      ${feedbackHTML}
+    </div>
+  `;
+}
+
+function renderMM() {
+  const app = $('#app');
+  if (!G) return;
+  const L = LESSONS[G.id];
+  const lvl = G.level;
+
+  const rows = G.edges.map(eId => {
+    const e = ME[eId];
+    const fromNode = MN[e[0]], toNode = MN[e[1]];
+    const reagentText = e[2];
+
+    const isReagentBlank = G.blanks.some(b => b.type === 'edge' && b.id === eId);
+    const isToBlank = G.blanks.some(b => b.type === 'node' && b.id === e[1]);
+
+    const isReagentSel = G.selSlot && G.selSlot.type === 'edge' && G.selSlot.id === eId;
+    const isToSel = G.selSlot && G.selSlot.type === 'node' && G.selSlot.id === e[1];
+
+    const reagentVal = G.answers['edge:' + eId];
+    const toVal = G.answers['node:' + e[1]];
+
+    const reagentCorrect = reagentVal === reagentText;
+    const toCorrect = toVal === toNode[0];
+
+    const leftHTML = `
+      <div class="mn ${e[0] === lvl.center ? 'hub' : 'filled'}">
+        <b>${esc(fromNode[0])}</b>
+        <code>${esc(fromNode[1])}</code>
+      </div>
+    `;
+
+    let midHTML = '';
+    if (!isReagentBlank) {
+      midHTML = `<div class="pill filled">${esc(reagentText)}</div>`;
+    } else if (reagentVal) {
+      midHTML = `<div class="pill ${reagentCorrect ? 'filled' : 'blank'}">${esc(reagentVal)}</div>`;
+    } else {
+      midHTML = `<button class="pill blank ${isReagentSel ? 'sel' : ''}" data-act="sel-slot" data-stype="edge" data-sid="${eId}">reagent?</button>`;
+    }
+
+    let rightHTML = '';
+    if (!isToBlank) {
+      rightHTML = `
+        <div class="mn filled">
+          <b>${esc(toNode[0])}</b>
+          <code>${esc(toNode[1])}</code>
+        </div>
+      `;
+    } else if (toVal) {
+      rightHTML = `
+        <div class="mn ${toCorrect ? 'filled' : 'blank'}">
+          <b>${esc(toVal)}</b>
+        </div>
+      `;
+    } else {
+      rightHTML = `
+        <button class="mn blank ${isToSel ? 'sel' : ''}" data-act="sel-slot" data-stype="node" data-sid="${e[1]}">
+          ?
+          <small>product</small>
+        </button>
+      `;
+    }
+
+    return `
+      <div class="mmrow">
+        ${leftHTML}
+        <div class="arr">➔</div>
+        ${rightHTML}
+        <div class="mr">${midHTML}</div>
+      </div>
+    `;
+  }).join('');
+
+  const chipsHTML = G.pool.map(c =>
+    `<button class="chip ${c.type === 'edge' ? 'reagent' : ''}" data-act="pick-chip" data-val="${esc(c.val)}">${esc(c.val)}</button>`
+  ).join('');
+
+  app.innerHTML = `
+    <div class="mm">
+      <div class="mmtop">
+        <div class="ptop">
+          <button class="x" data-act="quit-play">✕</button>
+          <div style="flex:1"></div>
+          <div class="live">
+            <span>⚡ ${G.score}</span>
+            <span>🔥 ${G.streak}</span>
+          </div>
+        </div>
+        <h2 class="mmtitle">${esc(L.title)}</h2>
+        <p class="mmhelp">Tap a blank slot, then tap the matching reagent or compound below.</p>
+        <div class="mmstrip ${G.stripKind || ''}">${esc(G.stripMsg || '')}</div>
+      </div>
+      <div class="mmrows">${rows}</div>
+      <div class="chipbar">
+        <div class="t">Available Options</div>
+        <div class="chips">${chipsHTML}</div>
+      </div>
+    </div>
+  `;
+}
+
+function resultHTML() {
+  const res = S.result;
+  if (!res) return '';
+  const L = LESSONS[res.id];
+  const st = '★'.repeat(res.stars) + '☆'.repeat(3 - res.stars);
+
+  return `
+    <div class="result">
+      <div class="st">${st}</div>
+      <h2>${res.isBest ? 'New High Score! 🎉' : 'Lesson Complete!'}</h2>
+      <div class="big">${res.score}</div>
+      <div class="lab">Points Earned</div>
+      <div class="stats">
+        <div class="stat"><b>${res.accuracy}%</b><span>Accuracy</span></div>
+        <div class="stat"><b>${res.bestStreak}</b><span>Max Streak</span></div>
+      </div>
+      ${res.isBest ? `<div class="badge">Previous Best: ${res.oldBest}</div>` : ''}
+      <div style="margin-top:30px;display:flex;flex-direction:column;gap:12px;">
+        <button class="btn" data-act="tab" data-tab="learn">Back to Path</button>
+        <button class="btn ghost" data-act="start" data-id="${res.id}">Play Again</button>
+      </div>
+    </div>
+  `;
+}
+
+/* ---------------------------------------------------------------------
+   7. CONTROLLER & EVENTS
+   --------------------------------------------------------------------- */
+function startMcqLesson(id) {
+  const base = QUESTIONS[id] || [];
+  const com = S.community.filter(q => q.unit === id).map(q => [q.q, q.opts[q.c], ...q.opts.filter((_, i) => i !== q.c), q.exp]);
+  const combined = shuffle([...base, ...com]);
+  if (!combined.length) { toast('No questions available for this unit yet.', 'bad'); return; }
+
+  const qList = combined.slice(0, 6).map(qArr => {
+    const qText = qArr[0];
+    const correct = qArr[1];
+    const wrongs = qArr.slice(2, 5);
+    const exp = qArr[5] || '';
+    const opts = shuffle([correct, ...wrongs]);
+    return { q: qText, opts, c: opts.indexOf(correct), exp };
+  });
+
+  G = {
+    id, questions: qList, idx: 0, score: 0, streak: 0, bestStreak: 0,
+    correct: 0, answered: 0, sel: null, time: TIME_LIMIT_Q, timerId: null, lastCalc: null
+  };
+
+  S.screen = 'play';
+  render();
+  startQTimer();
+}
+
+function startQTimer() {
+  if (G.timerId) clearInterval(G.timerId);
+  G.time = TIME_LIMIT_Q;
+  G.timerId = setInterval(() => {
+    G.time--;
+    if (G.time <= 0) {
+      clearInterval(G.timerId);
+      answerQuestion(-1);
+    } else {
+      const cover = $('.spectrum .cover');
+      if (cover) cover.style.width = (100 - Math.round((G.time / TIME_LIMIT_Q) * 100)) + '%';
+    }
+  }, 1000);
+}
+
+function answerQuestion(idx) {
+  if (G.sel !== null) return;
+  if (G.timerId) clearInterval(G.timerId);
+
+  G.sel = idx;
+  G.answered++;
+  const q = G.questions[G.idx];
+  const isCorrect = idx === q.c;
+
+  if (isCorrect) {
+    G.correct++;
+    G.streak++;
+    if (G.streak > G.bestStreak) G.bestStreak = G.streak;
+    const calc = calcPoints(TIME_LIMIT_Q - G.time, TIME_LIMIT_Q, G.streak, G.correct, G.answered);
+    G.score += calc.pts;
+    G.lastCalc = calc;
+  } else {
+    G.streak = 0;
+    G.lastCalc = null;
+  }
+
+  renderPlay();
+}
+
+function nextQuestion() {
+  if (G.idx + 1 < G.questions.length) {
+    G.idx++;
+    G.sel = null;
+    G.lastCalc = null;
+    renderPlay();
+    startQTimer();
+  } else {
+    finishRun();
+  }
+}
+
+function startMMLesson(id) {
+  const lvl = MM_LEVELS.find(l => l.id === id);
+  if (!lvl) return;
+
+  let edges = [];
+  if (lvl.boss) {
+    edges = shuffle(Object.keys(ME)).slice(0, 10);
+  } else {
+    edges = lvl.edges;
+  }
+
+  const blanks = [];
+  const answers = {};
+  const pool = [];
+
+  edges.forEach(eId => {
+    const e = ME[eId];
+    if (Math.random() < 0.6) {
+      blanks.push({ type: 'edge', id: eId, target: e[2] });
+      pool.push({ type: 'edge', val: e[2] });
+    }
+    if (Math.random() < 0.6) {
+      blanks.push({ type: 'node', id: e[1], target: MN[e[1]][0] });
+      pool.push({ type: 'node', val: MN[e[1]][0] });
+    }
+  });
+
+  if (!blanks.length && edges.length > 0) {
+    const firstE = edges[0];
+    blanks.push({ type: 'edge', id: firstE, target: ME[firstE][2] });
+    pool.push({ type: 'edge', val: ME[firstE][2] });
+  }
+
+  G = {
+    id, level: lvl, edges, blanks, answers, pool: shuffle(pool),
+    selSlot: blanks.length ? blanks[0] : null, score: 0, streak: 0, bestStreak: 0,
+    correct: 0, total: blanks.length, stripMsg: 'Select a blank to fill in.', stripKind: ''
+  };
+
+  S.screen = 'mm';
+  render();
+}
+
+function handleMMPick(val) {
+  if (!G || !G.selSlot) { toast('Select a blank slot first!', 'bad'); return; }
+
+  const slot = G.selSlot;
+  const blankObj = G.blanks.find(b => b.type === slot.type && b.id === slot.id);
+  if (!blankObj) return;
+
+  const key = slot.type + ':' + slot.id;
+  G.answers[key] = val;
+
+  if (val === blankObj.target) {
+    G.correct++;
+    G.streak++;
+    if (G.streak > G.bestStreak) G.bestStreak = G.streak;
+    G.score += G.streak * 150;
+    G.stripMsg = 'Correct! ' + val;
+    G.stripKind = 'ok';
+
+    G.blanks = G.blanks.filter(b => !(b.type === slot.type && b.id === slot.id));
+    G.pool = G.pool.filter(p => p.val !== val || p.type !== slot.type);
+    G.selSlot = G.blanks.length ? G.blanks[0] : null;
+
+    if (!G.blanks.length) {
+      setTimeout(() => finishRun(), 600);
+      return;
+    }
+  } else {
+    G.streak = 0;
+    G.stripMsg = 'Incorrect! Try another reagent/compound.';
+    G.stripKind = 'bad';
+  }
+
+  renderMM();
+}
+
+async function finishRun() {
+  if (G.timerId) clearInterval(G.timerId);
+
+  const acc = G.answered ? Math.round((G.correct / G.answered) * 100) : (G.total ? Math.round((G.correct / G.total) * 100) : 100);
+  let stars = 1;
+  if (acc >= 85) stars = 3;
+  else if (acc >= 60) stars = 2;
+
+  const prev = (S.user.progress && S.user.progress[G.id]) || { best: 0, stars: 0 };
+  const isBest = G.score > prev.best;
+
+  S.user.progress[G.id] = {
+    done: true,
+    best: Math.max(prev.best, G.score),
+    stars: Math.max(prev.stars, stars)
+  };
+
+  await saveUser();
+  await pushScore();
+  await loadBoard();
+
+  S.result = {
+    id: G.id,
+    score: G.score,
+    accuracy: acc,
+    bestStreak: G.bestStreak,
+    stars,
+    isBest,
+    oldBest: prev.best
+  };
+
+  G = null;
+  S.screen = 'result';
+  render();
+}
+
+// Event Delegation Router
+document.addEventListener('click', async e => {
+  const btn = e.target.closest('[data-act]');
+  if (!btn) return;
+  const act = btn.dataset.act;
+
+  if (act === 'login') {
+    const emailEl = $('#email'), nameEl = $('#name'), errEl = $('#loginErr');
+    const email = emailEl ? emailEl.value.trim() : '';
+    const name = nameEl ? nameEl.value.trim() : '';
+
+    if (!email || !email.includes('@')) { errEl.textContent = 'Please enter a valid email.'; return; }
+    if (!name) { errEl.textContent = 'Please enter a display name.'; return; }
+
+    const id = idOf(email);
+    const pid = await hashId(id);
+    let u = await DB.get('user:' + id, false);
+    if (!u) { u = { id, pid, email, name, progress: {} }; } else { u.name = name; u.pid = pid; }
+
+    S.user = u;
+    await saveUser();
+    await pushScore();
+    await loadBoard();
+    await loadCommunity();
+
+    S.screen = 'main';
+    render();
+  }
+  else if (act === 'tab') { S.tab = btn.dataset.tab; S.screen = 'main'; render(); }
+  else if (act === 'subj') { S.subject = btn.dataset.sub; render(); }
+  else if (act === 'sem') { S.sem[S.subject] = parseInt(btn.dataset.idx, 10); render(); }
+  else if (act === 'open') { S.sheet = btn.dataset.id; render(); }
+  else if (act === 'close-sheet') { S.sheet = null; render(); }
+  else if (act === 'start') {
+    const id = btn.dataset.id;
+    S.sheet = null;
+    const L = LESSONS[id];
+    if (L.kind === 'mcq') startMcqLesson(id);
+    else if (L.kind === 'mm') startMMLesson(id);
+  }
+  else if (act === 'ans') { answerQuestion(parseInt(btn.dataset.idx, 10)); }
+  else if (act === 'next-q') { nextQuestion(); }
+  else if (act === 'quit-play') {
+    if (G && G.timerId) clearInterval(G.timerId);
+    G = null;
+    S.screen = 'main';
+    render();
+  }
+  else if (act === 'board-filter') { S.boardFilter = btn.dataset.filter; render(); }
+  else if (act === 'bank-tab') { S.bankTab = btn.dataset.tab; render(); }
+  else if (act === 'change-browse-unit') { S.browseUnit = $('#bUnit').value; render(); }
+  else if (act === 'submit-q') {
+    const u = $('#qUnit').value, q = $('#qText').value.trim();
+    const c = $('#qCorrect').value.trim(), w1 = $('#qW1').value.trim();
+    const w2 = $('#qW2').value.trim(), w3 = $('#qW3').value.trim();
+    const exp = $('#qExp').value.trim();
+
+    if (!q || !c || !w1 || !w2 || !w3) { toast('Please fill in all fields.', 'bad'); return; }
+
+    const item = { id: 'cq_' + Date.now(), unit: u, q, opts: [c, w1, w2, w3], c: 0, exp, ts: Date.now() };
+    await DB.set('cq:' + item.id, item, true);
+    S.community.push(item);
+    toast('Question added successfully!', 'ok');
+    S.bankTab = 'browse';
+    render();
+  }
+  else if (act === 'export-bulk') {
+    const el = $('#bulkJson');
+    if (el) el.value = JSON.stringify(S.community, null, 2);
+    toast('Exported custom questions to JSON.', 'ok');
+  }
+  else if (act === 'import-bulk') {
+    try {
+      const txt = $('#bulkJson').value;
+      const data = JSON.parse(txt);
+      if (Array.isArray(data)) {
+        for (const q of data) {
+          if (q.unit && q.q && Array.isArray(q.opts)) {
+            const id = q.id || ('cq_' + Math.random().toString(36).slice(2));
+            await DB.set('cq:' + id, { ...q, id }, true);
+          }
+        }
+        await loadCommunity();
+        toast('Imported questions successfully!', 'ok');
+        S.bankTab = 'browse';
+        render();
+      }
+    } catch (err) { toast('Invalid JSON format.', 'bad'); }
+  }
+  else if (act === 'edit-profile') {
+    const newName = prompt('Enter new display name:', S.user.name);
+    if (newName && newName.trim()) {
+      S.user.name = newName.trim();
+      await saveUser();
+      await pushScore();
+      await loadBoard();
+      render();
+    }
+  }
+  else if (act === 'logout') {
+    S.user = null;
+    S.screen = 'login';
+    render();
+  }
+  else if (act === 'sel-slot') {
+    if (G) {
+      G.selSlot = { type: btn.dataset.stype, id: btn.dataset.sid };
+      renderMM();
+    }
+  }
+  else if (act === 'pick-chip') {
+    if (G) handleMMPick(btn.dataset.val);
+  }
+});
+
+// Initial boot
+(async function init() {
+  DB.init();
+  S.ready = true;
+  render();
+})();
+</script>
 </body>
 </html>
