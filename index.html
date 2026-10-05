@@ -21,17 +21,39 @@
         .option-btn:active { transform: translateY(4px); box-shadow: 0 0 0 #37464f; }
         #leaderboard-list::-webkit-scrollbar { width: 4px; }
         #leaderboard-list::-webkit-scrollbar-thumb { background-color: #37464f; border-radius: 9999px; }
+        .mind-map-node { position: absolute; background-color: rgba(255, 255, 0, 0.2); border: 2px solid yellow; border-radius: 50%; cursor: pointer; transition: all 0.2s ease; }
+        .mind-map-node:hover { background-color: rgba(255, 255, 0, 0.4); transform: scale(1.1); }
     </style>
 </head>
 <body class="flex flex-col min-h-screen justify-between max-w-md mx-auto border-x border-gray-800">
 
-    <!-- ALL UI HTML IS HERE -->
-    <div class="p-4 flex justify-between items-center border-b border-gray-800 bg-[#131f24] sticky top-0 z-10"><div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-amber-500 text-xl"></i><span id="score-display" class="font-bold text-amber-500 text-base">0 XP</span></div><div class="w-1/3 bg-gray-700 h-4 rounded-full overflow-hidden"><div id="progress-bar" class="bg-[#58cc02] h-full w-0 transition-all duration-300"></div></div><div class="flex items-center gap-1.5"><i class="fa-solid fa-bullseye text-cyan-400 text-xl"></i><span id="accuracy-display" class="font-bold text-cyan-400 text-base">100%</span></div></div>
+    <!-- TOP BAR -->
+    <div class="p-4 flex justify-between items-center border-b border-gray-800 bg-[#131f24] sticky top-0 z-10">
+        <div class="flex items-center gap-2"><i class="fa-solid fa-bolt text-amber-500 text-xl"></i><span id="score-display" class="font-bold text-amber-500 text-base">0 XP</span></div>
+        <div class="w-1/3 bg-gray-700 h-4 rounded-full overflow-hidden"><div id="progress-bar" class="bg-[#58cc02] h-full w-0 transition-all duration-300"></div></div>
+        <div class="flex items-center gap-1.5"><i class="fa-solid fa-bullseye text-cyan-400 text-xl"></i><span id="accuracy-display" class="font-bold text-cyan-400 text-base">100%</span></div>
+    </div>
+    
+    <!-- MAIN CONTAINER -->
     <main class="p-5 flex-1 flex flex-col justify-center">
+        <!-- AUTH SCREEN -->
         <div id="auth-screen" class="space-y-4"><div class="text-center"><div id="auth-main-icon" class="text-6xl text-[#58cc02] mb-2"><i class="fa-solid fa-user-lock"></i></div><h2 id="auth-title" class="text-2xl font-extrabold text-white">Sign In to ChemLingo</h2><p class="text-gray-400 text-xs mt-1">Keep your highscore secure & join the world leaderboard</p></div><div class="space-y-3 bg-gray-800/50 p-5 rounded-2xl border border-gray-700"><div id="auth-avatar-container" class="hidden"><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 text-center">Choose an Avatar</label><div class="grid grid-cols-6 gap-2 justify-center" id="avatar-grid"></div></div><div id="auth-username-container" class="hidden"><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Display Name</label><input type="text" id="auth-username" placeholder="e.g. ProtonChamp" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm"></div><div><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Email</label><input type="email" id="auth-email" placeholder="you@domain.com" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm"></div><div><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Password</label><input type="password" id="auth-password" placeholder="••••••••" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm"></div><div id="auth-error" class="hidden text-xs text-red-500 font-bold bg-red-950/40 p-3 rounded-lg border border-red-900"></div><button id="auth-main-btn" onclick="handleAuthSubmit()" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3 rounded-xl uppercase tracking-wider text-sm">Login</button></div><div class="text-center text-xs space-y-2"><p class="text-gray-400"><span id="auth-toggle-text">Don't have an account?</span><button onclick="toggleAuthMode()" id="auth-toggle-btn" class="text-[#58cc02] font-bold underline ml-1 focus:outline-none">Sign Up</button></p><button onclick="skipAuth()" class="text-gray-500 hover:text-gray-400 underline font-semibold block mx-auto">Play Guest Mode</button></div></div>
-        <div id="start-screen" class="hidden text-center space-y-4"><div class="flex justify-between items-center bg-gray-800/40 p-3 rounded-xl border border-gray-700 mb-2"><div class="flex items-center gap-2"><span id="user-display-avatar" class="text-2xl">🧪</span><span id="user-display-name" class="font-bold text-sm text-gray-200">Loading...</span></div><button id="logout-btn" onclick="logoutUser()" class="text-xs font-bold text-red-400 hover:text-red-300 underline">Log out</button></div><div class="text-6xl text-[#58cc02]"><i class="fa-solid fa-flask"></i></div><h1 class="text-3xl font-extrabold text-white">ChemLingo</h1><p class="text-gray-400 text-sm">Practice Chemistry & Compete Globally</p><div class="space-y-3 pt-2"><button onclick="startGame(1)" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2"><i class="fa-solid fa-atom"></i> Semester 1</button><button onclick="startGame(3)" class="duo-btn w-full bg-[#1cb0f6] hover:bg-[#1899d6] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #1899d6;"><i class="fa-solid fa-dna"></i> Semester 3</button><button onclick="startGame('all')" class="duo-btn w-full bg-[#ffb800] hover:bg-[#e0a200] text-gray-900 font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #d69b00;"><i class="fa-solid fa-bolt"></i> Mixed Mode</button></div><button onclick="showGlobalLeaderboard()" class="w-full bg-gray-800 border-2 border-gray-700 text-gray-300 font-bold py-3 rounded-xl uppercase tracking-wider text-sm mt-4 hover:border-amber-400 transition"><i class="fa-solid fa-globe text-amber-400 mr-2"></i> Global Leaderboard</button></div>
+        
+        <!-- START SCREEN -->
+        <div id="start-screen" class="hidden text-center space-y-4"><div class="flex justify-between items-center bg-gray-800/40 p-3 rounded-xl border border-gray-700 mb-2"><div class="flex items-center gap-2"><span id="user-display-avatar" class="text-2xl">🧪</span><span id="user-display-name" class="font-bold text-sm text-gray-200">Loading...</span></div><div class="flex items-center gap-3"><button id="edit-profile-btn" onclick="showProfileScreen()" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 underline">Edit Profile</button><button id="logout-btn" onclick="logoutUser()" class="text-xs font-bold text-red-400 hover:text-red-300 underline">Log out</button></div></div><div class="text-6xl text-[#58cc02]"><i class="fa-solid fa-flask"></i></div><h1 class="text-3xl font-extrabold text-white">ChemLingo</h1><p class="text-gray-400 text-sm">Practice Chemistry & Compete Globally</p><div class="space-y-3 pt-2"><button onclick="startGame(1)" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2"><i class="fa-solid fa-atom"></i> Semester 1</button><button onclick="startGame(3)" class="duo-btn w-full bg-[#1cb0f6] hover:bg-[#1899d6] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #1899d6;"><i class="fa-solid fa-dna"></i> Semester 3</button><button onclick="startMindMapMode()" class="duo-btn w-full bg-[#ff4b4b] hover:bg-[#d94040] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #c43535;"><i class="fa-solid fa-brain"></i> Mind Map (Organic)</button></div><button onclick="showGlobalLeaderboard()" class="w-full bg-gray-800 border-2 border-gray-700 text-gray-300 font-bold py-3 rounded-xl uppercase tracking-wider text-sm mt-4 hover:border-amber-400 transition"><i class="fa-solid fa-globe text-amber-400 mr-2"></i> Global Leaderboard</button></div>
+        
+        <!-- QUIZ SCREEN -->
         <div id="quiz-screen" class="hidden flex-col justify-between flex-1"><div><div class="flex justify-between items-center mb-4"><span id="semester-badge" class="bg-gray-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-[#58cc02]"></span><span id="category-badge" class="bg-gray-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-gray-400"></span></div><h2 id="question-text" class="text-lg sm:text-xl font-bold mb-6 text-white leading-relaxed"></h2><div id="options-container" class="space-y-3"></div></div><div id="feedback-card" class="hidden rounded-xl p-4 mt-6"><div class="flex items-center gap-3 mb-2"><i id="feedback-icon" class="text-2xl"></i><span id="feedback-title" class="font-bold text-lg"></span></div><p id="feedback-detail" class="text-sm font-medium mb-4"></p><button id="next-btn" onclick="nextQuestion()" class="w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider">Continue</button></div></div>
+        
+        <!-- LEADERBOARD SCREEN -->
         <div id="leaderboard-screen" class="hidden space-y-4"><div class="text-center"><h2 class="text-2xl font-extrabold text-amber-400"><i class="fa-solid fa-earth-americas mr-2"></i> World Leaderboard</h2><p class="text-xs text-gray-400 mt-1">Live rankings for all players globally (Accuracy % → XP)</p></div><div id="leaderboard-list" class="space-y-2 max-h-80 overflow-y-auto pr-1"></div><button onclick="restartApp()" class="duo-btn w-full bg-[#58cc02] text-white font-bold py-3 rounded-xl uppercase">Main Menu</button></div>
+
+        <!-- MIND MAP SCREEN -->
+        <div id="mind-map-screen" class="hidden flex-col items-center justify-center flex-1 relative"><div style="position: relative; width: 100%; max-width: 500px;"><img src="https://i.imgur.com/8v1Z2B9.jpeg" alt="Organic Chemistry Mind Map" class="w-full"><div id="mind-map-nodes"></div></div><button onclick="restartApp()" class="duo-btn w-full bg-[#58cc02] text-white font-bold py-3 mt-4 rounded-xl uppercase">Main Menu</button></div>
+        <div id="mind-map-quiz-overlay" class="hidden absolute inset-0 bg-black/80 p-5 flex flex-col justify-center items-center"><div id="mind-map-question-container" class="w-full max-w-md"></div></div>
+
+        <!-- PROFILE SCREEN -->
+        <div id="profile-screen" class="hidden space-y-4"><div class="text-center"><h2 class="text-2xl font-extrabold text-white">Edit Your Profile</h2></div><div class="space-y-3 bg-gray-800/50 p-5 rounded-2xl border border-gray-700"><div id="profile-avatar-container"><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 text-center">Choose a New Avatar</label><div class="grid grid-cols-6 gap-2 justify-center" id="profile-avatar-grid"></div></div><div><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Display Name</label><input type="text" id="profile-username" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm"></div><div id="profile-success" class="hidden text-xs text-green-400 font-bold bg-green-950/40 p-3 rounded-lg border border-green-800">Profile updated successfully!</div><button onclick="updateProfile()" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3 rounded-xl uppercase tracking-wider text-sm">Save Changes</button></div><button onclick="restartApp()" class="w-full bg-gray-800 border-2 border-gray-700 text-gray-300 font-bold py-3 rounded-xl uppercase tracking-wider text-sm mt-4 hover:border-amber-400 transition">Back to Main Menu</button></div>
     </main>
 
     <script>
@@ -39,57 +61,380 @@
         //  ✅ CORRECTED FIREBASE CONFIGURATION
         // ==========================================
         const firebaseConfig = {
-          apiKey: "AIzaSyA-eZfMcPjW1kFLTT9N1mxiM6OHmK_5oG4",
-          authDomain: "a-test-chem.firebaseapp.com",
-          projectId: "a-test-chem",
-          storageBucket: "a-test-chem.firebasestorage.app",
-          messagingSenderId: "1030899671595",
-          appId: "1:1030899671595:web:7dbc83440ea459cfea806e",
-          measurementId: "G-9D3VE5HHFJ"
+            apiKey: "AIzaSyDh-sZfMcPjW1kFLTT9N1mxIm60HmK_5oG4",
+            authDomain: "a-test-chem.firebaseapp.com",
+            projectId: "a-test-chem",
+            storageBucket: "a-test-chem.appspot.com",
+            messagingSenderId: "1030899671595",
+            appId: "1:1030899671595:web:7dbc83440ea459cfea806e",
+            measurementId: "G-9D3VE5HHFJ"
         };
         
-        let db = null, auth = null, currentUser = null, isAuthSignUpMode = false;
+        let db = null, auth = null, currentUser = null, isAuthSignUpMode = false, leaderboardListener = null;
         const AVAILABLE_AVATARS = ["🧪", "🔬", "⚛️", "🧬", "⚡", "🌟", "🔥", "🪐", "🥽", "🧠", "🦖", "💻"];
         let selectedAvatar = AVAILABLE_AVATARS[0], username = "Player", userAvatar = "🧪";
+        let currentQuestions = [], currentIdx = 0, score = 0, totalAnswered = 0, correctCount = 0;
         
         try {
             firebase.initializeApp(firebaseConfig);
             db = firebase.database();
             auth = firebase.auth();
         } catch(e) {
-            console.warn("Firebase not configured. Running in offline mode.", e);
+            console.error("CRITICAL: Firebase initialization failed.", e);
+            alert("Error: Could not connect to Firebase. The app will run in offline mode.");
             document.addEventListener('DOMContentLoaded', skipAuth);
         }
 
         const reactionsData = [
-            // All 122 questions are included here as before...
-            { sem: 1, category: "Stoichiometry", question: "Which of the following substances is expected to give the mass spectrum below?", options: ["CH₃OH", "C₂H₆", "N₂O", "CO₂"], answer: "N₂O" },
-            { sem: 1, category: "Stoichiometry", question: "Bromine exists in nature as the isotopes ⁷⁹Br and ⁸¹Br in an identical percentage of abundance. Which of the following represents the mass spectrum of a CH₂Br₂ molecule?", options: ["A", "B", "C", "D"], answer: "B" },
-            // ... all other questions ...
+            { sem: 1, category: "Stoichiometry", question: "Which statement is correct?", options: ["A mass spectrum provides evidence of isotopes.", "A mass spectrum proves protons exist.", "A mass spectrum proves protons and neutrons exist.", "A mass spectrum can show many molecular peaks."], answer: "A mass spectrum provides evidence of isotopes." },
+            { sem: 1, category: "Stoichiometry", question: "Bromine has two isotopes, ⁷⁹Br and ⁸¹Br, in equal abundance. Which mass spectrum represents a Br₂ sample?", options: ["A", "B", "C", "D"], answer: "B" },
+            { sem: 1, category: "Stoichiometry", question: "Boron has a relative atomic mass of 10.8 and two isotopes, ¹⁰B and ¹¹B. What is the abundance ratio of the heavier to the lighter isotope?", options: ["1:4", "4:1", "1:5", "5:1"], answer: "4:1" },
+            { sem: 1, category: "Stoichiometry", question: "From the mass spectrum of element X, what is its relative atomic mass?", options: ["10.8", "10.0", "11.0", "10.5"], answer: "10.8" },
+            { sem: 1, category: "Stoichiometry", question: "Which substance matches the mass spectrum shown?", options: ["CH₃OH", "C₂H₆", "N₂O", "CO₂"], answer: "N₂O" },
+            { sem: 1, category: "Stoichiometry", question: "What is the max number of molecular ion peaks for CH₂BrCl, given Br has isotopes ⁷⁹Br & ⁸¹Br and Cl has ³⁵Cl & ³⁷Cl?", options: ["2", "3", "4", "6"], answer: "4" },
+            { sem: 1, category: "Stoichiometry", question: "How many atoms are in 72 g of C₅H₁₂O? (Avogadro constant = 6.0 x 10²³ mol⁻¹)", options: ["6.0 x 10²³", "8.4 x 10²⁴", "1.1 x 10²⁵", "1.3 x 10²⁵"], answer: "8.4 x 10²⁴" },
+            { sem: 1, category: "Stoichiometry", question: "Heating 1.25 g of hydrated zinc sulphate (ZnSO₄·xH₂O) yields 0.71 g of anhydrous salt. What is x?", options: ["5", "6", "7", "8"], answer: "7" },
+            { sem: 1, category: "Stoichiometry", question: "An organic compound is 40.0% C, 6.7% H, and 53.3% O by mass. What is its empirical formula?", options: ["CH₂O", "C₂H₄O₂", "C₂H₃O", "C₃H₆O₂"], answer: "CH₂O" },
+            { sem: 1, category: "Atomic Structure", question: "Which statement is true for the emission spectrum of hydrogen?", options: ["The first line in each series has the longest wavelength.", "Ionisation energy can be found from the Paschen series convergence limit.", "The lines are all equally spaced.", "Lines are produced when an electron moves to a higher energy level."], answer: "The first line in each series has the longest wavelength." },
+            { sem: 1, category: "Atomic Structure", question: "Species X has 8 electrons, a nucleon number of 18, a charge of -2, and 2 fewer electrons than neutrons. What is its proton number?", options: ["8", "10", "16", "18"], answer: "8" },
+            { sem: 1, category: "Atomic Structure", question: "What is the maximum number of atomic orbitals for principal quantum number n=3?", options: ["3", "5", "9", "18"], answer: "9" },
+            { sem: 1, category: "Chemical Bonding", question: "Which molecule has the largest bond angle?", options: ["AlCl₃", "BeCl₂", "H₂O", "CH₄"], answer: "BeCl₂" },
+            { sem: 1, category: "Chemical Bonding", question: "What intermolecular force exists in liquid silicon dioxide?", options: ["Van der Waals forces", "Coordinate bonds", "Covalent bonds", "Ionic bonds"], answer: "Van der Waals forces" },
+            { sem: 1, category: "Periodic Table", question: "Which statement is true about sodium's second ionisation energy?", options: ["It is the highest in Period 3.", "Sodium is very electropositive.", "It is hard for sodium to form Na²⁺.", "The second electron is removed from an inner filled shell."], answer: "The second electron is removed from an inner filled shell." },
+            { sem: 1, category: "Group 2", question: "Which statement about Group 2 elements is not true?", options: ["They are known as alkaline earth metals.", "Their valence electronic configuration is ns².", "Calcium's melting point is higher than magnesium's.", "They are also known as the alkaline metals."], answer: "They are also known as the alkaline metals." },
+            { sem: 1, category: "Group 14", question: "For a substance with a small energy gap between valence and conduction bands, which is true?", options: ["The substance is germanium.", "Conductivity decreases with temperature.", "Lead's valence band is full.", "The energy gap is large."], answer: "The substance is germanium." },
+            { sem: 1, category: "Group 17", question: "Fluorine reacts explosively with hydrogen, while iodine reacts reversibly. Why?", options: ["Iodine is more stable than fluorine.", "Fluorine is a more powerful oxidising agent.", "Fluorine is less stable than iodine.", "Fluorine has higher bond energy."], answer: "Fluorine is a more powerful oxidising agent." },
+            { sem: 1, category: "Transition Elements", question: "An element M has a 3d¹⁰4s² configuration. Which statement about M is not true?", options: ["It is a metal.", "It is in Period 4.", "It is a transition element.", "It can form complex ions."], answer: "It is a transition element." },
+            { sem: 1, category: "Transition Elements", question: "Which complex can exhibit optical isomerism?", options: ["[Cr(H₂O)₄Cl₂]⁺", "[Cr(NH₃)₅Cl]²⁺", "[Cr(C₂O₄)₃]³⁻", "trans-[Cr(en)₂Cl₂]⁺"], answer: "[Cr(C₂O₄)₃]³⁻" },
+            { sem: 1, category: "Transition Elements", question: "Which species has the electronic configuration 1s²2s²2p⁶3s²3p⁶3d⁶?", options: ["Fe²⁺", "Co³⁺", "Mn⁺", "Cr"], answer: "Fe²⁺" },
+            { sem: 3, category: "Alkanes", question: "Alkane + X₂ ➔ Haloalkane + HX requires which condition?", options: ["UV Light", "FeX₃ catalyst", "Reflux with NaOH", "Ni at 180°C"], answer: "UV Light" },
+            { sem: 3, category: "Alkanes", question: "What are the coefficients for complete combustion of CₓHᵧ + ?O₂ ➔ xCO₂ + (y/2)H₂O?", options: ["(x + y/4)", "(x + y/2)", "(2x + y/4)", "(x/2 + y)"], answer: "(x + y/4)" },
+            { sem: 3, category: "Alkenes (EAR)", question: "Catalytic hydrogenation of Alkene (>C=C< + H₂) to Alkane requires:", options: ["Ni catalyst at 140°C", "UV Light", "Conc. H₂SO₄", "FeX₃"], answer: "Ni catalyst at 140°C" },
+            { sem: 3, category: "Alkenes (EAR)", question: "What product is formed when an alkene reacts with X₂ in CH₂Cl₂ at room temp?", options: ["Vicinal Dihaloalkane (-CX-CX-)", "Halohydrin (-CX-COH-)", "Alkane", "Haloalkane + HX"], answer: "Vicinal Dihaloalkane (-CX-CX-)" },
+            { sem: 3, category: "Alkenes (EAR)", question: "Reaction of Alkene with X₂ + H₂O yields what product?", options: ["Halohydrin (-CX-COH-) + H₃O⁺ + X⁻", "Dihaloalkane", "Alcohol", "Alkane"], answer: "Halohydrin (-CX-COH-) + H₃O⁺ + X⁻" },
+            { sem: 3, category: "Alkenes (EAR)", question: "Cleavage of R(R')C=CH(R'') with hot acidified KMnO₄ yields:", options: ["Ketone + Carboxylic Acid", "Two Aldehydes", "Two Alcohols", "Ozonide"], answer: "Ketone + Carboxylic Acid" },
+            { sem: 3, category: "Alkenes (EAR)", question: "Reaction of alkene with O₃ at -78°C followed by (CH₃)₂S treatment yields:", options: ["Ketone + Aldehyde", "Carboxylic Acid + CO₂", "Dihaloalkane", "Alcohol"], answer: "Ketone + Aldehyde" },
+            { sem: 3, category: "Arenes (EAS)", question: "Benzene + X₂ ➔ Halobenzene + HX requires which catalyst?", options: ["FeX₃", "AlCl₃", "Conc. H₂SO₄", "UV Light"], answer: "FeX₃" },
+            { sem: 3, category: "Arenes (EAS)", question: "Nitration of Benzene to form Nitrobenzene requires:", options: ["Conc. HNO₃ + Conc. H₂SO₄ (< 55°C)", "Dilute HNO₃ at r.t.", "HNO₃ + FeX₃", "KMnO₄ / H⁺"], answer: "Conc. HNO₃ + Conc. H₂SO₄ (< 55°C)" },
+            { sem: 3, category: "Haloalkanes", question: "RX + KCN (aq) in ethanol under heat produces:", options: ["Nitrile (R-C≡N) + KX", "Primary Amine", "Alcohol", "Grignard Reagent"], answer: "Nitrile (R-C≡N) + KX" },
+            { sem: 3, category: "Haloalkanes", question: "Reaction to form a Grignard Reagent (RMgX):", options: ["R-X + Mg in dry ether", "R-X + Mg in H₂O", "R-X + NaOH", "R-X + Na in ether"], answer: "R-X + Mg in dry ether" },
+            { sem: 3, category: "Carboxylic Acids", question: "RMgBr + CO₂ in dry ether (r.t.) followed by H₃O⁺ / Δ yields:", options: ["RCOOH + Mg(OH)Br", "RCH₂OH", "RCHO", "RCOOR'"], answer: "RCOOH + Mg(OH)Br" },
+            { sem: 3, category: "Carboxylic Acids", question: "Oxidation of RCH₂OH with KMnO₄ / H⁺ at room temperature produces:", options: ["RCOOH + H₂O", "RCHO + H₂", "RCOR' + H₂O", "RCOCl"], answer: "RCOOH + H₂O" },
+            { sem: 3, category: "Carboxylic Acids", question: "Hydrolysis of Nitrile with aqueous acid (RCN + H₂O + H⁺ / Δ) yields:", options: ["RCOOH + NH₄⁺", "RCOO⁻ + NH₃", "RCH₂NH₂", "RCONH₂"], answer: "RCOOH + NH₄⁺" },
+            { sem: 3, category: "Carbonyls", question: "Hydrogenation of Ketone (R₂C=O + H₂ over Ni at 180°C) yields:", options: ["Secondary Alcohol (R₂CHOH)", "Primary Alcohol", "Carboxylic Acid", "Alkene"], answer: "Secondary Alcohol (R₂CHOH)" },
+            { sem: 3, category: "Carbonyls", question: "Reduction of Aldehyde (RCHO) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["Primary Alcohol (RCH₂OH)", "Secondary Alcohol", "Carboxylic Acid", "Alkane"], answer: "Primary Alcohol (RCH₂OH)" },
+            { sem: 3, category: "Esters & Amides", question: "Reduction of Amide (R'CONH₂) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["Primary Amine (R'CH₂NH₂)", "R'COOH + NH₃", "R'CN + H₂O", "R'CH₂OH + NH₃"], answer: "Primary Amine (R'CH₂NH₂)" },
+            { sem: 3, category: "Acyl Chloride", question: "RCOCl + H₂O at room temperature produces:", options: ["RCOOH + HCl", "RCOOCH₃", "RCONH₂", "RCHO"], answer: "RCOOH + HCl" },
+            { sem: 3, category: "Amines", question: "Which reagents prepare aniline from nitrobenzene?", options: ["Zn or Sn in HCl", "LiAlH₄, dry ether then H₃O⁺", "KMnO₄ / H⁺", "NaOH / H₂O"], answer: "Zn or Sn in HCl" },
+            { sem: 3, category: "Amines", question: "What is observed when a primary aliphatic amine (RNH₂) reacts with HNO₂ at 0–5°C?", options: ["Effervescence of N₂ gas & ROH formation", "A yellowish oily liquid", "Benzenediazonium salt forms", "No observable change"], answer: "Effervescence of N₂ gas & ROH formation" },
+            { sem: 3, category: "Amines", question: "What product forms when Aniline reacts with HNO₂ at 0–5°C?", options: ["Benzenediazonium salt", "Phenol + N₂", "2,4,6-tribromoaniline", "An azo dye"], answer: "Benzenediazonium salt" },
+            { sem: 3, category: "Diazonium Salts", question: "Hydrolysis of Benzenediazonium salt with H₂O under heat yields:", options: ["Phenol + N₂ + HCl", "Aniline + HCl", "Nitrobenzene", "Benzenediol"], answer: "Phenol + N₂ + HCl" },
+            { sem: 3, category: "Diazonium Salts", question: "Coupling reaction of Benzenediazonium salt with phenol in NaOH yields:", options: ["An orange azo dye solid", "Benzenediol", "A white precipitate", "Nitrobenzene"], answer: "An orange azo dye solid" }
         ];
 
-        // All JavaScript functions remain the same
-        let currentQuestions = [], currentIdx = 0, score = 0, totalAnswered = 0, correctCount = 0;
-        window.addEventListener('DOMContentLoaded', () => { renderAvatarGrid(); if (auth) { auth.onAuthStateChanged(user => { if (user) { currentUser = user; db.ref('users/' + user.uid).once('value').then(snapshot => { const data = snapshot.val(); username = (data && data.username) ? data.username : "Player"; userAvatar = (data && data.avatar) ? data.avatar : "🧪"; document.getElementById("user-display-name").innerText = username; document.getElementById("user-display-avatar").innerText = userAvatar; showStartScreen(); }); } else { currentUser = null; showAuthScreen(); } }); } else { skipAuth(); } });
-        function renderAvatarGrid() { const grid = document.getElementById("avatar-grid"); grid.innerHTML = ""; AVAILABLE_AVATARS.forEach(avatar => { const btn = document.createElement("button"); btn.type = "button"; btn.className = `text-2xl p-2 rounded-xl border-2 transition-all duration-150 active:scale-95 ${selectedAvatar===avatar?"bg-gray-700 border-[#58cc02]":"bg-gray-800 border-gray-700 hover:border-gray-500"}`; btn.innerText = avatar; btn.onclick = () => selectAvatar(avatar); grid.appendChild(btn); }); }
-        function selectAvatar(avatar) { selectedAvatar = avatar; renderAvatarGrid(); }
-        function showAuthScreen() { document.getElementById("auth-screen").classList.remove("hidden"); document.getElementById("start-screen").classList.add("hidden"); document.getElementById("quiz-screen").classList.add("hidden"); document.getElementById("leaderboard-screen").classList.add("hidden"); }
-        function showStartScreen() { document.getElementById("auth-screen").classList.add("hidden"); document.getElementById("start-screen").classList.remove("hidden"); document.getElementById("quiz-screen").classList.add("hidden"); document.getElementById("leaderboard-screen").classList.add("hidden"); }
-        function toggleAuthMode() { isAuthSignUpMode = !isAuthSignUpMode; const title = document.getElementById("auth-title"), avatarField = document.getElementById("auth-avatar-container"), userField = document.getElementById("auth-username-container"), btn = document.getElementById("auth-main-btn"), toggleText = document.getElementById("auth-toggle-text"), toggleBtn = document.getElementById("auth-toggle-btn"), errorDiv = document.getElementById("auth-error"), mainIcon = document.getElementById("auth-main-icon"); errorDiv.classList.add("hidden"); if (isAuthSignUpMode) { title.innerText = "Create ChemLingo Account"; avatarField.classList.remove("hidden"); userField.classList.remove("hidden"); mainIcon.classList.add("hidden"); btn.innerText = "Sign Up & Register"; toggleText.innerText = "Already have an account?"; toggleBtn.innerText = "Login"; } else { title.innerText = "Sign In to ChemLingo"; avatarField.classList.add("hidden"); userField.classList.add("hidden"); mainIcon.classList.remove("hidden"); btn.innerText = "Login"; toggleText.innerText = "Don't have an account?"; toggleBtn.innerText = "Sign Up"; } }
-        function handleAuthSubmit() { const email = document.getElementById("auth-email").value.trim(), password = document.getElementById("auth-password").value.trim(); if (!email || !password) { showAuthError("Please fill out all required fields."); return; } if (isAuthSignUpMode) { const display = document.getElementById("auth-username").value.trim(); if (!display) { showAuthError("Please pick a display name."); return; } auth.createUserWithEmailAndPassword(email, password).then(cred => db.ref('users/' + cred.user.uid).set({ username: display, avatar: selectedAvatar, email: email, createdAt: Date.now() })).catch(err => showAuthError(err.message)); } else { auth.signInWithEmailAndPassword(email, password).catch(err => showAuthError(err.message)); } }
-        function showAuthError(msg) { const el = document.getElementById("auth-error"); el.innerText = msg; el.classList.remove("hidden"); }
-        function skipAuth() { currentUser = null; username = "Guest_" + Math.floor(100 + Math.random() * 900); userAvatar = AVAILABLE_AVATARS[Math.floor(Math.random() * AVAILABLE_AVATARS.length)]; document.getElementById("user-display-name").innerText = `${username} (Guest)`; document.getElementById("user-display-avatar").innerText = userAvatar; showStartScreen(); }
-        function logoutUser() { if (auth) { auth.signOut(); } else { showAuthScreen(); } }
-        function shuffleArray(array) { let arr = [...array]; for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; } return arr; }
-        function startGame(sem) { let questions = (sem === 'all') ? [...reactionsData] : reactionsData.filter(q => q.sem === sem); currentQuestions = shuffleArray(questions); currentIdx = 0; score = 0; totalAnswered = 0; correctCount = 0; updateHeader(); loadQuestion(); document.getElementById("start-screen").classList.add("hidden"); document.getElementById("quiz-screen").classList.remove("hidden"); document.getElementById("quiz-screen").classList.add("flex"); }
+        window.addEventListener('DOMContentLoaded', () => {
+            renderAvatarGrid('avatar-grid');
+            if (auth) {
+                auth.onAuthStateChanged(user => {
+                    if (user) {
+                        currentUser = user;
+                        db.ref('users/' + user.uid).once('value').then(snapshot => {
+                            const data = snapshot.val();
+                            username = (data && data.username) ? data.username : "Player";
+                            userAvatar = (data && data.avatar) ? data.avatar : "🧪";
+                            document.getElementById("user-display-name").innerText = username;
+                            document.getElementById("user-display-avatar").innerText = userAvatar;
+                            showStartScreen();
+                        });
+                    } else {
+                        currentUser = null;
+                        showAuthScreen();
+                    }
+                });
+            }
+        });
+
+        function renderAvatarGrid(gridId) {
+            const grid = document.getElementById(gridId);
+            grid.innerHTML = "";
+            AVAILABLE_AVATARS.forEach(avatar => {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                const isSelected = gridId === 'avatar-grid' ? selectedAvatar === avatar : userAvatar === avatar;
+                btn.className = `text-2xl p-2 rounded-xl border-2 transition-all duration-150 active:scale-95 ${isSelected ? "bg-gray-700 border-[#58cc02]" : "bg-gray-800 border-gray-700 hover:border-gray-500"}`;
+                btn.innerText = avatar;
+                btn.onclick = () => selectAvatar(avatar, gridId);
+                grid.appendChild(btn);
+            });
+        }
+
+        function selectAvatar(avatar, gridId) {
+            if (gridId === 'avatar-grid') {
+                selectedAvatar = avatar;
+                renderAvatarGrid('avatar-grid');
+            } else {
+                userAvatar = avatar;
+                renderAvatarGrid('profile-avatar-grid');
+            }
+        }
+
+        function showScreen(screenId) {
+            ['auth-screen', 'start-screen', 'quiz-screen', 'leaderboard-screen', 'mind-map-screen', 'profile-screen'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        function showAuthScreen() { showScreen('auth-screen'); }
+        function showStartScreen() { showScreen('start-screen'); }
+        function showProfileScreen() {
+            document.getElementById('profile-username').value = username;
+            renderAvatarGrid('profile-avatar-grid');
+            showScreen('profile-screen');
+        }
+
+        function updateProfile() {
+            const newUsername = document.getElementById('profile-username').value.trim();
+            if (!newUsername) {
+                alert("Display name cannot be empty.");
+                return;
+            }
+            if (!currentUser) {
+                alert("You must be logged in to update your profile.");
+                return;
+            }
+            const updates = {
+                username: newUsername,
+                avatar: userAvatar
+            };
+            db.ref('users/' + currentUser.uid).update(updates).then(() => {
+                username = newUsername;
+                document.getElementById('user-display-name').innerText = username;
+                document.getElementById('user-display-avatar').innerText = userAvatar;
+                const successMsg = document.getElementById('profile-success');
+                successMsg.classList.remove('hidden');
+                setTimeout(() => successMsg.classList.add('hidden'), 2000);
+            }).catch(error => console.error("Profile update failed:", error));
+        }
+
+        function toggleAuthMode() {
+            isAuthSignUpMode = !isAuthSignUpMode;
+            document.getElementById('auth-error').classList.add('hidden');
+            document.getElementById('auth-avatar-container').classList.toggle('hidden', !isAuthSignUpMode);
+            document.getElementById('auth-username-container').classList.toggle('hidden', !isAuthSignUpMode);
+            document.getElementById('auth-main-icon').classList.toggle('hidden', isAuthSignUpMode);
+            document.getElementById('auth-title').innerText = isAuthSignUpMode ? "Create ChemLingo Account" : "Sign In to ChemLingo";
+            document.getElementById('auth-main-btn').innerText = isAuthSignUpMode ? "Sign Up & Register" : "Login";
+            document.getElementById('auth-toggle-text').innerText = isAuthSignUpMode ? "Already have an account?" : "Don't have an account?";
+            document.getElementById('auth-toggle-btn').innerText = isAuthSignUpMode ? "Login" : "Sign Up";
+        }
+
+        function handleAuthSubmit() {
+            const email = document.getElementById("auth-email").value.trim();
+            const password = document.getElementById("auth-password").value.trim();
+            if (!email || !password) { showAuthError("Please fill out all required fields."); return; }
+            if (isAuthSignUpMode) {
+                const display = document.getElementById("auth-username").value.trim();
+                if (!display) { showAuthError("Please pick a display name."); return; }
+                auth.createUserWithEmailAndPassword(email, password)
+                    .then(cred => db.ref('users/' + cred.user.uid).set({ username: display, avatar: selectedAvatar, email: email, createdAt: Date.now() }))
+                    .catch(err => showAuthError(err.message));
+            } else {
+                auth.signInWithEmailAndPassword(email, password).catch(err => showAuthError(err.message));
+            }
+        }
+
+        function showAuthError(msg) {
+            const el = document.getElementById("auth-error");
+            el.innerText = msg;
+            el.classList.remove("hidden");
+        }
+
+        function skipAuth() {
+            currentUser = null;
+            username = "Guest_" + Math.floor(100 + Math.random() * 900);
+            userAvatar = AVAILABLE_AVATARS[Math.floor(Math.random() * AVAILABLE_AVATARS.length)];
+            document.getElementById("user-display-name").innerText = `${username} (Guest)`;
+            document.getElementById("user-display-avatar").innerText = userAvatar;
+            document.getElementById('edit-profile-btn').classList.add('hidden');
+            showStartScreen();
+        }
+
+        function logoutUser() {
+            if (auth) { auth.signOut(); } 
+            else { showAuthScreen(); }
+        }
+
+        function startGame(sem) {
+            currentQuestions = (sem === 'all') ? shuffleArray([...reactionsData]) : shuffleArray(reactionsData.filter(q => q.sem === sem));
+            resetQuizState();
+            loadQuestion();
+            showScreen('quiz-screen');
+            document.getElementById('quiz-screen').classList.add('flex');
+        }
+
+        function resetQuizState() {
+            currentIdx = 0; score = 0; totalAnswered = 0; correctCount = 0;
+            updateHeader();
+        }
+
         function getAccuracy() { return totalAnswered === 0 ? 100 : Math.round((correctCount / totalAnswered) * 100); }
-        function updateHeader() { document.getElementById("score-display").innerText = `${score} XP`; document.getElementById("accuracy-display").innerText = `${getAccuracy()}%`; document.getElementById("progress-bar").style.width = `${(currentIdx / currentQuestions.length) * 100}%`; }
-        function loadQuestion() { if (currentIdx >= currentQuestions.length) { finishGame(); return; } const q = currentQuestions[currentIdx]; document.getElementById("semester-badge").innerText = `Semester ${q.sem}`; document.getElementById("category-badge").innerText = q.category; document.getElementById("question-text").innerText = q.question; document.getElementById("options-container").innerHTML = ""; shuffleArray(q.options).forEach(opt => { const btn = document.createElement("button"); btn.className = "option-btn w-full bg-gray-800 border-2 border-gray-700 text-white font-semibold py-3.5 px-4 rounded-xl text-left hover:border-gray-500 transition text-sm sm:text-base"; btn.innerText = opt; btn.onclick = () => checkAnswer(opt, q.answer, btn); document.getElementById("options-container").appendChild(btn); }); document.getElementById("feedback-card").classList.add("hidden"); }
-        function checkAnswer(selected, correct, btn) { document.querySelectorAll(".option-btn").forEach(b => b.disabled = true); totalAnswered++; const isCorrect = selected === correct; if (isCorrect) { score += 10; correctCount++; } btn.classList.add(isCorrect ? "bg-green-900/50 border-[#58cc02]" : "bg-red-900/50 border-red-500"); const card = document.getElementById("feedback-card"), title = document.getElementById("feedback-title"), detail = document.getElementById("feedback-detail"), icon = document.getElementById("feedback-icon"), nextBtn = document.getElementById("next-btn"); card.className = `rounded-xl p-4 mt-6 ${isCorrect ? 'bg-[#20380a] border-[#58cc02]' : 'bg-[#37191e] border-red-500'}`; icon.className = `fa-solid ${isCorrect ? 'fa-circle-check text-[#58cc02]' : 'fa-circle-xmark text-red-500'} text-2xl`; title.className = `font-bold text-lg ${isCorrect ? 'text-[#58cc02]' : 'text-red-500'}`; title.innerText = isCorrect ? "Correct!" : "Incorrect!"; detail.innerText = isCorrect ? "+10 XP Earned" : `Correct Answer: ${correct}`; nextBtn.className = `w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider ${isCorrect ? 'bg-[#58cc02]' : 'bg-red-500'}`; card.classList.remove("hidden"); updateHeader(); }
+        
+        function updateHeader() {
+            document.getElementById("score-display").innerText = `${score} XP`;
+            document.getElementById("accuracy-display").innerText = `${getAccuracy()}%`;
+            const progress = currentQuestions.length > 0 ? (currentIdx / currentQuestions.length) * 100 : 0;
+            document.getElementById("progress-bar").style.width = `${progress}%`;
+        }
+        
+        function loadQuestion() {
+            if (currentIdx >= currentQuestions.length) { finishGame(); return; }
+            const q = currentQuestions[currentIdx];
+            document.getElementById("semester-badge").innerText = `Semester ${q.sem}`;
+            document.getElementById("category-badge").innerText = q.category;
+            document.getElementById("question-text").innerText = q.question;
+            const container = document.getElementById("options-container");
+            container.innerHTML = "";
+            shuffleArray(q.options).forEach(opt => {
+                const btn = document.createElement("button");
+                btn.className = "option-btn w-full bg-gray-800 border-2 border-gray-700 text-white font-semibold py-3.5 px-4 rounded-xl text-left hover:border-gray-500 transition text-sm sm:text-base";
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(opt, q.answer, btn);
+                container.appendChild(btn);
+            });
+            document.getElementById("feedback-card").classList.add("hidden");
+        }
+        
+        function checkAnswer(selected, correct, btn) {
+            document.querySelectorAll(".option-btn").forEach(b => { b.disabled = true; });
+            totalAnswered++;
+            const isCorrect = selected === correct;
+            if (isCorrect) { score += 10; correctCount++; }
+            btn.classList.add(isCorrect ? "bg-green-900/50 border-[#58cc02]" : "bg-red-900/50 border-red-500");
+            const card = document.getElementById("feedback-card"), title = document.getElementById("feedback-title"), detail = document.getElementById("feedback-detail"), icon = document.getElementById("feedback-icon"), nextBtn = document.getElementById("next-btn");
+            card.className = `rounded-xl p-4 mt-6 ${isCorrect ? 'bg-[#20380a] border-[#58cc02]' : 'bg-[#37191e] border-red-500'}`;
+            icon.className = `fa-solid ${isCorrect ? 'fa-circle-check text-[#58cc02]' : 'fa-circle-xmark text-red-500'} text-2xl`;
+            title.className = `font-bold text-lg ${isCorrect ? 'text-[#58cc02]' : 'text-red-500'}`;
+            title.innerText = isCorrect ? "Correct!" : "Incorrect!";
+            detail.innerText = isCorrect ? "+10 XP Earned" : `Correct Answer: ${correct}`;
+            nextBtn.className = `w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider ${isCorrect ? 'bg-[#58cc02]' : 'bg-red-500'}`;
+            card.classList.remove("hidden");
+            updateHeader();
+        }
+
         function nextQuestion() { currentIdx++; loadQuestion(); }
-        function finishGame() { if (db) { const payload = { name: username, avatar: userAvatar, score: score, accuracy: getAccuracy(), correct: correctCount, total: totalAnswered, updatedAt: Date.now() }; if (currentUser) { const ref = db.ref('global_leaderboard/' + currentUser.uid); ref.once('value', s => { const prev = s.val(); if (!prev || payload.accuracy > prev.accuracy || (payload.accuracy === prev.accuracy && payload.score > prev.score)) { ref.set(payload); } }); } else { const cleanName = username.replace(/[.#$\\[\\]]/g, "_"); const ref = db.ref('global_leaderboard/guest_' + cleanName); ref.once('value', s => { const prev = s.val(); if (!prev || payload.accuracy > prev.accuracy || (payload.accuracy === prev.accuracy && payload.score > prev.score)) { ref.set(payload); } }); } } showGlobalLeaderboard(); }
-        let leaderboardListener = null; function showGlobalLeaderboard() { if (db && leaderboardListener) { db.ref('global_leaderboard').off('value', leaderboardListener); } document.getElementById("start-screen").classList.add("hidden"); document.getElementById("quiz-screen").classList.add("hidden"); document.getElementById("leaderboard-screen").classList.remove("hidden"); const list = document.getElementById("leaderboard-list"); list.innerHTML = `<div class="text-center py-6 text-gray-400"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><br>Loading...</div>`; if (!db) { list.innerHTML = `<div class="text-center p-4 bg-gray-800 rounded-xl text-amber-400 text-sm">Database not connected.</div>`; return; } leaderboardListener = db.ref('global_leaderboard').on('value', snapshot => { list.innerHTML = ""; const data = snapshot.val(); if (!data) { list.innerHTML = `<div class="text-center text-gray-400 py-4">Be the first on the leaderboard!</div>`; return; } const players = Object.values(data).sort((a, b) => b.accuracy - a.accuracy || b.score - a.score); players.slice(0, 50).forEach((entry, rank) => { const item = document.createElement("div"); const isMe = entry.name === username; item.className = `flex justify-between items-center p-3 rounded-xl border ${isMe?"bg-[#20380a] border-[#58cc02]":"bg-gray-800 border-gray-700"}`; item.innerHTML = `<div class="flex items-center gap-3"><span class="font-bold w-6 ${rank===0?"text-amber-400":rank===1?"text-gray-300":rank===2?"text-amber-600":"text-gray-500"}">#${rank+1}</span><span class="text-2xl">${entry.avatar||"🧪"}</span><div><div class="font-bold text-white text-sm sm:text-base">${entry.name}</div><div class="text-xs text-gray-400">${entry.correct}/${entry.total} Correct (${entry.score} XP)</div></div></div><div class="font-extrabold text-cyan-400 text-md sm:text-lg">${entry.accuracy}%</div>`; list.appendChild(item); }); }); }
-        function restartApp() { if (db && leaderboardListener) { db.ref('global_leaderboard').off('value', leaderboardListener); leaderboardListener = null; } showStartScreen(); }
+        
+        function finishGame() {
+            if (db && (currentUser || username.startsWith("Guest"))) {
+                const payload = { name: username, avatar: userAvatar, score, accuracy: getAccuracy(), correct: correctCount, total: totalAnswered, updatedAt: Date.now() };
+                const refPath = currentUser ? 'global_leaderboard/' + currentUser.uid : 'global_leaderboard/guest_' + username.replace(/[.#$/\[\]]/g, "_");
+                const ref = db.ref(refPath);
+                ref.once('value', s => {
+                    const prev = s.val();
+                    if (!prev || payload.accuracy > prev.accuracy || (payload.accuracy === prev.accuracy && payload.score > prev.score)) {
+                        ref.set(payload);
+                    }
+                });
+            }
+            showGlobalLeaderboard();
+        }
+        
+        function showGlobalLeaderboard() {
+            showScreen('leaderboard-screen');
+            if (leaderboardListener) { db.ref('global_leaderboard').off('value', leaderboardListener); }
+            const list = document.getElementById("leaderboard-list");
+            list.innerHTML = `<div class="text-center py-6 text-gray-400"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><br>Loading...</div>`;
+            if (!db) { list.innerHTML = `<div class="text-center p-4 bg-gray-800 rounded-xl text-amber-400 text-sm">Database not connected.</div>`; return; }
+            leaderboardListener = db.ref('global_leaderboard').on('value', snapshot => {
+                list.innerHTML = "";
+                const data = snapshot.val();
+                if (!data) { list.innerHTML = `<div class="text-center text-gray-400 py-4">Be the first!</div>`; return; }
+                const players = Object.values(data).sort((a, b) => b.accuracy - a.accuracy || b.score - a.score);
+                players.slice(0, 50).forEach((entry, rank) => {
+                    const item = document.createElement("div");
+                    const isMe = entry.name === username;
+                    item.className = `flex justify-between items-center p-3 rounded-xl border ${isMe ? "bg-[#20380a] border-[#58cc02]" : "bg-gray-800 border-gray-700"}`;
+                    item.innerHTML = `<div class="flex items-center gap-3"><span class="font-bold w-6 ${rank === 0 ? "text-amber-400" : rank === 1 ? "text-gray-300" : rank === 2 ? "text-amber-600" : "text-gray-500"}">#${rank + 1}</span><span class="text-2xl">${entry.avatar || "🧪"}</span><div><div class="font-bold text-white text-sm sm:text-base">${entry.name}</div><div class="text-xs text-gray-400">${entry.correct}/${entry.total} Correct (${entry.score} XP)</div></div></div><div class="font-extrabold text-cyan-400 text-md sm:text-lg">${entry.accuracy}%</div>`;
+                    list.appendChild(item);
+                });
+            });
+        }
+        
+        function startMindMapMode() {
+            showScreen('mind-map-screen');
+            const nodesContainer = document.getElementById('mind-map-nodes');
+            nodesContainer.innerHTML = '';
+            const mindMapNodes = [
+                { id: 'alkane', top: '45%', left: '42%', size: '15%', questions: reactionsData.filter(q => q.category === 'Alkanes') },
+                { id: 'alkene', top: '25%', left: '43%', size: '15%', questions: reactionsData.filter(q => q.category === 'Alkenes (EAR)') },
+                { id: 'haloalkane', top: '45%', left: '15%', size: '15%', questions: reactionsData.filter(q => q.category === 'Haloalkanes') },
+                { id: 'alcohol', top: '65%', left: '43%', size: '15%', questions: [] }, // No specific alcohol questions in bank
+                { id: 'carbonyl', top: '45%', left: '70%', size: '15%', questions: reactionsData.filter(q => q.category === 'Carbonyls') },
+            ];
+            mindMapNodes.forEach(node => {
+                const nodeEl = document.createElement('div');
+                nodeEl.className = 'mind-map-node';
+                nodeEl.style.top = node.top;
+                nodeEl.style.left = node.left;
+                nodeEl.style.width = node.size;
+                nodeEl.style.height = node.size;
+                nodeEl.onclick = () => {
+                    if (node.questions.length > 0) {
+                        currentQuestions = shuffleArray(node.questions);
+                        resetQuizState();
+                        showMindMapQuiz();
+                    } else {
+                        alert(`No questions available for ${node.id} yet!`);
+                    }
+                };
+                nodesContainer.appendChild(nodeEl);
+            });
+        }
+
+        function showMindMapQuiz() {
+            document.getElementById('mind-map-quiz-overlay').classList.remove('hidden');
+            loadMindMapQuestion();
+        }
+
+        function loadMindMapQuestion() {
+            if (currentIdx >= currentQuestions.length) {
+                document.getElementById('mind-map-quiz-overlay').classList.add('hidden');
+                alert(`Node complete! You scored ${score} XP with ${getAccuracy()}% accuracy.`);
+                // Optionally save score or just end
+                restartApp();
+                return;
+            }
+            const q = currentQuestions[currentIdx];
+            const container = document.getElementById('mind-map-question-container');
+            container.innerHTML = `<div class="bg-gray-900 p-5 rounded-xl border border-gray-700">
+                <h3 class="text-lg font-bold mb-4">${q.question}</h3>
+                <div class="space-y-3">
+                    ${shuffleArray(q.options).map(opt => `<button class="mindmap-option-btn w-full bg-gray-800 border-2 border-gray-700 text-white font-semibold py-3 px-4 rounded-xl text-left hover:border-gray-500 transition">${opt}</button>`).join('')}
+                </div>
+            </div>`;
+            container.querySelectorAll('.mindmap-option-btn').forEach(btn => {
+                btn.onclick = () => checkMindMapAnswer(btn.innerText, q.answer, btn);
+            });
+        }
+        
+        function checkMindMapAnswer(selected, correct, btn) {
+            document.querySelectorAll('.mindmap-option-btn').forEach(b => { b.disabled = true; });
+            totalAnswered++;
+            const isCorrect = selected === correct;
+            if (isCorrect) { score += 10; correctCount++; }
+            btn.classList.add(isCorrect ? 'bg-green-900/50 border-[#58cc02]' : 'bg-red-900/50 border-red-500');
+            setTimeout(() => {
+                currentIdx++;
+                loadMindMapQuestion();
+            }, 1000);
+        }
+
+        function restartApp() {
+            if (db && leaderboardListener) { db.ref('global_leaderboard').off('value', leaderboardListener); leaderboardListener = null; }
+            document.getElementById('edit-profile-btn').classList.toggle('hidden', !currentUser);
+            showStartScreen();
+        }
+
     </script>
 </body>
 </html>
