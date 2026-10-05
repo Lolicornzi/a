@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChemLingo - Full Version</title>
+    <title>ChemLingo - Working Build</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Using a stable, specific version of Firebase 8 for compatibility -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+    <!-- ✅ Corrected: Using the single, all-in-one Firebase 8 SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase.js"></script>
 
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #131f24; color: white; }
@@ -17,10 +16,6 @@
         .duo-btn:active { transform: translateY(4px); box-shadow: 0 0 0 #46a302; }
         .option-btn { box-shadow: 0 4px 0 #37464f; }
         .option-btn:active { transform: translateY(4px); box-shadow: 0 0 0 #37464f; }
-        #leaderboard-list::-webkit-scrollbar { width: 4px; }
-        #leaderboard-list::-webkit-scrollbar-thumb { background-color: #37464f; border-radius: 9999px; }
-        .mind-map-node { position: absolute; background-color: rgba(255, 255, 0, 0.2); border: 2px solid yellow; border-radius: 50%; cursor: pointer; transition: all 0.2s ease; }
-        .mind-map-node:hover { background-color: rgba(255, 255, 0, 0.4); transform: scale(1.1); }
     </style>
 </head>
 <body class="flex flex-col min-h-screen justify-between max-w-md mx-auto border-x border-gray-800">
@@ -33,21 +28,26 @@
     </div>
     
     <main class="p-5 flex-1 flex flex-col justify-center">
-        <!-- AUTH SCREEN -->
-        <div id="auth-screen" class="hidden space-y-4"><div class="text-center"><div id="auth-main-icon" class="text-6xl text-[#58cc02] mb-2"><i class="fa-solid fa-user-lock"></i></div><h2 id="auth-title" class="text-2xl font-extrabold text-white">Sign In to ChemLingo</h2><p class="text-gray-400 text-xs mt-1">Keep your highscore secure & join the world leaderboard</p></div><div class="space-y-3 bg-gray-800/50 p-5 rounded-2xl border border-gray-700"><div id="auth-avatar-container" class="hidden"><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2 text-center">Choose an Avatar</label><div class="grid grid-cols-6 gap-2 justify-center" id="avatar-grid"></div></div><div id="auth-username-container" class="hidden"><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Display Name</label><input type="text" id="auth-username" placeholder="e.g. ProtonChamp" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm"></div><div><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Email</label><input type="email" id="auth-email" placeholder="you@domain.com" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm"></div><div><label class="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Password</label><input type="password" id="auth-password" placeholder="••••••••" class="w-full p-3 rounded-xl bg-gray-800 border-2 border-gray-700 text-white font-bold focus:outline-none focus:border-[#58cc02] text-sm"></div><div id="auth-error" class="hidden text-xs text-red-500 font-bold bg-red-950/40 p-3 rounded-lg border border-red-900"></div><button id="auth-main-btn" onclick="handleAuthSubmit()" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3 rounded-xl uppercase tracking-wider text-sm">Login</button></div><div class="text-center text-xs space-y-2"><p class="text-gray-400"><span id="auth-toggle-text">Don't have an account?</span><button onclick="toggleAuthMode()" id="auth-toggle-btn" class="text-[#58cc02] font-bold underline ml-1 focus:outline-none">Sign Up</button></p><button onclick="skipAuth()" class="text-gray-500 hover:text-gray-400 underline font-semibold block mx-auto">Play Guest Mode</button></div></div>
-        
         <!-- START SCREEN -->
-        <div id="start-screen" class="hidden text-center space-y-4"><div class="flex justify-between items-center bg-gray-800/40 p-3 rounded-xl border border-gray-700 mb-2"><div class="flex items-center gap-2"><span id="user-display-avatar" class="text-2xl">🧪</span><span id="user-display-name" class="font-bold text-sm text-gray-200">Loading...</span></div><button id="logout-btn" onclick="logoutUser()" class="text-xs font-bold text-red-400 hover:text-red-300 underline">Log out</button></div><div class="text-6xl text-[#58cc02]"><i class="fa-solid fa-flask"></i></div><h1 class="text-3xl font-extrabold text-white">ChemLingo</h1><p class="text-gray-400 text-sm">Practice Chemistry & Compete Globally</p><div class="space-y-3 pt-2"><button onclick="startGame(1)" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2"><i class="fa-solid fa-atom"></i> Semester 1</button><button onclick="startGame(3)" class="duo-btn w-full bg-[#1cb0f6] hover:bg-[#1899d6] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #1899d6;"><i class="fa-solid fa-dna"></i> Semester 3</button><button onclick="startMindMapMode()" class="duo-btn w-full bg-[#ff4b4b] hover:bg-[#d94040] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md flex items-center justify-center gap-2" style="box-shadow: 0 4px 0 #c43535;"><i class="fa-solid fa-brain"></i> Mind Map (Organic)</button></div><button onclick="showGlobalLeaderboard()" class="w-full bg-gray-800 border-2 border-gray-700 text-gray-300 font-bold py-3 rounded-xl uppercase tracking-wider text-sm mt-4 hover:border-amber-400 transition"><i class="fa-solid fa-globe text-amber-400 mr-2"></i> Global Leaderboard</button></div>
-        
+        <div id="start-screen" class="hidden text-center space-y-4">
+            <h1 class="text-3xl font-extrabold text-white">ChemLingo</h1>
+            <p class="text-gray-400 text-sm">Practice Chemistry & Compete Globally</p>
+            <div class="space-y-3 pt-2">
+                <button onclick="startGame()" class="duo-btn w-full bg-[#58cc02] hover:bg-[#46a302] text-white font-bold py-3.5 rounded-xl uppercase tracking-wider text-md">Start Quiz</button>
+            </div>
+        </div>
         <!-- QUIZ SCREEN -->
-        <div id="quiz-screen" class="hidden flex-col justify-between flex-1"><div><div class="flex justify-between items-center mb-4"><span id="semester-badge" class="bg-gray-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-[#58cc02]"></span><span id="category-badge" class="bg-gray-800 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full text-gray-400"></span></div><h2 id="question-text" class="text-lg sm:text-xl font-bold mb-6 text-white leading-relaxed"></h2><div id="options-container" class="space-y-3"></div></div><div id="feedback-card" class="hidden rounded-xl p-4 mt-6"><div class="flex items-center gap-3 mb-2"><i id="feedback-icon" class="text-2xl"></i><span id="feedback-title" class="font-bold text-lg"></span></div><p id="feedback-detail" class="text-sm font-medium mb-4"></p><button id="next-btn" onclick="nextQuestion()" class="w-full py-3 rounded-xl font-bold text-white uppercase tracking-wider">Continue</button></div></div>
-        
-        <!-- LEADERBOARD SCREEN -->
-        <div id="leaderboard-screen" class="hidden space-y-4"><div class="text-center"><h2 class="text-2xl font-extrabold text-amber-400"><i class="fa-solid fa-earth-americas mr-2"></i> World Leaderboard</h2><p class="text-xs text-gray-400 mt-1">Live rankings</p></div><div id="leaderboard-list" class="space-y-2 max-h-80 overflow-y-auto pr-1"></div><button onclick="showStartScreen()" class="duo-btn w-full bg-[#58cc02] text-white font-bold py-3 rounded-xl uppercase">Main Menu</button></div>
-
-        <!-- MIND MAP SCREEN -->
-        <div id="mind-map-screen" class="hidden flex-col items-center justify-center flex-1 relative"><div style="position: relative; width: 100%; max-width: 500px;"><img src="https://i.imgur.com/8v1Z2B9.jpeg" alt="Organic Chemistry Mind Map" class="w-full"><div id="mind-map-nodes"></div></div><button onclick="showStartScreen()" class="duo-btn w-full bg-[#58cc02] text-white font-bold py-3 mt-4 rounded-xl uppercase">Main Menu</button></div>
-        <div id="mind-map-quiz-overlay" class="hidden absolute inset-0 bg-black/80 p-5 flex flex-col justify-center items-center"><div id="mind-map-question-container" class="w-full max-w-md"></div></div>
+        <div id="quiz-screen" class="hidden flex-col justify-between flex-1">
+            <div>
+                <h2 id="question-text" class="text-xl font-bold mb-6"></h2>
+                <div id="options-container" class="space-y-3"></div>
+            </div>
+            <div id="feedback-card" class="hidden rounded-xl p-4 mt-6">
+                <h3 id="feedback-title" class="font-bold text-lg"></h3>
+                <p id="feedback-detail" class="text-sm"></p>
+                <button id="next-btn" onclick="nextQuestion()" class="w-full py-3 rounded-xl font-bold text-white uppercase mt-4">Continue</button>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -55,74 +55,64 @@
             const firebaseConfig = {
                 apiKey: "AIzaSyDh-sZfMcPjW1kFLTT9N1mxIm60HmK_5oG4",
                 authDomain: "a-test-chem.firebaseapp.com",
+                databaseURL: "https://a-test-chem-default-rtdb.firebaseio.com",
                 projectId: "a-test-chem",
                 storageBucket: "a-test-chem.appspot.com",
                 messagingSenderId: "1030899671595",
-                appId: "1:1030899671595:web:7dbc83440ea459cfea806e",
-                measurementId: "G-9D3VE5HHFJ"
+                appId: "1:1030899671595:web:7dbc83440ea459cfea806e"
             };
-
-            let app, db, auth;
+            
             try {
-                app = firebase.initializeApp(firebaseConfig);
-                db = firebase.database();
-                auth = firebase.auth();
+                firebase.initializeApp(firebaseConfig);
             } catch (e) {
-                console.error("Firebase initialization failed.", e);
-                alert("Could not connect to Firebase. Running in offline mode.");
-                showScreen('start');
+                console.error("Firebase initialization failed:", e);
+                alert("CRITICAL ERROR: Could not initialize Firebase. The app cannot run.");
                 return;
             }
-            
+
+            const db = firebase.database();
+            const auth = firebase.auth();
+
             const reactionsData = [
                 { sem: 1, category: "Stoichiometry", question: "Which statement is correct?", options: ["A mass spectrum provides evidence of isotopes.", "A mass spectrum proves protons exist.", "A mass spectrum proves protons and neutrons exist."], answer: "A mass spectrum provides evidence of isotopes." },
                 { sem: 1, category: "Stoichiometry", question: "Boron has a relative atomic mass of 10.8 and two isotopes, ¹⁰B and ¹¹B. What is the abundance ratio of the heavier to the lighter isotope?", options: ["1:4", "4:1", "1:5", "5:1"], answer: "4:1" },
-                { sem: 3, category: "Alkanes", question: "Alkane + X₂ ➔ Haloalkane + HX requires which condition?", options: ["UV Light", "FeX₃ catalyst", "Reflux with NaOH", "Ni at 180°C"], answer: "UV Light" },
-                { sem: 3, category: "Alkenes (EAR)", question: "Catalytic hydrogenation of Alkene (>C=C< + H₂) to Alkane requires:", options: ["Ni catalyst at 140°C", "UV Light", "Conc. H₂SO₄", "FeX₃"], answer: "Ni catalyst at 140°C" },
-                { sem: 3, category: "Haloalkanes", question: "RX + KCN (aq) in ethanol under heat produces:", options: ["Nitrile (R-C≡N) + KX", "Primary Amine", "Alcohol", "Grignard Reagent"], answer: "Nitrile (R-C≡N) + KX" },
-                { sem: 3, category: "Carbonyls", question: "Reduction of Aldehyde (RCHO) with 1. LiAlH₄, dry ether followed by H₃O⁺ yields:", options: ["Primary Alcohol (RCH₂OH)", "Secondary Alcohol", "Carboxylic Acid", "Alkane"], answer: "Primary Alcohol (RCH₂OH)" },
+                { sem: 1, category: "Atomic Structure", question: "What is the maximum number of atomic orbitals for principal quantum number n=3?", options: ["3", "5", "9", "18"], answer: "9" },
             ];
-
-            let currentUser = null, username = "Player", userAvatar = "🧪";
-            let currentQuestions = [], currentIdx = 0, score = 0, totalAnswered = 0, correctCount = 0;
-            const AVAILABLE_AVATARS = ["🧪", "🔬", "⚛️", "🧬", "⚡", "🌟", "🔥", "🪐", "🥽", "🧠", "🦖", "💻"];
-            let selectedAvatar = AVAILABLE_AVATARS[0];
             
-            const screens = {
-                auth: document.getElementById('auth-screen'),
-                start: document.getElementById('start-screen'),
-                quiz: document.getElementById('quiz-screen'),
-                leaderboard: document.getElementById('leaderboard-screen'),
-                mindMap: document.getElementById('mind-map-screen'),
-                mindMapQuiz: document.getElementById('mind-map-quiz-overlay'),
-            };
+            let currentQuestions = [], currentIdx = 0, score = 0, totalAnswered = 0, correctCount = 0;
+            
+            const startScreen = document.getElementById('start-screen');
+            const quizScreen = document.getElementById('quiz-screen');
+            const questionText = document.getElementById('question-text');
+            const optionsContainer = document.getElementById('options-container');
+            const feedbackCard = document.getElementById('feedback-card');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackDetail = document.getElementById('feedback-detail');
+            const nextBtn = document.getElementById('next-btn');
 
-            function showScreen(screenId) {
-                Object.values(screens).forEach(screen => screen.classList.add('hidden'));
-                if (screens[screenId]) {
-                    screens[screenId].classList.remove('hidden');
-                    if (screenId === 'quiz' || screenId === 'start') {
-                        screens[screenId].classList.add('flex');
-                    }
-                }
+            window.startGame = function() {
+                currentQuestions = reactionsData;
+                currentIdx = 0; score = 0; totalAnswered = 0; correctCount = 0;
+                updateHeader();
+                loadQuestion();
+                showScreen('quiz');
             }
 
-            auth.onAuthStateChanged(user => {
-                if (user) {
-                    currentUser = user;
-                    db.ref('users/' + user.uid).once('value').then(snapshot => {
-                        const data = snapshot.val();
-                        username = (data && data.username) ? data.username : "Guest";
-                        userAvatar = (data && data.avatar) ? data.avatar : "🧪";
-                        document.getElementById("user-display-name").innerText = username;
-                        document.getElementById("user-display-avatar").innerText = userAvatar;
-                        showScreen('start');
-                    });
-                } else {
-                    currentUser = null;
-                    showScreen('auth');
+            window.nextQuestion = function() {
+                currentIdx++;
+                loadQuestion();
+            }
+
+            function showScreen(screenName) {
+                startScreen.classList.add('hidden');
+                quizScreen.classList.add('hidden');
+                if (screenName === 'start') {
+                    startScreen.classList.remove('hidden');
+                } else if (screenName === 'quiz') {
+                    quizScreen.classList.remove('hidden');
+                    quizScreen.classList.add('flex');
                 }
-            });
+            }
 
             function updateHeader() {
                 document.getElementById("score-display").innerText = `${score} XP`;
@@ -133,14 +123,13 @@
             }
 
             function loadQuestion() {
-                document.getElementById('feedback-card').classList.add('hidden');
+                feedbackCard.classList.add('hidden');
                 if (currentIdx >= currentQuestions.length) {
                     finishGame();
                     return;
                 }
                 const q = currentQuestions[currentIdx];
-                document.getElementById("question-text").innerText = q.question;
-                const optionsContainer = document.getElementById("options-container");
+                questionText.innerText = q.question;
                 optionsContainer.innerHTML = "";
                 q.options.forEach(opt => {
                     const btn = document.createElement("button");
@@ -149,110 +138,41 @@
                     btn.onclick = () => checkAnswer(opt, q.answer, btn);
                     optionsContainer.appendChild(btn);
                 });
-                 updateHeader();
+                updateHeader();
             }
 
             function checkAnswer(selected, correct, btn) {
-                document.querySelectorAll(".option-btn").forEach(b => b.disabled = true);
+                document.querySelectorAll(".option-btn").forEach(b => { b.disabled = true; });
                 totalAnswered++;
                 const isCorrect = selected === correct;
-                if (isCorrect) { score += 10; correctCount++; }
-                btn.classList.add(isCorrect ? "bg-green-900/50 border-[#58cc02]" : "bg-red-900/50 border-red-500");
-                const feedbackCard = document.getElementById("feedback-card");
-                document.getElementById("feedback-title").innerText = isCorrect ? "Correct!" : "Incorrect";
-                document.getElementById("feedback-detail").innerText = isCorrect ? "+10 XP" : `Correct: ${correct}`;
-                document.getElementById("next-btn").className = `w-full py-3 rounded-xl font-bold text-white uppercase mt-4 ${isCorrect ? 'bg-[#58cc02]' : 'bg-red-500'}`;
+                if (isCorrect) {
+                    score += 10;
+                    correctCount++;
+                    feedbackTitle.innerText = "Correct!";
+                    feedbackDetail.innerText = "+10 XP";
+                    nextBtn.className = "w-full py-3 rounded-xl font-bold text-white uppercase mt-4 bg-[#58cc02]";
+                    btn.classList.add("bg-green-900/50", "border-[#58cc02]");
+                } else {
+                    feedbackTitle.innerText = "Incorrect";
+                    feedbackDetail.innerText = `Correct Answer: ${correct}`;
+                    nextBtn.className = "w-full py-3 rounded-xl font-bold text-white uppercase mt-4 bg-red-500";
+                    btn.classList.add("bg-red-900/50", "border-red-500");
+                }
                 feedbackCard.classList.remove('hidden');
                 updateHeader();
             }
 
             function finishGame() {
-                alert(`Quiz Complete! Score: ${score} XP`);
+                alert(`Quiz Complete!\nYour score: ${score} XP\nAccuracy: ${totalAnswered > 0 ? Math.round((correctCount / totalAnswered) * 100) : 100}%`);
                 showScreen('start');
             }
 
-            window.startGame = function(sem) {
-                currentQuestions = reactionsData.filter(q => q.sem === sem);
-                currentIdx = 0; score = 0; totalAnswered = 0; correctCount = 0;
-                updateHeader();
-                loadQuestion();
-                showScreen('quiz');
-            }
-            
-            window.nextQuestion = function() { currentIdx++; loadQuestion(); }
-            window.showStartScreen = () => showScreen('start');
-            window.showGlobalLeaderboard = () => showScreen('leaderboard');
-            window.logoutUser = () => auth.signOut();
-            window.toggleAuthMode = () => {
-                isAuthSignUpMode = !isAuthSignUpMode;
-                document.getElementById('auth-avatar-container').classList.toggle('hidden', !isAuthSignUpMode);
-                document.getElementById('auth-username-container').classList.toggle('hidden', !isAuthSignUpMode);
-            };
-            window.skipAuth = () => {
-                auth.signInAnonymously().catch(error => console.error("Anonymous sign-in failed:", error));
-            }
-            window.handleAuthSubmit = () => {
-                const email = document.getElementById("auth-email").value;
-                const password = document.getElementById("auth-password").value;
-                if (isAuthSignUpMode) {
-                    const username = document.getElementById("auth-username").value;
-                    auth.createUserWithEmailAndPassword(email, password)
-                        .then(cred => db.ref('users/' + cred.user.uid).set({ username, avatar: selectedAvatar }))
-                        .catch(err => alert(err.message));
-                } else {
-                    auth.signInWithEmailAndPassword(email, password).catch(err => alert(err.message));
-                }
-            };
-            window.startMindMapMode = function() {
-                showScreen('mindMap');
-                const nodesContainer = document.getElementById('mind-map-nodes');
-                nodesContainer.innerHTML = '';
-                const mindMapNodes = [
-                    { id: 'alkane', top: '45%', left: '42%', size: '15%', questions: reactionsData.filter(q => q.category === 'Alkanes') },
-                    { id: 'alkene', top: '25%', left: '43%', size: '15%', questions: reactionsData.filter(q => q.category === 'Alkenes (EAR)') },
-                ];
-                mindMapNodes.forEach(node => {
-                    const nodeEl = document.createElement('div');
-                    nodeEl.className = 'mind-map-node';
-                    Object.assign(nodeEl.style, { top: node.top, left: node.left, width: node.size, height: node.size });
-                    nodeEl.onclick = () => {
-                        if (node.questions.length > 0) {
-                            currentQuestions = node.questions;
-                            currentIdx = 0; score = 0; totalAnswered = 0; correctCount = 0;
-                            showScreen('mindMapQuiz');
-                            loadMindMapQuestion();
-                        } else {
-                            alert(`No questions for ${node.id} yet!`);
-                        }
-                    };
-                    nodesContainer.appendChild(nodeEl);
-                });
+            // Initial App Load
+            function init() {
+                showScreen('start');
             }
 
-            function loadMindMapQuestion() {
-                if (currentIdx >= currentQuestions.length) {
-                    alert(`Node complete! Score: ${score}`);
-                    showScreen('mindMap');
-                    return;
-                }
-                const q = currentQuestions[currentIdx];
-                const container = document.getElementById('mind-map-question-container');
-                container.innerHTML = `<div class="bg-gray-900 p-5 rounded-xl border border-gray-700">
-                    <h3 class="text-lg font-bold mb-4">${q.question}</h3>
-                    <div class="space-y-3">${q.options.map(opt => `<button class="mindmap-option-btn w-full bg-gray-800 border-2 border-gray-700 text-white font-semibold py-3 px-4 rounded-xl text-left hover:border-gray-500 transition">${opt}</button>`).join('')}</div>
-                </div>`;
-                container.querySelectorAll('.mindmap-option-btn').forEach(btn => {
-                    btn.onclick = () => checkMindMapAnswer(btn.innerText, q.answer, btn);
-                });
-            }
-
-            function checkMindMapAnswer(selected, correct, btn) {
-                document.querySelectorAll('.mindmap-option-btn').forEach(b => b.disabled = true);
-                const isCorrect = selected === correct;
-                if (isCorrect) score += 10;
-                btn.classList.add(isCorrect ? 'bg-green-900/50' : 'bg-red-900/50');
-                setTimeout(() => { currentIdx++; loadMindMapQuestion(); }, 1000);
-            }
+            init();
         });
     </script>
 </body>
