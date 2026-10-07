@@ -284,6 +284,23 @@ async function sb(path, opt = {}) {
     e.status = r.status; throw e;
   }
   return data;
+
+  async function uploadFigure(file) {
+  if (!['image/png','image/jpeg','image/webp'].includes(file.type)) throw new Error('PNG, JPG or WebP only');
+  if (file.size > 1024 * 1024) throw new Error('Max 1 MB');
+  const ext = file.type.split('/')[1].replace('jpeg', 'jpg');
+  const path = `${Auth.s.user.id}/${crypto.randomUUID()}.${ext}`;
+  const r = await fetch(`${CONFIG.SUPABASE_URL}/storage/v1/object/question-figures/${path}`, {
+    method: 'POST',
+    headers: { apikey: CONFIG.SUPABASE_ANON_KEY,
+               Authorization: 'Bearer ' + Auth.s.access_token,
+               'Content-Type': file.type },
+    body: file
+  });
+  if (!r.ok) throw new Error('Upload failed (HTTP ' + r.status + ')');
+  return path;
+}
+  
 }
 const Auth = {
   s: null,
