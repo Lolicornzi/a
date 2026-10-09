@@ -1,0 +1,4403 @@
+{
+ "c01": [
+  {
+   "question": "Bromine consists of two isotopes, ⁷⁹Br and ⁸¹Br. If the relative atomic mass of bromine is 79.9, what is the percentage of isotope ⁸¹Br in natural bromine?",
+   "option_a": "55%",
+   "option_b": "40%",
+   "option_c": "35%",
+   "option_d": "27.5%",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "A sample of chlorine contains isotopes with mass numbers of 35 and 37. If the sample is analysed in a mass spectrometer, how many Cl₂⁺ peaks will appear? [Chlorine isotopes: ³⁵Cl and ³⁷Cl]",
+   "option_a": "2",
+   "option_b": "3",
+   "option_c": "4",
+   "option_d": "5",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "\"³⁵Cl and ³⁷Cl are two isotopes of chlorine.\" The relative atomic mass of chlorine is 35.5. Which statement is true?",
+   "option_a": "³⁵Cl is more abundant than ³⁷Cl.",
+   "option_b": "³⁵Cl is radioactive, ³⁷Cl is not.",
+   "option_c": "The relative molecular mass of chlorine is 71.0.",
+   "option_d": "³⁵Cl is more reactive than ³⁷Cl.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following substances is expected to give a mass spectrum with peaks at m/e = 14, 16, 28 and 44?",
+   "image": "chem_sem1_01_04.svg",
+   "alt": "Mass spectrum with peaks at m/e 14, 16, 28 and 44; the peak at 44 is the tallest.",
+   "option_a": "CH₄",
+   "option_b": "N₂O",
+   "option_c": "C₄H₁₀",
+   "option_d": "CO₂",
+   "answer": "B",
+   "explanation": "N₂O gives the molecular ion at 44 and fragments N₂⁺ (28), O⁺ (16) and N⁺ (14). CO₂ would show a peak at 12 (C⁺) instead of 14."
+  },
+  {
+   "question": "Bromine exists in nature as the isotopes ⁷⁹Br and ⁸¹Br in an identical percentage of abundance. Based on the information given, which of the following represents the mass spectrum for ¹²CH₂Br₂?",
+   "image": "chem_sem1_01_05.svg",
+   "alt": "Four mass spectra labelled A to D. A: peaks at 172 and 174, equal height. B: peaks at 172, 174 and 176 in the ratio 1:2:1. C: a single peak at 174. D: peaks at 172, 174 and 176, all equal height.",
+   "option_a": "Graph A",
+   "option_b": "Graph B",
+   "option_c": "Graph C",
+   "option_d": "Graph D",
+   "answer": "B",
+   "explanation": "CH₂Br₂ has two Br atoms. The molecular mass is 172 for ⁷⁹Br₂, 174 for ⁷⁹Br⁸¹Br (two ways to arrange it) and 176 for ⁸¹Br₂, so the peaks are in the ratio 1:2:1."
+  },
+  {
+   "question": "Boron (relative atomic mass = 10.8) consists of two isotopes, ¹⁰B and ¹¹B. What is the ratio of the lighter isotope to the heavier isotope?",
+   "option_a": "1 : 1",
+   "option_b": "1 : 2",
+   "option_c": "1 : 4",
+   "option_d": "1 : 5",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "The mass spectrum of an element (not to scale) shows a peak at mass 10 with relative height 2 and a peak at mass 12 with relative height 9. What is the relative atomic mass of the element?",
+   "image": "chem_sem1_01_07.svg",
+   "alt": "Mass spectrum with a peak at mass 10 of relative abundance 2 and a peak at mass 12 of relative abundance 9.",
+   "option_a": "(10 + 12) / 2",
+   "option_b": "((2 × 10) + (9 × 12)) / (10 + 12)",
+   "option_c": "((10 + 9) + (2 × 12)) / (10 + 12)",
+   "option_d": "((2 × 10) + (12 × 9)) / (2 + 9)",
+   "answer": "D",
+   "explanation": "Weight each mass by its relative abundance and divide by the total abundance: (2 × 10 + 9 × 12) ÷ (2 + 9)."
+  },
+  {
+   "question": "Which of the following is correct?",
+   "option_a": "A mass spectrum provides the evidence of the existence of electrons.",
+   "option_b": "A mass spectrum provides the evidence of the existence of isotopes.",
+   "option_c": "A mass spectrum provides the evidence of the existence of allotropes.",
+   "option_d": "A mass spectrum provides the evidence of the existence of protons.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "A sample of nitrogen trichloride, NCl₃, is analysed in a mass spectrometer. How many molecular peaks can be found in the mass spectrum of NCl₃? [Chlorine consists of two isotopes, while nitrogen is monoisotopic]",
+   "option_a": "3",
+   "option_b": "4",
+   "option_c": "5",
+   "option_d": "6",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "How many carbon atoms are there in 72 g of glucose, C₆H₁₂O₆?",
+   "option_a": "1.22 × 10²⁴",
+   "option_b": "2.40 × 10²⁴",
+   "option_c": "1.80 × 10²⁴",
+   "option_d": "1.44 × 10²⁴",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following contains the largest number of molecules?",
+   "option_a": "1 g of He",
+   "option_b": "1 g of H₂",
+   "option_c": "1 g of NH₃",
+   "option_d": "1 g of C₆H₁₂O₆",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "The percentage of nickel in a protein molecule, X, is 0.0360%. If a molecule of X consists of three nickel(II) ions, what is the relative molecular mass of X? [Relative atomic mass of Ni = 58.7]",
+   "option_a": "163",
+   "option_b": "489",
+   "option_c": "163 × 10³",
+   "option_d": "489 × 10³",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Magnesium ions in a 50 cm³ of magnesium sulphate solution are substituted by hydrogen ions. The solution produced will need 25 cm³ of 0.01 mol dm⁻³ of sodium hydroxide solution to complete the neutralisation. What is the original concentration of the magnesium sulphate solution?",
+   "option_a": "1.5 × 10⁻³ mol dm⁻³",
+   "option_b": "2.0 × 10⁻³ mol dm⁻³",
+   "option_c": "2.5 × 10⁻³ mol dm⁻³",
+   "option_d": "3.0 × 10⁻³ mol dm⁻³",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the compounds below will produce the maximum amount of gas when heated at room temperature and pressure?",
+   "option_a": "Mg(NO₃)₂",
+   "option_b": "MgO",
+   "option_c": "Mg(OH)₂",
+   "option_d": "MgCl₂",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "0.10 g of a monobasic acid requires 12.6 cm³ of 0.25 mol dm⁻³ of sodium hydroxide for a complete reaction. What is the relative molecular mass of the acid?",
+   "option_a": "31.7",
+   "option_b": "63.4",
+   "option_c": "95.1",
+   "option_d": "126.8",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "A sample of air is passed through limewater to precipitate all the carbon dioxide as calcium carbonate. If 0.1 g of calcium carbonate is precipitated, what is the volume of carbon dioxide gas in the original sample? [1 mole of gas occupies 22.4 dm³]",
+   "option_a": "11.2 dm³",
+   "option_b": "11.2 cm³",
+   "option_c": "22.4 dm³",
+   "option_d": "22.4 cm³",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "10 cm³ of methane, CH₄, is mixed with 100 cm³ of oxygen at s.t.p. and the mixture sparked continuously. The mixture is cooled and bubbled through aqueous sodium hydroxide. What volume of gas will be absorbed by the sodium hydroxide?",
+   "option_a": "10 cm³",
+   "option_b": "55 cm³",
+   "option_c": "80 cm³",
+   "option_d": "110 cm³",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "20 dm³ (measured at room conditions) of an air sample is bubbled through limewater so that all the carbon dioxide are precipitated as calcium carbonate. The mass of calcium carbonate obtained is 0.40 g. What is the percentage by volume of carbon dioxide in the air sample?",
+   "option_a": "0.24%",
+   "option_b": "0.48%",
+   "option_c": "0.72%",
+   "option_d": "0.76%",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "When 3.17 g of XCl₃ was added to excess aqueous silver nitrate solution, 8.61 g of silver chloride was precipitated. What is the relative atomic mass of X? [Ag = 108, Cl = 35.5]",
+   "option_a": "27",
+   "option_b": "52",
+   "option_c": "58",
+   "option_d": "68",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Each molecule of haemoglobin contains 4 iron atoms. If the percentage by mass of iron in haemoglobin is 0.33%, what is the relative molecular mass of haemoglobin?",
+   "option_a": "3.4 × 10³",
+   "option_b": "6.8 × 10⁴",
+   "option_c": "1.7 × 10⁵",
+   "option_d": "6.8 × 10⁵",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "In a mass spectrum, what does the height of each peak represent?",
+   "option_a": "The relative abundance of that ion",
+   "option_b": "The atomic number of the element",
+   "option_c": "The number of neutrons in the ion",
+   "option_d": "The ionisation energy of the ion",
+   "answer": "A",
+   "explanation": "Peak height shows relative abundance (relative intensity). Peak position shows the mass-to-charge ratio."
+  },
+  {
+   "question": "Chlorine has two isotopes: ³⁵Cl (75.0%) and ³⁷Cl (25.0%). What is its relative atomic mass?",
+   "option_a": "36.5",
+   "option_b": "36.0",
+   "option_c": "35.5",
+   "option_d": "35.0",
+   "answer": "C",
+   "explanation": "(35 × 75.0 + 37 × 25.0) ÷ 100 = 35.5."
+  },
+  {
+   "question": "In the mass spectrum of a compound, which peak normally gives the relative molecular mass?",
+   "option_a": "The molecular ion peak at the highest m/z",
+   "option_b": "The peak at the lowest m/z",
+   "option_c": "The peak with the lowest intensity",
+   "option_d": "The base peak (tallest peak)",
+   "answer": "A",
+   "explanation": "The molecular ion is the intact molecule minus one electron. Smaller peaks are fragments."
+  },
+  {
+   "question": "How many molecules are in 0.500 mol of CO₂? (Avogadro constant = 6.02 × 10²³ mol⁻¹)",
+   "option_a": "6.02 × 10²³",
+   "option_b": "3.01 × 10²²",
+   "option_c": "1.20 × 10²⁴",
+   "option_d": "3.01 × 10²³",
+   "answer": "D",
+   "explanation": "0.500 × 6.02 × 10²³ = 3.01 × 10²³."
+  },
+  {
+   "question": "What mass of NaOH (Mr = 40.0) is in 0.250 mol?",
+   "option_a": "160 g",
+   "option_b": "0.00625 g",
+   "option_c": "4.00 g",
+   "option_d": "10.0 g",
+   "answer": "D",
+   "explanation": "Mass = moles × Mr = 0.250 × 40.0 = 10.0 g."
+  },
+  {
+   "question": "How many moles of HCl are in 25.0 cm³ of 0.200 mol dm⁻³ solution?",
+   "option_a": "8.00 × 10⁻³ mol",
+   "option_b": "5.00 × 10⁻³ mol",
+   "option_c": "5.00 mol",
+   "option_d": "5.00 × 10⁻² mol",
+   "answer": "B",
+   "explanation": "n = cV = 0.200 × 0.0250 = 5.00 × 10⁻³ mol."
+  },
+  {
+   "question": "For 2H₂ + O₂ → 2H₂O, 4.0 mol H₂ reacts with 1.0 mol O₂. Which is limiting and how much water forms?",
+   "option_a": "H₂ limits; 4.0 mol H₂O",
+   "option_b": "H₂ limits; 2.0 mol H₂O",
+   "option_c": "O₂ limits; 4.0 mol H₂O",
+   "option_d": "O₂ limits; 2.0 mol H₂O",
+   "answer": "D",
+   "explanation": "1.0 mol O₂ needs only 2.0 mol H₂, so O₂ runs out first and 2.0 mol H₂O forms."
+  },
+  {
+   "question": "A reaction has a theoretical yield of 5.00 g and an actual yield of 3.75 g. What is the percentage yield?",
+   "option_a": "62.5%",
+   "option_b": "133%",
+   "option_c": "25.0%",
+   "option_d": "75.0%",
+   "answer": "D",
+   "explanation": "(3.75 ÷ 5.00) × 100 = 75.0%."
+  },
+  {
+   "question": "At STP (molar volume 22.4 dm³ mol⁻¹), what volume do 2.00 mol of N₂ occupy?",
+   "option_a": "11.2 dm³",
+   "option_b": "44.8 dm³",
+   "option_c": "22.4 dm³",
+   "option_d": "89.6 dm³",
+   "answer": "B",
+   "explanation": "Volume = 2.00 × 22.4 = 44.8 dm³."
+  },
+  {
+   "question": "A calculation uses 12.50 g, 0.0400 mol and 2.00 dm³. How many significant figures should the answer have?",
+   "option_a": "2",
+   "option_b": "3",
+   "option_c": "1",
+   "option_d": "4",
+   "answer": "B",
+   "explanation": "The answer follows the least precise data. 0.0400 and 2.00 both have 3 significant figures."
+  },
+  {
+   "question": "How many moles of O₂ are needed to burn 2 mol of propane? C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
+   "option_a": "2 mol",
+   "option_b": "7 mol",
+   "option_c": "5 mol",
+   "option_d": "10 mol",
+   "answer": "D",
+   "explanation": "The mole ratio is 1 : 5, so 2 mol of propane needs 10 mol of O₂."
+  },
+  {
+   "question": "In N₂ + 3H₂ → 2NH₃, what volume of H₂ reacts completely with 10 dm³ of N₂ at the same temperature and pressure?",
+   "option_a": "10 dm³",
+   "option_b": "3.3 dm³",
+   "option_c": "30 dm³",
+   "option_d": "20 dm³",
+   "answer": "C",
+   "explanation": "Gas volumes at the same T and p follow the mole ratio 1 : 3."
+  }
+ ],
+ "c02": [
+  {
+   "question": "In the hydrogen emission spectrum, the Lyman series arises when electrons fall to which energy level?",
+   "option_a": "n = 2",
+   "option_b": "n = 1",
+   "option_c": "n = ∞",
+   "option_d": "n = 3",
+   "answer": "B",
+   "explanation": "The Lyman series ends at n = 1 and lies in the ultraviolet. The Balmer series ends at n = 2 (visible)."
+  },
+  {
+   "question": "Why does hydrogen give a line spectrum rather than a continuous spectrum?",
+   "option_a": "Its electron can only occupy discrete energy levels",
+   "option_b": "The electron moves in a straight line",
+   "option_c": "Hydrogen atoms vibrate at fixed rates",
+   "option_d": "The nucleus emits light of fixed frequencies",
+   "answer": "A",
+   "explanation": "Only energy gaps between fixed levels can be emitted, so only certain frequencies appear."
+  },
+  {
+   "question": "Why do the lines in a hydrogen series get closer together at high frequency?",
+   "option_a": "The energy levels converge as n increases",
+   "option_b": "The electron gains mass at high n",
+   "option_c": "The photons lose energy in the atom",
+   "option_d": "The nuclear charge falls at high n",
+   "answer": "A",
+   "explanation": "Energy levels get closer together as n rises, so the lines converge to a limit."
+  },
+  {
+   "question": "Which transition has an energy equal to the first ionisation energy of hydrogen?",
+   "option_a": "n = 1 to n = ∞",
+   "option_b": "n = ∞ to n = 2",
+   "option_c": "n = 1 to n = 2",
+   "option_d": "n = 2 to n = ∞",
+   "answer": "A",
+   "explanation": "Ionisation removes the electron from n = 1 completely, to n = ∞."
+  },
+  {
+   "question": "Which quantum number determines the shape of an orbital?",
+   "option_a": "s",
+   "option_b": "m",
+   "option_c": "n",
+   "option_d": "l",
+   "answer": "D",
+   "explanation": "The subsidiary quantum number l gives the shape (0 = s, 1 = p, 2 = d). n gives size and energy."
+  },
+  {
+   "question": "How many orbitals are there in total in the n = 3 shell?",
+   "option_a": "3",
+   "option_b": "18",
+   "option_c": "9",
+   "option_d": "6",
+   "answer": "C",
+   "explanation": "One 3s, three 3p and five 3d orbitals give 1 + 3 + 5 = 9."
+  },
+  {
+   "question": "Which set of quantum numbers (n, l, m, s) is allowed for an electron in a 3d orbital?",
+   "option_a": "3, 1, +2, −½",
+   "option_b": "3, 3, 0, +½",
+   "option_c": "3, 2, +1, −½",
+   "option_d": "2, 2, −1, −½",
+   "answer": "C",
+   "explanation": "For 3d, n = 3 and l = 2. The value of m can be −2 to +2."
+  },
+  {
+   "question": "What is the electronic configuration of chromium (Z = 24)?",
+   "option_a": "[Ar] 3d⁵ 4s¹",
+   "option_b": "[Ar] 3d⁶",
+   "option_c": "[Ar] 3d⁴ 4s²",
+   "option_d": "[Ar] 4s² 4p⁴",
+   "answer": "A",
+   "explanation": "A half-filled 3d subshell plus a half-filled 4s subshell is extra stable."
+  },
+  {
+   "question": "What is the electronic configuration of Fe³⁺ (Z = 26)?",
+   "option_a": "[Ar] 3d⁵ 4s¹",
+   "option_b": "[Ar] 3d³ 4s²",
+   "option_c": "[Ar] 3d⁵",
+   "option_d": "[Ar] 3d⁶",
+   "answer": "C",
+   "explanation": "The 4s electrons go first, then one 3d electron, leaving a half-filled 3d⁵."
+  },
+  {
+   "question": "Which electrons are removed first when a first-row transition metal forms a cation?",
+   "option_a": "3p electrons",
+   "option_b": "3d electrons",
+   "option_c": "4s electrons",
+   "option_d": "Any electron, equally",
+   "answer": "C",
+   "explanation": "Although 4s fills first, it is the outermost shell and loses electrons first."
+  },
+  {
+   "question": "The three 2p electrons of nitrogen occupy separate orbitals with parallel spins. Which rule explains this?",
+   "option_a": "Aufbau principle",
+   "option_b": "Heisenberg principle",
+   "option_c": "Hund's rule",
+   "option_d": "Pauli exclusion principle",
+   "answer": "C",
+   "explanation": "Hund's rule: degenerate orbitals are filled singly with parallel spins before pairing."
+  },
+  {
+   "question": "Which statement is the Pauli exclusion principle?",
+   "option_a": "No two electrons in an atom can have the same four quantum numbers",
+   "option_b": "Electron position and momentum cannot both be known exactly",
+   "option_c": "Degenerate orbitals fill singly first",
+   "option_d": "Electrons fill the lowest energy orbitals first",
+   "answer": "A",
+   "explanation": "An orbital holds at most two electrons, and they must have opposite spins."
+  },
+  {
+   "question": "An atom has the configuration 1s² 2s² 2p⁶ 3s² 3p⁶ 3d⁶ 4s². Where is it in the periodic table?",
+   "option_a": "p-block, Period 4",
+   "option_b": "d-block, Period 4",
+   "option_c": "d-block, Period 3",
+   "option_d": "s-block, Period 4",
+   "answer": "B",
+   "explanation": "The highest shell is n = 4 (Period 4) and the last electrons enter 3d, so it is a d-block element (iron)."
+  }
+ ],
+ "c03": [
+  {
+   "question": "Which of the following compounds has a boiling point that is influenced by hydrogen bonding?",
+   "option_a": "C₂H₅OCH₃",
+   "option_b": "CH₃COOC₂H₅",
+   "option_c": "C₂H₅NH₂",
+   "option_d": "CH₃COCH₃",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following species does not have the same shape as H₂O?",
+   "option_a": "H₂S",
+   "option_b": "SO₂",
+   "option_c": "SiO₂",
+   "option_d": "NO₂⁻",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following compounds has van der Waals forces?",
+   "option_a": "Sodium",
+   "option_b": "Sulphur",
+   "option_c": "Ammonium nitrate",
+   "option_d": "Silicon",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following solids has more than one kind of bonds in its structure?",
+   "option_a": "Bronze",
+   "option_b": "Alnico",
+   "option_c": "Ice",
+   "option_d": "Silicon dioxide",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following best explains why the boiling point of H₂O is higher than HF?",
+   "option_a": "H₂O is a liquid but HF is a gas",
+   "option_b": "Fluorine is more electronegative than oxygen",
+   "option_c": "The H₂O molecule has a bent structure while that of HF is linear",
+   "option_d": "The intermolecular forces in H₂O is stronger than HF",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which compound has the highest covalent character?",
+   "option_a": "BeF₂",
+   "option_b": "CaO",
+   "option_c": "Al₂O₃",
+   "option_d": "SO₂",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which molecule has the strongest intermolecular force?",
+   "option_a": "C₂H₅Cl",
+   "option_b": "SiO₂",
+   "option_c": "(CH₃)₃N",
+   "option_d": "CH₃COOH",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "At room conditions, hydrogen sulphide is a gas and water is a liquid. A correct explanation of this phenomenon is",
+   "option_a": "hydrogen sulphide molecule is bent whereas water is linear.",
+   "option_b": "the water molecule is larger than the hydrogen sulphide molecule.",
+   "option_c": "there is no lone pair of electrons in the hydrogen sulphide molecule.",
+   "option_d": "oxygen is more electronegative than sulphur.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements regarding π-bond is correct?",
+   "option_a": "It consists of four electrons.",
+   "option_b": "It is formed by the overlap of unhybridised orbitals.",
+   "option_c": "It is stronger than a σ-bond.",
+   "option_d": "It cannot be formed unless the two atoms are already joined by a double bond.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following most accurately characterised elements with metallic bonds?",
+   "option_a": "They have high melting points.",
+   "option_b": "They are conductors of electricity in the solid and liquid states.",
+   "option_c": "They are hard.",
+   "option_d": "They have shiny surfaces.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following is the property of all ionic solids?",
+   "option_a": "They are soluble in water.",
+   "option_b": "They have low enthalpy of vaporisation.",
+   "option_c": "They conduct electricity in the solid state.",
+   "option_d": "They are electrolytes in the molten state.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "The structure of the I₃⁻ ion is",
+   "option_a": "linear",
+   "option_b": "bent",
+   "option_c": "trigonal planar",
+   "option_d": "pyramidal",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "In which of the following pairs do the species have the same shape?",
+   "option_a": "AlCl₃ and PH₃",
+   "option_b": "CH₃⁺ and NH₄⁺",
+   "option_c": "CO and HF",
+   "option_d": "CO₂ and SO₂",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following processes is responsible for the identical sulphur-oxygen bonds in the SO₄²⁻ ion?",
+   "option_a": "Hybridisation",
+   "option_b": "Delocalisation",
+   "option_c": "Electron sharing",
+   "option_d": "Isomerism",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which species has the largest bond angle?",
+   "option_a": "AlCl₃",
+   "option_b": "HCN",
+   "option_c": "SO₄²⁻",
+   "option_d": "NH₃",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following molecules has the largest bond angle?",
+   "option_a": "AlCl₃",
+   "option_b": "H₂O",
+   "option_c": "CH₄",
+   "option_d": "CO₂",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "What is the nature of the intermolecular force that is responsible for iodine being a solid at room conditions?",
+   "option_a": "Covalent bond",
+   "option_b": "Hydrogen bonding",
+   "option_c": "Ionic bond",
+   "option_d": "van der Waals force",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Why is CH₃⁺ planar whereas CH₃⁻ is not?",
+   "option_a": "CH₃⁺ is a neutral molecule whereas CH₃⁻ is a cation.",
+   "option_b": "There is a lone pair of electrons in CH₃⁻.",
+   "option_c": "The carbon atom in CH₃⁺ is surrounded by only three electron pairs whereas four electron pairs surround the carbon atom in CH₃⁻.",
+   "option_d": "CH₃⁺ undergoes sp³ hybridisation whereas CH₃⁻ undergoes dsp₃ hybridisation.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Ammonia reacts with aluminium chloride to form an addition compound. Which is not true about this reaction?",
+   "option_a": "Ammonia acts as a Lewis base",
+   "option_b": "Coordinate (dative) bonds are formed between ammonia and chlorine",
+   "option_c": "The reaction takes place in the gaseous phase",
+   "option_d": "The reaction is reversible",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following species is square planar?",
+   "option_a": "CH₄",
+   "option_b": "SiCl₄",
+   "option_c": "XeF₄",
+   "option_d": "C₂H₄",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following compounds contains more than four bonding electrons?",
+   "option_a": "BeCl₂",
+   "option_b": "H₂O",
+   "option_c": "SnCl₂",
+   "option_d": "CO₂",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "What type of nitrogen-nitrogen bonds is present in N₂, N₂H₄, and N₂(C₂H₅)₂ respectively?",
+   "option_a": "Double, Double, Single",
+   "option_b": "Triple, Double, Single",
+   "option_c": "Triple, Single, Double",
+   "option_d": "Single, Single, Triple",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which species has a linear shape? (I: I₃⁻, II: CO₂, III: N₃⁻)",
+   "option_a": "I only",
+   "option_b": "II only",
+   "option_c": "II and III",
+   "option_d": "I, II and III",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Coordinate bonds do not exist in",
+   "option_a": "Al₂Cl₆",
+   "option_b": "PCl₅",
+   "option_c": "[Cu(NH₃)₄(H₂O)₂]²⁺",
+   "option_d": "CO",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "The bond angles in CH₄, NH₃ and H₂O are 109°, 107° and 104° respectively. The difference in the bond angle in the three molecules is due to",
+   "option_a": "the hybridisation of the central atom",
+   "option_b": "the electronegativity of the central atom",
+   "option_c": "the number of lone pair electrons in the central atom",
+   "option_d": "the strength of hydrogen bonding between the molecules",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which species and its geometry is incorrect?",
+   "option_a": "NH₃ : Pyramidal",
+   "option_b": "I₃⁻ : Linear",
+   "option_c": "CN⁻ : Bent",
+   "option_d": "[Fe(CN)₆]³⁻ : Octahedral",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements about the bonding in ammonia and water are correct? (I: Central atom undergoes sp³, II: O-H bond is stronger than N-H bond, III: Both are pyramidal, IV: More lone pair electrons in water)",
+   "option_a": "I and III",
+   "option_b": "I, II and IV",
+   "option_c": "II, III and IV",
+   "option_d": "I, II, III and IV",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Copper(I) oxide is a reddish-brown solid. In which orbitals are the valence electrons of copper(I) ion found?",
+   "option_a": "3s",
+   "option_b": "4s",
+   "option_c": "3d",
+   "option_d": "4s and 3d",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "The strength of intermolecular forces determines the boiling point of a substance. Which substance has the highest boiling point?",
+   "option_a": "HF",
+   "option_b": "H₂O",
+   "option_c": "NaCl",
+   "option_d": "SiO₂",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Glucose, C₆H₁₂O₆, readily dissolves in water because",
+   "option_a": "it is ionic",
+   "option_b": "it is a polar molecule",
+   "option_c": "it exists in the more stable cyclic form in aqueous solution",
+   "option_d": "it can form hydrogen bonds with water molecules",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which statement is true of metallic bond? (I: Strength increases with metal atom size, II: Valence electrons move freely, III: Formed between electropositive & electronegative atoms)",
+   "option_a": "I only",
+   "option_b": "II only",
+   "option_c": "III only",
+   "option_d": "I and III",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "The boiling point of the halogens increases in the order: Cl₂ < Br₂ < I₂. Which property(ies) influence(s) the trend? (I: Covalent bond strength, II: Hydrogen bonding, III: Molecular size)",
+   "option_a": "I only",
+   "option_b": "III only",
+   "option_c": "II and III",
+   "option_d": "I, II and III",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following compounds is ionic?",
+   "option_a": "HF",
+   "option_b": "F₂O",
+   "option_c": "AlCl₃",
+   "option_d": "[Cu(H₂O)₆]SO₄",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Consider the four elements, W, X, Y and Z (Proton numbers: W=11, X=13, Y=24, Z=30). Which element has the highest melting point?",
+   "option_a": "W",
+   "option_b": "X",
+   "option_c": "Y",
+   "option_d": "Z",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements is not true with regards to the nitrogen molecule?",
+   "option_a": "Nitrogen exists as a diatomic molecule.",
+   "option_b": "The nitrogen molecule is non-polar.",
+   "option_c": "The triple bond in nitrogen molecule consists of two σ-bonds and one π-bond.",
+   "option_d": "The nitrogen molecule is chemical inert.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following is not true with regards to the C₂Cl₂ molecule?",
+   "option_a": "It is linear.",
+   "option_b": "The carbon atoms undergo sp hybridisation.",
+   "option_c": "It is polar.",
+   "option_d": "The carbon atoms are joined by a triple bond.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which statement about the Lewis structures of CO₃²⁻ and NO₃⁻ is not true?",
+   "option_a": "Both ions have one coordinate bond in their structures.",
+   "option_b": "Both ions have the same shape.",
+   "option_c": "The central atoms in both ions have octet configuration.",
+   "option_d": "Both ions have three σ-bonds and one π-bond.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "What is the shape and approximate bond angle of NH₃?",
+   "option_a": "Trigonal planar, 120°",
+   "option_b": "Tetrahedral, 109.5°",
+   "option_c": "Bent, 104.5°",
+   "option_d": "Trigonal pyramidal, 107°",
+   "answer": "D",
+   "explanation": "Three bond pairs and one lone pair give a pyramid. The lone pair squeezes the angle below 109.5°."
+  },
+  {
+   "question": "Why is the H–O–H angle in water (104.5°) smaller than the tetrahedral angle?",
+   "option_a": "Two lone pairs repel more strongly than bond pairs",
+   "option_b": "Oxygen is sp hybridised",
+   "option_c": "Hydrogen atoms repel each other strongly",
+   "option_d": "Oxygen has no lone pairs",
+   "answer": "A",
+   "explanation": "Lone pair–lone pair repulsion is greater than bond pair repulsion, pushing the bonds closer."
+  },
+  {
+   "question": "What is the shape of SF₆?",
+   "option_a": "Trigonal bipyramidal",
+   "option_b": "Tetrahedral",
+   "option_c": "Octahedral",
+   "option_d": "Square planar",
+   "answer": "C",
+   "explanation": "Six bond pairs and no lone pairs give an octahedron with 90° angles."
+  },
+  {
+   "question": "What is the shape of PCl₅?",
+   "option_a": "Tetrahedral",
+   "option_b": "Square pyramidal",
+   "option_c": "Octahedral",
+   "option_d": "Trigonal bipyramidal",
+   "answer": "D",
+   "explanation": "Five bond pairs give a trigonal bipyramid with 90° and 120° angles."
+  },
+  {
+   "question": "What is the hybridisation of boron in BF₃?",
+   "option_a": "sp",
+   "option_b": "sp³",
+   "option_c": "sp²",
+   "option_d": "sp³d",
+   "answer": "C",
+   "explanation": "One s and two p orbitals mix to give three sp² orbitals in a trigonal planar arrangement."
+  },
+  {
+   "question": "Which molecule has a central atom with sp hybridisation?",
+   "option_a": "H₂O",
+   "option_b": "BeCl₂",
+   "option_c": "BF₃",
+   "option_d": "CH₄",
+   "answer": "B",
+   "explanation": "BeCl₂ has two bond pairs, a linear shape and sp hybridisation."
+  },
+  {
+   "question": "How many sigma (σ) and pi (π) bonds are in HCN?",
+   "option_a": "3σ and 1π",
+   "option_b": "2σ and 2π",
+   "option_c": "2σ and 1π",
+   "option_d": "1σ and 3π",
+   "answer": "B",
+   "explanation": "H–C is σ. C≡N is one σ and two π bonds."
+  },
+  {
+   "question": "CCl₄ has polar C–Cl bonds. Why is the molecule non-polar?",
+   "option_a": "Chlorine has no lone pairs",
+   "option_b": "The C–Cl bonds are really non-polar",
+   "option_c": "The bond dipoles cancel in the symmetrical tetrahedral shape",
+   "option_d": "The molecule is planar",
+   "answer": "C",
+   "explanation": "Equal dipoles pointing symmetrically outward add up to zero."
+  },
+  {
+   "question": "What is the formal charge on nitrogen in the best Lewis structure of NO₃⁻ (one N=O, two N–O⁻)?",
+   "option_a": "0",
+   "option_b": "−1",
+   "option_c": "+2",
+   "option_d": "+1",
+   "answer": "D",
+   "explanation": "Formal charge = 5 − 0 lone pair electrons − 4 bonding electrons (half of 8) = +1."
+  },
+  {
+   "question": "Which species contains a coordinate (dative) bond?",
+   "option_a": "H₂O",
+   "option_b": "NH₄⁺",
+   "option_c": "NH₃",
+   "option_d": "CH₄",
+   "answer": "B",
+   "explanation": "Nitrogen donates its lone pair to H⁺, which has an empty orbital."
+  },
+  {
+   "question": "Why is nitrogen gas so unreactive?",
+   "option_a": "N₂ is a polar molecule",
+   "option_b": "The N≡N triple bond is very strong and hard to break",
+   "option_c": "Nitrogen atoms have no valence electrons",
+   "option_d": "Nitrogen has a very low electronegativity",
+   "answer": "B",
+   "explanation": "Breaking the N≡N bond needs about 944 kJ mol⁻¹, so reactions need drastic conditions."
+  },
+  {
+   "question": "Which carbon–carbon bond is the shortest and strongest?",
+   "option_a": "All have the same length",
+   "option_b": "C=C",
+   "option_c": "C≡C",
+   "option_d": "C–C",
+   "answer": "C",
+   "explanation": "More shared electron pairs pull the nuclei closer together and bind them more strongly."
+  },
+  {
+   "question": "Which ion has a pseudo-noble gas configuration?",
+   "option_a": "Fe²⁺",
+   "option_b": "Cr³⁺",
+   "option_c": "Zn²⁺",
+   "option_d": "Mg²⁺",
+   "answer": "C",
+   "explanation": "Zn²⁺ is [Ar] 3d¹⁰ with a fully filled d subshell. Mg²⁺ has a true noble gas configuration."
+  },
+  {
+   "question": "Why does magnesium have a higher melting point than sodium?",
+   "option_a": "Sodium atoms are larger than magnesium atoms only",
+   "option_b": "Magnesium forms hydrogen bonds",
+   "option_c": "Magnesium has a covalent lattice",
+   "option_d": "Mg²⁺ has a higher charge and gives two delocalised electrons, so metallic bonding is stronger",
+   "answer": "D",
+   "explanation": "A higher ionic charge, smaller radius and more delocalised electrons strengthen metallic bonding."
+  },
+  {
+   "question": "Why does H₂O boil at a much higher temperature than H₂S?",
+   "option_a": "Water has a larger molar mass",
+   "option_b": "O–H bonds are weaker than S–H bonds",
+   "option_c": "Water has more van der Waals forces than H₂S",
+   "option_d": "Hydrogen bonds between water molecules",
+   "answer": "D",
+   "explanation": "Oxygen is small and highly electronegative, so water forms strong hydrogen bonds."
+  },
+  {
+   "question": "Why do boiling points of the noble gases increase down the group?",
+   "option_a": "The atomic mass makes bonds stronger",
+   "option_b": "Hydrogen bonds form between the atoms",
+   "option_c": "Larger electron clouds give stronger instantaneous dipole–induced dipole forces",
+   "option_d": "The atoms become polar",
+   "answer": "C",
+   "explanation": "More electrons mean larger temporary dipoles and stronger van der Waals forces."
+  },
+  {
+   "question": "Why does 2-nitrophenol boil lower than 4-nitrophenol?",
+   "option_a": "It cannot form any hydrogen bonds",
+   "option_b": "It has intramolecular hydrogen bonding",
+   "option_c": "It has a lower molar mass",
+   "option_d": "It is ionic",
+   "answer": "B",
+   "explanation": "Intramolecular H-bonding uses up the OH, so fewer intermolecular H-bonds form."
+  },
+  {
+   "question": "Which statement about ionic and covalent compounds is correct?",
+   "option_a": "Covalent compounds always conduct when molten",
+   "option_b": "Ionic solids conduct electricity only when molten or dissolved",
+   "option_c": "Simple covalent compounds have very high melting points",
+   "option_d": "Ionic solids conduct well as solids",
+   "answer": "B",
+   "explanation": "Ions are fixed in the solid lattice and are free to move only in the liquid or aqueous state."
+  }
+ ],
+ "c04": [
+  {
+   "question": "A graph of a physical property across Period 3 (Na to Ar) rises to a maximum at silicon and then falls sharply. What is the physical property?",
+   "option_a": "Electronegativity",
+   "option_b": "Electrical conductivity",
+   "option_c": "First ionisation energy",
+   "option_d": "Melting point",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following elements forms an ionic hydride?",
+   "option_a": "Magnesium",
+   "option_b": "Aluminium",
+   "option_c": "Sulphur",
+   "option_d": "Chlorine",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "The first seven successive ionisation energies of element Y is given below (Electron 1 to 7: 1402, 2856, 4578, 7475, 9445, 53267, 64360 kJ mol⁻¹). Which statement is true about element Y?",
+   "option_a": "Element Y has three valence electrons",
+   "option_b": "The atom of element Y has seven electrons",
+   "option_c": "The reaction between element Y and hydrogen forms YH₃",
+   "option_d": "Element Y is in Period 6 of the Periodic Table",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "The second ionisation energy of sodium is the highest among the Period 3 elements (Na to Cl) because",
+   "option_a": "sodium is a very electropositive element",
+   "option_b": "sodium has the highest effective nuclear charge",
+   "option_c": "it is very difficult for sodium to form the Na²⁺ ion",
+   "option_d": "the second electron removed is from an inner filled shell",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which element in Period 3 does not react with oxygen?",
+   "option_a": "Aluminium",
+   "option_b": "Phosphorus",
+   "option_c": "Chlorine",
+   "option_d": "Sulphur",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which oxide when dissolved in water would produce a solution with the highest pH?",
+   "option_a": "Na₂O",
+   "option_b": "MgO",
+   "option_c": "SiO₂",
+   "option_d": "SO₃",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements about the oxides of Period 3 is not correct?",
+   "option_a": "SiO₂ and P₄O₁₀ are solid at room conditions.",
+   "option_b": "Al₂O₃ and MgO are amphoteric oxides.",
+   "option_c": "SO₃ exists only in the gaseous state.",
+   "option_d": "Chlorine(I) oxide is prepared by passing dry chlorine over mercury(II) oxide at 400 °C.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Going across Period 3, the reducing power of the elements (Na to Cl) decreases. This is because",
+   "option_a": "the electronegativity of the elements increases.",
+   "option_b": "the ionisation energy of the elements increases.",
+   "option_c": "the oxidation state of the elements increases.",
+   "option_d": "the polarising power of the ions increases.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following oxides is amphoteric?",
+   "option_a": "Na₂O",
+   "option_b": "Al₂O₃",
+   "option_c": "MgO",
+   "option_d": "Cl₂O₇",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following is not true regarding silicon dioxide?",
+   "option_a": "It is a white solid.",
+   "option_b": "It conducts electricity in the molten state.",
+   "option_c": "It dissolves in hot, concentrated sodium hydroxide.",
+   "option_d": "It has a giant structure.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following compounds would produce an acidic solution when added to water? (I: SO₃, II: P₄O₁₀, III: Al₂O₃)",
+   "option_a": "I only",
+   "option_b": "III only",
+   "option_c": "I and II",
+   "option_d": "I and III",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements is correct about the Period 3 elements?",
+   "option_a": "Sodium oxide is the only oxide that dissolves in water to give a strong alkaline solution.",
+   "option_b": "Generally, the reactivity of the elements towards oxygen increases.",
+   "option_c": "Chlorine is the only gaseous element.",
+   "option_d": "Silicon dioxide has the highest melting point.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which statement(s) is/are true regarding the oxides of Na₂O, MgO and Al₂O₃? (I: Na₂O is the only oxide that is soluble in water, II: The melting point increases in the order of Na₂O < MgO < Al₂O₃, III: MgO and Al₂O₃ are amphoteric)",
+   "option_a": "I only",
+   "option_b": "II only",
+   "option_c": "I and II",
+   "option_d": "II and III",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Going across the Period 3 elements (Na to Cl) in the Periodic Table,",
+   "option_a": "the atomic radius increases.",
+   "option_b": "the first ionisation energy decreases.",
+   "option_c": "the electrical conductivity increases.",
+   "option_d": "the maximum oxidation state increases.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "The first ionisation energy of nitrogen is higher than that of oxygen. Which statement best explains the difference?",
+   "option_a": "Nitrogen has a more stable electronic configuration.",
+   "option_b": "Nitrogen is in Group 15 of the Periodic Table while oxygen is in Group 16.",
+   "option_c": "Nitrogen is more stable due to the presence of N≡N triple bond.",
+   "option_d": "Nitrogen is more electronegative than oxygen.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following groups contains a basic, an acidic and an amphoteric oxide?",
+   "option_a": "MgO, Al₂O₃, Na₂O",
+   "option_b": "Cl₂O₇, SO₃, P₄O₁₀",
+   "option_c": "Al₂O₃, MgO, Cl₂O",
+   "option_d": "SiO₂, SO₂, Na₂O",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following ions has the smallest ionic radius?",
+   "option_a": "P³⁻",
+   "option_b": "Na⁺",
+   "option_c": "Al³⁺",
+   "option_d": "F⁻",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Choose the arrangement of cations with the increasing order of ionic radius.",
+   "option_a": "Al³⁺, Mg²⁺, Na⁺",
+   "option_b": "Al³⁺, Na⁺, Mg²⁺",
+   "option_c": "Na⁺, Mg²⁺, Al³⁺",
+   "option_d": "Mg²⁺, Al³⁺, Na⁺",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following oxides is an amphoteric?",
+   "option_a": "Sodium oxide",
+   "option_b": "Aluminium oxide",
+   "option_c": "Silicon dioxide",
+   "option_d": "Chlorine(VII) oxide",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following best explains why the ionic size decreases in the order of P³⁻ > S²⁻ > Cl⁻?",
+   "option_a": "An increase in the total number of protons and electrons.",
+   "option_b": "A decrease in the total number of electrons and an increase in the number of protons.",
+   "option_c": "A decrease in the total number of electrons and the number of protons.",
+   "option_d": "The total number of electrons remains the same and an increase in the total number of protons.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which element has the highest second ionisation energy?",
+   "option_a": "Na",
+   "option_b": "Al",
+   "option_c": "S",
+   "option_d": "Cl",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "An oxide X has a boiling point of 2230 °C. It dissolves in aqueous sodium hydroxide solution but not in water and acid. Oxide X is",
+   "option_a": "PbO₂",
+   "option_b": "P₄O₁₀",
+   "option_c": "SiO₂",
+   "option_d": "Al₂O₃",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "The first six successive ionisation energies (in kJ mol⁻¹) for four elements are given below. Which one is most likely to be a Group 2 element?",
+   "option_a": "1260, 2300, 3800, 5200, 6500, 9300",
+   "option_b": "1314, 3388, 5301, 7469, 10989, 13327",
+   "option_c": "790, 1600, 3200, 4400, 16120, 19800",
+   "option_d": "745, 1500, 10450, 13600, 18000, 21100",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "X, Y and Z are elements in Period 3 of the Periodic Table. Oxides properties: X (Gas, Soluble, Acidic), Y (Liquid, Soluble, Acidic), Z (Solid, Insoluble, Basic). What could elements X, Y and Z be?",
+   "option_a": "X: Magnesium, Y: Chlorine, Z: Sodium",
+   "option_b": "X: Sulphur, Y: Phosphorus, Z: Magnesium",
+   "option_c": "X: Chlorine, Y: Sodium, Z: Sulphur",
+   "option_d": "X: Silicon, Y: Sulphur, Z: Aluminium",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "An oxide of X has a melting point of 1600 °C. It dissolves in hot, aqueous sodium hydroxide but not in water or acid. Oxide of X could be",
+   "option_a": "MgO",
+   "option_b": "Al₂O₃",
+   "option_c": "SiO₂",
+   "option_d": "P₄O₁₀",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements correctly explain the electrical conductivity of sodium? (I: It has two valence electrons in the 3s orbital, II: The overlap of the valence and conduction bands as well as the presence of free electrons, III: Electrons move freely from the valence band into the conduction band)",
+   "option_a": "I only",
+   "option_b": "II only",
+   "option_c": "I and II",
+   "option_d": "II and III",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Element X is in Period 3 of the Periodic Table. The valence electronic configuration of element X is ns² np¹. Which statement is true about the oxide of element X?",
+   "option_a": "An ionic compound and has a basic property",
+   "option_b": "A giant covalent structure and has an acidic property",
+   "option_c": "A simple molecular structure and has an acidic property",
+   "option_d": "An ionic compound with covalent characteristics and has an amphoteric property",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "The properties of three oxides, X, Y and Z, in Period 3 are: X dissolves in water giving pH 13; Y dissolves in aq. NaOH; Z dissolves in aq. NaOH and HCl. What are represented by X, Y and Z?",
+   "option_a": "X: Na₂O, Y: MgO, Z: Al₂O₃",
+   "option_b": "X: Na₂O, Y: SiO₂, Z: Al₂O₃",
+   "option_c": "X: MgO, Y: Al₂O₃, Z: SO₃",
+   "option_d": "X: Cl₂O₇, Y: MgO, Z: P₄O₁₀",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Why does atomic radius decrease across Period 3?",
+   "option_a": "Shielding increases across the period",
+   "option_b": "The number of neutrons decreases",
+   "option_c": "Atoms lose electron shells",
+   "option_d": "Nuclear charge increases while shielding stays about the same",
+   "answer": "D",
+   "explanation": "More protons pull the same number of shells in more tightly."
+  },
+  {
+   "question": "Which Period 3 element has the highest melting point?",
+   "option_a": "Aluminium",
+   "option_b": "Chlorine",
+   "option_c": "Silicon",
+   "option_d": "Sodium",
+   "answer": "C",
+   "explanation": "Silicon has a giant covalent lattice with strong bonds throughout."
+  },
+  {
+   "question": "Why is the melting point of S₈ higher than that of P₄?",
+   "option_a": "Sulphur is a metal",
+   "option_b": "S₈ has more electrons, so stronger van der Waals forces",
+   "option_c": "S₈ forms hydrogen bonds",
+   "option_d": "S–S bonds break on melting",
+   "answer": "B",
+   "explanation": "Both are simple molecules. The larger S₈ has stronger instantaneous dipole–induced dipole forces."
+  },
+  {
+   "question": "In band theory, why is silicon a semiconductor?",
+   "option_a": "The valence and conduction bands overlap",
+   "option_b": "The band gap is very large",
+   "option_c": "It has delocalised electrons in a lattice of ions",
+   "option_d": "The band gap is small, so some electrons can reach the conduction band",
+   "answer": "D",
+   "explanation": "Thermal energy lets a few electrons cross a small gap."
+  },
+  {
+   "question": "How does band theory explain why metals conduct?",
+   "option_a": "All electrons are held in fixed bonds",
+   "option_b": "The band gap is large",
+   "option_c": "Valence and conduction bands overlap or the band is partly filled",
+   "option_d": "There are no energy bands in metals",
+   "answer": "C",
+   "explanation": "Electrons can move into empty levels with almost no extra energy."
+  },
+  {
+   "question": "Why is the first ionisation energy of aluminium lower than that of magnesium?",
+   "option_a": "Aluminium has fewer protons",
+   "option_b": "Its 3s electrons repel each other",
+   "option_c": "Aluminium has a larger radius shell",
+   "option_d": "The 3p electron is higher in energy and shielded by 3s electrons",
+   "answer": "D",
+   "explanation": "The outer electron of Al is in a 3p orbital, which is easier to remove than a 3s electron."
+  },
+  {
+   "question": "Why is the first ionisation energy of sulphur lower than that of phosphorus?",
+   "option_a": "Repulsion between paired electrons in a 3p orbital",
+   "option_b": "Sulphur has a smaller nuclear charge",
+   "option_c": "Sulphur has a larger atomic radius shell",
+   "option_d": "Phosphorus has more shielding",
+   "answer": "A",
+   "explanation": "The paired 3p electron in S feels extra repulsion, so it is easier to remove."
+  },
+  {
+   "question": "Successive ionisation energies (kJ mol⁻¹) are 578, 1817, 2745, 11577, 14842. Which group is the element in?",
+   "option_a": "Group 2",
+   "option_b": "Group 15",
+   "option_c": "Group 13",
+   "option_d": "Group 14",
+   "answer": "C",
+   "explanation": "The big jump after the third IE shows three valence electrons, so Group 13."
+  },
+  {
+   "question": "What is formed when sodium burns in excess oxygen?",
+   "option_a": "Sodium nitride",
+   "option_b": "Sodium peroxide, Na₂O₂",
+   "option_c": "Sodium hydroxide",
+   "option_d": "Sodium oxide, Na₂O",
+   "answer": "B",
+   "explanation": "In limited oxygen Na gives Na₂O, and in excess oxygen mainly Na₂O₂."
+  },
+  {
+   "question": "Which Period 3 oxide is amphoteric?",
+   "option_a": "SiO₂",
+   "option_b": "SO₃",
+   "option_c": "Na₂O",
+   "option_d": "Al₂O₃",
+   "answer": "D",
+   "explanation": "Al₂O₃ reacts with both acids and bases."
+  },
+  {
+   "question": "What happens when P₄O₁₀ is added to water?",
+   "option_a": "It forms a neutral solution",
+   "option_b": "It forms phosphoric acid and the solution is strongly acidic",
+   "option_c": "It forms a basic solution",
+   "option_d": "It does not react",
+   "answer": "B",
+   "explanation": "P₄O₁₀ + 6H₂O → 4H₃PO₄, an acid."
+  },
+  {
+   "question": "Why is sulphur dioxide used to preserve dried fruit and wine?",
+   "option_a": "It prevents oxidation and stops microbes growing",
+   "option_b": "It lowers the melting point of sugar",
+   "option_c": "It adds a sweet taste",
+   "option_d": "It makes the food alkaline",
+   "answer": "A",
+   "explanation": "SO₂ acts as a reducing agent (antioxidant) and an antimicrobial."
+  },
+  {
+   "question": "Why is SiO₂ a solid with a very high melting point but SO₂ is a gas?",
+   "option_a": "SiO₂ is ionic and SO₂ is metallic",
+   "option_b": "SO₂ has hydrogen bonds",
+   "option_c": "SiO₂ has weak bonds",
+   "option_d": "SiO₂ is giant covalent and SO₂ is simple molecular",
+   "answer": "D",
+   "explanation": "Many strong covalent bonds must break in SiO₂. Only weak forces separate SO₂ molecules."
+  }
+ ],
+ "c05": [
+  {
+   "question": "Which of the following statements regarding the Group 2 elements and their compounds is not true?",
+   "option_a": "They are known as the alkaline metals.",
+   "option_b": "The general valence electronic configuration of Group 2 elements is ns².",
+   "option_c": "The melting point of calcium is higher than that of magnesium.",
+   "option_d": "Barium oxide is soluble in water.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Going down Group 2 of the Periodic Table,",
+   "option_a": "the maximum oxidation state of the elements increases.",
+   "option_b": "the polarising power of the cations increases.",
+   "option_c": "the electronegativity of the elements decreases.",
+   "option_d": "the reducing strength of metals increases.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which element burns readily in excess oxygen under normal heating to produce peroxide?",
+   "option_a": "Mg",
+   "option_b": "Ca",
+   "option_c": "Sr",
+   "option_d": "Ba",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Radium is below barium in Group 2 of the Periodic Table. Which statement about radium and its compounds is incorrect?",
+   "option_a": "Radium is an alkaline earth metal.",
+   "option_b": "Radium carbonate decomposes spontaneously at room temperature.",
+   "option_c": "Radium sulphate is insoluble in water.",
+   "option_d": "Radium reacts with water to liberate hydrogen gas.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following best explains why CaCO₃ decomposes at a higher temperature than MgCO₃?",
+   "option_a": "MgO is less stable than CaO.",
+   "option_b": "Ca²⁺ has more electrons than Mg²⁺.",
+   "option_c": "Ca²⁺ is larger than Mg²⁺.",
+   "option_d": "Ca is more reactive than Mg.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Among the carbonates of Group 2, beryllium carbonate is the least stable towards heat. This is because",
+   "option_a": "the carbonate ion is polarised by the beryllium ion.",
+   "option_b": "beryllium ion has the highest charge.",
+   "option_c": "beryllium oxide is more stable than beryllium carbonate.",
+   "option_d": "beryllium ion has the smallest ionic size.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Aqueous barium ions are highly poisonous. However, barium sulphate can be safely ingested (as in barium meal for X-ray purpose) but not barium carbonate. This is because",
+   "option_a": "barium sulphate is not soluble in water.",
+   "option_b": "barium sulphate is covalent but barium carbonate is ionic.",
+   "option_c": "barium carbonate reacts with hydrochloric acid in the stomach but not barium sulphate.",
+   "option_d": "barium carbonate is soluble in water.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following is true about the Group 2 elements?",
+   "option_a": "All Group 2 sulphates are insoluble in water.",
+   "option_b": "All salts of Group 2 elements decompose upon heating.",
+   "option_c": "All the elements are powerful reducing agents.",
+   "option_d": "The lattice energy of the compounds increases down the group.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "The standard enthalpy of hydration of the Group 2 cations decreases down the group. This is because",
+   "option_a": "the size of the atoms increases.",
+   "option_b": "the ionisation energy decreases.",
+   "option_c": "the electronegativity of the elements decreases.",
+   "option_d": "the charge density of the cations decreases.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Magnesium burns in air with a brilliant white flame. When the white residue is warmed with water, a gas that turns moist red litmus paper blue is liberated. What is the composition of the white residue?",
+   "option_a": "Magnesium oxide and magnesium nitride",
+   "option_b": "Magnesium oxide and magnesium nitrate",
+   "option_c": "Magnesium nitride only",
+   "option_d": "Magnesium oxide only",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "The carbonates, nitrates and hydroxides of Group 2 elements decompose to their respective oxides when heated. Hence, it can be concluded that",
+   "option_a": "all compounds of Group 2 elements are unstable to heat.",
+   "option_b": "the oxide is energetically more stable than the carbonates, nitrates and hydroxides.",
+   "option_c": "Group 2 elements are strong reducing agents.",
+   "option_d": "the metallic properties of the elements increases down the group.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which statement best explains the difference in the solubility of magnesium sulphate and barium sulphate?",
+   "option_a": "The enthalpy of hydration of magnesium sulphate is more exothermic than barium sulphate.",
+   "option_b": "Magnesium sulphate has a higher lattice energy than barium sulphate.",
+   "option_c": "The charge density of magnesium ion is lower than barium ion.",
+   "option_d": "Ionic size of sulphate ion is very big.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements is not true?",
+   "option_a": "All carbonates of Group 2 elements are decomposed by heat to release carbon dioxide.",
+   "option_b": "Beryllium hydroxide has an ionic bond and a covalent bond.",
+   "option_c": "Beryllium oxide is insoluble in water.",
+   "option_d": "All Group 2 sulphates are insoluble in water.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following properties of the Group 2 elements and their compounds increases with increasing proton number?",
+   "option_a": "Stability of the nitrates to heat",
+   "option_b": "Tendency to form a complex",
+   "option_c": "Magnitude of the hydration energy",
+   "option_d": "Solubility of the sulphates",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following factors affect the reducing power of the Group 2 elements? (I: Atomic size, II: Ionisation energy, III: Shielding effect, IV: Charge density)",
+   "option_a": "I, II only",
+   "option_b": "III and IV only",
+   "option_c": "I, II and III only",
+   "option_d": "I, II and IV only",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Beryllium carbonate, BeCO₃, decomposes when heated to 200 °C, whereas barium carbonate, BaCO₃, decomposes at 1360 °C. Which statement best explains why beryllium carbonate is thermally less stable than barium carbonate?",
+   "option_a": "The charge density of Be²⁺ ion is higher than Ba²⁺ ion.",
+   "option_b": "BeCO₃ is ionic while BaCO₃ is covalent.",
+   "option_c": "The C-O bond in BeCO₃ is shorter than the C-O bond in BaCO₃.",
+   "option_d": "The lattice energy of BeCO₃ is more negative than BaCO₃.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Strontium is situated above barium in Group 2 of the Periodic Table. Which of the following statements is true?",
+   "option_a": "Strontium ion has a lower charge density than barium ion.",
+   "option_b": "Strontium hydroxide is more stable to heat compared to barium hydroxide.",
+   "option_c": "Strontium sulphate is more soluble than barium sulphate.",
+   "option_d": "Strontium is a more powerful reducing agent than barium.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which Group 2 metal reacts most vigorously with cold water?",
+   "option_a": "Calcium",
+   "option_b": "Magnesium",
+   "option_c": "Beryllium",
+   "option_d": "Barium",
+   "answer": "D",
+   "explanation": "Reactivity increases down the group."
+  },
+  {
+   "question": "Why does reactivity increase down Group 2?",
+   "option_a": "There are fewer shells",
+   "option_b": "Atoms hold their electrons more strongly",
+   "option_c": "Nuclear charge decreases",
+   "option_d": "Ionisation energy decreases as atoms get larger",
+   "answer": "D",
+   "explanation": "Larger radius and more shielding make the two outer electrons easier to lose."
+  },
+  {
+   "question": "Why does thermal stability of Group 2 carbonates increase down the group?",
+   "option_a": "The carbonate ion gets smaller",
+   "option_b": "Larger cations have lower charge density and polarise the carbonate ion less",
+   "option_c": "Lattice energy decreases to zero",
+   "option_d": "Anions become more polarisable",
+   "answer": "B",
+   "explanation": "A smaller, highly charged cation distorts the CO₃²⁻ ion more, making it decompose more easily."
+  },
+  {
+   "question": "Which Group 2 carbonate decomposes at the lowest temperature?",
+   "option_a": "CaCO₃",
+   "option_b": "MgCO₃",
+   "option_c": "BaCO₃",
+   "option_d": "SrCO₃",
+   "answer": "B",
+   "explanation": "Mg²⁺ has the highest charge density, so it polarises CO₃²⁻ the most."
+  },
+  {
+   "question": "What are the products of heating magnesium nitrate?",
+   "option_a": "MgO, NO₂ and O₂",
+   "option_b": "Mg, NO₂ and O₂",
+   "option_c": "MgO and N₂",
+   "option_d": "Mg(NO₂)₂ and O₂",
+   "answer": "A",
+   "explanation": "2Mg(NO₃)₂ → 2MgO + 4NO₂ + O₂."
+  },
+  {
+   "question": "Which Group 2 sulphate is the least soluble in water?",
+   "option_a": "BaSO₄",
+   "option_b": "SrSO₄",
+   "option_c": "MgSO₄",
+   "option_d": "CaSO₄",
+   "answer": "A",
+   "explanation": "Solubility of the sulphates decreases down the group."
+  },
+  {
+   "question": "Why does the solubility of Group 2 sulphates decrease down the group?",
+   "option_a": "Hydration enthalpy falls more than lattice energy",
+   "option_b": "Lattice energy falls much more than hydration enthalpy",
+   "option_c": "Both stay constant",
+   "option_d": "The sulphate ion changes size",
+   "answer": "A",
+   "explanation": "With a large anion, lattice energy changes little, but hydration enthalpy becomes less exothermic with bigger cations."
+  },
+  {
+   "question": "Which expression is correct if lattice energy is defined as the formation of the solid from gaseous ions?",
+   "option_a": "ΔH(solution) = −ΔH(hydration) − ΔH(lattice)",
+   "option_b": "ΔH(solution) = ΔH(hydration) − ΔH(lattice)",
+   "option_c": "ΔH(solution) = ΔH(lattice) × ΔH(hydration)",
+   "option_d": "ΔH(solution) = ΔH(hydration) + ΔH(lattice)",
+   "answer": "B",
+   "explanation": "Break the lattice (−ΔH lattice), then hydrate the ions (ΔH hydration)."
+  },
+  {
+   "question": "Why does the pH of saturated Group 2 hydroxide solutions increase down the group?",
+   "option_a": "Solubility increases, releasing more OH⁻",
+   "option_b": "The cations become acidic",
+   "option_c": "Hydroxides decompose to the metal",
+   "option_d": "The oxides become amphoteric",
+   "answer": "A",
+   "explanation": "More hydroxide dissolves, so [OH⁻] rises."
+  },
+  {
+   "question": "Which Group 2 compound is given as a \"barium meal\" for X-ray imaging of the gut?",
+   "option_a": "Ba(OH)₂",
+   "option_b": "BaCO₃",
+   "option_c": "BaSO₄",
+   "option_d": "BaCl₂",
+   "answer": "C",
+   "explanation": "BaSO₄ is insoluble, so it is not absorbed and is safe to swallow. Soluble barium compounds are poisonous."
+  },
+  {
+   "question": "Which Group 2 compound is used to neutralise acidic soil?",
+   "option_a": "Magnesium sulphide",
+   "option_b": "Strontium nitrate",
+   "option_c": "Calcium hydroxide (slaked lime)",
+   "option_d": "Barium sulphate",
+   "answer": "C",
+   "explanation": "Ca(OH)₂ or CaCO₃ neutralises excess acid in soil."
+  }
+ ],
+ "c06": [
+  {
+   "question": "The energy band diagrams of three substances X, Y and Z show that X has overlapping valence and conduction bands, Y has a small energy gap and Z has a large energy gap. Which of the following is correct about X, Y and Z?",
+   "option_a": "X might be germanium.",
+   "option_b": "Z might be silicon.",
+   "option_c": "The electrical conductivity of X increases with temperature.",
+   "option_d": "The ascending order of electrical conductivity is Z, Y and X.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following explains why lead is an electrical conductor, whereas diamond is an insulator?",
+   "option_a": "The conduction band of diamond is not filled with electrons.",
+   "option_b": "The valence band of lead is filled with electrons.",
+   "option_c": "The valence band and the conduction band of lead overlap with one another.",
+   "option_d": "The difference in energy between the conduction band and the valence band in diamond is small.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following is responsible for the increasing relative stability of the +4 oxidation state with the increasing proton number of the Group 14 elements?",
+   "option_a": "The elimination of the two electrons in the s-orbital becomes increasingly difficult.",
+   "option_b": "The elimination of the two electrons in the p-orbital becomes increasingly difficult.",
+   "option_c": "The elimination of the four valence electrons becomes increasingly difficult.",
+   "option_d": "The inert pair effect increases.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "A tetrachloride of Group 14 element, MCl₄, has the following properties: It is easily hydrolysed, Unstable to heat, Decomposes at room temperature according to the equation MCl₄ → MCl₂ + Cl₂. M could be",
+   "option_a": "germanium.",
+   "option_b": "carbon.",
+   "option_c": "lead.",
+   "option_d": "silicon.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements best explains the decreasing stability of the +4 oxidation state of the Group 14 elements with increasing proton number?",
+   "option_a": "Metallic properties decreases.",
+   "option_b": "Atomic size increases.",
+   "option_c": "Ionisation energy decreases.",
+   "option_d": "Electronegativity decreases.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following tetrachlorides is the most unstable to heat?",
+   "option_a": "CCl₄",
+   "option_b": "PbCl₄",
+   "option_c": "PbCl₂",
+   "option_d": "SiCl₄",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements is incorrect about the Group 14 elements and their compounds?",
+   "option_a": "It is a group consisting of metals and non-metals.",
+   "option_b": "All the elements have giant structures.",
+   "option_c": "All tetrachlorides are hydrolysed by water.",
+   "option_d": "All the dioxides react with sodium hydroxide under suitable conditions.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following oxides of Group 14 elements is the most stable to heat?",
+   "option_a": "CO",
+   "option_b": "SiO₂",
+   "option_c": "SnO₂",
+   "option_d": "PbO₂",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements is true about Group 14 elements?",
+   "option_a": "The oxides are either neutral, amphoteric or acidic.",
+   "option_b": "Carbon is the only element with a giant structure.",
+   "option_c": "The stability of the +4 oxidation state increases down the group.",
+   "option_d": "Only tin and lead are conductors.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following is the geometrical structure of the product formed when silicon is heated with chlorine?",
+   "option_a": "Si²⁺ 2Cl⁻",
+   "option_b": "Si⁴⁺ 4Cl⁻",
+   "option_c": "Tetrahedral SiCl₄",
+   "option_d": "Cl₃Si-SiCl₃",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements is true about the conductivity of graphite?",
+   "option_a": "Its conductivity is higher than those of the metals.",
+   "option_b": "Its conductivity is due to no energy gap between valence band and conduction band.",
+   "option_c": "Its conductivity is due to the formation of sp³ hybrid orbitals.",
+   "option_d": "Its conductivity is due to its electronic configuration of 1s² 2s² 2p².",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "A tetrachloride of Group 14 element, MCl₄, is insoluble in water and is stable to heat. M could be",
+   "option_a": "carbon.",
+   "option_b": "silicon.",
+   "option_c": "tin.",
+   "option_d": "none of the above.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "What is the nature of the bond that holds the carbon atom and oxygen atom together in carbon monoxide?",
+   "option_a": "Van der Waals force",
+   "option_b": "Ionic bond",
+   "option_c": "Single covalent bond",
+   "option_d": "Triple covalent bond",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "What causes lead to have a higher melting point than tin?",
+   "option_a": "Lead atom is smaller.",
+   "option_b": "The metallic bond in lead is weaker.",
+   "option_c": "Lead has a close-packed structure.",
+   "option_d": "Lead is a metal, while tin is a metalloid.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements is/are true about Group 14 elements from carbon to lead down the group? (I: The atomic radius decreases, II: The stability of the +4 oxidation state decreases, III: The first ionisation energy decreases)",
+   "option_a": "II only",
+   "option_b": "I and III",
+   "option_c": "II and III",
+   "option_d": "I, II and III",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "In the preparation of lead(IV) chloride from lead(IV) oxide and concentrated hydrochloric acid, the temperature must be maintained at about 2 °C. This is",
+   "option_a": "to prevent the mixture from boiling.",
+   "option_b": "because lead(IV) oxide is unstable at high temperatures.",
+   "option_c": "because concentrated hydrochloric acid will decompose to chlorine at higher temperatures.",
+   "option_d": "to prevent the decomposition of lead(IV) chloride.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which property is not true about the Group 14 elements down the group?",
+   "option_a": "The inert pair effect increases.",
+   "option_b": "The catenation of the elements decreases.",
+   "option_c": "The thermal stability of the tetrachloride increases.",
+   "option_d": "The electronegativity of the element decreases.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "GeCl₄ dissolves in water to form an acidic solution, whereas CCl₄ is insoluble in water because",
+   "option_a": "the Ge-Cl bond is weaker than the C-Cl bond.",
+   "option_b": "GeCl₄ is ionic but CCl₄ is covalent.",
+   "option_c": "germanium atom has empty orbitals in its valence shell, while carbon does not.",
+   "option_d": "GeCl₄ has a lower melting point than CCl₄.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following properties of the Group 14 elements (C to Pb) shows a general decrease with increasing proton number?",
+   "option_a": "First ionisation energy",
+   "option_b": "Basic character of the oxides",
+   "option_c": "Stability of the +2 oxidation state",
+   "option_d": "Ease of hydrolysis of the tetrachlorides",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following is the property of lead tetrachloride, PbCl₄?",
+   "option_a": "High boiling point",
+   "option_b": "Stable to heat",
+   "option_c": "Fumes in moist air",
+   "option_d": "Disproportionate upon heating",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following compounds is not stable to heat?",
+   "option_a": "CO₂",
+   "option_b": "CCl₄",
+   "option_c": "PbCl₂",
+   "option_d": "SiO",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which statement is true about the chlorides of the Group 14 elements?",
+   "option_a": "CCl₄, SiCl₄, and GeCl₄ are covalent, whereas SnCl₄ and PbCl₄ are ionic.",
+   "option_b": "All, except CCl₄, dissolve in water to form an acidic solution.",
+   "option_c": "All the tetrachlorides decompose to form the dichlorides when heated.",
+   "option_d": "All can be prepared by heating the elements directly with chlorine.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Silicon tetrachloride undergoes hydrolysis with water. However, carbon tetrachloride does not react with water. This is because",
+   "option_a": "the Si-Cl bond is weaker than the C-Cl bond.",
+   "option_b": "CCl₄ is ionic but SiCl₄ is covalent.",
+   "option_c": "of the presence of empty orbitals in the valence shell of silicon.",
+   "option_d": "the SiCl₄ molecule is larger.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following chlorides is the least stable to heat?",
+   "option_a": "CCl₄",
+   "option_b": "SnCl₂",
+   "option_c": "PbCl₂",
+   "option_d": "PbCl₄",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "When going down Group 14 (carbon to lead) of the Periodic Table,",
+   "option_a": "the physical state of the elements changes from gas to solid.",
+   "option_b": "the +2 oxidation state of the elements increases.",
+   "option_c": "the thermal stability of the dioxide increases.",
+   "option_d": "the acid-base properties of the monoxide change from acidic to amphoteric.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Group 14 elements of the Periodic Table form oxides with +2 and +4 oxidation states. Which statement is true about the oxides?",
+   "option_a": "CO is a reducing agent.",
+   "option_b": "GeO is basic.",
+   "option_c": "SnO is a covalent compound.",
+   "option_d": "PbO₂ is thermally more stable than PbO.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "1.00 kg of sample containing lead(IV) oxide was reacted with excess concentrated hydrochloric acid to release 22.4 dm³ of a gas at s.t.p. What is the percentage of lead(IV) oxide in the sample? (Relative atomic masses of O and Pb are 16.0 and 207.0 respectively; molar volume of gas at s.t.p. is 22.4 dm³ mol⁻¹)",
+   "option_a": "100%",
+   "option_b": "23.9%",
+   "option_c": "71.0%",
+   "option_d": "76.1%",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Why is the melting point of diamond much higher than that of lead?",
+   "option_a": "Diamond has hydrogen bonds",
+   "option_b": "Lead has larger molecules",
+   "option_c": "Lead has covalent bonds",
+   "option_d": "Diamond has a giant covalent lattice of strong C–C bonds",
+   "answer": "D",
+   "explanation": "Many strong covalent bonds must break to melt diamond, while lead has weaker metallic bonding."
+  },
+  {
+   "question": "How does the band gap change down Group 14 (C, Si, Ge, Sn)?",
+   "option_a": "It disappears, then reappears",
+   "option_b": "It increases",
+   "option_c": "It decreases",
+   "option_d": "It stays constant",
+   "answer": "C",
+   "explanation": "Diamond is an insulator, Si and Ge are semiconductors, and Sn is metallic."
+  },
+  {
+   "question": "What is the shape of the CCl₄ molecule?",
+   "option_a": "Linear",
+   "option_b": "Tetrahedral",
+   "option_c": "Trigonal pyramidal",
+   "option_d": "Square planar",
+   "answer": "B",
+   "explanation": "Four bond pairs and no lone pairs give a tetrahedron."
+  },
+  {
+   "question": "Why are Group 14 tetrachlorides volatile liquids?",
+   "option_a": "They are giant ionic lattices",
+   "option_b": "They are polar molecules",
+   "option_c": "They have hydrogen bonds",
+   "option_d": "They are simple molecules with weak intermolecular forces",
+   "answer": "D",
+   "explanation": "Little energy is needed to overcome van der Waals forces between molecules."
+  },
+  {
+   "question": "Why does SiCl₄ hydrolyse but CCl₄ does not?",
+   "option_a": "Silicon has vacant 3d orbitals that accept lone pairs from water",
+   "option_b": "Carbon is larger than silicon",
+   "option_c": "Silicon is less electronegative than carbon",
+   "option_d": "CCl₄ is ionic",
+   "answer": "A",
+   "explanation": "Water can attack Si using its empty 3d orbitals, but carbon has no available low-energy orbitals."
+  },
+  {
+   "question": "Which oxide is amphoteric?",
+   "option_a": "SiO₂",
+   "option_b": "CO₂",
+   "option_c": "CO",
+   "option_d": "SnO₂",
+   "answer": "D",
+   "explanation": "SnO₂ reacts with both acids and bases. CO₂ and SiO₂ are acidic and CO is neutral."
+  },
+  {
+   "question": "In general, an element with two oxides forms the more acidic one in which oxidation state?",
+   "option_a": "The lower oxidation state",
+   "option_b": "Both are equally acidic",
+   "option_c": "The higher oxidation state",
+   "option_d": "Neither is acidic",
+   "answer": "C",
+   "explanation": "Higher oxidation state means more covalent character and more acidic behaviour, such as SnO₂ vs SnO."
+  },
+  {
+   "question": "What does the inert pair effect explain?",
+   "option_a": "Melting points rise down the group",
+   "option_b": "The +2 state becomes more stable down Group 14",
+   "option_c": "The +4 state becomes more stable down Group 14",
+   "option_d": "Atoms become smaller down the group",
+   "answer": "B",
+   "explanation": "The 6s² electrons of Pb are reluctant to take part in bonding, so Pb(II) is favoured."
+  },
+  {
+   "question": "What happens when PbCl₄ is warmed?",
+   "option_a": "It forms Pb and Cl₂",
+   "option_b": "It decomposes to PbCl₂ and Cl₂",
+   "option_c": "It melts without change",
+   "option_d": "It becomes PbCl₆",
+   "answer": "B",
+   "explanation": "Pb(IV) is unstable, so it is reduced to Pb(II)."
+  },
+  {
+   "question": "Which oxide readily decomposes on heating to a lower oxide?",
+   "option_a": "PbO₂",
+   "option_b": "GeO₂",
+   "option_c": "SiO₂",
+   "option_d": "CO₂",
+   "answer": "A",
+   "explanation": "Down the group the +4 state becomes less stable, so PbO₂ gives PbO and O₂."
+  }
+ ],
+ "c07": [
+  {
+   "question": "An aqueous solution Y decomposes in sunlight to evolve a gas that supports combustion, and reacts with aqueous silver nitrate to form a precipitate that is insoluble in ammonia. Y could be a mixture of",
+   "option_a": "HCl and HBr",
+   "option_b": "HBr and HOBr",
+   "option_c": "HI and HOCl",
+   "option_d": "NH₄Cl and NH₃",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Fluorine reacts explosively with hydrogen in bright sunlight. Iodine reacts reversibly with hydrogen at 450 °C and in the presence of platinum. What factor explains this observation?",
+   "option_a": "Fluorine is a more powerful oxidising agent than iodine.",
+   "option_b": "Fluorine is less stable than iodine.",
+   "option_c": "HF is more stable than HI.",
+   "option_d": "Fluorine has higher bond energy.",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "The compound obtained when chlorine is bubbled through hot, concentrated sodium hydroxide can be used",
+   "option_a": "as a bleach.",
+   "option_b": "to make photographic papers.",
+   "option_c": "as a weed-killer.",
+   "option_d": "to manufacture hydrochloric acid.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Chlorine is bubbled into an aqueous solution of sodium hydroxide at 75 °C. Which statement is true about the reaction?",
+   "option_a": "Chlorine acts as an oxidising agent.",
+   "option_b": "The reaction is disproportionation.",
+   "option_c": "Potassium chlorate(VII) is one of the products.",
+   "option_d": "Sodium reduces chlorine to chloride ion.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "When solid potassium iodide is heated with concentrated sulphuric acid, the gaseous product(s) include(s): I: HI II: SO₂ III: I₂",
+   "option_a": "I only",
+   "option_b": "II only",
+   "option_c": "I and III",
+   "option_d": "I, II and III",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which substance is not a redox product of a reaction between potassium iodide and concentrated sulphuric acid?",
+   "option_a": "I₂",
+   "option_b": "HI",
+   "option_c": "SO₂",
+   "option_d": "H₂S",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Chlorine reacts with cold sodium hydroxide. Which of the following is correct?",
+   "option_a": "One mole of chlorine reacts to form one mole of NaClO and 2 moles of water.",
+   "option_b": "It is a disproportionation reaction.",
+   "option_c": "Further reaction will only produce NaClO₃.",
+   "option_d": "Oxidation number of chlorine changes from 0 to +1 and +3.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "KX reacts with silver nitrate and produce a precipitate. The precipitate dissolves in dilute ammonia. Which of the following is correct about the product?",
+   "option_a": "KX: KBr | Colour of precipitate: Yellow",
+   "option_b": "KX: KI | Colour of precipitate: Yellowish",
+   "option_c": "KX: KCl | Colour of precipitate: White",
+   "option_d": "KX: KI | Colour of precipitate: White",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "The acidic strength decreases in order of HI > HBr > HCl because",
+   "option_a": "the reducing strength decreases in order of I⁻ > Br⁻ > Cl⁻.",
+   "option_b": "the atomic size decreases in order of I > Br > Cl.",
+   "option_c": "the ionic size decreases in order of I⁻ > Br⁻ > Cl⁻.",
+   "option_d": "the bond strength decreases in order of Cl-H > Br-H > I-H.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Chlorine is added to X followed by tetrachloromethane. The solution turns purple. X could be",
+   "option_a": "sodium chloride.",
+   "option_b": "sodium bromide.",
+   "option_c": "sodium iodide.",
+   "option_d": "sodium fluoride.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which compound produces white fume when added with concentrated sulphuric acid?",
+   "option_a": "Calcium iodide",
+   "option_b": "Sodium chloride",
+   "option_c": "Sodium bromide",
+   "option_d": "Sodium sulphide",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "The reactivity of halogens with hydrogen decreases down Group 17 because the",
+   "option_a": "bond energy decreases.",
+   "option_b": "melting point increases.",
+   "option_c": "electron affinity decreases.",
+   "option_d": "oxidising power decreases.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which property of hydrogen halides increases down Group 17?",
+   "option_a": "Bond strength",
+   "option_b": "Boiling point",
+   "option_c": "Acidity",
+   "option_d": "Bond energy",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "What is the order of reactivity of the halogens with hydrogen?",
+   "option_a": "F₂ > Cl₂ > Br₂ > I₂",
+   "option_b": "I₂ > Br₂ > Cl₂ > F₂",
+   "option_c": "All react equally",
+   "option_d": "Cl₂ > F₂ > Br₂ > I₂",
+   "answer": "A",
+   "explanation": "F₂ reacts explosively in the dark and I₂ only partly and reversibly on heating."
+  },
+  {
+   "question": "Why is HI less thermally stable than HCl?",
+   "option_a": "HI is ionic",
+   "option_b": "The H–I bond is longer and weaker",
+   "option_c": "Iodine has fewer shells",
+   "option_d": "Iodine is more electronegative",
+   "answer": "B",
+   "explanation": "Bond strength falls down the group, so HI decomposes more easily."
+  },
+  {
+   "question": "What is formed when chlorine reacts with hot concentrated aqueous NaOH?",
+   "option_a": "NaClO₄ only",
+   "option_b": "NaCl and NaClO₃",
+   "option_c": "NaCl and NaClO",
+   "option_d": "NaCl and Cl₂O",
+   "answer": "B",
+   "explanation": "3Cl₂ + 6NaOH → 5NaCl + NaClO₃ + 3H₂O."
+  },
+  {
+   "question": "In Cl₂ + 2NaOH → NaCl + NaClO + H₂O (cold), what happens to chlorine?",
+   "option_a": "It is only oxidised",
+   "option_b": "It is only reduced",
+   "option_c": "Its oxidation state does not change",
+   "option_d": "It is both oxidised and reduced",
+   "answer": "D",
+   "explanation": "Chlorine goes from 0 to −1 and to +1, which is disproportionation."
+  },
+  {
+   "question": "What is seen when aqueous silver nitrate is added to a bromide solution?",
+   "option_a": "A cream precipitate, soluble in concentrated ammonia",
+   "option_b": "No precipitate forms",
+   "option_c": "A white precipitate, soluble in dilute ammonia",
+   "option_d": "A yellow precipitate, insoluble in ammonia",
+   "answer": "A",
+   "explanation": "AgBr is cream and dissolves only in concentrated NH₃."
+  },
+  {
+   "question": "Which silver halide is insoluble even in concentrated ammonia?",
+   "option_a": "AgI",
+   "option_b": "AgBr",
+   "option_c": "All dissolve",
+   "option_d": "AgCl",
+   "answer": "A",
+   "explanation": "AgI is yellow and has the lowest solubility product."
+  },
+  {
+   "question": "Which halide ion reduces concentrated sulphuric acid all the way to H₂S?",
+   "option_a": "Bromide",
+   "option_b": "Chloride",
+   "option_c": "Fluoride",
+   "option_d": "Iodide",
+   "answer": "D",
+   "explanation": "I⁻ is the strongest reducing agent of the halides."
+  },
+  {
+   "question": "Why does NaCl give only HCl with concentrated sulphuric acid?",
+   "option_a": "HCl is not volatile",
+   "option_b": "The reaction is endothermic",
+   "option_c": "Chloride is a stronger reducing agent than iodide",
+   "option_d": "Cl⁻ is too weak a reducing agent to reduce H₂SO₄",
+   "answer": "D",
+   "explanation": "H₂SO₄ simply displaces the volatile HCl, with no redox change."
+  },
+  {
+   "question": "Which species formed when chlorine dissolves in water mainly kills bacteria?",
+   "option_a": "ClO₄⁻",
+   "option_b": "HOCl (chloric(I) acid)",
+   "option_c": "Cl⁻",
+   "option_d": "HCl",
+   "answer": "B",
+   "explanation": "Cl₂ + H₂O ⇌ HCl + HOCl. HOCl is the disinfectant."
+  },
+  {
+   "question": "What is seen when chlorine water is added to potassium bromide solution?",
+   "option_a": "No change",
+   "option_b": "A white precipitate forms",
+   "option_c": "The solution turns purple",
+   "option_d": "The solution turns orange-brown",
+   "answer": "D",
+   "explanation": "Cl₂ is a stronger oxidising agent than Br₂, so Br₂ forms."
+  },
+  {
+   "question": "Tincture of iodine, used as an antiseptic, is a solution of iodine in what?",
+   "option_a": "Hexane",
+   "option_b": "Water only",
+   "option_c": "Sulphuric acid",
+   "option_d": "Ethanol",
+   "answer": "D",
+   "explanation": "Iodine is dissolved in aqueous ethanol (with iodide) and used to disinfect skin."
+  }
+ ],
+ "c08": [
+  {
+   "question": "Which is the correct definition of a transition element?",
+   "option_a": "An element with partially filled d-orbitals.",
+   "option_b": "An element that exhibits various oxidation states.",
+   "option_c": "An element that forms ions with incompletely filled d-orbitals.",
+   "option_d": "An element that forms coloured compounds.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following complexes does not exist?",
+   "option_a": "[CuCl₂]⁻",
+   "option_b": "[CoCl₆]³⁻",
+   "option_c": "[Ni(NH₃)₆]³⁺",
+   "option_d": "[Fe(CN)₆]⁴⁻",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "The valence electronic configuration of M is 3d¹⁰ 4s². Which statement is not true about M?",
+   "option_a": "It is a d-block element.",
+   "option_b": "It is a metal element.",
+   "option_c": "It is a transition element.",
+   "option_d": "It is a Period 4 element.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements about the complex [Fe(CN)₆]⁴⁻ is incorrect?",
+   "option_a": "Iron exhibits an oxidation state of +2.",
+   "option_b": "There are six coordinate bonds in the complex.",
+   "option_c": "It is octahedral.",
+   "option_d": "This complex is called hexacyanoferrate(IV) ion.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "The chemical formula of a compound is K₃[Fe(C₂O₄)₃]. Which is true about the compound?",
+   "option_a": "Its IUPAC name is potassium triethanedioateiron(III).",
+   "option_b": "It is planar.",
+   "option_c": "Its ligand is hexadentate.",
+   "option_d": "The oxidation state of iron is +3.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "An ion of chromium reacts with ligand L in the mole ratio of 1 : 3 to form a complex. Ligand L is most likely to be",
+   "option_a": "CN⁻",
+   "option_b": "C₂O₄²⁻",
+   "option_c": "EDTA⁴⁻",
+   "option_d": "NH₃",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following transition metal cations has five unpaired electrons?",
+   "option_a": "Fe³⁺",
+   "option_b": "V⁵⁺",
+   "option_c": "Ti³⁺",
+   "option_d": "Cr³⁺",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Most of the transition elements or their compounds can act as homogeneous catalysts because",
+   "option_a": "they have low ionisation energy.",
+   "option_b": "they can alter their oxidation states.",
+   "option_c": "they have good absorption characteristics.",
+   "option_d": "they can form stable complexes.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "The IUPAC name of a compound is pentaamminechlorocobalt(III) sulphate. What is its chemical formula?",
+   "option_a": "[CoCl(NH₃)₅]SO₄",
+   "option_b": "[CoCl(NH₃)₅]₂SO₄",
+   "option_c": "[Co[Cl(NH₃)₅]]₂SO₄",
+   "option_d": "Co₂Cl[(NH₃)₅]SO₄",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following best explains the action of transition element as heterogeneous catalyst?",
+   "option_a": "It increases the rate of collision.",
+   "option_b": "It provides a suitable surface for the adsorption of the reactant molecules.",
+   "option_c": "It exhibits various oxidation states.",
+   "option_d": "It can form complexes with the reactant species.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following transition element compounds has the highest oxidation state?",
+   "option_a": "NH₄VO₃",
+   "option_b": "K₂CuCl₄",
+   "option_c": "K₂FeO₄",
+   "option_d": "[Cu(NH₃)₄(H₂O)₂]²⁺",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following elements is not a transition element?",
+   "option_a": "Vanadium",
+   "option_b": "Cobalt",
+   "option_c": "Copper",
+   "option_d": "Zinc",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "What is the name of the complex with the formula of [Cr(H₂NCH₂CH₂NH₂)₂Cl₂]Cl?",
+   "option_a": "Dichlorobis(ethylenediamine)chromium(III) chloride",
+   "option_b": "Dichlorobis(ethylenediamine)chromium(I) chloride",
+   "option_c": "Bis(ethylenediamine)dichlorochromium(I) chloride",
+   "option_d": "Dichlorodiethylenediaminechromium(III) chloride",
+   "answer": "A",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following is not correct about the uses of transition elements and their compounds?",
+   "option_a": "Alloys of cobalt are used to make permanent magnets.",
+   "option_b": "Chromium oxide is used as a white pigment in paints.",
+   "option_c": "Titanium is used to build aircraft jet engines.",
+   "option_d": "Iron(II) sulphate is used as a catalyst in the reaction between sodium peroxodisulphate(VI) and potassium iodide.",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following statements is true regarding the complex [Ni(C₂O₄)₃]⁴⁻?",
+   "option_a": "It is called tris(ethanedioato)nickel(IV) ion.",
+   "option_b": "The oxidation state of nickel in the complex is +1.",
+   "option_c": "The coordination number of the central metal ion is 3.",
+   "option_d": "Nickel in the complex has a valence electronic configuration of 3d⁸.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following factors contributes to the higher first ionisation energy of transition elements compared to calcium?",
+   "option_a": "Lower shielding effect in transition elements",
+   "option_b": "Higher effective nuclear charge in transition elements",
+   "option_c": "Presence of fully filled d-orbitals in transition elements",
+   "option_d": "Calcium has a larger atomic radius than transition elements",
+   "answer": "B",
+   "explanation": ""
+  },
+  {
+   "question": "Which of the following shows the correct comparison between transition elements and calcium?",
+   "option_a": "Calcium is more stable than all transition elements.",
+   "option_b": "Calcium has a higher density than transition elements.",
+   "option_c": "Calcium has a higher melting point than transition elements.",
+   "option_d": "Calcium has a higher electrical conductivity than most of the first row transition elements.",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which statement is true about the transition elements?",
+   "option_a": "All d-block elements are transition elements.",
+   "option_b": "All their atoms have incompletely filled 3d orbitals in their ground states.",
+   "option_c": "They exhibit various oxidation states.",
+   "option_d": "All their ions have incompletely filled 3d orbitals.",
+   "answer": "C",
+   "explanation": ""
+  },
+  {
+   "question": "Element W has a valence electronic configuration of 3d⁶ 4s². Which statement(s) is/are true of W? I: It exhibits oxidation states of +2, +3 and +6. II: It has four unpaired electrons in the ground state. III: It forms an oxoanion with formula of WO₄²⁻. IV: It forms complexes.",
+   "option_a": "I and III",
+   "option_b": "II and IV",
+   "option_c": "II, III and IV",
+   "option_d": "I, II, III and IV",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Nickel is used in the hydrogenation of ethene: CH₂=CH₂ + H₂ → CH₃CH₃. What is the function of nickel in the reaction?",
+   "option_a": "To decrease the enthalpy of the reaction",
+   "option_b": "To form a more reactive complex species with ethene molecules",
+   "option_c": "To increase the rate of collision between ethene and hydrogen molecules",
+   "option_d": "To decrease the activation energy",
+   "answer": "D",
+   "explanation": ""
+  },
+  {
+   "question": "Which is the best definition of a transition element?",
+   "option_a": "Forms at least one ion with a partially filled d subshell",
+   "option_b": "Any element in the d-block",
+   "option_c": "Any element that forms coloured compounds",
+   "option_d": "Any element with variable valency",
+   "answer": "A",
+   "explanation": "Zinc is in the d-block but Zn²⁺ is 3d¹⁰, so it is not a transition element."
+  },
+  {
+   "question": "Why is zinc not a transition element?",
+   "option_a": "Zinc has no d electrons",
+   "option_b": "Zn²⁺ has a full 3d subshell",
+   "option_c": "Zinc is a gas",
+   "option_d": "Zinc forms no ions",
+   "answer": "B",
+   "explanation": "Both Zn and Zn²⁺ have complete d¹⁰ subshells."
+  },
+  {
+   "question": "Why are the atomic radii of first-row transition elements similar?",
+   "option_a": "Atoms lose their 4s electrons",
+   "option_b": "The nuclear charge stays constant",
+   "option_c": "Electrons are added to the 4p subshell",
+   "option_d": "Added 3d electrons shield the 4s electrons and cancel the rise in nuclear charge",
+   "answer": "D",
+   "explanation": "The shielding of extra 3d electrons almost balances the extra protons."
+  },
+  {
+   "question": "Why do transition metals have higher melting points than calcium?",
+   "option_a": "They form hydrogen bonds",
+   "option_b": "They have weaker bonds",
+   "option_c": "More electrons (3d and 4s) are delocalised, giving stronger metallic bonding",
+   "option_d": "They are covalent",
+   "answer": "C",
+   "explanation": "Both 3d and 4s electrons contribute to the metallic bond."
+  },
+  {
+   "question": "Why do transition elements show variable oxidation states?",
+   "option_a": "They have no 4s electrons",
+   "option_b": "They lack inner electrons",
+   "option_c": "They have a large atomic radius",
+   "option_d": "3d and 4s electrons have similar energies, so both can be lost",
+   "answer": "D",
+   "explanation": "Successive ionisation energies rise gradually across 3d and 4s."
+  },
+  {
+   "question": "What is the oxidation state of manganese in MnO₄⁻?",
+   "option_a": "+4",
+   "option_b": "+6",
+   "option_c": "+2",
+   "option_d": "+7",
+   "answer": "D",
+   "explanation": "4 × (−2) = −8, so Mn must be +7 for a total charge of −1."
+  },
+  {
+   "question": "Why is Mn²⁺ unusually stable?",
+   "option_a": "It has a half-filled 3d⁵ subshell",
+   "option_b": "It has a noble gas configuration",
+   "option_c": "It has no d electrons",
+   "option_d": "It has a full 3d subshell",
+   "answer": "A",
+   "explanation": "Half-filled subshells have extra stability."
+  },
+  {
+   "question": "What is a ligand?",
+   "option_a": "Any anion",
+   "option_b": "An atom that shares electrons equally",
+   "option_c": "A positively charged metal ion",
+   "option_d": "A species with a lone pair that forms a dative bond to a metal ion",
+   "answer": "D",
+   "explanation": "The ligand donates a lone pair into an empty orbital on the metal ion."
+  },
+  {
+   "question": "Which of these is a bidentate ligand?",
+   "option_a": "H₂O",
+   "option_b": "Cl⁻",
+   "option_c": "Ethanedioate (oxalate) ion, C₂O₄²⁻",
+   "option_d": "NH₃",
+   "answer": "C",
+   "explanation": "Two oxygen atoms each donate a lone pair to the same metal ion."
+  },
+  {
+   "question": "How many coordinate bonds can an EDTA⁴⁻ ion form with a metal ion?",
+   "option_a": "4",
+   "option_b": "8",
+   "option_c": "2",
+   "option_d": "6",
+   "answer": "D",
+   "explanation": "EDTA⁴⁻ is hexadentate, with two N and four O donor atoms."
+  },
+  {
+   "question": "What is the IUPAC name of [Cu(NH₃)₄]²⁺?",
+   "option_a": "Tetraamminecopper(IV) ion",
+   "option_b": "Tetraamidocopper(II) ion",
+   "option_c": "Tetraamminecopper(II) ion",
+   "option_d": "Copper(II) tetraammine ion",
+   "answer": "C",
+   "explanation": "Ligands come first (alphabetical), then the metal with its oxidation state."
+  },
+  {
+   "question": "What is the name of K₃[Fe(CN)₆]?",
+   "option_a": "Potassium hexacyanoferrate(II)",
+   "option_b": "Tripotassium iron cyanide",
+   "option_c": "Potassium hexacyanoiron(III)",
+   "option_d": "Potassium hexacyanoferrate(III)",
+   "answer": "D",
+   "explanation": "The complex ion [Fe(CN)₆]³⁻ has Fe at +3 (3 + 6 × (−1) = −3), and the metal in an anionic complex ends in -ate."
+  },
+  {
+   "question": "Why do Fe²⁺ and Fe³⁺ catalyse the reaction between I⁻ and S₂O₈²⁻?",
+   "option_a": "They are consumed in the reaction",
+   "option_b": "They are negative ions that attract both reactants",
+   "option_c": "They raise the temperature",
+   "option_d": "They can change oxidation state, providing a lower-energy pathway",
+   "answer": "D",
+   "explanation": "Fe³⁺ oxidises I⁻ and the Fe²⁺ formed is oxidised by S₂O₈²⁻, regenerating Fe³⁺."
+  },
+  {
+   "question": "Nickel is used in the hydrogenation of alkenes. What type of catalyst is it?",
+   "option_a": "Heterogeneous",
+   "option_b": "Autocatalyst",
+   "option_c": "Enzyme",
+   "option_d": "Homogeneous",
+   "answer": "A",
+   "explanation": "The solid metal surface adsorbs the gaseous or liquid reactants."
+  },
+  {
+   "question": "Which transition metal is added to iron to make stainless steel?",
+   "option_a": "Titanium",
+   "option_b": "Manganese",
+   "option_c": "Cobalt",
+   "option_d": "Chromium",
+   "answer": "D",
+   "explanation": "Chromium forms a protective oxide layer that resists corrosion."
+  }
+ ],
+ "c09": [
+  {
+   "question": "At constant temperature, doubling the pressure of a fixed mass of gas makes the volume do what?",
+   "option_a": "Stay the same",
+   "option_b": "Double",
+   "option_c": "Quadruple",
+   "option_d": "Halve",
+   "answer": "D",
+   "explanation": "Boyle's law: p × V is constant, so volume is inversely proportional to pressure."
+  },
+  {
+   "question": "A gas at 27 °C is heated at constant pressure to 327 °C. By what factor does its volume change?",
+   "option_a": "2",
+   "option_b": "1.1",
+   "option_c": "0.5",
+   "option_d": "12",
+   "answer": "A",
+   "explanation": "Convert to kelvin: 300 K to 600 K. V ∝ T, so the volume doubles."
+  },
+  {
+   "question": "Equal volumes of different gases at the same temperature and pressure contain what?",
+   "option_a": "The same density",
+   "option_b": "The same number of atoms",
+   "option_c": "The same mass",
+   "option_d": "The same number of molecules",
+   "answer": "D",
+   "explanation": "This is Avogadro's law."
+  },
+  {
+   "question": "What is the volume of 0.0500 mol of an ideal gas at 300 K and 101 kPa? (R = 8.31 J K⁻¹ mol⁻¹)",
+   "option_a": "0.123 dm³",
+   "option_b": "12.3 dm³",
+   "option_c": "1.23 m³",
+   "option_d": "1.23 dm³",
+   "answer": "D",
+   "explanation": "V = nRT ÷ p = (0.0500 × 8.31 × 300) ÷ 101 000 = 1.23 × 10⁻³ m³ = 1.23 dm³."
+  },
+  {
+   "question": "A gas has density 1.78 g dm⁻³ at 273 K and 101 kPa. What is its relative molecular mass?",
+   "option_a": "40.0",
+   "option_b": "4.00",
+   "option_c": "20.0",
+   "option_d": "80.0",
+   "answer": "A",
+   "explanation": "Mr = ρRT ÷ p = (1780 × 8.31 × 273) ÷ 101 000 ≈ 40.0."
+  },
+  {
+   "question": "Which is an assumption of the kinetic theory of ideal gases?",
+   "option_a": "Molecules attract each other strongly",
+   "option_b": "Collisions lose energy",
+   "option_c": "Molecules have negligible volume and no intermolecular forces",
+   "option_d": "Molecules move in fixed paths",
+   "answer": "C",
+   "explanation": "Gas molecules are treated as points that collide elastically."
+  },
+  {
+   "question": "Under which conditions does a real gas behave most like an ideal gas?",
+   "option_a": "High temperature and high pressure",
+   "option_b": "Low temperature and low pressure",
+   "option_c": "High temperature and low pressure",
+   "option_d": "Low temperature and high pressure",
+   "answer": "C",
+   "explanation": "Molecules are far apart and fast moving, so volume and attractions are negligible."
+  },
+  {
+   "question": "A mixture of 2.0 mol N₂ and 3.0 mol O₂ has a total pressure of 100 kPa. What is the partial pressure of O₂?",
+   "option_a": "100 kPa",
+   "option_b": "30 kPa",
+   "option_c": "60 kPa",
+   "option_d": "40 kPa",
+   "answer": "C",
+   "explanation": "Partial pressure = mole fraction × total pressure = (3.0 ÷ 5.0) × 100."
+  },
+  {
+   "question": "When does a liquid boil?",
+   "option_a": "When its vapour pressure is zero",
+   "option_b": "When molecules stop moving",
+   "option_c": "When it reaches 100 °C always",
+   "option_d": "When its saturated vapour pressure equals the external pressure",
+   "answer": "D",
+   "explanation": "At lower external pressure, the boiling point is lower."
+  },
+  {
+   "question": "Why does vapour pressure increase as temperature rises?",
+   "option_a": "The liquid becomes denser",
+   "option_b": "More molecules have enough energy to escape the liquid",
+   "option_c": "Intermolecular forces get stronger",
+   "option_d": "Molecules stop colliding",
+   "answer": "B",
+   "explanation": "A larger fraction of molecules overcomes intermolecular forces."
+  },
+  {
+   "question": "Why does solid iodine sublime easily?",
+   "option_a": "It is a giant covalent lattice",
+   "option_b": "It is a simple molecular solid held by weak van der Waals forces",
+   "option_c": "It has hydrogen bonds",
+   "option_d": "It is an ionic crystal",
+   "answer": "B",
+   "explanation": "Little energy is needed to separate I₂ molecules."
+  },
+  {
+   "question": "What is the coordination number of Na⁺ in solid NaCl?",
+   "option_a": "12",
+   "option_b": "6",
+   "option_c": "4",
+   "option_d": "8",
+   "answer": "B",
+   "explanation": "Each Na⁺ is surrounded by six Cl⁻ ions in a face-centred cubic arrangement."
+  },
+  {
+   "question": "Why does graphite conduct electricity but diamond does not?",
+   "option_a": "Diamond has no electrons",
+   "option_b": "Graphite is ionic",
+   "option_c": "Graphite has no covalent bonds",
+   "option_d": "Graphite has delocalised electrons between its layers",
+   "answer": "D",
+   "explanation": "In diamond all four valence electrons are in localised bonds."
+  },
+  {
+   "question": "Why is graphite soft and used as a lubricant?",
+   "option_a": "Layers are held by weak forces and slide over each other",
+   "option_b": "It has weak C–C bonds within layers",
+   "option_c": "It has no covalent bonds",
+   "option_d": "It is a molecular solid like C₆₀",
+   "answer": "A",
+   "explanation": "Strong bonds exist within layers, but weak van der Waals forces hold the layers together."
+  }
+ ],
+ "c10a": [
+  {
+   "question": "Which statement describes a system at dynamic equilibrium?",
+   "option_a": "Concentrations of reactants and products are equal",
+   "option_b": "Only the forward reaction occurs",
+   "option_c": "The reaction has stopped",
+   "option_d": "Forward and reverse rates are equal and concentrations are constant",
+   "answer": "D",
+   "explanation": "Both reactions continue at the same rate, so there is no net change."
+  },
+  {
+   "question": "What is the Kc expression for N₂(g) + 3H₂(g) ⇌ 2NH₃(g)?",
+   "option_a": "[NH₃] ÷ ([N₂][H₂])",
+   "option_b": "[NH₃]² ÷ ([N₂][H₂]³)",
+   "option_c": "[NH₃]² ÷ ([N₂] + [H₂]³)",
+   "option_d": "([N₂][H₂]³) ÷ [NH₃]²",
+   "answer": "C",
+   "explanation": "Products over reactants, each raised to its coefficient: [NH₃]² ÷ ([N₂][H₂]³)."
+  },
+  {
+   "question": "For CaCO₃(s) ⇌ CaO(s) + CO₂(g), what is Kc?",
+   "option_a": "[CaO][CO₂] ÷ [CaCO₃]",
+   "option_b": "1 ÷ [CO₂]",
+   "option_c": "[CO₂]",
+   "option_d": "[CaCO₃] ÷ [CO₂]",
+   "answer": "C",
+   "explanation": "Pure solids are left out of the expression."
+  },
+  {
+   "question": "For N₂O₄(g) ⇌ 2NO₂(g), how are Kp and Kc related?",
+   "option_a": "Kp = Kc(RT)²",
+   "option_b": "Kp = Kc",
+   "option_c": "Kp = Kc ÷ (RT)",
+   "option_d": "Kp = Kc(RT)",
+   "answer": "D",
+   "explanation": "Kp = Kc(RT)^Δn, and Δn = 2 − 1 = +1."
+  },
+  {
+   "question": "For H₂ + I₂ ⇌ 2HI, the equilibrium concentrations are [H₂] = 0.20, [I₂] = 0.20 and [HI] = 0.80 mol dm⁻³. What is Kc?",
+   "option_a": "3.2",
+   "option_b": "0.0625",
+   "option_c": "16",
+   "option_d": "4.0",
+   "answer": "C",
+   "explanation": "Kc = [HI]² ÷ ([H₂][I₂]) = 0.64 ÷ 0.040 = 16."
+  },
+  {
+   "question": "What does increasing the pressure do to N₂O₄(g) ⇌ 2NO₂(g)?",
+   "option_a": "The equilibrium shifts left",
+   "option_b": "There is no shift",
+   "option_c": "Kc increases",
+   "option_d": "The equilibrium shifts right",
+   "answer": "A",
+   "explanation": "The system shifts toward fewer moles of gas (1 mole on the left)."
+  },
+  {
+   "question": "Why is a compromise temperature of about 450 °C used in the Haber process?",
+   "option_a": "Lower temperature gives more NH₃ but is too slow",
+   "option_b": "High temperature gives more NH₃",
+   "option_c": "NH₃ decomposes below 450 °C",
+   "option_d": "The catalyst works only at 450 °C",
+   "answer": "A",
+   "explanation": "The reaction is exothermic. Low T favours yield but the rate would be too slow."
+  },
+  {
+   "question": "What does a catalyst do to the position of equilibrium?",
+   "option_a": "Nothing, it only speeds up reaching equilibrium",
+   "option_b": "It shifts it to the left",
+   "option_c": "It shifts it to the right",
+   "option_d": "It increases Kc",
+   "answer": "A",
+   "explanation": "A catalyst speeds up the forward and reverse reactions equally."
+  },
+  {
+   "question": "For an exothermic reaction, what happens to K when temperature is raised?",
+   "option_a": "K increases",
+   "option_b": "K stays the same",
+   "option_c": "K decreases",
+   "option_d": "K doubles",
+   "answer": "C",
+   "explanation": "From ln K = −ΔH/RT + C, ΔH is negative, so K falls as T increases."
+  },
+  {
+   "question": "In the Contact process, 2SO₂ + O₂ ⇌ 2SO₃, why is only 1 to 2 atm pressure used?",
+   "option_a": "The catalyst fails at high pressure",
+   "option_b": "Pressure has no effect on this equilibrium",
+   "option_c": "High pressure shifts the equilibrium left",
+   "option_d": "The yield is already high and higher pressure is costly",
+   "answer": "D",
+   "explanation": "V₂O₅ at about 450 °C gives a conversion of about 99%, so more pressure is uneconomical."
+  },
+  {
+   "question": "In the Ostwald process, the oxidation of NH₃ to NO uses which catalyst?",
+   "option_a": "Platinum–rhodium gauze",
+   "option_b": "Vanadium(V) oxide",
+   "option_c": "Nickel",
+   "option_d": "Iron",
+   "answer": "A",
+   "explanation": "4NH₃ + 5O₂ → 4NO + 6H₂O over a hot Pt–Rh catalyst."
+  },
+  {
+   "question": "Adding more H₂ to N₂ + 3H₂ ⇌ 2NH₃ at equilibrium does what?",
+   "option_a": "The equilibrium shifts right to make more NH₃",
+   "option_b": "Kc increases",
+   "option_c": "The NH₃ concentration falls",
+   "option_d": "The equilibrium shifts left",
+   "answer": "A",
+   "explanation": "The system opposes the added reactant by using it up."
+  }
+ ],
+ "c10b": [
+  {
+   "question": "In NH₃ + H₂O ⇌ NH₄⁺ + OH⁻, what is the conjugate acid of NH₃?",
+   "option_a": "H₂O",
+   "option_b": "NH₂⁻",
+   "option_c": "NH₄⁺",
+   "option_d": "OH⁻",
+   "answer": "C",
+   "explanation": "A conjugate acid is formed when a base gains H⁺."
+  },
+  {
+   "question": "Which species is a Lewis acid?",
+   "option_a": "OH⁻",
+   "option_b": "NH₃",
+   "option_c": "Cl⁻",
+   "option_d": "BF₃",
+   "answer": "D",
+   "explanation": "A Lewis acid accepts an electron pair. BF₃ has an empty p orbital on boron."
+  },
+  {
+   "question": "What is the pH of 0.0050 mol dm⁻³ Ba(OH)₂ at 25 °C?",
+   "option_a": "11.7",
+   "option_b": "12.0",
+   "option_c": "12.3",
+   "option_d": "2.0",
+   "answer": "B",
+   "explanation": "[OH⁻] = 0.010, so pOH = 2.0 and pH = 14 − 2 = 12.0."
+  },
+  {
+   "question": "A 0.100 mol dm⁻³ weak acid HA has Ka = 1.0 × 10⁻⁵ mol dm⁻³. What is its pH?",
+   "option_a": "3.00",
+   "option_b": "1.00",
+   "option_c": "6.00",
+   "option_d": "5.00",
+   "answer": "A",
+   "explanation": "[H⁺] = √(Ka × c) = √(1.0 × 10⁻⁶) = 1.0 × 10⁻³, so pH = 3.00."
+  },
+  {
+   "question": "How does a weak acid differ from a strong acid in water?",
+   "option_a": "It is fully dissociated",
+   "option_b": "It has no H⁺ ions at all",
+   "option_c": "It always has a higher pH than a base",
+   "option_d": "It is only partly dissociated",
+   "answer": "D",
+   "explanation": "Weak acids reach an equilibrium with a small fraction ionised."
+  },
+  {
+   "question": "In a weak acid–strong base titration, the pH at the equivalence point is what?",
+   "option_a": "Greater than 7",
+   "option_b": "Less than 7",
+   "option_c": "Equal to 7",
+   "option_d": "Exactly 14",
+   "answer": "A",
+   "explanation": "The conjugate base of the weak acid hydrolyses water, giving OH⁻."
+  },
+  {
+   "question": "Which indicator suits a weak acid–strong base titration?",
+   "option_a": "Bromocresol green",
+   "option_b": "Phenolphthalein",
+   "option_c": "Methyl orange",
+   "option_d": "Methyl red",
+   "answer": "B",
+   "explanation": "Phenolphthalein changes colour at about pH 8.3 to 10, which covers the steep part of the curve."
+  },
+  {
+   "question": "Which mixture is an acidic buffer?",
+   "option_a": "Sodium hydroxide and sodium chloride",
+   "option_b": "Hydrochloric acid and sodium chloride",
+   "option_c": "Ethanoic acid and sodium ethanoate",
+   "option_d": "Ethanoic acid and hydrochloric acid",
+   "answer": "C",
+   "explanation": "A weak acid and its salt resist changes in pH."
+  },
+  {
+   "question": "A buffer has equal concentrations of a weak acid and its salt. What is its pH?",
+   "option_a": "Equal to 7",
+   "option_b": "Equal to 0",
+   "option_c": "Equal to pKa",
+   "option_d": "Equal to 14 − pKa",
+   "answer": "C",
+   "explanation": "Henderson–Hasselbalch: pH = pKa + log([salt] ÷ [acid]), and log 1 = 0."
+  },
+  {
+   "question": "Which buffer system helps keep blood pH at about 7.4?",
+   "option_a": "H₂CO₃ / HCO₃⁻",
+   "option_b": "HCl / Cl⁻",
+   "option_c": "CH₃COOH / CH₃COO⁻",
+   "option_d": "NH₃ / NH₄⁺",
+   "answer": "A",
+   "explanation": "Carbonic acid and hydrogencarbonate neutralise small amounts of added acid or base."
+  },
+  {
+   "question": "What is the solubility product expression for Ca₃(PO₄)₂?",
+   "option_a": "Ksp = [Ca²⁺]³[PO₄³⁻]²",
+   "option_b": "Ksp = [Ca²⁺][PO₄³⁻]",
+   "option_c": "Ksp = [Ca²⁺]²[PO₄³⁻]³",
+   "option_d": "Ksp = 3[Ca²⁺] × 2[PO₄³⁻]",
+   "answer": "A",
+   "explanation": "Each ion concentration is raised to its coefficient in the dissolution equation."
+  },
+  {
+   "question": "The solubility of AgCl is 1.3 × 10⁻⁵ mol dm⁻³. What is Ksp?",
+   "option_a": "1.3 × 10⁻⁵ mol² dm⁻⁶",
+   "option_b": "2.6 × 10⁻⁵ mol² dm⁻⁶",
+   "option_c": "1.7 × 10⁻¹⁰ mol² dm⁻⁶",
+   "option_d": "3.4 × 10⁻¹⁰ mol² dm⁻⁶",
+   "answer": "C",
+   "explanation": "Ksp = [Ag⁺][Cl⁻] = (1.3 × 10⁻⁵)² = 1.7 × 10⁻¹⁰."
+  },
+  {
+   "question": "What happens to the solubility of AgCl when NaCl is added to a saturated solution?",
+   "option_a": "It decreases",
+   "option_b": "AgCl dissolves completely",
+   "option_c": "It stays the same",
+   "option_d": "It increases",
+   "answer": "A",
+   "explanation": "The extra Cl⁻ (common ion) shifts the equilibrium toward solid AgCl."
+  },
+  {
+   "question": "When does a precipitate form from a mixture of solutions?",
+   "option_a": "When the ion product equals zero",
+   "option_b": "When the ion product is less than Ksp",
+   "option_c": "When the ion product exceeds Ksp",
+   "option_d": "Always, if both ions are present",
+   "answer": "C",
+   "explanation": "An ion product above Ksp means the solution is supersaturated, so solid forms."
+  },
+  {
+   "question": "In water softening, how does sodium carbonate remove Ca²⁺?",
+   "option_a": "Forms soluble CaCO₃",
+   "option_b": "Converts Ca²⁺ to Ca",
+   "option_c": "Makes the water acidic",
+   "option_d": "Precipitates CaCO₃",
+   "answer": "D",
+   "explanation": "Added CO₃²⁻ pushes the common-ion equilibrium so that CaCO₃ precipitates."
+  }
+ ],
+ "c11": [
+  {
+   "question": "What does the rate constant k depend on?",
+   "option_a": "The time elapsed",
+   "option_b": "The concentration of reactants",
+   "option_c": "Temperature (and catalyst)",
+   "option_d": "The volume of the container",
+   "answer": "C",
+   "explanation": "k changes with temperature but not with concentration."
+  },
+  {
+   "question": "The initial rate doubles when [A] doubles and quadruples when [B] doubles. What is the rate equation?",
+   "option_a": "rate = k[A][B]²",
+   "option_b": "rate = k[A]²[B]",
+   "option_c": "rate = k[A]²[B]²",
+   "option_d": "rate = k[A][B]",
+   "answer": "A",
+   "explanation": "Doubling gives ×2 (first order in A) and ×4 (second order in B)."
+  },
+  {
+   "question": "When [X] goes from 0.10 to 0.30 mol dm⁻³, the initial rate rises 9 times. What is the order with respect to X?",
+   "option_a": "Second",
+   "option_b": "Third",
+   "option_c": "Zero",
+   "option_d": "First",
+   "answer": "A",
+   "explanation": "3ⁿ = 9 gives n = 2."
+  },
+  {
+   "question": "What are the units of k for the rate equation rate = k[A][B]?",
+   "option_a": "mol dm⁻³ s⁻¹",
+   "option_b": "dm³ mol⁻¹ s⁻¹",
+   "option_c": "s⁻¹",
+   "option_d": "dm⁶ mol⁻² s⁻¹",
+   "answer": "B",
+   "explanation": "k = rate ÷ ([A][B]) = (mol dm⁻³ s⁻¹) ÷ (mol² dm⁻⁶)."
+  },
+  {
+   "question": "A first-order reaction has k = 0.0231 s⁻¹. What is its half-life?",
+   "option_a": "43.3 s",
+   "option_b": "60.0 s",
+   "option_c": "0.0160 s",
+   "option_d": "30.0 s",
+   "answer": "D",
+   "explanation": "t½ = ln 2 ÷ k = 0.693 ÷ 0.0231 = 30.0 s."
+  },
+  {
+   "question": "Which statement about first-order half-life is correct?",
+   "option_a": "It is always 1 second",
+   "option_b": "It doubles as concentration halves",
+   "option_c": "It depends on the initial concentration",
+   "option_d": "It is independent of the initial concentration",
+   "answer": "D",
+   "explanation": "The half-life is constant for a first-order reaction."
+  },
+  {
+   "question": "Which graph is a straight line for a zero-order reaction?",
+   "option_a": "ln[A] against time",
+   "option_b": "[A] against time",
+   "option_c": "1/[A] against time",
+   "option_d": "Rate against [A]²",
+   "answer": "B",
+   "explanation": "For zero order, [A] falls linearly and the gradient is −k."
+  },
+  {
+   "question": "Why does a small rise in temperature greatly increase reaction rate?",
+   "option_a": "More molecules have energy of at least Ea",
+   "option_b": "Molecules become larger",
+   "option_c": "Ea falls",
+   "option_d": "The reaction mixture gets denser",
+   "answer": "A",
+   "explanation": "The fraction of molecules above Ea rises sharply, so more collisions are successful."
+  },
+  {
+   "question": "How does the Maxwell–Boltzmann curve change at higher temperature?",
+   "option_a": "The peak shifts right and lowers, and more molecules exceed Ea",
+   "option_b": "The area under the curve increases",
+   "option_c": "Nothing changes",
+   "option_d": "The peak moves left",
+   "answer": "A",
+   "explanation": "The total number of molecules (area) stays constant, but the tail beyond Ea grows."
+  },
+  {
+   "question": "In the Arrhenius equation k = Ae^(−Ea/RT), what does a plot of ln k against 1/T give?",
+   "option_a": "A curve with a minimum",
+   "option_b": "A straight line of gradient Ea",
+   "option_c": "A horizontal line",
+   "option_d": "A straight line of gradient −Ea/R",
+   "answer": "D",
+   "explanation": "Taking logs: ln k = ln A − Ea/(RT)."
+  },
+  {
+   "question": "How does a catalyst increase the rate of reaction?",
+   "option_a": "It increases the enthalpy change",
+   "option_b": "It provides an alternative pathway with a lower activation energy",
+   "option_c": "It raises the temperature",
+   "option_d": "It increases the concentration of reactants",
+   "answer": "B",
+   "explanation": "A lower Ea means a bigger fraction of collisions are successful."
+  },
+  {
+   "question": "In the older production of sulphuric acid, oxides of nitrogen act as which type of catalyst?",
+   "option_a": "Heterogeneous",
+   "option_b": "An inhibitor",
+   "option_c": "An enzyme",
+   "option_d": "Homogeneous",
+   "answer": "D",
+   "explanation": "Reactants and catalyst are all gases in the same phase."
+  },
+  {
+   "question": "Mechanism: NO₂ + NO₂ → NO₃ + NO (slow); NO₃ + CO → NO₂ + CO₂ (fast). What is the rate equation?",
+   "option_a": "rate = k[NO₂][CO]",
+   "option_b": "rate = k[NO₃][CO]",
+   "option_c": "rate = k[NO₂]²",
+   "option_d": "rate = k[CO]",
+   "answer": "C",
+   "explanation": "The rate is set by the slow, rate-determining step, which involves two NO₂."
+  }
+ ],
+ "c12": [
+  {
+   "question": "Why is a reaction endothermic?",
+   "option_a": "More energy is absorbed breaking bonds than is released making bonds",
+   "option_b": "The surroundings gain heat",
+   "option_c": "More energy is released making bonds",
+   "option_d": "No bonds are broken",
+   "answer": "A",
+   "explanation": "ΔH is positive when bond breaking takes in more energy than bond making gives out."
+  },
+  {
+   "question": "Which equation represents the standard enthalpy of formation of CO₂(g)?",
+   "option_a": "C(g) + O₂(g) → CO₂(g)",
+   "option_b": "CO(g) + ½O₂(g) → CO₂(g)",
+   "option_c": "C(graphite) + O₂(g) → CO₂(g)",
+   "option_d": "C(diamond) + O₂(g) → CO₂(g)",
+   "answer": "C",
+   "explanation": "Formation starts from elements in their standard states. Graphite is the standard state of carbon."
+  },
+  {
+   "question": "What is the standard enthalpy of formation of an element in its standard state?",
+   "option_a": "Positive",
+   "option_b": "Negative",
+   "option_c": "Equal to its ΔHatom",
+   "option_d": "Zero",
+   "answer": "D",
+   "explanation": "By definition it is zero."
+  },
+  {
+   "question": "Why is the enthalpy of neutralisation of ethanoic acid with NaOH less exothermic than for HCl with NaOH?",
+   "option_a": "The reaction is endothermic",
+   "option_b": "Ethanoic acid is a stronger acid",
+   "option_c": "Energy is needed to ionise the weak acid",
+   "option_d": "Water is not formed",
+   "answer": "C",
+   "explanation": "Some heat released is used to dissociate the weakly ionised acid."
+  },
+  {
+   "question": "50.0 cm³ of 1.00 mol dm⁻³ HCl is mixed with 50.0 cm³ of 1.00 mol dm⁻³ NaOH. The temperature rises by 6.80 °C. What is ΔH of neutralisation? (c = 4.18 J g⁻¹ K⁻¹)",
+   "option_a": "−2.84 kJ mol⁻¹",
+   "option_b": "−56.8 kJ mol⁻¹",
+   "option_c": "−114 kJ mol⁻¹",
+   "option_d": "−28.4 kJ mol⁻¹",
+   "answer": "B",
+   "explanation": "q = 100 × 4.18 × 6.80 = 2842 J for 0.0500 mol, so ΔH = −56.8 kJ mol⁻¹."
+  },
+  {
+   "question": "ΔHc of carbon is −394 and ΔHc of CO is −283 kJ mol⁻¹. What is ΔHf of CO?",
+   "option_a": "−111 kJ mol⁻¹",
+   "option_b": "−283 kJ mol⁻¹",
+   "option_c": "−677 kJ mol⁻¹",
+   "option_d": "+111 kJ mol⁻¹",
+   "answer": "A",
+   "explanation": "C + ½O₂ → CO: ΔH = (−394) − (−283) = −111 kJ mol⁻¹."
+  },
+  {
+   "question": "CH₄ + 2O₂ → CO₂ + 2H₂O(l). ΔHf (kJ mol⁻¹): CH₄ −75, CO₂ −394, H₂O(l) −286. What is ΔHc of methane?",
+   "option_a": "−605 kJ mol⁻¹",
+   "option_b": "−891 kJ mol⁻¹",
+   "option_c": "−1041 kJ mol⁻¹",
+   "option_d": "+891 kJ mol⁻¹",
+   "answer": "B",
+   "explanation": "ΔH = [−394 + 2(−286)] − (−75) = −966 + 75 = −891."
+  },
+  {
+   "question": "What does lattice energy refer to in this syllabus?",
+   "option_a": "Dissolving one mole of solid in water",
+   "option_b": "Breaking one mole of ionic solid into gaseous ions",
+   "option_c": "Formation of one mole of an ionic solid from its gaseous ions",
+   "option_d": "Forming one mole of ionic solid from its elements",
+   "answer": "C",
+   "explanation": "Defined this way, lattice energy is exothermic (negative)."
+  },
+  {
+   "question": "Which has the greater magnitude of lattice energy?",
+   "option_a": "MgO",
+   "option_b": "KBr",
+   "option_c": "CsI",
+   "option_d": "NaCl",
+   "answer": "A",
+   "explanation": "MgO has higher ionic charges (2+ and 2−) and smaller ions."
+  },
+  {
+   "question": "Which step in the Born–Haber cycle for NaCl is endothermic?",
+   "option_a": "First ionisation energy of sodium",
+   "option_b": "Formation of the NaCl lattice",
+   "option_c": "First electron affinity of chlorine",
+   "option_d": "Standard enthalpy of formation of NaCl",
+   "answer": "A",
+   "explanation": "Removing an electron from Na requires energy. The other three steps are exothermic."
+  },
+  {
+   "question": "Why is the hydration enthalpy of Mg²⁺ more exothermic than that of Ba²⁺?",
+   "option_a": "Mg²⁺ is larger",
+   "option_b": "Mg²⁺ has a smaller charge",
+   "option_c": "Mg²⁺ is smaller, so it has a higher charge density",
+   "option_d": "Ba²⁺ has no hydration",
+   "answer": "C",
+   "explanation": "A smaller ion of the same charge attracts water molecules more strongly."
+  },
+  {
+   "question": "Using H–H 436, Cl–Cl 243 and H–Cl 432 kJ mol⁻¹, what is ΔH for H₂ + Cl₂ → 2HCl?",
+   "option_a": "−185 kJ mol⁻¹",
+   "option_b": "−1543 kJ mol⁻¹",
+   "option_c": "−864 kJ mol⁻¹",
+   "option_d": "+185 kJ mol⁻¹",
+   "answer": "A",
+   "explanation": "ΔH = bonds broken − bonds formed = (436 + 243) − 2(432) = −185."
+  },
+  {
+   "question": "Lattice energy of a salt is −780 and its total hydration enthalpy is −800 kJ mol⁻¹. What is ΔH of solution?",
+   "option_a": "−20 kJ mol⁻¹",
+   "option_b": "+20 kJ mol⁻¹",
+   "option_c": "−1580 kJ mol⁻¹",
+   "option_d": "+1580 kJ mol⁻¹",
+   "answer": "A",
+   "explanation": "ΔHsoln = ΔHhyd − ΔHlattice = −800 − (−780) = −20."
+  }
+ ],
+ "c13": [
+  {
+   "question": "In a galvanic cell, where does oxidation occur?",
+   "option_a": "At the salt bridge",
+   "option_b": "At the anode, the negative electrode",
+   "option_c": "At the cathode, the positive electrode",
+   "option_d": "In the voltmeter",
+   "answer": "B",
+   "explanation": "Electrons leave the anode, so it is the negative terminal in a galvanic cell."
+  },
+  {
+   "question": "In the cell notation Zn(s) | Zn²⁺(aq) ‖ Cu²⁺(aq) | Cu(s), what does ‖ represent?",
+   "option_a": "The salt bridge",
+   "option_b": "A phase boundary",
+   "option_c": "An electrode",
+   "option_d": "A voltmeter",
+   "answer": "A",
+   "explanation": "A single line is a phase boundary and a double line is the salt bridge."
+  },
+  {
+   "question": "What is the function of a salt bridge?",
+   "option_a": "Acts as the anode",
+   "option_b": "Increases the cell potential",
+   "option_c": "Produces electrons",
+   "option_d": "Completes the circuit and keeps solutions electrically neutral",
+   "answer": "D",
+   "explanation": "Ions migrate through it to balance charge build-up in each half-cell."
+  },
+  {
+   "question": "What are the standard conditions of the standard hydrogen electrode?",
+   "option_a": "H₂ at 2 atm, 0.10 mol dm⁻³ H⁺, 273 K",
+   "option_b": "O₂ at 1 atm, 1.00 mol dm⁻³ OH⁻, 298 K",
+   "option_c": "H₂ at 1 atm, 1.00 mol dm⁻³ H⁺, 298 K",
+   "option_d": "H₂ at 1 atm, pure water, 373 K",
+   "answer": "C",
+   "explanation": "The SHE uses a platinum electrode and is assigned E° = 0.00 V."
+  },
+  {
+   "question": "E° Zn²⁺/Zn = −0.76 V and E° Cu²⁺/Cu = +0.34 V. What is E°cell for the Zn–Cu cell?",
+   "option_a": "+1.10 V",
+   "option_b": "−1.10 V",
+   "option_c": "+0.42 V",
+   "option_d": "−0.42 V",
+   "answer": "A",
+   "explanation": "E°cell = E°(cathode) − E°(anode) = 0.34 − (−0.76) = +1.10 V."
+  },
+  {
+   "question": "Given E° values F₂ +2.87 V, Cl₂ +1.36 V, Br₂ +1.07 V and I₂ +0.54 V, which is the strongest oxidising agent?",
+   "option_a": "I₂",
+   "option_b": "F₂",
+   "option_c": "Cl₂",
+   "option_d": "Br₂",
+   "answer": "B",
+   "explanation": "The most positive E° means the strongest tendency to be reduced."
+  },
+  {
+   "question": "What does a positive E°cell indicate?",
+   "option_a": "The reaction is very slow",
+   "option_b": "The reaction is spontaneous under standard conditions",
+   "option_c": "The reaction is at equilibrium",
+   "option_d": "The reaction is non-spontaneous",
+   "answer": "B",
+   "explanation": "A positive E°cell corresponds to a negative ΔG."
+  },
+  {
+   "question": "What is Ecell for a cell at equilibrium?",
+   "option_a": "0 V",
+   "option_b": "E°cell",
+   "option_c": "It cannot be determined",
+   "option_d": "+1.00 V",
+   "answer": "A",
+   "explanation": "At equilibrium Q = K, there is no driving force, and the cell is \"flat\"."
+  },
+  {
+   "question": "What does a large positive E°cell tell you about K for the cell reaction?",
+   "option_a": "K equals 1",
+   "option_b": "K is negative",
+   "option_c": "K is very small",
+   "option_d": "K is very large",
+   "answer": "D",
+   "explanation": "Larger E° means a bigger equilibrium constant, since ln K ∝ nE°."
+  },
+  {
+   "question": "What is formed at the anode when concentrated aqueous NaCl is electrolysed with inert electrodes?",
+   "option_a": "Hydrogen",
+   "option_b": "Chlorine",
+   "option_c": "Oxygen",
+   "option_d": "Sodium",
+   "answer": "B",
+   "explanation": "Cl⁻ is discharged in preference to OH⁻ at high concentration."
+  },
+  {
+   "question": "What are the products at inert electrodes when aqueous CuSO₄ is electrolysed?",
+   "option_a": "Cu at the cathode and SO₂ at the anode",
+   "option_b": "H₂ at the cathode and O₂ at the anode",
+   "option_c": "Cu at the cathode and O₂ at the anode",
+   "option_d": "H₂ at the cathode and Cl₂ at the anode",
+   "answer": "C",
+   "explanation": "Cu²⁺ is reduced more easily than H⁺. Water is oxidised at the anode."
+  },
+  {
+   "question": "What mass of copper is deposited by a current of 2.00 A for 965 s? (F = 96 500 C mol⁻¹, Ar Cu = 63.5)",
+   "option_a": "6.35 g",
+   "option_b": "1.27 g",
+   "option_c": "0.635 g",
+   "option_d": "0.318 g",
+   "answer": "C",
+   "explanation": "Q = 1930 C, so mol e⁻ = 0.0200, mol Cu = 0.0100, mass = 0.635 g."
+  },
+  {
+   "question": "How is the Faraday constant related to the Avogadro constant (L) and the electronic charge (e)?",
+   "option_a": "F = e ÷ L",
+   "option_b": "F = L ÷ e",
+   "option_c": "F = L + e",
+   "option_d": "F = L × e",
+   "answer": "D",
+   "explanation": "One mole of electrons has L × e coulombs of charge."
+  },
+  {
+   "question": "What is the only product of a hydrogen–oxygen fuel cell?",
+   "option_a": "Ammonia",
+   "option_b": "Water",
+   "option_c": "Carbon dioxide",
+   "option_d": "Hydrogen peroxide",
+   "answer": "B",
+   "explanation": "2H₂ + O₂ → 2H₂O, which makes the cell clean and efficient."
+  },
+  {
+   "question": "Why is aluminium oxide dissolved in molten cryolite for electrolysis?",
+   "option_a": "To raise the melting point",
+   "option_b": "To remove oxygen",
+   "option_c": "To lower the melting point and improve conductivity",
+   "option_d": "To make aluminium less reactive",
+   "answer": "C",
+   "explanation": "Pure Al₂O₃ melts at about 2000 °C, whereas the mixture runs at about 950 °C."
+  },
+  {
+   "question": "What is the purpose of the diaphragm in the chlor-alkali cell?",
+   "option_a": "To produce hydrogen",
+   "option_b": "To increase the voltage",
+   "option_c": "To remove water",
+   "option_d": "To keep Cl₂ and NaOH from mixing and reacting",
+   "answer": "D",
+   "explanation": "Without the diaphragm, Cl₂ would react with NaOH to give NaClO and NaClO₃."
+  },
+  {
+   "question": "How are Ni²⁺, Cr³⁺ and Cd²⁺ removed from industrial effluent?",
+   "option_a": "By filtering through sand",
+   "option_b": "By precipitating them as hydroxides with alkali",
+   "option_c": "By adding acid",
+   "option_d": "By boiling the water",
+   "answer": "B",
+   "explanation": "Adding alkali makes the metal hydroxides insoluble, so they can be filtered."
+  },
+  {
+   "question": "What is anodisation of aluminium?",
+   "option_a": "Dissolving Al in acid",
+   "option_b": "Heating Al in nitrogen",
+   "option_c": "Plating Al with zinc",
+   "option_d": "Making Al the anode to thicken its oxide layer",
+   "answer": "D",
+   "explanation": "The thicker Al₂O₃ layer resists corrosion and can be dyed."
+  }
+ ],
+ "c14": [
+  {
+   "question": "What is the hybridisation of each carbon atom in ethene?",
+   "option_a": "sp",
+   "option_b": "sp³",
+   "option_c": "sp³d",
+   "option_d": "sp²",
+   "answer": "D",
+   "explanation": "Each carbon has three σ bonds in a trigonal planar arrangement (120°) and one π bond."
+  },
+  {
+   "question": "What are the shape and bond angle around each carbon atom in ethyne?",
+   "option_a": "Trigonal planar, 120°",
+   "option_b": "Linear, 180°",
+   "option_c": "Bent, 104.5°",
+   "option_d": "Tetrahedral, 109.5°",
+   "answer": "B",
+   "explanation": "Each carbon is sp hybridised with one σ bond on each side and two π bonds."
+  },
+  {
+   "question": "Why are all the C–C bond lengths in benzene equal?",
+   "option_a": "Benzene has alternating single and double bonds",
+   "option_b": "Benzene has no π electrons",
+   "option_c": "Benzene is not a ring",
+   "option_d": "The π electrons are delocalised over the whole ring",
+   "answer": "D",
+   "explanation": "Each C–C bond is intermediate between single and double."
+  },
+  {
+   "question": "What functional group does an ester contain?",
+   "option_a": "R–CO–R′",
+   "option_b": "R–COCl",
+   "option_c": "R–COO–R′",
+   "option_d": "R–CONH₂",
+   "answer": "C",
+   "explanation": "The ester group is a carbonyl carbon bonded to an alkoxy (–OR′) group."
+  },
+  {
+   "question": "Which compound class has the functional group –CONH₂?",
+   "option_a": "Amine",
+   "option_b": "Acyl chloride",
+   "option_c": "Amide",
+   "option_d": "Ester",
+   "answer": "C",
+   "explanation": "The amide group is a carbonyl carbon bonded directly to nitrogen."
+  },
+  {
+   "question": "Why does propan-1-ol boil at a higher temperature than propanal?",
+   "option_a": "Propanal has a higher molar mass",
+   "option_b": "Alcohol molecules form hydrogen bonds",
+   "option_c": "Propanal is ionic",
+   "option_d": "Propan-1-ol has no polar bonds",
+   "answer": "B",
+   "explanation": "Hydrogen bonding is stronger than the dipole–dipole forces in propanal."
+  },
+  {
+   "question": "Why does ethanoic acid have a higher boiling point than propan-1-ol, which has a similar Mr?",
+   "option_a": "It has weaker intermolecular forces",
+   "option_b": "It is a smaller molecule",
+   "option_c": "It forms hydrogen-bonded dimers",
+   "option_d": "It has no hydroxyl group",
+   "answer": "C",
+   "explanation": "Two hydrogen bonds link pairs of acid molecules, behaving like a larger molecule."
+  },
+  {
+   "question": "What happens in homolytic cleavage?",
+   "option_a": "No electrons move",
+   "option_b": "One atom takes both electrons, giving ions",
+   "option_c": "The bond becomes a π bond",
+   "option_d": "Each atom takes one of the bonding electrons, giving free radicals",
+   "answer": "D",
+   "explanation": "Homolytic fission is caused by UV light or heat. Heterolytic fission gives a cation and an anion."
+  },
+  {
+   "question": "Which species is a nucleophile?",
+   "option_a": "NO₂⁺",
+   "option_b": "H⁺",
+   "option_c": "AlCl₃",
+   "option_d": "OH⁻",
+   "answer": "D",
+   "explanation": "Nucleophiles donate a lone pair to an electron-poor centre."
+  },
+  {
+   "question": "Which species is an electrophile?",
+   "option_a": "OH⁻",
+   "option_b": "NH₃",
+   "option_c": "NO₂⁺",
+   "option_d": "CN⁻",
+   "answer": "C",
+   "explanation": "An electrophile accepts an electron pair, as in the nitration of benzene."
+  },
+  {
+   "question": "Why do alkane boiling points increase with chain length?",
+   "option_a": "Hydrogen bonds form between chains",
+   "option_b": "More electrons give stronger van der Waals forces",
+   "option_c": "Bonds become ionic",
+   "option_d": "Molecules become more polar",
+   "answer": "B",
+   "explanation": "Larger surface area and more electrons mean stronger instantaneous dipole–induced dipole forces."
+  }
+ ],
+ "c15a": [
+  {
+   "question": "What is the general formula of the alkanes?",
+   "option_a": "CₙHₙ",
+   "option_b": "CₙH₂ₙ",
+   "option_c": "CₙH₂ₙ₊₂",
+   "option_d": "CₙH₂ₙ₋₂",
+   "answer": "C",
+   "explanation": "Alkanes are saturated with only single bonds."
+  },
+  {
+   "question": "What is the IUPAC name of CH₃CH(CH₃)CH₂CH₃?",
+   "option_a": "3-methylbutane",
+   "option_b": "2-methylbutane",
+   "option_c": "Isopentane only",
+   "option_d": "2-ethylpropane",
+   "answer": "B",
+   "explanation": "The longest chain is four carbons, with a methyl on carbon 2."
+  },
+  {
+   "question": "What is the IUPAC name of (CH₃)₃CCH₂CH₃?",
+   "option_a": "2,2-dimethylbutane",
+   "option_b": "2-ethyl-2-methylpropane",
+   "option_c": "3,3-dimethylbutane",
+   "option_d": "Neohexane only",
+   "answer": "A",
+   "explanation": "Number from the end nearer the branches. Two methyl groups sit on carbon 2."
+  },
+  {
+   "question": "How many structural isomers does C₅H₁₂ have?",
+   "option_a": "2",
+   "option_b": "3",
+   "option_c": "4",
+   "option_d": "5",
+   "answer": "B",
+   "explanation": "Pentane, 2-methylbutane and 2,2-dimethylpropane."
+  },
+  {
+   "question": "Which pair are structural isomers?",
+   "option_a": "Butane and pentane",
+   "option_b": "Ethene and ethane",
+   "option_c": "Methane and ethane",
+   "option_d": "Cyclohexane and hex-1-ene",
+   "answer": "D",
+   "explanation": "Both have the formula C₆H₁₂ but different structures."
+  },
+  {
+   "question": "Why does a branched alkane boil lower than its straight-chain isomer?",
+   "option_a": "Branched alkanes are polar",
+   "option_b": "It has fewer electrons",
+   "option_c": "Smaller surface area gives weaker van der Waals forces",
+   "option_d": "It has fewer carbon atoms",
+   "answer": "C",
+   "explanation": "Branched molecules pack less closely and have less contact."
+  },
+  {
+   "question": "Which equation is a propagation step in the chlorination of methane?",
+   "option_a": "•CH₃ + Cl• → CH₃Cl",
+   "option_b": "2Cl• → Cl₂",
+   "option_c": "Cl• + CH₄ → HCl + •CH₃",
+   "option_d": "Cl₂ → 2Cl•",
+   "answer": "C",
+   "explanation": "A propagation step uses one radical and produces another radical."
+  },
+  {
+   "question": "Which step in the chlorination of methane can form ethane as a by-product?",
+   "option_a": "Initiation",
+   "option_b": "Termination: two methyl radicals combine",
+   "option_c": "Heterolytic fission",
+   "option_d": "Propagation with Cl₂",
+   "answer": "B",
+   "explanation": "CH₃• + CH₃• → C₂H₆ removes two radicals."
+  },
+  {
+   "question": "What does cracking produce from long-chain alkanes?",
+   "option_a": "Larger alkanes only",
+   "option_b": "Smaller alkanes and alkenes",
+   "option_c": "Carbon dioxide only",
+   "option_d": "Alcohols",
+   "answer": "B",
+   "explanation": "Cracking breaks C–C bonds to make shorter, more useful molecules."
+  },
+  {
+   "question": "What reaction does a catalytic converter bring about?",
+   "option_a": "SO₂ + O₂ → SO₃",
+   "option_b": "N₂ + O₂ → 2NO",
+   "option_c": "2CO + 2NO → 2CO₂ + N₂",
+   "option_d": "CO₂ + H₂O → H₂CO₃",
+   "answer": "C",
+   "explanation": "Pt, Pd and Rh catalysts turn CO, NOₓ and unburnt hydrocarbons into less harmful gases."
+  },
+  {
+   "question": "Which pollutant from burning fossil fuels mainly causes acid rain?",
+   "option_a": "CH₄",
+   "option_b": "SO₂ (with NOₓ)",
+   "option_c": "N₂",
+   "option_d": "CO₂ only",
+   "answer": "B",
+   "explanation": "SO₂ and NOₓ dissolve in rainwater to form H₂SO₄ and HNO₃."
+  },
+  {
+   "question": "How does CO₂ contribute to the greenhouse effect?",
+   "option_a": "It cools the atmosphere",
+   "option_b": "It absorbs infrared radiation from the Earth",
+   "option_c": "It destroys ozone",
+   "option_d": "It reflects visible light into space",
+   "answer": "B",
+   "explanation": "Absorbed infrared is re-emitted, warming the lower atmosphere."
+  },
+  {
+   "question": "Which alkane has a chiral centre?",
+   "option_a": "3-methylpentane",
+   "option_b": "2-methylpentane",
+   "option_c": "3-methylhexane",
+   "option_d": "2,2-dimethylbutane",
+   "answer": "C",
+   "explanation": "Carbon 3 in 3-methylhexane has four different groups: H, CH₃, C₂H₅ and C₃H₇."
+  }
+ ],
+ "c15b": [
+  {
+   "question": "What is the IUPAC name of CH₃CH=CHCH₂CH₃?",
+   "option_a": "Pent-3-ene",
+   "option_b": "Pent-2-ene",
+   "option_c": "2-pentene only",
+   "option_d": "Pent-1-ene",
+   "answer": "B",
+   "explanation": "Number from the end nearer the double bond, so the double bond starts at carbon 2."
+  },
+  {
+   "question": "Which alkene shows cis–trans isomerism?",
+   "option_a": "But-1-ene",
+   "option_b": "Propene",
+   "option_c": "2-methylpropene",
+   "option_d": "But-2-ene",
+   "answer": "D",
+   "explanation": "Each carbon of the C=C must carry two different groups."
+  },
+  {
+   "question": "What is the major product when HBr adds to propene?",
+   "option_a": "2-bromopropane",
+   "option_b": "1-bromopropane",
+   "option_c": "2,2-dibromopropane",
+   "option_d": "Propan-2-ol",
+   "answer": "A",
+   "explanation": "By Markovnikov's rule, H adds to the carbon with more H atoms, giving the more stable secondary carbocation."
+  },
+  {
+   "question": "In the electrophilic addition of HBr to an alkene, what is the reactive intermediate?",
+   "option_a": "A carbocation",
+   "option_b": "A carbanion",
+   "option_c": "A free radical",
+   "option_d": "A carbene",
+   "answer": "A",
+   "explanation": "The π electrons attack H⁺, leaving a positive carbon that Br⁻ then attacks."
+  },
+  {
+   "question": "What is observed when ethene is bubbled through bromine water?",
+   "option_a": "A white precipitate forms",
+   "option_b": "Nothing happens",
+   "option_c": "The orange-brown colour disappears",
+   "option_d": "The solution turns purple",
+   "answer": "C",
+   "explanation": "Bromine adds across the double bond, which is the test for unsaturation."
+  },
+  {
+   "question": "What is formed when ethene reacts with cold, dilute alkaline KMnO₄?",
+   "option_a": "Ethanoic acid",
+   "option_b": "Carbon dioxide",
+   "option_c": "Ethane-1,2-diol",
+   "option_d": "Ethanol",
+   "answer": "C",
+   "explanation": "The purple solution turns brown as MnO₂ forms, and a diol is made."
+  },
+  {
+   "question": "What is formed when propene is heated with hot, concentrated acidified KMnO₄?",
+   "option_a": "Propane-1,2-diol",
+   "option_b": "Propanoic acid",
+   "option_c": "Propanone",
+   "option_d": "Ethanoic acid, CO₂ and H₂O",
+   "answer": "D",
+   "explanation": "The double bond is cleaved. CH₃CH= becomes CH₃COOH and =CH₂ becomes CO₂ and H₂O."
+  },
+  {
+   "question": "Ozonolysis of 2-methylpropene, followed by reduction, gives which products?",
+   "option_a": "Propanone and methanal",
+   "option_b": "Propanal and CO₂",
+   "option_c": "Ethanal and methanal",
+   "option_d": "Propan-2-ol only",
+   "answer": "A",
+   "explanation": "(CH₃)₂C=CH₂ gives (CH₃)₂C=O and HCHO."
+  },
+  {
+   "question": "Why are tertiary carbocations more stable than primary ones?",
+   "option_a": "They have more hydrogens",
+   "option_b": "They have fewer carbon atoms",
+   "option_c": "They are neutral",
+   "option_d": "Alkyl groups donate electron density through the inductive effect",
+   "answer": "D",
+   "explanation": "Three electron-donating alkyl groups spread out the positive charge."
+  },
+  {
+   "question": "Why do some carbocations undergo a 1,2-hydride or methyl shift?",
+   "option_a": "To form a more stable carbocation",
+   "option_b": "To become neutral",
+   "option_c": "To lose a proton",
+   "option_d": "To form a free radical",
+   "answer": "A",
+   "explanation": "A secondary carbocation rearranges to a tertiary one if possible."
+  },
+  {
+   "question": "What is formed when ethene reacts with cold concentrated sulphuric acid?",
+   "option_a": "Ethyl hydrogensulphate",
+   "option_b": "Ethane",
+   "option_c": "Ethanoic acid",
+   "option_d": "Ethanol directly",
+   "answer": "A",
+   "explanation": "CH₃CH₂OSO₃H forms and gives ethanol on adding water and warming."
+  },
+  {
+   "question": "What conditions are used for the industrial hydration of ethene?",
+   "option_a": "Concentrated H₂SO₄ at 170 °C",
+   "option_b": "Dilute HCl at room temperature",
+   "option_c": "Steam with H₃PO₄ catalyst at about 300 °C and high pressure",
+   "option_d": "NaOH(aq) with heat",
+   "answer": "C",
+   "explanation": "C₂H₄ + H₂O ⇌ C₂H₅OH is exothermic, so a compromise temperature is used."
+  }
+ ],
+ "c15c": [
+  {
+   "question": "Why does benzene prefer substitution to addition?",
+   "option_a": "Substitution keeps the stable delocalised π system",
+   "option_b": "Substitution releases more heat",
+   "option_c": "Addition is faster",
+   "option_d": "Benzene has no π electrons",
+   "answer": "A",
+   "explanation": "Addition would destroy the delocalised ring and its extra stability."
+  },
+  {
+   "question": "What is the electrophile in the nitration of benzene?",
+   "option_a": "NO₃⁻",
+   "option_b": "NH₄⁺",
+   "option_c": "NO₂⁺",
+   "option_d": "HNO₃",
+   "answer": "C",
+   "explanation": "Conc. HNO₃ and conc. H₂SO₄ make the nitronium ion NO₂⁺."
+  },
+  {
+   "question": "What is the role of FeCl₃ or AlCl₃ in the halogenation of benzene?",
+   "option_a": "It reduces benzene",
+   "option_b": "It makes a stronger electrophile by polarising the halogen",
+   "option_c": "It acts as a nucleophile",
+   "option_d": "It provides H⁺",
+   "answer": "B",
+   "explanation": "The Lewis acid accepts a lone pair from Cl₂ or Br₂, generating Cl⁺ or Br⁺."
+  },
+  {
+   "question": "What is the product of benzene and CH₃COCl with AlCl₃?",
+   "option_a": "Phenol",
+   "option_b": "Phenylethanone",
+   "option_c": "Benzoic acid",
+   "option_d": "Ethylbenzene",
+   "answer": "B",
+   "explanation": "Friedel–Crafts acylation adds an acyl group, giving an aromatic ketone."
+  },
+  {
+   "question": "What is the main product of nitrating methylbenzene?",
+   "option_a": "2- and 4-nitromethylbenzene",
+   "option_b": "3-nitromethylbenzene",
+   "option_c": "Nitrobenzene",
+   "option_d": "1,3,5-trinitromethylbenzene",
+   "answer": "A",
+   "explanation": "The methyl group is activating and directs electrophiles to the 2 and 4 positions."
+  },
+  {
+   "question": "Which substituent on a benzene ring is meta-directing?",
+   "option_a": "–NO₂",
+   "option_b": "–CH₃",
+   "option_c": "–OH",
+   "option_d": "–NH₂",
+   "answer": "A",
+   "explanation": "Electron-withdrawing groups deactivate the ring and direct to the 3 position."
+  },
+  {
+   "question": "Which alkylbenzene cannot be oxidised to benzoic acid by hot alkaline KMnO₄?",
+   "option_a": "tert-butylbenzene",
+   "option_b": "Ethylbenzene",
+   "option_c": "Methylbenzene",
+   "option_d": "Propylbenzene",
+   "answer": "A",
+   "explanation": "The benzylic carbon needs at least one hydrogen."
+  },
+  {
+   "question": "How does the reaction of methylbenzene with Cl₂ differ under UV light and with AlCl₃?",
+   "option_a": "Neither reacts",
+   "option_b": "Both give ring substitution",
+   "option_c": "UV gives ring substitution and AlCl₃ gives side-chain substitution",
+   "option_d": "UV gives side-chain substitution and AlCl₃ gives ring substitution",
+   "answer": "D",
+   "explanation": "UV causes radical substitution on the CH₃ group. AlCl₃ gives electrophilic substitution on the ring."
+  },
+  {
+   "question": "What is the last step of electrophilic aromatic substitution?",
+   "option_a": "Gain of a second electrophile",
+   "option_b": "Loss of the substituent",
+   "option_c": "Loss of H⁺ to restore the delocalised ring",
+   "option_d": "Addition of H⁻",
+   "answer": "C",
+   "explanation": "The carbocation intermediate loses H⁺ to regain aromatic stability."
+  },
+  {
+   "question": "What is the IUPAC name of C₆H₅CH₂CH₃?",
+   "option_a": "Methylbenzene",
+   "option_b": "Ethylbenzene",
+   "option_c": "Phenylethane only",
+   "option_d": "Benzylethane",
+   "answer": "B",
+   "explanation": "Alkylbenzenes are named as substituted benzenes."
+  },
+  {
+   "question": "How many arene isomers of C₈H₁₀ contain a benzene ring?",
+   "option_a": "5",
+   "option_b": "3",
+   "option_c": "2",
+   "option_d": "4",
+   "answer": "D",
+   "explanation": "Ethylbenzene and three dimethylbenzenes (1,2-, 1,3- and 1,4-)."
+  }
+ ],
+ "c16": [
+  {
+   "question": "CH₃CH₂CHBrCH₃ is what type of haloalkane?",
+   "option_a": "Secondary",
+   "option_b": "Primary",
+   "option_c": "Tertiary",
+   "option_d": "Quaternary",
+   "answer": "A",
+   "explanation": "The carbon bonded to Br is attached to two other carbon atoms."
+  },
+  {
+   "question": "What is the IUPAC name of CH₃CHClCH₂CH₃?",
+   "option_a": "2-chlorobutane",
+   "option_b": "sec-chlorobutane",
+   "option_c": "1-chloro-1-methylpropane",
+   "option_d": "3-chlorobutane",
+   "answer": "A",
+   "explanation": "Number the chain from the end nearer the halogen."
+  },
+  {
+   "question": "How many structural isomers does C₄H₉Br have?",
+   "option_a": "2",
+   "option_b": "4",
+   "option_c": "5",
+   "option_d": "3",
+   "answer": "B",
+   "explanation": "1-bromobutane, 2-bromobutane, 1-bromo-2-methylpropane and 2-bromo-2-methylpropane."
+  },
+  {
+   "question": "What conditions convert 2-bromopropane to propene?",
+   "option_a": "Dilute HCl, room temperature",
+   "option_b": "NaOH(aq), heat",
+   "option_c": "H₂, Ni",
+   "option_d": "Ethanolic KOH, heat",
+   "answer": "D",
+   "explanation": "Ethanolic base removes HBr (elimination). Aqueous base gives substitution to the alcohol."
+  },
+  {
+   "question": "Which haloalkane reacts mainly by an SN1 mechanism?",
+   "option_a": "Bromomethane",
+   "option_b": "1-bromobutane",
+   "option_c": "Bromoethane",
+   "option_d": "2-bromo-2-methylpropane",
+   "answer": "D",
+   "explanation": "A tertiary haloalkane forms a stable carbocation in a slow first step."
+  },
+  {
+   "question": "What is the rate equation for an SN2 reaction of bromoethane with OH⁻?",
+   "option_a": "rate = k[C₂H₅Br]",
+   "option_b": "rate = k[C₂H₅Br][OH⁻]",
+   "option_c": "rate = k",
+   "option_d": "rate = k[OH⁻]",
+   "answer": "B",
+   "explanation": "The rate-determining step is the single step involving both reactants."
+  },
+  {
+   "question": "Which halogenoalkane is hydrolysed fastest?",
+   "option_a": "A bromoalkane",
+   "option_b": "A fluoroalkane",
+   "option_c": "An iodoalkane",
+   "option_d": "A chloroalkane",
+   "answer": "C",
+   "explanation": "The C–I bond is the weakest, so it breaks most easily."
+  },
+  {
+   "question": "Why is chlorobenzene resistant to nucleophilic substitution?",
+   "option_a": "The ring is positively charged",
+   "option_b": "It has no C–Cl bond",
+   "option_c": "It is ionic",
+   "option_d": "The Cl lone pair overlaps with the ring, giving a stronger C–Cl bond",
+   "answer": "D",
+   "explanation": "Partial double-bond character and repulsion from the π cloud block attack."
+  },
+  {
+   "question": "What is the major product of dehydrohalogenation of 2-bromobutane?",
+   "option_a": "Butan-2-ol",
+   "option_b": "But-1-ene",
+   "option_c": "But-2-ene",
+   "option_d": "Butane",
+   "answer": "C",
+   "explanation": "Saytzeff's rule: the more substituted alkene is the major product."
+  },
+  {
+   "question": "Why must Grignard reagents be prepared in dry ether?",
+   "option_a": "Ether is a catalyst",
+   "option_b": "They react with water",
+   "option_c": "Water would oxidise the halide",
+   "option_d": "Mg is soluble in ether only",
+   "answer": "B",
+   "explanation": "RMgX is a very strong base and is destroyed by water to form an alkane."
+  },
+  {
+   "question": "Which species from CFCs catalyses ozone destruction?",
+   "option_a": "Carbon atoms",
+   "option_b": "Chlorine radicals",
+   "option_c": "Fluorine radicals",
+   "option_d": "Hydroxide ions",
+   "answer": "B",
+   "explanation": "UV breaks the C–Cl bond. Cl• reacts with O₃ and is regenerated."
+  },
+  {
+   "question": "What does the reaction of bromoethane with KCN in ethanol give?",
+   "option_a": "Ethanol",
+   "option_b": "Ethanenitrile",
+   "option_c": "Propanamine",
+   "option_d": "Propanenitrile",
+   "answer": "D",
+   "explanation": "The cyanide ion substitutes Br, adding one carbon to the chain."
+  }
+ ],
+ "c17": [
+  {
+   "question": "Which alcohol is tertiary?",
+   "option_a": "2-methylpropan-1-ol",
+   "option_b": "2-methylpropan-2-ol",
+   "option_c": "Butan-1-ol",
+   "option_d": "Butan-2-ol",
+   "answer": "B",
+   "explanation": "The carbon bearing OH is attached to three other carbon atoms."
+  },
+  {
+   "question": "How many alcohol isomers have the formula C₄H₁₀O?",
+   "option_a": "3",
+   "option_b": "2",
+   "option_c": "4",
+   "option_d": "5",
+   "answer": "C",
+   "explanation": "Butan-1-ol, butan-2-ol, 2-methylpropan-1-ol and 2-methylpropan-2-ol."
+  },
+  {
+   "question": "What is observed when sodium is added to ethanol?",
+   "option_a": "The mixture explodes",
+   "option_b": "Effervescence of hydrogen and sodium dissolves",
+   "option_c": "Sodium floats and melts",
+   "option_d": "A white precipitate forms",
+   "answer": "B",
+   "explanation": "2C₂H₅OH + 2Na → 2C₂H₅ONa + H₂."
+  },
+  {
+   "question": "What is formed when ethanol reacts with ethanoic acid in the presence of concentrated H₂SO₄?",
+   "option_a": "Diethyl ether",
+   "option_b": "Ethanoyl chloride",
+   "option_c": "Ethyl ethanoate and water",
+   "option_d": "Ethanal and water",
+   "answer": "C",
+   "explanation": "Esterification is reversible and acid catalysed."
+  },
+  {
+   "question": "Why are acyl chlorides better than carboxylic acids for making esters from alcohols?",
+   "option_a": "They give water",
+   "option_b": "The reaction is fast and goes to completion",
+   "option_c": "The reaction is reversible",
+   "option_d": "They need no alcohol",
+   "answer": "B",
+   "explanation": "ROH + R′COCl → R′COOR + HCl is irreversible at room temperature."
+  },
+  {
+   "question": "Which reagent converts ethanol to chloroethane with only gaseous by-products?",
+   "option_a": "SOCl₂",
+   "option_b": "Cl₂",
+   "option_c": "NaCl",
+   "option_d": "HCl(aq)",
+   "answer": "A",
+   "explanation": "C₂H₅OH + SOCl₂ → C₂H₅Cl + SO₂ + HCl."
+  },
+  {
+   "question": "What is formed when ethanol is heated with excess concentrated H₂SO₄ at 170 °C?",
+   "option_a": "Ethoxyethane",
+   "option_b": "Ethene",
+   "option_c": "Ethanoic acid",
+   "option_d": "Ethanal",
+   "answer": "B",
+   "explanation": "Dehydration at a higher temperature gives the alkene."
+  },
+  {
+   "question": "Which alcohol gives a cloudy solution immediately with Lucas reagent (ZnCl₂/conc. HCl)?",
+   "option_a": "Methanol",
+   "option_b": "Butan-2-ol",
+   "option_c": "Butan-1-ol",
+   "option_d": "2-methylpropan-2-ol",
+   "answer": "D",
+   "explanation": "Tertiary alcohols form the chloroalkane quickly through a stable carbocation."
+  },
+  {
+   "question": "Which compound gives a yellow precipitate with I₂/NaOH?",
+   "option_a": "Butan-1-ol",
+   "option_b": "Ethanol",
+   "option_c": "Methanol",
+   "option_d": "Propan-1-ol",
+   "answer": "B",
+   "explanation": "Only compounds with CH₃CH(OH)– or CH₃CO– give CHI₃."
+  },
+  {
+   "question": "Why is phenol more acidic than ethanol?",
+   "option_a": "Phenol has more O–H bonds",
+   "option_b": "Phenoxide is less stable",
+   "option_c": "Ethanol is ionic",
+   "option_d": "The phenoxide ion is stabilised by delocalisation into the ring",
+   "answer": "D",
+   "explanation": "Delocalisation spreads the negative charge, whereas alkyl groups destabilise ethoxide."
+  },
+  {
+   "question": "What is observed when bromine water is added to phenol?",
+   "option_a": "The bromine stays orange",
+   "option_b": "A white precipitate of 2,4,6-tribromophenol",
+   "option_c": "Effervescence",
+   "option_d": "A yellow precipitate forms",
+   "answer": "B",
+   "explanation": "The OH group strongly activates the ring, so no catalyst is needed."
+  },
+  {
+   "question": "What is the confirmatory test for phenol?",
+   "option_a": "A yellow precipitate with I₂/NaOH",
+   "option_b": "A violet colour with neutral iron(III) chloride",
+   "option_c": "An orange precipitate with 2,4-DNPH",
+   "option_d": "A silver mirror with Tollens' reagent",
+   "answer": "B",
+   "explanation": "Phenol forms a coloured complex with Fe³⁺."
+  },
+  {
+   "question": "What is the co-product of the cumene process for making phenol?",
+   "option_a": "Methanal",
+   "option_b": "Propanone",
+   "option_c": "Ethanol",
+   "option_d": "Ethanoic acid",
+   "answer": "B",
+   "explanation": "Cumene hydroperoxide is cleaved by acid into phenol and propanone."
+  },
+  {
+   "question": "Which alcohol is used as a coolant (antifreeze)?",
+   "option_a": "Ethane-1,2-diol",
+   "option_b": "Propan-1-ol",
+   "option_c": "Ethanol",
+   "option_d": "Methanol",
+   "answer": "A",
+   "explanation": "Ethane-1,2-diol lowers the freezing point of water in car cooling systems."
+  }
+ ],
+ "c18": [
+  {
+   "question": "What is the name of CH₃CH₂COCH₃?",
+   "option_a": "Propanone",
+   "option_b": "Butanone",
+   "option_c": "Pentanone",
+   "option_d": "Butanal",
+   "answer": "B",
+   "explanation": "A four-carbon chain with the carbonyl in the middle is butanone."
+  },
+  {
+   "question": "Which reagent oxidises a primary alcohol to an aldehyde without further oxidation?",
+   "option_a": "Hot acidified K₂Cr₂O₇ under reflux",
+   "option_b": "Hot acidified KMnO₄",
+   "option_c": "Concentrated H₂SO₄",
+   "option_d": "PCC",
+   "answer": "D",
+   "explanation": "Pyridinium chlorochromate stops at the aldehyde stage."
+  },
+  {
+   "question": "What products are formed by ozonolysis of 2-methylbut-2-ene followed by reduction?",
+   "option_a": "Propanal and methanal",
+   "option_b": "Ethanal only",
+   "option_c": "Butanone and methanal",
+   "option_d": "Propanone and ethanal",
+   "answer": "D",
+   "explanation": "(CH₃)₂C=CHCH₃ is cleaved at the double bond into two carbonyl compounds."
+  },
+  {
+   "question": "What is formed when ethanal reacts with HCN (NaCN/H⁺)?",
+   "option_a": "Propan-2-ol",
+   "option_b": "2-hydroxypropanenitrile",
+   "option_c": "Propanoic acid",
+   "option_d": "Propanenitrile",
+   "answer": "B",
+   "explanation": "Nucleophilic addition across C=O gives a hydroxynitrile."
+  },
+  {
+   "question": "In nucleophilic addition to a carbonyl compound, where does the nucleophile attack?",
+   "option_a": "The carbonyl oxygen",
+   "option_b": "The hydrogen of the α carbon",
+   "option_c": "The electron-deficient carbonyl carbon",
+   "option_d": "The alkyl group",
+   "answer": "C",
+   "explanation": "The C=O bond is polarised, with C being δ+."
+  },
+  {
+   "question": "Why are aldehydes more reactive than ketones towards nucleophilic addition?",
+   "option_a": "Less steric hindrance and a more δ+ carbonyl carbon",
+   "option_b": "Aldehydes have no C=O bond",
+   "option_c": "Aldehydes have more alkyl groups",
+   "option_d": "Ketones are ionic",
+   "answer": "A",
+   "explanation": "Ketones have two electron-donating alkyl groups, which crowd and reduce the δ+ on carbon."
+  },
+  {
+   "question": "What is formed when propanone is reduced by NaBH₄?",
+   "option_a": "Propane",
+   "option_b": "Propan-1-ol",
+   "option_c": "Propan-2-ol",
+   "option_d": "Propanal",
+   "answer": "C",
+   "explanation": "Ketones are reduced to secondary alcohols."
+  },
+  {
+   "question": "What is the product when CH₃MgBr reacts with propanone, followed by H₃O⁺?",
+   "option_a": "2-methylpropan-2-ol",
+   "option_b": "2-methylpropan-1-ol",
+   "option_c": "Butan-1-ol",
+   "option_d": "Butan-2-ol",
+   "answer": "A",
+   "explanation": "A Grignard reagent with a ketone gives a tertiary alcohol."
+  },
+  {
+   "question": "Which test distinguishes propanal from propanone?",
+   "option_a": "Tollens' reagent",
+   "option_b": "2,4-DNPH",
+   "option_c": "Bromine water",
+   "option_d": "Iodoform test with I₂/NaOH",
+   "answer": "A",
+   "explanation": "Only the aldehyde reduces Tollens' reagent to a silver mirror."
+  },
+  {
+   "question": "What does 2,4-dinitrophenylhydrazine (2,4-DNPH) test for?",
+   "option_a": "Carboxylic acids only",
+   "option_b": "Alcohols only",
+   "option_c": "Alkenes",
+   "option_d": "The carbonyl group (aldehydes and ketones)",
+   "answer": "D",
+   "explanation": "An orange-yellow precipitate forms with both aldehydes and ketones."
+  },
+  {
+   "question": "Which compound gives a yellow precipitate with I₂/NaOH?",
+   "option_a": "Pentan-2-one",
+   "option_b": "Propanal",
+   "option_c": "Butanal",
+   "option_d": "Pentan-3-one",
+   "answer": "A",
+   "explanation": "The methyl ketone group CH₃CO– gives CHI₃."
+  },
+  {
+   "question": "What happens when an aldehyde is oxidised?",
+   "option_a": "It is unchanged",
+   "option_b": "It forms a secondary alcohol",
+   "option_c": "It forms a carboxylic acid",
+   "option_d": "It forms a ketone",
+   "answer": "C",
+   "explanation": "R–CHO → R–COOH, but ketones resist mild oxidation."
+  }
+ ],
+ "c19": [
+  {
+   "question": "What is the name of CH₃CH₂CH₂COOH?",
+   "option_a": "Butanal",
+   "option_b": "Pentanoic acid",
+   "option_c": "Butanoic acid",
+   "option_d": "Propanoic acid",
+   "answer": "C",
+   "explanation": "The carboxyl carbon is carbon 1 in a four-carbon chain."
+  },
+  {
+   "question": "Why are carboxylic acids more acidic than alcohols?",
+   "option_a": "Acids have lower molar mass",
+   "option_b": "Alcohols have no O–H bonds",
+   "option_c": "The carboxylate ion is stabilised by delocalisation over two oxygens",
+   "option_d": "Carboxylates are unstable",
+   "answer": "C",
+   "explanation": "Resonance spreads the negative charge across both oxygen atoms."
+  },
+  {
+   "question": "Which is the strongest acid?",
+   "option_a": "CH₃COOH",
+   "option_b": "CH₂ClCOOH",
+   "option_c": "CCl₃COOH",
+   "option_d": "CH₃CH₂COOH",
+   "answer": "C",
+   "explanation": "Electron-withdrawing Cl atoms stabilise the anion through the inductive effect."
+  },
+  {
+   "question": "What is formed when a Grignard reagent reacts with CO₂, followed by H₃O⁺?",
+   "option_a": "A carboxylic acid with one more carbon",
+   "option_b": "An aldehyde",
+   "option_c": "An alkane",
+   "option_d": "An alcohol",
+   "answer": "A",
+   "explanation": "RMgX + CO₂ → RCOOMgX, then acid gives RCOOH."
+  },
+  {
+   "question": "Which reagent reduces ethanoic acid to ethanol?",
+   "option_a": "H₂ with Ni",
+   "option_b": "LiAlH₄",
+   "option_c": "Zn",
+   "option_d": "NaBH₄",
+   "answer": "B",
+   "explanation": "NaBH₄ is too weak to reduce a carboxylic acid."
+  },
+  {
+   "question": "Why does methanoic acid reduce Tollens' reagent but ethanoic acid does not?",
+   "option_a": "Methanoic acid is a base",
+   "option_b": "HCOOH also has an aldehyde-like C–H group",
+   "option_c": "Methanoic acid has no O–H",
+   "option_d": "Ethanoic acid is ionic",
+   "answer": "B",
+   "explanation": "The H–C=O part can be oxidised to CO₂ and H₂O."
+  },
+  {
+   "question": "What is the nitration product of benzoic acid?",
+   "option_a": "3-nitrobenzoic acid",
+   "option_b": "Nitrobenzene",
+   "option_c": "4-nitrobenzoic acid",
+   "option_d": "2-nitrobenzoic acid",
+   "answer": "A",
+   "explanation": "The –COOH group is deactivating and meta-directing."
+  },
+  {
+   "question": "Why are acyl chlorides hydrolysed much more easily than chloroalkanes?",
+   "option_a": "They have a stronger C–Cl bond",
+   "option_b": "They are ionic",
+   "option_c": "The carbonyl carbon is more δ+ and open to nucleophilic attack",
+   "option_d": "They have no carbonyl group",
+   "answer": "C",
+   "explanation": "Both O and Cl pull electrons from carbon, so water attacks quickly."
+  },
+  {
+   "question": "What is formed when ethanoyl chloride reacts with ethylamine?",
+   "option_a": "Ethanamide",
+   "option_b": "N-ethylethanamide",
+   "option_c": "Ethyl ethanoate",
+   "option_d": "Ethylammonium chloride only",
+   "answer": "B",
+   "explanation": "The amine nitrogen replaces Cl, making a substituted amide."
+  },
+  {
+   "question": "What is the name of CH₃COOCH₂CH₃?",
+   "option_a": "Ethyl ethanoate",
+   "option_b": "Ethanoyl ethanoate",
+   "option_c": "Ethyl methanoate",
+   "option_d": "Methyl propanoate",
+   "answer": "A",
+   "explanation": "The alcohol part (ethyl) comes first, then the acid part (ethanoate)."
+  },
+  {
+   "question": "Why do esters boil lower than carboxylic acids of similar Mr?",
+   "option_a": "Esters have stronger forces",
+   "option_b": "Esters cannot form hydrogen bonds with each other",
+   "option_c": "Esters are ionic",
+   "option_d": "Esters have more carbon atoms",
+   "answer": "B",
+   "explanation": "Ester molecules have no O–H group."
+  },
+  {
+   "question": "What is the difference between acid and alkaline hydrolysis of an ester?",
+   "option_a": "Acid hydrolysis is reversible and alkaline hydrolysis goes to completion",
+   "option_b": "Both are irreversible",
+   "option_c": "Alkali gives only acid",
+   "option_d": "Acid gives only alcohol",
+   "answer": "A",
+   "explanation": "Alkali gives the carboxylate salt, which cannot react back with the alcohol."
+  },
+  {
+   "question": "What is formed when ethyl ethanoate is reduced by LiAlH₄, followed by H₃O⁺?",
+   "option_a": "Ethanol",
+   "option_b": "Ethanal",
+   "option_c": "Ethanoic acid",
+   "option_d": "Ethane",
+   "answer": "A",
+   "explanation": "The ester is reduced to two alcohols, both ethanol here."
+  },
+  {
+   "question": "Which is the most reactive towards nucleophilic acyl substitution?",
+   "option_a": "Ester",
+   "option_b": "Carboxylic acid",
+   "option_c": "Amide",
+   "option_d": "Acyl chloride",
+   "answer": "D",
+   "explanation": "Acyl chlorides are the most reactive and amides the least."
+  },
+  {
+   "question": "Why does a primary amide have a higher boiling point than a tertiary amide of similar Mr?",
+   "option_a": "Tertiary amides have no carbonyl",
+   "option_b": "Tertiary amides are ionic",
+   "option_c": "Primary amides are larger",
+   "option_d": "More N–H bonds allow more hydrogen bonding",
+   "answer": "D",
+   "explanation": "Primary amides have two N–H bonds, secondary have one and tertiary have none."
+  }
+ ],
+ "c20": [
+  {
+   "question": "Which is a secondary amine?",
+   "option_a": "CH₃NH₂",
+   "option_b": "C₆H₅NH₂",
+   "option_c": "(CH₃)₂NH",
+   "option_d": "(CH₃)₃N",
+   "answer": "C",
+   "explanation": "A secondary amine has two alkyl or aryl groups on nitrogen."
+  },
+  {
+   "question": "What is the IUPAC name of CH₃CH₂CH₂NH₂?",
+   "option_a": "Propan-3-amine",
+   "option_b": "Propylamide",
+   "option_c": "Aminopropane-3",
+   "option_d": "Propan-1-amine",
+   "answer": "D",
+   "explanation": "The –NH₂ group is on carbon 1 of a three-carbon chain."
+  },
+  {
+   "question": "Why does a primary amine boil higher than a tertiary amine of similar Mr?",
+   "option_a": "It has a larger molar mass",
+   "option_b": "Tertiary amines are ionic",
+   "option_c": "Primary amines have no lone pair",
+   "option_d": "It forms more hydrogen bonds",
+   "answer": "D",
+   "explanation": "Primary amines have two N–H bonds. Tertiary amines have none."
+  },
+  {
+   "question": "Why is phenylamine (aniline) a weaker base than ammonia?",
+   "option_a": "Aniline is acidic",
+   "option_b": "Aniline has no nitrogen",
+   "option_c": "The N lone pair is delocalised into the benzene ring",
+   "option_d": "The ring donates electrons to N",
+   "answer": "C",
+   "explanation": "Less electron density on N means it accepts H⁺ less readily."
+  },
+  {
+   "question": "Which is the strongest base?",
+   "option_a": "Water",
+   "option_b": "Ethylamine",
+   "option_c": "Ammonia",
+   "option_d": "Phenylamine",
+   "answer": "B",
+   "explanation": "The ethyl group donates electron density to nitrogen, making its lone pair more available."
+  },
+  {
+   "question": "What is formed when propanenitrile is reduced with LiAlH₄?",
+   "option_a": "Propan-1-ol",
+   "option_b": "Propanamide",
+   "option_c": "Propan-1-amine",
+   "option_d": "Propanoic acid",
+   "answer": "C",
+   "explanation": "R–C≡N → R–CH₂NH₂."
+  },
+  {
+   "question": "Why do amines dissolve in dilute hydrochloric acid?",
+   "option_a": "They form esters",
+   "option_b": "They are oxidised",
+   "option_c": "They form soluble ammonium salts",
+   "option_d": "They are ionic already",
+   "answer": "C",
+   "explanation": "RNH₂ + HCl → RNH₃⁺Cl⁻."
+  },
+  {
+   "question": "In the Hinsberg test, which amine gives a product that dissolves in aqueous NaOH?",
+   "option_a": "A primary amine",
+   "option_b": "A secondary amine",
+   "option_c": "A tertiary amine",
+   "option_d": "All of them",
+   "answer": "A",
+   "explanation": "The sulphonamide of a primary amine still has an acidic N–H."
+  },
+  {
+   "question": "What is observed when a primary aliphatic amine reacts with nitrous acid?",
+   "option_a": "Effervescence of nitrogen gas",
+   "option_b": "A yellow oil",
+   "option_c": "No reaction",
+   "option_d": "A stable diazonium solution",
+   "answer": "A",
+   "explanation": "RNH₂ + HNO₂ → ROH + N₂ + H₂O."
+  },
+  {
+   "question": "What is observed when bromine water is added to phenylamine?",
+   "option_a": "Effervescence",
+   "option_b": "A yellow solution",
+   "option_c": "A white precipitate of 2,4,6-tribromophenylamine",
+   "option_d": "The orange colour remains",
+   "answer": "C",
+   "explanation": "The NH₂ group strongly activates the ring."
+  },
+  {
+   "question": "Why must benzenediazonium chloride be kept at 0–5 °C?",
+   "option_a": "It needs cold temperature to form crystals",
+   "option_b": "It freezes at 5 °C",
+   "option_c": "It decomposes above 5 °C",
+   "option_d": "It is too reactive with water at low temperatures",
+   "answer": "C",
+   "explanation": "Warming gives phenol and N₂."
+  },
+  {
+   "question": "What is formed when benzenediazonium chloride reacts with phenol in alkaline solution at 0–5 °C?",
+   "option_a": "Nitrobenzene",
+   "option_b": "Phenylamine",
+   "option_c": "Benzoic acid",
+   "option_d": "An azo dye",
+   "answer": "D",
+   "explanation": "Coupling gives an orange-red compound with an –N=N– link."
+  },
+  {
+   "question": "Which form do amino acids take in the solid state or neutral solution?",
+   "option_a": "Neutral molecule",
+   "option_b": "Zwitterion",
+   "option_c": "Dication",
+   "option_d": "Dianion",
+   "answer": "B",
+   "explanation": "H₃N⁺–CHR–COO⁻ has both a positive and a negative charge."
+  },
+  {
+   "question": "Why do amino acids have high melting points and dissolve in water?",
+   "option_a": "They have no polar groups",
+   "option_b": "They are metals",
+   "option_c": "They are non-polar",
+   "option_d": "They exist as zwitterions with ionic attractions",
+   "answer": "D",
+   "explanation": "Strong ionic forces in the lattice and strong ion–dipole interactions with water."
+  },
+  {
+   "question": "What is the structure of glycine in strongly acidic solution?",
+   "option_a": "⁺H₃NCH₂COOH",
+   "option_b": "⁺H₃NCH₂COO⁻",
+   "option_c": "H₂NCH₂COO⁻",
+   "option_d": "H₂NCH₂COOH",
+   "answer": "A",
+   "explanation": "The carboxylate group takes H⁺ and the amino group stays protonated."
+  },
+  {
+   "question": "Which α-amino acid is not chiral?",
+   "option_a": "Valine",
+   "option_b": "Alanine",
+   "option_c": "Serine",
+   "option_d": "Glycine",
+   "answer": "D",
+   "explanation": "Glycine has R = H, so the α carbon has two identical groups."
+  },
+  {
+   "question": "How many water molecules are lost when three amino acids form a tripeptide?",
+   "option_a": "0",
+   "option_b": "3",
+   "option_c": "1",
+   "option_d": "2",
+   "answer": "D",
+   "explanation": "Two peptide (amide) bonds form, each releasing one water molecule."
+  },
+  {
+   "question": "What is the IUPAC name of alanine?",
+   "option_a": "2-aminoethanoic acid",
+   "option_b": "2-aminopropanoic acid",
+   "option_c": "Aminopropanal",
+   "option_d": "3-aminopropanoic acid",
+   "answer": "B",
+   "explanation": "The amino group is on carbon 2 of propanoic acid."
+  }
+ ],
+ "c21": [
+  {
+   "question": "What is the monomer of polyethene?",
+   "option_a": "Ethene",
+   "option_b": "Ethane",
+   "option_c": "Ethyne",
+   "option_d": "Ethanol",
+   "answer": "A",
+   "explanation": "Addition polymerisation joins many C=C monomers together."
+  },
+  {
+   "question": "What is the monomer of poly(chloroethene) (PVC)?",
+   "option_a": "Chloromethane",
+   "option_b": "Dichloroethene",
+   "option_c": "Chloroethene",
+   "option_d": "Chloroethane",
+   "answer": "C",
+   "explanation": "CH₂=CHCl polymerises to –(CH₂–CHCl)ₙ–."
+  },
+  {
+   "question": "What must a monomer contain to undergo addition polymerisation?",
+   "option_a": "An –OH group",
+   "option_b": "A carbonyl group",
+   "option_c": "A carbon–carbon double bond",
+   "option_d": "A benzene ring",
+   "answer": "C",
+   "explanation": "Addition polymerisation opens C=C bonds and makes no by-product."
+  },
+  {
+   "question": "What is the role of the Ziegler–Natta catalyst?",
+   "option_a": "It makes chains branched",
+   "option_b": "It lets polymers form at low temperature and pressure with regular, linear chains",
+   "option_c": "It is consumed",
+   "option_d": "It breaks the polymer down",
+   "answer": "B",
+   "explanation": "It gives high-density, stereoregular polyethene and polypropene."
+  },
+  {
+   "question": "What are the features of a thermosetting polymer?",
+   "option_a": "No cross-links",
+   "option_b": "Extensive cross-links, so it cannot be remoulded",
+   "option_c": "It melts on heating",
+   "option_d": "Weak intermolecular forces only",
+   "answer": "B",
+   "explanation": "Cross-links make it rigid, and it chars rather than melts."
+  },
+  {
+   "question": "What makes an elastomer stretchable?",
+   "option_a": "Extensive cross-links",
+   "option_b": "Few cross-links between coiled chains",
+   "option_c": "Hydrogen bonds",
+   "option_d": "Ionic bonds",
+   "answer": "B",
+   "explanation": "The chains uncoil under tension and return when released."
+  },
+  {
+   "question": "Nylon-6,6 is made from which pair of monomers?",
+   "option_a": "Ethane-1,2-diol and benzene-1,4-dicarboxylic acid",
+   "option_b": "Hexane and ethanoic acid",
+   "option_c": "Hexane-1,6-diamine and hexanedioic acid",
+   "option_d": "Chloroethene and ethene",
+   "answer": "C",
+   "explanation": "A condensation reaction forms amide links and releases water."
+  },
+  {
+   "question": "What type of linkage forms in polyesters such as PET?",
+   "option_a": "Peptide",
+   "option_b": "Ester",
+   "option_c": "Amide",
+   "option_d": "Ether",
+   "answer": "B",
+   "explanation": "The ester link forms by condensation between –COOH and –OH groups."
+  },
+  {
+   "question": "What is the monomer of natural rubber?",
+   "option_a": "Buta-1,3-diene",
+   "option_b": "Ethene",
+   "option_c": "Phenylethene",
+   "option_d": "2-methylbuta-1,3-diene",
+   "answer": "D",
+   "explanation": "Natural rubber is poly(2-methylbuta-1,3-diene), or polyisoprene."
+  },
+  {
+   "question": "Why is cis-poly(2-methylbuta-1,3-diene) elastic?",
+   "option_a": "Irregular, kinked chains coil and can stretch",
+   "option_b": "The chains are cross-linked heavily",
+   "option_c": "The chains are straight and rigid",
+   "option_d": "Strong ionic bonds hold it",
+   "answer": "A",
+   "explanation": "Weak intermolecular forces let the coils extend and recoil."
+  },
+  {
+   "question": "What is released when PVC is burned?",
+   "option_a": "Oxygen",
+   "option_b": "Only nitrogen",
+   "option_c": "Only CO₂ and water",
+   "option_d": "Hydrogen chloride and toxic compounds",
+   "answer": "D",
+   "explanation": "Incineration of chlorine-containing polymers makes HCl and possibly dioxins."
+  },
+  {
+   "question": "What is a biodegradable polymer?",
+   "option_a": "One that microorganisms can break down",
+   "option_b": "One that burns easily",
+   "option_c": "One that is cross-linked",
+   "option_d": "One that dissolves in plastic",
+   "answer": "A",
+   "explanation": "Biodegradation avoids long-lasting plastic waste."
+  },
+  {
+   "question": "How is PET mainly degraded?",
+   "option_a": "By oxidation of C=C",
+   "option_b": "By hydrolysis of its ester links",
+   "option_c": "By photodegradation of C–C bonds",
+   "option_d": "By cross-linking",
+   "answer": "B",
+   "explanation": "Polyethene degrades mainly by photodegradation and PET by hydrolysis."
+  },
+  {
+   "question": "What is a copolymer?",
+   "option_a": "A polymer with cross-links",
+   "option_b": "A polymer made from two or more different monomers",
+   "option_c": "A polymer with no repeating unit",
+   "option_d": "A polymer made from one monomer",
+   "answer": "B",
+   "explanation": "An example is nylon-6,6 from two different monomers."
+  },
+  {
+   "question": "Why is dumping polymer waste in rivers and seas a problem?",
+   "option_a": "It helps fish grow",
+   "option_b": "It cleans the water",
+   "option_c": "It does not break down and harms wildlife",
+   "option_d": "It dissolves quickly",
+   "answer": "C",
+   "explanation": "Many plastics last for decades and break into harmful microplastics."
+  }
+ ]
+}
