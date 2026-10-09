@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 150" width="100%" height="100%">
+  <style>
+    .bulb { fill: none; stroke: black; stroke-width: 1.5; }
+    .text { font-family: sans-serif; font-size: 14px; font-weight: bold; }
+    .valve { stroke: black; stroke-width: 1.5; }
+  </style>
+  <circle cx="100" cy="75" r="50" class="bulb" />
+  <circle cx="350" cy="75" r="50" class="bulb" />
+  <line x1="150" y1="75" x2="300" y2="75" class="valve" />
+  <rect x="215" y="65" width="20" height="20" fill="white" stroke="black" stroke-width="1.5" />
+  <text x="90" y="80" class="text">A</text>
+  <text x="75" y="140" class="text">5 dm³</text>
+  <text x="75" y="25" class="text">P atm</text>
+  <text x="340" y="80" class="text">B</text>
+  <text x="325" y="140" class="text">10 dm³</text>
+  <text x="325" y="25" class="text">3 atm</text>
+</svg>

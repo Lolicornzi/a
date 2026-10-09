@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 160" width="100%" height="100%">
+  <rect x="10" y="10" width="460" height="135" fill="none" stroke="black" stroke-width="1"/>
+  <line x1="10" y1="37" x2="470" y2="37" stroke="black"/>
+  <line x1="10" y1="64" x2="470" y2="64" stroke="black"/>
+  <line x1="10" y1="91" x2="470" y2="91" stroke="black"/>
+  <line x1="10" y1="118" x2="470" y2="118" stroke="black"/>
+  <line x1="130" y1="10" x2="130" y2="145" stroke="black"/>
+  <line x1="210" y1="10" x2="210" y2="145" stroke="black"/>
+  <line x1="290" y1="10" x2="290" y2="145" stroke="black"/>
+  <line x1="380" y1="10" x2="380" y2="145" stroke="black"/>
+  
+  <text x="20" y="28" font-family="sans-serif" font-size="12" font-weight="bold">Oxides of element</text>
+  <text x="160" y="28" font-family="sans-serif" font-size="14" font-weight="bold">X</text>
+  <text x="245" y="28" font-family="sans-serif" font-size="14" font-weight="bold">Y</text>
+  <text x="330" y="28" font-family="sans-serif" font-size="14" font-weight="bold">Z</text>
+  <text x="420" y="28" font-family="sans-serif" font-size="14" font-weight="bold">Property</text>
+
+  <text x="20" y="55" font-family="sans-serif" font-size="12">Physical state</text>
+  <text x="160" y="55" font-family="sans-serif" font-size="14">Gas</text>
+  <text x="245" y="55" font-family="sans-serif" font-size="14">Liquid</text>
+  <text x="330" y="55" font-family="sans-serif" font-size="14">Solid</text>
+
+  <text x="20" y="82" font-family="sans-serif" font-size="12">Solubility in water</text>
+  <text x="160" y="82" font-family="sans-serif" font-size="14">Soluble</text>
+  <text x="245" y="82" font-family="sans-serif" font-size="14">Soluble</text>
+  <text x="330" y="82" font-family="sans-serif" font-size="14">Insoluble</text>
+
+  <text x="20" y="109" font-family="sans-serif" font-size="12">Acidity</text>
+  <text x="160" y="109" font-family="sans-serif" font-size="14">Acidic</text>
+  <text x="245" y="109" font-family="sans-serif" font-size="14">Acidic</text>
+  <text x="330" y="109" font-family="sans-serif" font-size="14">Basic</text>
+</svg>
