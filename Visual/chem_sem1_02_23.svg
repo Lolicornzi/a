@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 250" width="100%" height="100%">
+  <style>
+    .box { fill: none; stroke: black; stroke-width: 1.5; }
+    .opt { font-family: sans-serif; font-size: 16px; font-weight: bold; }
+    .arrow-up { stroke: black; stroke-width: 2; fill: none; }
+    .arrow-down { stroke: black; stroke-width: 2; fill: none; }
+  </style>
+
+  <defs>
+    <!-- Upward Electron Arrow -->
+    <g id="up">
+      <line x1="10" y1="25" x2="10" y2="5" class="arrow-up" />
+      <polyline points="5,12 10,5 15,12" class="arrow-up" />
+    </g>
+    <!-- Downward Electron Arrow -->
+    <g id="down">
+      <line x1="20" y1="5" x2="20" y2="25" class="arrow-down" />
+      <polyline points="15,18 20,25 25,18" class="arrow-down" />
+    </g>
+  </defs>
+
+  <!-- Option A -->
+  <g transform="translate(30, 20)">
+    <text x="0" y="20" class="opt">A</text>
+    <rect x="30" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="25" y="0" />
+    
+    <rect x="80" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="75" y="0" />
+    <rect x="110" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="105" y="0" />
+    <rect x="140" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="135" y="0" />
+  </g>
+
+  <!-- Option C -->
+  <g transform="translate(260, 20)">
+    <text x="0" y="20" class="opt">C</text>
+    <rect x="30" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="25" y="0" />
+    <use href="#down" x="25" y="0" />
+    
+    <rect x="80" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="75" y="0" />
+    <rect x="110" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="105" y="0" />
+    <rect x="140" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="135" y="0" />
+  </g>
+
+  <!-- Option B -->
+  <g transform="translate(30, 100)">
+    <text x="0" y="20" class="opt">B</text>
+    <rect x="30" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="25" y="0" />
+    <use href="#down" x="25" y="0" />
+    
+    <rect x="80" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="75" y="0" />
+    <use href="#down" x="75" y="0" />
+    <rect x="110" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="105" y="0" />
+    <rect x="140" y="0" width="30" height="30" class="box" />
+  </g>
+
+  <!-- Option D -->
+  <g transform="translate(260, 100)">
+    <text x="0" y="20" class="opt">D</text>
+    <rect x="30" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="25" y="0" />
+    <use href="#down" x="25" y="0" />
+    
+    <rect x="80" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="75" y="0" />
+    <use href="#down" x="75" y="0" />
+    <rect x="110" y="0" width="30" height="30" class="box" />
+    <use href="#up" x="105" y="0" />
+    <use href="#down" x="105" y="0" />
+    <rect x="140" y="0" width="30" height="30" class="box" />
+  </g>
+</svg>
