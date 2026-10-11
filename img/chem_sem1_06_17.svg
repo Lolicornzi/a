@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350" width="100%" height="100%">
+  <style>
+    .axis { stroke: black; stroke-width: 1.2; }
+    .line { stroke: black; stroke-width: 1.8; fill: none; }
+    .label { font-family: sans-serif; font-size: 11px; }
+    .opt { font-family: sans-serif; font-size: 14px; font-weight: bold; }
+  </style>
+  <!-- Option A -->
+  <g transform="translate(30, 20)">
+    <text x="0" y="20" class="opt">A</text>
+    <line x1="30" y1="120" x2="130" y2="120" class="axis" />
+    <line x1="30" y1="120" x2="30" y2="20" class="axis" />
+    <text x="5" y="70" class="label" transform="rotate(-90 5 70)">Relative stability</text>
+    <text x="80" y="135" class="label">C Si Ge Sn Pb</text>
+    <polyline points="35,30 125,110" class="line" />
+    <polyline points="35,110 125,30" class="line" />
+    <text x="110" y="25" class="label">+4</text>
+    <text x="110" y="115" class="label">+2</text>
+  </g>
+  <!-- Option B -->
+  <g transform="translate(280, 20)">
+    <text x="0" y="20" class="opt">B</text>
+    <line x1="30" y1="120" x2="130" y2="120" class="axis" />
+    <line x1="30" y1="120" x2="30" y2="20" class="axis" />
+    <text x="5" y="70" class="label" transform="rotate(-90 5 70)">Relative stability</text>
+    <text x="80" y="135" class="label">C Si Ge Sn Pb</text>
+    <polyline points="35,40 125,100" class="line" />
+    <polyline points="35,90 125,50" class="line" />
+  </g>
+  <!-- Option C -->
+  <g transform="translate(30, 180)">
+    <text x="0" y="20" class="opt">C</text>
+    <line x1="30" y1="120" x2="130" y2="120" class="axis" />
+    <line x1="30" y1="120" x2="30" y2="20" class="axis" />
+    <text x="5" y="70" class="label" transform="rotate(-90 5 70)">Relative stability</text>
+    <text x="80" y="135" class="label">C Si Ge Sn Pb</text>
+    <polyline points="35,110 125,30" class="line" />
+    <polyline points="35,30 125,110" class="line" />
+  </g>
+  <!-- Option D -->
+  <g transform="translate(280, 180)">
+    <text x="0" y="20" class="opt">D</text>
+    <line x1="30" y1="120" x2="130" y2="120" class="axis" />
+    <line x1="30" y1="120" x2="30" y2="20" class="axis" />
+    <text x="5" y="70" class="label" transform="rotate(-90 5 70)">Relative stability</text>
+    <text x="80" y="135" class="label">C Si Ge Sn Pb</text>
+    <polyline points="35,50 125,90" class="line" />
+    <polyline points="35,100 125,40" class="line" />
+  </g>
+</svg>

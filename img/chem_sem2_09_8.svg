@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="100%" height="100%">
+  <style>
+    .axis { stroke: black; stroke-width: 1.5; }
+    .line { stroke: black; stroke-width: 1.5; fill: none; }
+    .label { font-family: sans-serif; font-size: 12px; }
+  </style>
+  <line x1="50" y1="200" x2="350" y2="200" class="axis" />
+  <text x="180" y="230" class="label">Temperature</text>
+  
+  <line x1="50" y1="200" x2="50" y2="30" class="axis" />
+  <text x="10" y="120" class="label" transform="rotate(-90 10 120)">Pressure</text>
+
+  <path d="M 60 170 Q 150 150 320 60" class="line" />
+  <text x="325" y="65" class="label">R</text>
+
+  <path d="M 60 140 Q 150 110 320 90" class="line" />
+  <text x="325" y="95" class="label">S</text>
+
+  <path d="M 60 90 Q 150 60 320 120" class="line" />
+  <text x="325" y="125" class="label">T</text>
+</svg>
