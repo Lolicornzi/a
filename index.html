@@ -117,7 +117,7 @@ textarea{resize:vertical;min-height:84px}
 .stat span{font-size:12px;color:var(--ink2)}
 
 /* lesson */
-.play{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;padding:14px 16px 190px}
+.play{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;padding:14px 16px 330px}
 .ptop{display:flex;align-items:center;gap:12px}
 .x{border:0;background:none;font-size:22px;color:var(--ink2);padding:4px 6px}
 .spectrum{flex:1;height:14px;border-radius:99px;overflow:hidden;position:relative;background:linear-gradient(90deg,#e0452b,#f0892a,#f5cf3a,#3fb950,#2f8ae0,#6a45d8)}
@@ -145,6 +145,11 @@ textarea{resize:vertical;min-height:84px}
 .fb.ok h3{color:var(--ok-d)} .fb.bad h3{color:var(--bad-d)}
 .fb .calc{font-weight:700;font-size:14px;margin-bottom:4px}
 .fb .exp{font-size:14px;color:var(--ink2);margin-bottom:12px}
+.fb{max-height:62vh;overflow:auto}
+.fb .why{background:#fff;border:2px solid var(--bad);border-radius:12px;padding:9px 12px;margin:0 0 10px;font-size:14px;color:var(--ink)}
+.fb .why b{display:block;color:var(--bad-d);margin-bottom:2px}
+.lvl{display:inline-block;border-radius:99px;padding:1px 9px;margin-left:6px;font-size:12px;font-weight:800;background:var(--accent-l);color:var(--accent-d)}
+.lvl.l2{background:#fff1cf;color:#8a5d00} .lvl.l3{background:var(--bad-l);color:var(--bad-d)}
 
 /* results */
 .result{padding:40px 22px;text-align:center}
@@ -1103,6 +1108,36 @@ MM_LEVELS.forEach(l => { LESSONS[l.id] = { id: l.id, subject: 'chem', sem: 2, ti
    best run on every lesson, so replaying can only improve it.
    --------------------------------------------------------------------- */
 const TIME_LIMIT_Q = 20, TIME_LIMIT_MM = 25;
+/* Harder questions get a slower timer (seconds). In questions.json you can set "difficulty": "easy" | "medium" | "hard" (or 1-3)
+   on any question to override the automatic estimate below. */
+const TIME_BY_LEVEL = { 1: 20, 2: 30, 3: 45 }, LEVEL_NAME = { 1: 'Easy', 2: 'Medium', 3: 'Hard' };
+const negQ = s => /\b(is|are|does|do|can|will|would)\s+not\b|\bcannot\b|\bnot (true|correct)\b|\bincorrect\b|\bexcept\b|\bfalse\b/i.test(s);
+function levelOf(x) {
+  const e = String(x.diff || '').toLowerCase();
+  if (/^(1|easy)/.test(e)) return 1; if (/^(2|med)/.test(e)) return 2; if (/^(3|hard)/.test(e)) return 3;
+  const nums = (x.q.match(/\d+(\.\d+)?/g) || []).length;
+  const calc = x.opts.filter(o => /\d/.test(o)).length >= 3 && /calculat|what is the|how many|what (mass|volume)|percentage|concentration|ratio|relative/i.test(x.q);
+  let sc = 0;
+  if (calc) sc += 2 + (nums >= 3 ? 1 : 0);
+  if (/\bI: /.test(x.q)) sc++;
+  if (negQ(x.q)) sc++;
+  if (x.q.length > 180) sc++;
+  if (x.img) sc++;
+  return sc >= 3 ? 3 : sc === 2 ? 2 : 1;
+}
+/* explains why the option the player chose is wrong. Uses a per-option note from questions.json ("why_wrong": {"A": "...", ...}) when present */
+function whyWrong(q, idx) {
+  const mine = q.opts[idx];
+  let t = q.why && q.why[mine];
+  if (!t) {
+    const num = s => parseFloat((s.match(/-?\d+(\.\d+)?/) || [])[0]), plain = s => !/[×^⁰-⁹]/.test(s), r = num(mine) / num(q.a);
+    if (negQ(q.q)) t = `The question is worded negatively: it wants the option that is false or does not fit. “${mine}” is a valid statement, so it cannot be the answer. Test each option against that wording.`;
+    else if (isFinite(r) && plain(mine) && plain(q.a) && [2, 0.5, 10, 0.1, 1000, 0.001].some(f => Math.abs(r / f - 1) < 0.02)) t = `Your value is ${+r.toPrecision(3)}× the correct one. That pattern usually means a missed mole ratio, an atoms-versus-molecules mix-up or a unit or power-of-ten slip. Recheck each step.`;
+    else if (q.opts.filter(o => /\d/.test(o)).length >= 3 && /\d/.test(mine)) t = `“${mine}” does not match the value the data give (${q.a}). Recheck the working, the units and which quantity the question asks for.`;
+    else t = `“${mine}” does not fit what the question asks. Compare it with the correct answer, ${q.a}, and look for the detail that separates them.`;
+  }
+  return `<div class="why"><b>Why ${'ABCD'[idx]} is wrong</b>${esc(t)}</div>`;
+}
 function calcPoints(t, limit, streak, correct, answered) {
   const speed = Math.max(1, Math.round(10 * (1 - t / limit)));
   const acc = answered ? correct / answered : 0;
@@ -1144,15 +1179,20 @@ async function loadExternalQuestions() {
       if (!LESSONS[unit] || LESSONS[unit].kind !== 'mcq' || !Array.isArray(list)) continue;
       const out = [];
       for (const q of list) {
-        if (Array.isArray(q) && q.length >= 5 && q.slice(0, 5).every(x => typeof x === 'string' && x.trim())) out.push([q[0], q[1], q[2], q[3], q[4], q[5] || '', q[6] || '', q[7] || '']);
+        if (Array.isArray(q) && q.length >= 5 && q.slice(0, 5).every(x => typeof x === 'string' && x.trim())) out.push([q[0], q[1], q[2], q[3], q[4], q[5] || '', q[6] || '', q[7] || '', q[8] || '', q[9] || null]);
         else if (q && typeof q === 'object' && q.question) {
           const o = ['a', 'b', 'c', 'd'].map(k => q['option_' + k]), ci = 'ABCD'.indexOf(String(q.answer).trim().toUpperCase());
-          if (o.every(x => typeof x === 'string' && x.trim()) && ci >= 0) out.push([q.question, o[ci], ...o.filter((_, i) => i !== ci), q.explanation || '', typeof q.image === 'string' ? q.image : '', q.alt || '']);
+          if (o.every(x => typeof x === 'string' && x.trim()) && ci >= 0) out.push([q.question, o[ci], ...o.filter((_, i) => i !== ci), q.explanation || '', typeof q.image === 'string' ? q.image : '', q.alt || '', q.difficulty || '', whyMap(q.why_wrong, o)]);
         }
       }
       if (out.length) QUESTIONS[unit] = out;
     }
   } catch (e) { /* use the built-in questions */ }
+}
+function whyMap(w, o) {
+  if (!w || typeof w !== 'object') return null;
+  const m = {}; 'ABCD'.split('').forEach((L, i) => { if (typeof w[L] === 'string' && w[L].trim()) m[o[i]] = w[L].trim(); });
+  return m;
 }
 function rankOf(filter) {
   const me = S.board.find(r => r.pid === S.user.pid); if (!me || !(me[filter] > 0)) return null;
@@ -1241,7 +1281,7 @@ function sheetHTML() {
   let info;
   if (L.kind === 'mcq') {
     const core = (QUESTIONS[L.id] || []).length, com = S.community.filter(c => c.unit === L.id).length;
-    info = `Up to ${Math.min(10, core + com)} questions${com ? `, including ${com} from the community` : ''}. Faster answers and longer streaks score more.`;
+    info = `Up to ${Math.min(10, core + com)} questions${com ? `, including ${com} from the community` : ''}. Faster answers and longer streaks score more, and harder questions get a slower timer.`;
   } else info = L.id === 'mm9' ? 'Ten random reactions from the whole map. Fill every gap.' : 'Each row is a reaction arrow, read left to right. Tap a ? to choose a slot, then pick the missing answer from the bank. ★ marks the hub compound.';
   return `<div class="overlay" data-act="overlay"><div class="sheet" role="dialog" aria-label="${esc(L.title)}">
     <div class="ic">${L.icon}</div><h3>${esc(L.title)}</h3><div class="sub">${esc(L.group)}</div>
@@ -1281,9 +1321,9 @@ function meHTML() {
 
 /* ---- lesson (multiple choice) ---- */
 function startMCQ(id) {
-  const core = (QUESTIONS[id] || []).map(q => ({ q: q[0], a: q[1], opts: [q[1], q[2], q[3], q[4]], exp: q[5], by: '', img: q[6] || '', alt: q[7] || '' }));
+  const core = (QUESTIONS[id] || []).map(q => ({ q: q[0], a: q[1], opts: [q[1], q[2], q[3], q[4]], exp: q[5], by: '', img: q[6] || '', alt: q[7] || '', diff: q[8] || '', why: q[9] || null }));
   const com = S.community.filter(c => c.unit === id).map(c => ({ q: c.q, a: c.opts[c.c], opts: c.opts, exp: c.exp || '', by: c.by || 'a player', img: c.img || '', alt: c.alt || '' }));
-  const qs = shuffle([...core, ...com]).slice(0, 10).map(x => ({ ...x, opts: shuffle(x.opts) }));
+  const qs = shuffle([...core, ...com]).slice(0, 10).map(x => { const lv = levelOf(x); return { ...x, opts: shuffle(x.opts), level: lv, limit: TIME_BY_LEVEL[lv] }; });
   G = { kind: 'mcq', id, qs, i: 0, correct: 0, answered: 0, streak: 0, bestStreak: 0, score: 0, t0: 0, locked: false, started: Date.now() };
   S.sheet = null; S.screen = 'play'; render();
 }
@@ -1292,8 +1332,8 @@ function renderPlay() {
   const q = G.qs[G.i], pct = Math.round(G.answered / G.qs.length * 100);
   $('#app').innerHTML = `<div class="play">
     <div class="ptop"><button class="x" data-act="quit" aria-label="Leave lesson">✕</button><div class="spectrum" role="progressbar" aria-valuenow="${pct}"><div class="cover" id="cover" style="width:${100 - pct}%"></div></div>${liveHTML()}</div>
-    <div class="tbar" aria-hidden="true"><i style="animation-duration:${TIME_LIMIT_Q}s"></i></div>
-    <div class="qtag">Question ${G.i + 1} of ${G.qs.length}${q.by ? ` · from ${esc(q.by)}` : ''}</div>
+    <div class="tbar" aria-hidden="true"><i style="animation-duration:${q.limit}s"></i></div>
+    <div class="qtag">Question ${G.i + 1} of ${G.qs.length}<span class="lvl l${q.level}">${LEVEL_NAME[q.level]} · ${q.limit}s</span>${q.by ? ` · from ${esc(q.by)}` : ''}</div>
     <div class="qtext">${esc(q.q)}</div>
     ${figSrc(q.img) ? `<img class="q-figure" src="${figSrc(q.img)}" alt="${esc(q.alt)}">` : ''}
     <div class="opts">${q.opts.map((o, i) => `<button class="opt" data-act="pick" data-i="${i}"><span class="k">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`).join('')}</div>
@@ -1310,12 +1350,12 @@ function pick(idx) {
   let head, calc = '';
   if (ok) {
     G.correct++; G.streak++; G.bestStreak = Math.max(G.bestStreak, G.streak);
-    const sc = calcPoints(t, TIME_LIMIT_Q, G.streak, G.correct, G.answered); G.score += sc.pts;
+    const sc = calcPoints(t, q.limit, G.streak, G.correct, G.answered); G.score += sc.pts;
     head = `Correct, +${sc.pts}`; calc = `⚡ speed ${sc.speed} × 🔥 streak ${sc.streak} × 🎯 accuracy ${sc.acc.toFixed(2)}`;
   } else { G.streak = 0; head = 'Not quite'; calc = 'Streak reset. No points this time.'; }
   const last = G.i === G.qs.length - 1;
   const fb = $('#fb'); fb.hidden = false; fb.className = 'fb ' + (ok ? 'ok' : 'bad');
-  fb.innerHTML = `<h3>${head}</h3><div class="calc">${calc}</div><div class="exp">${ok ? '' : `Answer: ${esc(q.a)}. `}${esc(q.exp)}</div><button class="btn ${ok ? 'ok' : 'bad'}" data-act="next" id="nextBtn">${last ? 'Finish lesson' : 'Continue'}</button>`;
+  fb.innerHTML = `<h3>${head}</h3><div class="calc">${calc}</div>${ok ? '' : whyWrong(q, idx)}<div class="exp">${ok ? '' : `Answer: ${esc(q.a)}. `}${esc(q.exp)}</div><button class="btn ${ok ? 'ok' : 'bad'}" data-act="next" id="nextBtn">${last ? 'Finish lesson' : 'Continue'}</button>`;
   $('#lstreak').textContent = '🔥 ' + G.streak; $('#lscore').textContent = '⭐ ' + G.score;
   $('#cover').style.width = (100 - Math.round(G.answered / G.qs.length * 100)) + '%';
   $('#nextBtn').focus({ preventScroll: true });
