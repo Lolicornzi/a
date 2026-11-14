@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 160" width="100%" height="100%">
+  <rect x="10" y="10" width="450" height="135" fill="none" stroke="black" stroke-width="1"/>
+  <line x1="10" y1="37" x2="460" y2="37" stroke="black"/>
+  <line x1="10" y1="64" x2="460" y2="64" stroke="black"/>
+  <line x1="10" y1="91" x2="460" y2="91" stroke="black"/>
+  <line x1="10" y1="118" x2="460" y2="118" stroke="black"/>
+  <line x1="60" y1="10" x2="60" y2="145" stroke="black"/>
+  <line x1="220" y1="10" x2="220" y2="145" stroke="black"/>
+  
+  <text x="95" y="28" font-family="sans-serif" font-size="14" font-weight="bold">KX</text>
+  <text x="285" y="28" font-family="sans-serif" font-size="14" font-weight="bold">Colour of precipitate</text>
+
+  <text x="25" y="55" font-family="sans-serif" font-size="14" font-weight="bold">A</text>
+  <text x="80" y="55" font-family="sans-serif" font-size="14">KBr</text>
+  <text x="260" y="55" font-family="sans-serif" font-size="14">Yellow</text>
+
+  <text x="25" y="82" font-family="sans-serif" font-size="14" font-weight="bold">B</text>
+  <text x="80" y="82" font-family="sans-serif" font-size="14">KI</text>
+  <text x="260" y="82" font-family="sans-serif" font-size="14">Yellowish</text>
+
+  <text x="25" y="109" font-family="sans-serif" font-size="14" font-weight="bold">C</text>
+  <text x="80" y="109" font-family="sans-serif" font-size="14">KCl</text>
+  <text x="260" y="109" font-family="sans-serif" font-size="14">White</text>
+
+  <text x="25" y="136" font-family="sans-serif" font-size="14" font-weight="bold">D</text>
+  <text x="80" y="136" font-family="sans-serif" font-size="14">KI</text>
+  <text x="260" y="136" font-family="sans-serif" font-size="14">White</text>
+</svg>

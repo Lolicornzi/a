@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 160" width="100%" height="100%">
+  <rect x="10" y="10" width="420" height="135" fill="none" stroke="black" stroke-width="1"/>
+  <line x1="10" y1="37" x2="430" y2="37" stroke="black"/>
+  <line x1="10" y1="64" x2="430" y2="64" stroke="black"/>
+  <line x1="10" y1="91" x2="430" y2="91" stroke="black"/>
+  <line x1="10" y1="118" x2="430" y2="118" stroke="black"/>
+  <line x1="60" y1="10" x2="60" y2="145" stroke="black"/>
+  <line x1="240" y1="10" x2="240" y2="145" stroke="black"/>
+  
+  <text x="25" y="28" font-family="sans-serif" font-size="12" font-weight="bold">Mix</text>
+  <text x="110" y="28" font-family="sans-serif" font-size="12">[CH₃NH₂] / mol dm⁻³</text>
+  <text x="280" y="28" font-family="sans-serif" font-size="12">[CH₃NH₃Cl] / mol dm⁻³</text>
+
+  <text x="30" y="55" font-family="sans-serif" font-size="14" font-weight="bold">A</text>
+  <text x="135" y="55" font-family="sans-serif" font-size="14">0.50</text>
+  <text x="315" y="55" font-family="sans-serif" font-size="14">0.70</text>
+
+  <text x="30" y="82" font-family="sans-serif" font-size="14" font-weight="bold">B</text>
+  <text x="135" y="82" font-family="sans-serif" font-size="14">0.90</text>
+  <text x="315" y="82" font-family="sans-serif" font-size="14">0.20</text>
+
+  <text x="30" y="109" font-family="sans-serif" font-size="14" font-weight="bold">C</text>
+  <text x="135" y="109" font-family="sans-serif" font-size="14">0.65</text>
+  <text x="315" y="109" font-family="sans-serif" font-size="14">0.65</text>
+
+  <text x="30" y="136" font-family="sans-serif" font-size="14" font-weight="bold">D</text>
+  <text x="135" y="136" font-family="sans-serif" font-size="14">0.30</text>
+  <text x="315" y="136" font-family="sans-serif" font-size="14">1.00</text>
+</svg>
