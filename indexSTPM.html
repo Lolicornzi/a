@@ -329,7 +329,8 @@ async function uploadFigure(file) {
 const figSrc = p => {
   if (typeof p !== 'string') return '';
   /* figures shipped with the site: a plain file name that lives in the img/ folder */
-  if (/^[A-Za-z0-9_-]+\.(svg|png|jpg|jpeg|webp)$/.test(p)) return 'img/' + p;
+  if (/^[A-Za-z0-9_-]+\.(svg|png|jpg|jpeg|webp)$/.test(p))
+  return (p.startsWith('bio_') ? 'img_bio_stpm/img/' : 'img/') + p;
   /* only paths created by uploadFigure are shown from storage, so a tampered record cannot point the page at another site */
   return /^[0-9a-f-]{36}\/[0-9a-f-]{36}\.(png|jpg|webp)$/.test(p)
     ? CONFIG.SUPABASE_URL.replace(/\/$/, '') + '/storage/v1/object/public/question-figures/' + p : '';
