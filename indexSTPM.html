@@ -1774,6 +1774,32 @@ document.addEventListener('keydown', e => {
   } catch (e) { S.screen = 'login'; S.user = null; setTimeout(() => toast('Could not reach the server. Sign in again when you are online.', 'bad'), 300); }
   S.ready = true; render();
 })();
+
+/* "What's new" announcement: shown once per version, then remembered in this browser */
+(function () {
+  const VER = '2026-11-24';
+  const ITEMS = [
+    ['🧬', 'Biology Semester 1 expanded', 'Chapters 1–7 now have far more STPM past-paper questions (25 to 55 per chapter).'],
+    ['🫁', 'Chapters 8 & 9 moved to Semester 2', 'Gas Exchange and Transport in Animals and Plants now sit under Semester 2 (Physiology) with Chapters 10–14.'],
+    ['✅', 'Semester 2 answers verified', 'Biology Semester 2 now uses the MPM-verified answer key, with explanations on many questions.'],
+    ['🖼️', '36 new figures', 'Diagram questions now show their redrawn figures, such as the U-tube, Calvin cycle and enzyme graphs.'],
+    ['🚧', 'Still growing', 'Immunity (Chapter 13) and a few chapters are short for now. More questions are coming.']
+  ];
+  const seen = () => { try { return localStorage.getItem('bondly:whatsnew') === VER; } catch (e) { return false; } };
+  const mark = () => { try { localStorage.setItem('bondly:whatsnew', VER); } catch (e) { /* ignore */ } };
+  function show() {
+    if (seen() || document.getElementById('whatsnew')) return;
+    const o = document.createElement('div'); o.className = 'overlay'; o.id = 'whatsnew';
+    o.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="What’s new"><div class="ic">🎉</div><h3>What’s new</h3><div class="sub">Updated 24 Nov 2026</div>' +
+      ITEMS.map(i => '<div style="display:flex;gap:12px;margin:12px 0"><div style="font-size:24px">' + i[0] + '</div><div><b>' + i[1] + '</b><div style="color:var(--ink2);font-size:14px">' + i[2] + '</div></div></div>').join('') +
+      '<div class="row"><button class="btn" id="wnClose">Got it</button></div></div>';
+    const close = () => { mark(); o.remove(); };
+    o.addEventListener('click', e => { if (e.target === o) close(); });
+    document.body.appendChild(o);
+    o.querySelector('#wnClose').addEventListener('click', close);
+  }
+  if (document.readyState === 'complete') setTimeout(show, 600); else window.addEventListener('load', () => setTimeout(show, 600));
+})();
 </script>
 </body>
 </html>
