@@ -6730,19 +6730,21 @@
    "option_b": "Creating trans double bonds to fatty acids",
    "option_c": "Adding hydrogen and creating cis double bonds to fatty acids",
    "option_d": "Adding hydrogen and creating trans double bonds to fatty acids",
-   "answer": "C",
-   "explanation": ""
+   "answer": "D",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "The structure of an amino acid is shown in the diagram below. Which is the class of the above amino acid?",
-   "image": "bio_sem1_01_02.png",
-   "alt": "Structure of an amino acid with an NH3+ group, a COO- group, a hydrogen and a side chain that ends in two CH3 groups.",
    "option_a": "Polar",
    "option_b": "Basic",
    "option_c": "Acidic",
    "option_d": "Non-polar",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_02.png",
+   "alt": "Sem 1 Chapter 1 Question 2"
   },
   {
    "question": "Which are true about amylopectin? I. Has osmotic influence in the cell II. Has more branches than amylose III. Turns to dark blue when iodine is added IV. Possesses 1,4-glycosidic and 1,6-glycosidic bonds",
@@ -6751,7 +6753,9 @@
    "option_c": "II and III",
    "option_d": "II and IV",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Lipid contains more energy than carbohydrates. Which is the reason for the difference?",
@@ -6760,7 +6764,9 @@
    "option_c": "The presence of carboxyl group",
    "option_d": "The process of oxidation occurs more often",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which is not true about protein?",
@@ -6769,16 +6775,20 @@
    "option_c": "the conformation depends on the physical and chemical environments.",
    "option_d": "the sequence of amino acids determines its function.",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which is not true about the property and physiological role of water?",
-   "option_a": "Property: Denser than ice | Physiological role: Provides cooling effect",
-   "option_b": "Property: Cohesive and adhesive | Physiological role: Serves as a transport medium",
-   "option_c": "Property: Low viscosity | Physiological role: Acts as lubricant",
-   "option_d": "Property: High heat of vaporisation | Physiological role: Helps living organism resist overheating",
+   "option_a": "Denser than ice — Provides cooling effect",
+   "option_b": "Cohesive and adhesive — Serves as a transport medium",
+   "option_c": "Low viscosity — Acts as lubricant",
+   "option_d": "High heat of vaporisation — Helps living organism resist overheating",
    "answer": "A",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which of the molecular formula for the product of the dehydration reaction of three glucose molecules?",
@@ -6787,76 +6797,86 @@
    "option_c": "C18H34O17",
    "option_d": "C18H36O18",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which function of protein does not correctly correspond to its example?",
-   "option_a": "Function of protein: Contractile | Example: Actin",
-   "option_b": "Function of protein: Protection | Example: Immunoglobulin",
-   "option_c": "Function of protein: Structural | Example: Keratin",
-   "option_d": "Function of protein: Storage | Example: Lipoprotein",
+   "option_a": "Contractile — Actin",
+   "option_b": "Protection — Immunoglobulin",
+   "option_c": "Structural — Keratin",
+   "option_d": "Storage — Lipoprotein",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "A molecular structure of a molecule is shown in the diagram below. Which molecule property is important to aquatic organisms during winter?",
-   "image": "bio_sem1_01_09.png",
-   "alt": "Space-filling model of a water molecule: a large oxygen atom marked partial negative and two small hydrogen atoms marked partial positive.",
    "option_a": "Low viscosity",
    "option_b": "Strong adhesiveness",
    "option_c": "More dense in liquid form",
    "option_d": "High specific heat capacity",
    "answer": "C",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_09.png",
+   "alt": "Sem 1 Chapter 1 Question 9"
   },
   {
-   "question": "A general statement about cholesterol and carbohydrate is given below. Cholesterol and carbohydrate have certain similarities in their molecular structure. Which are true about the statement above? I. Contain hexose sugars II. Contain carboxyl group III. Contain hydroxyl groups IV. Contain pentagon rings in their molecular structures.",
+   "question": "A general statement about cholesterol and carbohydrate is given below.\nCholesterol and carbohydrate have certain similarities in their molecular structure.\nWhich are true about the statement above? I. Contain hexose sugars II. Contain carboxyl group III. Contain hydroxyl groups IV. Contain pentagon rings in their molecular structures.",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
    "option_d": "III and IV",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "The structure of two types of sugar molecules, X and Y are shown in the diagram below. Which molecule is produced after X and Y undergo condensation process?",
-   "image": "bio_sem1_01_11.png",
-   "alt": "Open-chain structures of two sugars: X has a C=O group inside the chain, Y has a CHO group at the end.",
    "option_a": "Cellulose",
    "option_b": "Sucrose",
    "option_c": "Mannose",
    "option_d": "Lactose",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_11.png",
+   "alt": "Sem 1 Chapter 1 Question 11"
   },
   {
    "question": "Which statement explains why fructose is soluble in water while oleic acid is insoluble in water?",
-   "option_a": "Fructose: Exists in ring form | Oleic acid: Exists in linear form",
-   "option_b": "Fructose: Contains polar group | Oleic acid: Does not contain polar group",
-   "option_c": "Fructose: Does not have double bonds | Oleic acid: Has double bonds",
-   "option_d": "Fructose: Has higher carbon to hydrogen ratio | Oleic acid: Has lower carbon to hydrogen ratio",
+   "option_a": "Exists in ring form — Exists in linear form",
+   "option_b": "Contains polar group — Does not contain polar group",
+   "option_c": "Does not have double bonds — Has double bonds",
+   "option_d": "Has higher carbon to hydrogen ratio — Has lower carbon to hydrogen ratio",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "A lipid molecule is shown in the diagram below. Which are true of the lipid molecule above? I. It is a saturated fat II. It is a liquid at room temperature III. It can be sourced from cod liver oil IV. It is the final product of fat digestion",
-   "image": "bio_sem1_01_13.png",
-   "alt": "A glycerol molecule joined by ester bonds to three fatty acid chains, one of which contains a C=C double bond.",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
    "option_d": "III and IV",
    "answer": "C",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_13.png",
+   "alt": "Sem 1 Chapter 1 Question 13"
   },
   {
    "question": "Cellulose, starch and glycogen are polysaccharides with different properties due to their type of",
    "option_a": "bonding",
    "option_b": "functions",
    "option_c": "side chains",
-   "option_d": "monosaccharide subunits",
+   "option_d": "monosaccharide Subunits",
    "answer": "A",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which is true about peptide bond?",
@@ -6865,7 +6885,9 @@
    "option_c": "The characteristic of a protein molecule is determined by its peptide bond",
    "option_d": "The peptide bond is formed between two amino acids with the same characteristics",
    "answer": "A",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which property of water enables it to act as a biological lubricant?",
@@ -6874,7 +6896,9 @@
    "option_c": "Water is a polar molecule",
    "option_d": "Water has a low viscosity",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which sugar does not react with copper (II) sulphate solution to produce copper (I) oxide?",
@@ -6883,18 +6907,20 @@
    "option_c": "Maltose",
    "option_d": "Sucrose",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "The structure of a protein is shown in the diagram below. Which product will be produced after the protein is organised?",
-   "image": "bio_sem1_01_18.png",
-   "alt": "A polypeptide chain folded into a compact globular shape, held by a disulphide bridge, a hydrogen bond, an ionic bond and hydrophobic interactions.",
    "option_a": "Keratin",
    "option_b": "Fibroin",
    "option_c": "Protease",
    "option_d": "Collagen",
    "answer": "C",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_18.png",
+   "alt": "Sem 1 Chapter 1 Question 18"
   },
   {
    "question": "Maltose is made up of",
@@ -6903,7 +6929,9 @@
    "option_c": "glucose and galactose",
    "option_d": "galactose and galactose",
    "answer": "A",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Keratin in human hair has a high percentage of the amino acid cysteine which is responsible for the formation of straight or curly hair. Which is involved in the formation of this trait?",
@@ -6912,7 +6940,9 @@
    "option_c": "Disulphide bridge",
    "option_d": "Hydrophobic interaction",
    "answer": "C",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which property of water enables light weight insects to walk on its surface?",
@@ -6921,7 +6951,20 @@
    "option_c": "High adhesion",
    "option_d": "High cohesion",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "Which statement is not true of the structure below?",
+   "option_a": "It is soluble in water",
+   "option_b": "It has a reducing properties",
+   "option_c": "It exists as number of isomers",
+   "option_d": "It is a component of nucleic acid",
+   "answer": "A",
+   "explanation": "",
+   "image": "fig_20_fructose_ring.png",
+   "alt": "Sem 1 Chapter 1 Question 22"
   },
   {
    "question": "The characteristics and functions of an amino acid are determined by the",
@@ -6930,27 +6973,31 @@
    "option_c": "Amino group",
    "option_d": "Carboxyl group",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which is true of cellulose and amylose?",
-   "option_a": "Cellulose: It is composed of α-glucose | Amylose: It is composed of β-glucose",
-   "option_b": "Cellulose: Molecules are not fibrous | Amylose: Molecules are fibrous",
-   "option_c": "Cellulose: Monomers are joined by β-1,4 linkages | Amylose: Monomers are joined by α-1,6 linkages",
-   "option_d": "Cellulose: Successive glucose subunits are orientated 180° to each other | Amylose: All glucose subunits are orientated in the same way",
+   "option_a": "It is composed of α-glucose — It is composed of β-glucose",
+   "option_b": "Molecules are not fibrous — Molecules are fibrous",
+   "option_c": "Monomers are joined by β-1,4 linkages — Monomers are joined by α-1,6 linkages",
+   "option_d": "Successive glucose subunits are orientated 180° to each other — All glucose subunits are orientated in the same way",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "The structure of a sugar molecule is shown below. Which sugar has the above structure?",
-   "image": "bio_sem1_01_24.png",
-   "alt": "A five-membered ring sugar with CH2OH groups on carbons 2 and 5 and OH groups on the other carbons.",
    "option_a": "Ribose",
    "option_b": "Glucose",
    "option_c": "Galactose",
    "option_d": "Fructose",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_24.png",
+   "alt": "Sem 1 Chapter 1 Question 24"
   },
   {
    "question": "Lysine and glutamic acid can be distinguished by",
@@ -6959,7 +7006,9 @@
    "option_c": "The composition of their side chains",
    "option_d": "Their ability to form peptide bonds",
    "answer": "C",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which statement best explains the polarity of water?",
@@ -6968,7 +7017,9 @@
    "option_c": "Hydrogen is covalently bonded to oxygen to form water.",
    "option_d": "Polar compounds with partial charges tend to dissolve in water.",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which of the following contributes to the secondary structure of a protein?",
@@ -6977,7 +7028,9 @@
    "option_c": "Van der Waals force",
    "option_d": "Hydrophobic interaction",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which molecule is made up of or contains glucose molecules?",
@@ -6986,25 +7039,31 @@
    "option_c": "Ribonucleic acid",
    "option_d": "Deoxyribonucleic acid",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which molecular group and characteristic correspond?",
-   "option_a": "Group: Methyl | Characteristic: Polar, involved in hydrophilic reactions",
-   "option_b": "Group: Carboxyl | Characteristic: Basic, involved in formation of peptide bonds",
-   "option_c": "Group: Amino | Characteristic: Acidic, involved in the formation of peptide bonds",
-   "option_d": "Group: Hydroxyl | Characteristic: Polar, involved in condensation and hydrolytic reactions",
+   "option_a": "Methyl — Polar, involved in hydrophilic reactions",
+   "option_b": "Carboxyl — Basic, involved in formation of peptide bonds",
+   "option_c": "Amino — Acidic, involved in the formation of peptide bonds",
+   "option_d": "Hydroxyl — Polar, involved in condensation and hydrolytic reactions",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which of the following regarding the monosaccharides is correct?",
-   "option_a": "Monosaccharide: Triose | Description: An important intermediate substance in respiration | Example: Glyceraldehyde",
-   "option_b": "Monosaccharide: Triose | Description: A nucleotide | Example: Deoxyribose",
-   "option_c": "Monosaccharide: Pentose | Description: An oxygen receptor during photosynthesis | Example: Ribulose diphosphate",
-   "option_d": "Monosaccharide: Pentose | Description: A coenzyme involved in the transfer of hydrogen during respiration | Example: Dihydroxyacetone",
+   "option_a": "Triose — An important intermediate substance in respiration — Glyceraldehyde",
+   "option_b": "Triose — A nucleotide — Deoxyribose",
+   "option_c": "Pentose — An oxygen receptor during photosynthesis — Ribulose diphosphate",
+   "option_d": "Pentose — A coenzyme involved in the transfer of hydrogen during respiration — Dihydroxyacetone",
    "answer": "A",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Which of the following properties of water are important to living organisms? I. Polar molecule II. High heat of vaporization III. High specific heat capacity",
@@ -7013,29 +7072,31 @@
    "option_c": "II and III",
    "option_d": "I, II and III",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "The following is the formula for an amino acid. This amino acid is I. hydrophilic II. acidic III. negatively charged IV. insoluble in water",
-   "image": "bio_sem1_01_32.png",
-   "alt": "An amino acid with an NH2 group and a COOH group on the central carbon and a side chain CH2-CH2-COOH.",
    "option_a": "I only",
    "option_b": "I and II",
    "option_c": "I, II and III",
    "option_d": "II, III and IV",
    "answer": "C",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_32.png",
+   "alt": "Sem 1 Chapter 1 Question 32"
   },
   {
    "question": "The Diagram below shows the molecular structure of an organic compound found in animal cells. What is the compound and what is its function?",
-   "image": "bio_sem1_01_33.png",
-   "alt": "A molecule with four fused rings, a ketone and a double bond in the first ring, and an OH group on the five-membered ring.",
-   "option_a": "Compound: Testosterone | Function: To stimulate the maturity of testis",
-   "option_b": "Compound: Lecithin | Function: To build plasma membranes",
-   "option_c": "Compound: Glycine | Function: To form proteins",
-   "option_d": "Compound: Cholesterol | Function: As an intermediate in the synthesis of steroids",
+   "option_a": "Testosterone — To stimulate the maturity of testis",
+   "option_b": "Lecithin — To build plasma membranes",
+   "option_c": "Glycine — To form proteins",
+   "option_d": "Cholesterol — As an intermediate in the synthesis of steroids",
    "answer": "A",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_33.png",
+   "alt": "Sem 1 Chapter 1 Question 33"
   },
   {
    "question": "Which of the following are characteristics of lipids? I. Insoluble in water II. Soluble in non-polar solvents III. Combine with fatty acids to form esters",
@@ -7044,7 +7105,9 @@
    "option_c": "II and III only",
    "option_d": "I, II and III",
    "answer": "A",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Under very hot sun, the ocean water is not that hot compared with the exposed surface of rocks on the beach. This is because water has",
@@ -7053,18 +7116,31 @@
    "option_c": "high latent heat of fusion",
    "option_d": "high latent heat of condensation",
    "answer": "A",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "Which of the following is true about lipids? I. Insoluble in water II. Soluble in non polar organic solvent III. Ester that formed from the reaction between fatty acid and alcohol",
+   "option_a": "I only",
+   "option_b": "II only",
+   "option_c": "I and III",
+   "option_d": "I, II and III",
+   "answer": "D",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "The following diagram shows formation of a disaccharide. The bond that link the monomers is represented by",
-   "image": "bio_sem1_01_37.png",
-   "alt": "Two six-carbon sugar rings joining through an oxygen link to form a disaccharide, with a water molecule released.",
    "option_a": "ester bond",
    "option_b": "peptide bond",
    "option_c": "hydrogen bond",
    "option_d": "glycosidic bond",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "bio_sem1_01_37.png",
+   "alt": "Sem 1 Chapter 1 Question 37"
   },
   {
    "question": "Which of the following statements is/are true about protein and amino acid? I. Most enzymes are globular protein. II. The formation of peptide bond occurs by condensation. III. All amino acids that are needed are synthesized by the human body. IV. The non protein component attached to the protein is called prosthetic group. V. All amino acids that are found in the protein have a different R group.",
@@ -7073,7 +7149,9 @@
    "option_c": "I, IV, and V",
    "option_d": "II, III, and IV",
    "answer": "B",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "The main type of carbohydrate which is transported in plant is",
@@ -7082,7 +7160,9 @@
    "option_c": "maltose",
    "option_d": "sucrose",
    "answer": "D",
-   "explanation": ""
+   "explanation": "",
+   "image": "",
+   "alt": ""
   },
   {
    "question": "Icebergs float in the ocean due to: I. polarity of water II. low viscosity III. hydrogen bonds IV. crystalline lattice arrangement",
@@ -7115,50 +7195,6 @@
    "answer": "D",
    "explanation": "",
    "image": "",
-   "alt": ""
-  },
-  {
-   "question": "Which process is involved in converting liquid vegetable oil to solid margarine at room temperature?",
-   "option_a": "Creating cis double bonds to fatty acids",
-   "option_b": "Creating trans double bonds to fatty acids",
-   "option_c": "Adding hydrogen and creating cis double bonds",
-   "option_d": "Adding hydrogen and creating trans double bonds",
-   "answer": "D",
-   "explanation": "",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "Which of the following is true about lipids? I. Insoluble in water II. Soluble in non-polar organic solvent III. Ester formed from fatty acid and alcohol",
-   "option_a": "I only",
-   "option_b": "II only",
-   "option_c": "I and III",
-   "option_d": "I, II and III",
-   "answer": "D",
-   "explanation": "",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "Keratin in human hair has a high percentage of cysteine responsible for straight or curly hair. Which bond is involved?",
-   "option_a": "Ionic bond",
-   "option_b": "Hydrogen bond",
-   "option_c": "Disulphide bridge",
-   "option_d": "Hydrophobic interaction",
-   "answer": "C",
-   "explanation": "",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "Which statement is not true of the structure below?",
-   "option_a": "It is soluble in water",
-   "option_b": "It has a reducing properties",
-   "option_c": "It exists as number of isomers",
-   "option_d": "It is a component of nucleic acid",
-   "answer": "D",
-   "explanation": "",
-   "image": "fig_20_fructose_ring.png",
    "alt": ""
   },
   {
