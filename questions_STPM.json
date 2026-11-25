@@ -14414,17 +14414,6 @@
    "alt": ""
   },
   {
-   "question": "The result of an analysis of rat's DNA of the relative amount of four nitrogenous bases is shown below. What are P, Q and R?",
-   "option_a": "P: Cytosine, Q: Adenine, R: Guanine",
-   "option_b": "P: Cytosine, Q: Guanine, R: Adenine",
-   "option_c": "P: Guanine, Q: Adenine, R: Cytosine",
-   "option_d": "P: Guanine, Q: Cytosine, R: Adenine",
-   "answer": "B",
-   "explanation": "By Chargaff's rule, Thymine (29.3%) ≈ Adenine (R=30.5%), and Cytosine (P=19.8%) ≈ Guanine (Q=20.4%).",
-   "image": "bio_sem1_02_Q8.png",
-   "alt": "Relative Amount of Bases in Rat's DNA"
-  },
-  {
    "question": "Which is the cause of the separation of DNA fragments in electrophoresis?",
    "option_a": "Time",
    "option_b": "Voltage",
