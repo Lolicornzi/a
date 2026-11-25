@@ -7251,6 +7251,17 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "Washing silk garment at temperature above 65°C will cause it to crumple because",
+   "option_a": "the tertiary structure of silk is destroyed at high temperature",
+   "option_b": "silk is made up of protein which denatures at high temperature",
+   "option_c": "water reacts with polar amino acids of the silk at high temperature",
+   "option_d": "hydrogen bonds, peptide bonds, disulphide bridges and Van der Waals forces break at high temperature",
+   "answer": "C",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ],
  "b15": [
@@ -14493,7 +14504,7 @@
  ],
  "b04": [
   {
-   "question": "The process which involves the transport of substances across the plasma membrane is shown. Which statements are true? I. Known as pinocytosis II. Does not require energy III. Vesicle coated by unit membrane IV. Vesicle fuses with cis face of Golgi",
+   "question": "The process which involves the transport of substances across the plasma membrane is shown in the diagram below. Which statements are true about the above process? I. The process is known as pinocytosis. II. The process does not require energy. III. The vesicle formed is coated by a unit membrane. IV. The vesicle formed fuses with the cis face of the Golgi apparatus.",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
@@ -14537,7 +14548,7 @@
    "alt": "U-tube with 0.6 M sucrose (left) and 0.2 M sucrose (right)"
   },
   {
-   "question": "A plant cell has solute potential of -1000 kPa and pressure potential of 200 kPa. What is the force causing water entry when immersed in sucrose solution of -300 kPa?",
+   "question": "A plant cell has a solute potential of -1000 kPa and its pressure potential is 200 kPa. What is the force that cause the movement of water into the plant cell, if it is immersed in a sucrose solution with a solute potential of -300 kPa?",
    "option_a": "-500 kPa",
    "option_b": "-800 kPa",
    "option_c": "-1100 kPa",
@@ -14606,8 +14617,8 @@
    "question": "Which is the function of proteins embedded in the phospholipid bilayer of a plasma membrane?",
    "option_a": "Acts as enzymes",
    "option_b": "Maintains membrane fluidity",
-   "option_c": "Produces ATP",
-   "option_d": "Transports CO2 and O2",
+   "option_c": "Produces ATP for active transport",
+   "option_d": "Transports carbon dioxide and oxygen",
    "answer": "A",
    "explanation": "",
    "image": "",
@@ -14766,6 +14777,17 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "Which transportation of substances requires ATP?",
+   "option_a": "Absorption of water through the root hairs in plants",
+   "option_b": "Movement of dissolved substances into the cell via pinocytosis",
+   "option_c": "Movement of testosterone across the membrane of muscle cells",
+   "option_d": "Transportation of glucose across the wall of villi in the small intestine",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ],
  "b05": [
@@ -14869,7 +14891,7 @@
    "alt": ""
   },
   {
-   "question": "Which class of enzyme catalyses ATP + Glucose -> ADP + glucose-6-phosphate?",
+   "question": "Which class of enzyme converts glucose to glucose-6-phosphate in glycolysis?",
    "option_a": "Lyase",
    "option_b": "Isomerase",
    "option_c": "Transferase",
@@ -15001,11 +15023,11 @@
    "alt": ""
   },
   {
-   "question": "The Michaelis-Menten equation is V0 = Vmax[S]/(Km + [S]). What is the value of Km if V0 equals half Vmax?",
-   "option_a": "1/[S]",
+   "question": "The Michaelis-Menten equation is shown below: V0 = (Vmax [S]) / (KM + [S]). What is the value of KM if V0 equal to half Vmax?",
+   "option_a": "1 / [S]",
    "option_b": "[S]",
-   "option_c": "1/Vmax",
-   "option_d": "2Vmax",
+   "option_c": "1 / Vmax",
+   "option_d": "2 Vmax",
    "answer": "B",
    "explanation": "",
    "image": "",
@@ -15166,7 +15188,7 @@
    "alt": ""
   },
   {
-   "question": "Which are true about non-competitive inhibitor? I. Arsenic is an inhibitor II. Km remains same III. Temporarily binds active site IV. Km decreases only if substrate conc is low.",
+   "question": "Which are true about non-competitive inhibitor? I. Arsenic is an inhibitor II. Km value of the enzyme remains the same III. The inhibitor temporarily binds to the active site of the enzyme IV. The Km value decreases only if the substrate concentration is low",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -15243,7 +15265,7 @@
    "alt": ""
   },
   {
-   "question": "Which is not true about an enzyme immobilisation technique? I. Product needs to be purified II. Cost of operation is expensive III. Immobilised enzyme can be reused IV. Stabilises enzyme.",
+   "question": "Which is not true about an enzyme immobilisation technique? I. The product needs to be purified. II. The cost of operation is expensive. III. The immobilised enzyme can be reused. IV. The technique helps to stabilise the enzyme.",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -15255,10 +15277,10 @@
   },
   {
    "question": "Which is the function of a transducer in a biosensor?",
-   "option_a": "Displays measurable signal",
-   "option_b": "Reacts with substance",
-   "option_c": "Detects presence",
-   "option_d": "Converts biochemical signal to electric signal",
+   "option_a": "Displays the measurable signal",
+   "option_b": "Reacts with the substance of interest",
+   "option_c": "Detects the presence of the substance of interest",
+   "option_d": "Converts a biochemical signal to an electric signal",
    "answer": "D",
    "explanation": "",
    "image": "",
@@ -15273,6 +15295,17 @@
    "answer": "C",
    "explanation": "",
    "image": "fig_17_enzyme_immobilisation_entrapment.png",
+   "alt": ""
+  },
+  {
+   "question": "Two reactions catalysed by enzymes, X and Y, are given below:\nglutamic acid + pyruvic acid --(X)--> α-ketoglutaric acid + alanine\npyruvic acid --(Y)--> ethanol + carbon dioxide\nWhat are represented by X and Y?",
+   "option_a": "X: Lyase, Y: Isomerase",
+   "option_b": "X: Isomerase, Y: Hydrolase",
+   "option_c": "X: Transferase, Y: Lyase",
+   "option_d": "X: Transferase, Y: Hydrolase",
+   "answer": "C",
+   "explanation": "",
+   "image": "",
    "alt": ""
   }
  ],
@@ -15487,7 +15520,7 @@
    "alt": "Sem 1 Chapter 7 (2018 Q7)"
   },
   {
-   "question": "A new plant species has orange leaves. Which visible lights are not absorbed by the photosynthetic pigments?",
+   "question": "A new plant species has a unique photosynthetic pigments. The leaves of the plant appeared to be orange in colour. Which visible lights are not absorbed by the photosynthetic pigments of the plant?",
    "option_a": "Red and yellow",
    "option_b": "Blue and violet",
    "option_c": "Green and yellow",
@@ -15509,7 +15542,7 @@
    "alt": "Sem 1 Chapter 7 (2020 Q4)"
   },
   {
-   "question": "Which processes occur in photosystem I? I. Release of O2 II. Photolysis of water III. Production of NADPH IV. Cyclic photophosphorylation.",
+   "question": "Which processes occur in photosystem I? I. The release of oxygen II. The photolysis of water III. The production of NADPH IV. The cyclic photophosphorylation",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
@@ -15782,6 +15815,28 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "An experiment is carried out to identify X, the pigment extracted from the leaves of red spinach. The chromatogram and the Rf values of different pigments are given below (Chlorophyll b: 0.45, Chlorophyll a: 0.65, Xanthophyll: 0.71, Carotene: 0.95). What is represented by X?",
+   "option_a": "Carotene",
+   "option_b": "Chlorophyll a",
+   "option_c": "Chlorophyll b",
+   "option_d": "Xanthophyll",
+   "answer": "D",
+   "explanation": "",
+   "image": "sem_1_chapter_7_2020_q4.png",
+   "alt": "Sem 1 Chapter 7 (2020 Q4)"
+  },
+  {
+   "question": "Which molecules that are produced in the light reaction of photosynthesis enter the Calvin cycle?",
+   "option_a": "ATP and CO2",
+   "option_b": "CO2 and H2O",
+   "option_c": "NADPH and ATP",
+   "option_d": "NADPH and H2O",
+   "answer": "C",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ],
  "b03": [
@@ -16017,7 +16072,7 @@
    "alt": ""
   },
   {
-   "question": "Which common structures are found in prokaryotes and eukaryotes? I. Cell wall II. Microtubule III. Mitochondrion IV. DNA associated with protein.",
+   "question": "Which common structures are found in prokaryotes and eukaryotes? I. Cell wall II. Microtubule III. Mitochondrion IV. DNA associated with protein",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
@@ -16138,11 +16193,11 @@
    "alt": ""
   },
   {
-   "question": "Why is there no sedimentation of membrane fragments after homogenising liver tissue and fractionating using ultracentrifugation?",
-   "option_a": "High S value",
-   "option_b": "Smallest mass",
-   "option_c": "Smallest organelle",
-   "option_d": "Density higher than water",
+   "question": "Why there is no sedimentation of the membrane fragments after homogenising liver tissue and fractionating it using an ultracentrifugation?",
+   "option_a": "It has a high S value.",
+   "option_b": "It has the smallest mass.",
+   "option_c": "It is the smallest organelle.",
+   "option_d": "Its density is higher than that of water.",
    "answer": "B",
    "explanation": "",
    "image": "",
@@ -16400,6 +16455,39 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "The characteristics of an organelle are given below:\n- Contains DNA\n- Contains ribosomes\n- Contains NADP reductase\nWhich organelle has the above characteristics?",
+   "option_a": "Nucleus",
+   "option_b": "Chloroplast",
+   "option_c": "Mitochondrion",
+   "option_d": "Endoplasmic reticulum",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "Several tissues and several parts of a plant are given in the table below (Tissue: Parenchyma, Collenchyma, Sclerenchyma; Part of a plant: Pear fruit, Petiole, Leaf). Which tissue correctly correspond to the parts of the plant?",
+   "option_a": "Parenchyma: Leaf, Collenchyma: Petiole, Sclerenchyma: Pear fruit",
+   "option_b": "Parenchyma: Pear fruit, Collenchyma: Petiole, Sclerenchyma: Leaf",
+   "option_c": "Parenchyma: Leaf, Collenchyma: Pear fruit, Sclerenchyma: Petiole",
+   "option_d": "Parenchyma: Petiole, Collenchyma: Leaf, Sclerenchyma: Pear fruit",
+   "answer": "A",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "The characteristics of a type of plant cells are given below:\n- The cells are longitudinal and vary in size.\n- The mature cells lack of nuclei and cytoplasm.\n- The secondary cell walls are thickened with lignin.\nWhich specialised plant cell has the characteristics above?",
+   "option_a": "Collenchyma",
+   "option_b": "Parenchyma",
+   "option_c": "Sclerenchyma",
+   "option_d": "Tracheid",
+   "answer": "C",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ],
  "b06": [
@@ -16416,10 +16504,10 @@
   },
   {
    "question": "Which stage of the Krebs cycle involves the reduction of FAD?",
-   "option_a": "Conversion of alpha-ketoglutarate to succinyl CoA",
-   "option_b": "Conversion of isocitrate to alpha-ketoglutarate",
-   "option_c": "Conversion of malate to oxaloacetate",
-   "option_d": "Conversion of succinate to fumarate",
+   "option_a": "The conversion of α-ketoglutarate to succinyl CoA",
+   "option_b": "The conversion of isocitrate to α-ketoglutarate",
+   "option_c": "The conversion of malate to oxaloacetate",
+   "option_d": "The conversion of succinate to fumarate",
    "answer": "D",
    "explanation": "",
    "image": "",
@@ -16679,10 +16767,10 @@
    "alt": ""
   },
   {
-   "question": "A sequence of simplified electron transport chain in mitochondria completes when X is reduced to Z. What is the importance of X?",
+   "question": "A sequence of simplified electron transport chain in mitochondria is shown in the diagram below. The electron transport chain completes when X is reduced to Z. What is the importance of X?",
    "option_a": "Reduces NADP+",
    "option_b": "Accepts electron to form H2O",
-   "option_c": "Synthesises ATP",
+   "option_c": "Synthesises ATP from ADP + Pi",
    "option_d": "Combines with carbon to form CO2",
    "answer": "B",
    "explanation": "",
@@ -16800,11 +16888,11 @@
    "alt": ""
   },
   {
-   "question": "After a vigorous activity, lactic acid produced in the muscle cell is:",
+   "question": "After a vigorous activity, lactic acid produced in the muscle cell is",
    "option_a": "reduced to glucose",
    "option_b": "converted into glycogen",
    "option_c": "oxidised to pyruvate",
-   "option_d": "oxidised to CO2 and water",
+   "option_d": "oxidised to carbon dioxide and water",
    "answer": "C",
    "explanation": "",
    "image": "",
