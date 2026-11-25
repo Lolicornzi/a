@@ -7209,7 +7209,7 @@
    "alt": ""
   },
   {
-   "question": "The separation of protein during electrophoresis depends on the:",
+   "question": "The separation of protein during electrophoresis depends on the",
    "option_a": "net charge",
    "option_b": "conformation",
    "option_c": "concentration",
@@ -14500,8 +14500,8 @@
    "option_d": "III and IV",
    "answer": "B",
    "explanation": "",
-   "image": "bio_sem1_04_Q8.png",
-   "alt": "Pinocytosis Across Plasma Membrane"
+   "image": "sem_1_chapter_4_2020_q8.png",
+   "alt": "Sem 1 Chapter 4 (2020 Q8)"
   },
   {
    "question": "What would happen to a cell membrane if cholesterol is unable to incorporate with its phospholipid membrane at a high temperature?",
@@ -14592,7 +14592,7 @@
    "alt": ""
   },
   {
-   "question": "Which are reasons why plasma membrane is referred to as fluid mosaic model? I. Phospholipids move freely within plane II. Presence of cholesterol III. Membrane proteins move laterally IV. Position of glycoproteins.",
+   "question": "Which are the reasons why plasma membrane structure is referred as a fluid mosaic model? I. The phospholipids move freely within the plane. II. The presence of cholesterol within the membrane. III. The membrane proteins that are scattered in the phospholipid bilayer move laterally. IV. The position of glycoproteins and glycolipids in the outer layer of plasma membrane.",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -14902,7 +14902,7 @@
    "alt": ""
   },
   {
-   "question": "Deficiency of a micronutrient, boron, in the soil decreases the rate of enzymatic reactions in chlorophyll synthesis. Role of boron?",
+   "question": "Deficiency of a micronutrient, boron, in the soil decreases the rate of enzymatic reactions involved in chlorophyll synthesis in plants. Which is the best to describe the role of boron?",
    "option_a": "Coenzyme",
    "option_b": "Cofactor",
    "option_c": "Competitive inhibitor",
@@ -15232,7 +15232,7 @@
    "alt": ""
   },
   {
-   "question": "Which are true about an immobilised enzyme system? I. Reversible reaction II. Inhibits metabolic pathway III. Products do not need to be purified IV. Enzymes remain active at high temperatures.",
+   "question": "Which are true about an immobilised enzyme system? I. Reversible reaction II. Inhibits the metabolic pathway III. The products do not need to be purified IV. The enzymes can remain active at high temperatures",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -15366,15 +15366,15 @@
    "alt": "Calvin cycle showing CO2 fixation, reduction, and RuBP regeneration"
   },
   {
-   "question": "The levels of malate and sucrose in a plant species were studied in a 24-hour interval. The plant species is most probably a",
+   "question": "The levels of malate and sucrose in a plant species were studied in a 24-hour interval. The results obtained are illustrated in the graphs below. The plant species studied is most probably a",
    "option_a": "rambutan",
    "option_b": "dragon fruits",
    "option_c": "sugar cane",
    "option_d": "maize",
    "answer": "B",
    "explanation": "",
-   "image": "fig_09_cam_malate_sucrose.png",
-   "alt": "24-hour malate and sucrose concentration graphs in a CAM plant"
+   "image": "sem_1_chapter_7_2018_q13.png",
+   "alt": "Sem 1 Chapter 7 (2018 Q13)"
   },
   {
    "question": "Rubisco binds with both carbon dioxide and oxygen in",
@@ -15476,15 +15476,15 @@
    "alt": ""
   },
   {
-   "question": "A chromatogram of chlorophyll pigments has solvent front 10 cm from origin and top pigment at 8 cm. What is the Rf value of the pigment with highest affinity towards solvent?",
+   "question": "A chromatogram obtained from the separation of chlorophyll pigments is shown in the diagram below. What is the Rf value of the pigment that has the highest affinity towards the solvent used?",
    "option_a": "0.30",
    "option_b": "0.50",
    "option_c": "0.62",
    "option_d": "0.80",
    "answer": "D",
    "explanation": "",
-   "image": "fig_13_rf_chromatogram_spinach.png",
-   "alt": ""
+   "image": "sem_1_chapter_7_2018_q7.png",
+   "alt": "Sem 1 Chapter 7 (2018 Q7)"
   },
   {
    "question": "A new plant species has orange leaves. Which visible lights are not absorbed by the photosynthetic pigments?",
@@ -15505,8 +15505,8 @@
    "option_d": "Xanthophyll",
    "answer": "D",
    "explanation": "",
-   "image": "fig_13_rf_chromatogram_spinach.png",
-   "alt": ""
+   "image": "sem_1_chapter_7_2020_q4.png",
+   "alt": "Sem 1 Chapter 7 (2020 Q4)"
   },
   {
    "question": "Which processes occur in photosystem I? I. Release of O2 II. Photolysis of water III. Production of NADPH IV. Cyclic photophosphorylation.",
@@ -16389,16 +16389,27 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "Which of the following can differentiate whether a cell is prokaryotic cell or eukaryotic cell?",
+   "option_a": "Whether the cell is compartmentalised by internal membranes or not.",
+   "option_b": "Whether the cell carries out cellular metabolism or not.",
+   "option_c": "The presence or absence of a rigid cell wall.",
+   "option_d": "The presence or absence of ribosomes.",
+   "answer": "A",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ],
  "b06": [
   {
-   "question": "According to the chemiosmotic theory, ATP is synthesised when",
-   "option_a": "oxygen accepts electron and proton to form water",
-   "option_b": "hydrogen ions flow back from intermembrane space into mitochondrial matrix",
-   "option_c": "hydrogen ions are pumped from matrix into intermembrane space",
-   "option_d": "electron carrier accepts electrons",
-   "answer": "B",
+   "question": "According to the chemiosmotic theory, ATP is synthesised when the",
+   "option_a": "oxygen accepts electrons and protons to form water",
+   "option_b": "electron carrier accepts electrons and then transfers the electrons to the next electron carrier",
+   "option_c": "hydrogen ions flow back from the inter-membrane space into the mitochondrial matrix",
+   "option_d": "hydrogen ions are pumped from the mitochondrial matrix into the inter-membrane space",
+   "answer": "C",
    "explanation": "",
    "image": "",
    "alt": ""
@@ -16675,8 +16686,8 @@
    "option_d": "Combines with carbon to form CO2",
    "answer": "B",
    "explanation": "",
-   "image": "fig_15_etc_simplified.png",
-   "alt": ""
+   "image": "sem_1_chapter_6_2019_q15.png",
+   "alt": "Sem 1 Chapter 6 (2019 Q15)"
   },
   {
    "question": "Which is not true about chemiosmosis in mitochondria?",
@@ -16778,11 +16789,11 @@
    "alt": ""
   },
   {
-   "question": "Animal cells are unable to carry out alcohol fermentation because the cells:",
-   "option_a": "do not have enzymes to convert pyruvate into acetaldehyde",
-   "option_b": "no vacuoles",
-   "option_c": "active cells require lactate",
-   "option_d": "unable to withstand alcohol",
+   "question": "Animal cells are unable to carry out alcohol fermentation because the cells",
+   "option_a": "do not have enzymes to convert pyruvate into acetyldehyde",
+   "option_b": "do not have vacuoles to accommodate the acetyldehyde produced",
+   "option_c": "are active cells thus, the cells require energy from lactate fermentation",
+   "option_d": "are unable to withstand the accumulation of alcohol in the cells",
    "answer": "A",
    "explanation": "",
    "image": "",
