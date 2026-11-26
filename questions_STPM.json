@@ -7973,17 +7973,6 @@
    "explanation": ""
   },
   {
-   "question": "The graph below shows the survivorship curves for three species of animals. Which of the following are correct for the characteristics of the animals and their survivorship curves? Characteristics Curve I Growth rate is high c II Energy for reproduction is high a III Growth rate is the lowest a Care for offspring is minimum b",
-   "image": "bio_sem3_eco_35.png",
-   "alt": "Diagram or photograph referred to in the question.",
-   "option_a": "I and II only",
-   "option_b": "I and III only",
-   "option_c": "II and IV only",
-   "option_d": "III and IV only",
-   "answer": "B",
-   "explanation": ""
-  },
-  {
    "question": "The success of the organisms in the ecosystem can be shown by I. population distribution II. population size III. prey-predator relationship IV. the position of trophic level in the ecosystem",
    "option_a": "I and II",
    "option_b": "I and III",
@@ -8321,17 +8310,6 @@
    "option_c": "II and III",
    "option_d": "II and IV",
    "answer": "D",
-   "explanation": ""
-  },
-  {
-   "question": "The summary of the phosphorus cycle is shown in the diagram below. Which are true about the phosphorus cycle above?",
-   "image": "bio_sem3_eco_77.png",
-   "alt": "Figure for the question: Stage Process I. P Water erodes the surface of the rocks and carries phosphate to living organisms II. Q Phosphorus moves in the atmosphere in the form of dust III. R Phosphorus enters aquatic ecosystem as dissolved phosphate IV. ",
-   "option_a": "I and III",
-   "option_b": "I and IV",
-   "option_c": "II and III",
-   "option_d": "II and IV",
-   "answer": "A",
    "explanation": ""
   },
   {
@@ -8676,7 +8654,7 @@
    "explanation": ""
   },
   {
-   "question": "Which of the following mutations in humans is/ are trisomic? I Down Syndrome II Turner Syndrome only III Thalassaemia major",
+   "question": "Which of the following mutations in humans is/are trisomic? I. Down syndrome II. Turner syndrome III. Thalassaemia major",
    "option_a": "I only",
    "option_b": "II only",
    "option_c": "I and III",
@@ -9890,7 +9868,7 @@
    "alt": ""
   },
   {
-   "question": "What happens when the chemoreceptors in the carotid artery are stimulated? The stimulation of the expiratory centre in the hindbrain I. II.  The decreased in the volume of the lungs III. The contraction of the diaphragm muscles IV.  The expansion of the lungs",
+   "question": "What happens when the chemoreceptors in the carotid artery are stimulated? I. The stimulation of the expiratory centre in the hindbrain II. The decreased in the volume of the lungs III. The contraction of the diaphragm muscles IV. The expansion of the lungs",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
@@ -9945,7 +9923,7 @@
    "alt": ""
   },
   {
-   "question": "Which are true about the process of inspiration? I. II. III. IV. The inspiratory centre sends out nerve impulse via phrenic nerves to the external intercostal muscles and via thoracic nerves to the diaphragm The level of CO2 increases in blood plasma which is detected by the chemoreceptors The external intercostal muscles contract The diaphragm muscles relax",
+   "question": "Which are true about the process of inspiration? I. The inspiratory centre sends out nerve impulse via phrenic nerves to the external intercostal muscles and via thoracic nerves to the diaphragm II. The level of CO₂ increases in blood plasma which is detected by the chemoreceptors III. The external intercostal muscles contract IV. The diaphragm muscles relax",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -9967,7 +9945,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following occur in the guard cells of a plant during the day? Guard cells lose their turgidity Hydrogen ions are actively transported into the guard cells Water potential of the guard cells becomes more negative Guard cells actively accumulate potassium ions from neighbouring cells",
+   "question": "Which of the following occur in the guard cells of a plant during the day? I. Guard cells lose their turgidity II. Hydrogen ions are actively transported into the guard cells III. Water potential of the guard cells becomes more negative IV. Guard cells actively accumulate potassium ions from neighbouring cells",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
@@ -9978,7 +9956,7 @@
    "alt": ""
   },
   {
-   "question": "Which situations would promote the opening of stomata of Hibiscus rosa-sinensis? The plants are supplied with sufficient water The leaves are exposed to blue light I. II.  The roots are supplied with fertilisers rich in potassium ions III. IV.  The plants are exposed to high concentration of abscisic acid",
+   "question": "Which situations would promote the opening of stomata of Hibiscus rosa-sinensis? I. The plants are supplied with sufficient water II. The leaves are exposed to blue light III. The roots are supplied with fertilisers rich in potassium ions IV. The plants are exposed to high concentration of abscisic acid",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
@@ -10143,7 +10121,7 @@
    "alt": ""
   },
   {
-   "question": "- ions that are diffusing 2- ions that are diffusing  Chloride shift is a process in which",
+   "question": "Chloride shift is a process in which",
    "option_a": "The pH in the red blood cells is maintained",
    "option_b": "The osmotic pressure in the red blood cells is maintained",
    "option_c": "Cl- ions in the plasma diffuse into the red blood cells to replace the HCO3 out",
@@ -10165,7 +10143,7 @@
    "alt": ""
   },
   {
-   "question": "Carbon dioxide is transported in the red blood cell as [ 2010/13]",
+   "question": "Carbon dioxide is transported in the red blood cell as",
    "option_a": "carbaminohaemoglobin",
    "option_b": "carboxyhaemoglobin",
    "option_c": "haemoglobinic acid",
@@ -10286,7 +10264,7 @@
    "alt": ""
   },
   {
-   "question": "77.  Which statements are true for myoglobin and haemoglobin molecules? I.  Both are conjugated proteins. II.  Both are efficient oxygen carriers. III.  Their prosthetic group is haem. IV.  Both are secondary proteins.",
+   "question": "Which statements are true for myoglobin and haemoglobin molecules? I.  Both are conjugated proteins. II.  Both are efficient oxygen carriers. III.  Their prosthetic group is haem. IV.  Both are secondary proteins.",
    "option_a": "II and IV only",
    "option_b": "I, II and III only",
    "option_c": "I, III and IV only",
@@ -10308,7 +10286,7 @@
    "alt": ""
   },
   {
-   "question": "The reversible reaction between haemoglobin and oxygen molecules during respiration occurs according to the following equation: [ 2001/13] What will happen to the above reaction if the carbon dioxide concentration in the blood increases?",
+   "question": "The reversible reaction between haemoglobin and oxygen during respiration occurs according to the following equation: Haemoglobin + O₂ ⇌ Oxyhaemoglobin. What will happen to the above reaction if the carbon dioxide concentration in the blood increases?",
    "option_a": "The reaction shifts to the left.",
    "option_b": "The reaction shifts to the right.",
    "option_c": "A carboxyhaemoglobin complex is formed.",
@@ -10330,7 +10308,7 @@
    "alt": ""
   },
   {
-   "question": "I. II. III. IV. - in the red blood cell at tissue level Which of these are the roles of carbonic anhydrase enzyme in the process of gases exchange in human being? [ 2001/15] Increases the release of CO2 gas to the lungs Increases the capillary wall's absorbability of oxygen gas Increases the concentration of H+ in the red blood cell at tissue level Increases the concentration of HCO3",
+   "question": "Which of these are the roles of carbonic anhydrase enzyme in the process of gas exchange in humans? I. Increases the release of CO₂ gas to the lungs II. Increases the capillary wall's absorbability of oxygen gas III. Increases the concentration of H⁺ in the red blood cell at tissue level IV. Increases the concentration of HCO₃⁻ in the red blood cell at tissue level",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "I, III and IV",
@@ -10387,7 +10365,7 @@
  ],
  "b09": [
   {
-   "question": "Which of the following statements true about endodermal cell? i.  It has the Casparian strip on its radial wall and tangential wall. ii.  It has the Casparian strip on its radial wall and transverse wall. iii.  It allows water to diffuse through its wall and cytoplasm. iv.  It allows water to move across its cytoplasm. v.  It helps in producing the root pressure.",
+   "question": "Which of the following statements are true about endodermal cells? I. It has the Casparian strip on its radial wall and tangential wall. II. It has the Casparian strip on its radial wall and transverse wall. III. It allows water to diffuse through its wall and cytoplasm. IV. It allows water to move across its cytoplasm. V. It helps in producing the root pressure.",
    "option_a": "I and IV",
    "option_b": "II and III",
    "option_c": "I, III and V",
@@ -10420,11 +10398,11 @@
    "alt": ""
   },
   {
-   "question": "Which of the following is/are involved in the transport of organic substances in the stem of a flowering plant? I Xylem II  Companion cell III  Sieve tube IV  Collenchyma Sclerenchyma V I only",
+   "question": "Which of the following is/are involved in the transport of organic substances in the stem of a flowering plant? I. Xylem II. Companion cell III. Sieve tube IV. Collenchyma V. Sclerenchyma",
    "option_a": "I and III",
    "option_b": "II and III",
    "option_c": "III and IV",
-   "option_d": "IV and V E.",
+   "option_d": "IV and V",
    "answer": "C",
    "explanation": "Phloem (companion cells II, sieve tubes III) transports organic substances.",
    "image": "",
@@ -10453,7 +10431,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following statements is true about hypertension? [ 2002/17] I.  Hypertension is caused by arteriosclerosis. II.  Hypertension causes gout. III.  A diet rich in fats and cholesterol can cause hypertension. IV.  Smoking increases the frequency of hypertension.",
+   "question": "Which of the following statements is true about hypertension? I.  Hypertension is caused by arteriosclerosis. II.  Hypertension causes gout. III.  A diet rich in fats and cholesterol can cause hypertension. IV.  Smoking increases the frequency of hypertension.",
    "option_a": "II and IV",
    "option_b": "III and IV",
    "option_c": "I, II and III",
@@ -10475,9 +10453,9 @@
    "alt": ""
   },
   {
-   "question": "Which of the following explain how water molecules are transported in the root? [STPM 2004/16] pathway I  Through vacuole II  Through apoplast III  Through symplast IV Mass flow mechanism V  Protoplasm flow mechanism",
+   "question": "Which of the following explain how water molecules are transported in the root? I. Through vacuole pathway II. Through apoplast III. Through symplast IV. Mass flow mechanism V. Protoplasm flow mechanism",
    "option_a": "I, II and III",
-   "option_b": "I,111 and V",
+   "option_b": "I, III and V",
    "option_c": "I, IV and V",
    "option_d": "II, III and IV",
    "answer": "A",
@@ -10497,7 +10475,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following statements about the control of heart beat is true?   [ 2005/15]",
+   "question": "Which of the following statements about the control of heart beat is true?",
    "option_a": "The secretion of adrenaline increases the rate of heart beat.",
    "option_b": "The decrease in blood pH inhibits neurons in the chemoreceptors at the aorta and carotid artery.",
    "option_c": "The propagation of impulse through the sympathetic nerve towards the sinoatrial and atrioventricle nodes decreases the rate of heart beat.",
@@ -10534,14 +10512,14 @@
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and III",
-   "option_d": "I, II and III [2006/17] Tricuspid valves",
+   "option_d": "I, II and III Tricuspid valves",
    "answer": "B",
    "explanation": "Hypothalamus (III) and Aorta (I).",
    "image": "",
    "alt": ""
   },
   {
-   "question": "The opening of the semilunar valves at the aorta occurs during [ 2006/18]",
+   "question": "The opening of the semilunar valves at the aorta occurs during",
    "option_a": "atrial systole",
    "option_b": "atrial diastole",
    "option_c": "ventricular systole",
@@ -10574,7 +10552,7 @@
    "alt": ""
   },
   {
-   "question": "The movement of water through the cell wall is called [ 2009/14]",
+   "question": "The movement of water through the cell wall is called",
    "option_a": "alternative pathway",
    "option_b": "apoplast pathway",
    "option_c": "symplast pathway",
@@ -10607,7 +10585,7 @@
    "alt": ""
   },
   {
-   "question": "What is able to trigger the contraction of cardiac muscle? [ 2010/14]",
+   "question": "What is able to trigger the contraction of cardiac muscle?",
    "option_a": "Purkinje fibre",
    "option_b": "Sinoatrial node",
    "option_c": "Autonomous nerve",
@@ -10629,7 +10607,7 @@
    "alt": ""
   },
   {
-   "question": "Which is the correct sequence of a cardiac cycle? [ 2011/16]",
+   "question": "Which is the correct sequence of a cardiac cycle?",
    "option_a": "Atrial diastole, atrial systole, ventricular systole, ventricular diastole",
    "option_b": "Atrial diastole, ventricular systole, atrial systole, ventricular diastole",
    "option_c": "Atrial diastole, ventricular diastole, atrial systole, ventricular systole",
@@ -10695,7 +10673,7 @@
    "alt": ""
   },
   {
-   "question": "Which are true of myocardial infarction? Arterial wall hardens Known as ‘heart muscle death’ Blood supply to the heart is insufficient A condition in which a blood vessel bursts in the brain",
+   "question": "Which are true of myocardial infarction? I. Arterial wall hardens II. Known as ‘heart muscle death’ III. Blood supply to the heart is insufficient IV. A condition in which a blood vessel bursts in the brain",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -11236,7 +11214,7 @@
    "alt": ""
   },
   {
-   "question": "Which is true of the presynaptic membrane? [ 2007/19]",
+   "question": "Which is true of the presynaptic membrane?",
    "option_a": "It contains acetylcholinesterase.",
    "option_b": "It is stimulated by acetylcholine.",
    "option_c": "It has channels for calcium ions.",
@@ -11258,7 +11236,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following statements are true of a resting neuron? I. II. III. IV. Facilitated diffusion occurs. Sodium-potassium pump stops. Three sodium ions are pumped in for every two potassium ions pumped out. Three sodium ions are pumped out for every two potassium ions pumped in.",
+   "question": "Which of the following statements are true of a resting neuron? I. Facilitated diffusion occurs. II. Sodium-potassium pump stops. III. Three sodium ions are pumped in for every two potassium ions pumped out. IV. Three sodium ions are pumped out for every two potassium ions pumped in.",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -11390,11 +11368,11 @@
    "alt": ""
   },
   {
-   "question": "Which plant hormone corresponds correctly to its function? Promotes cell division Promotes fruit development",
-   "option_a": "Auxin",
-   "option_b": "Cytokinin",
-   "option_c": "Abscisic acid Promotes seed dormancy",
-   "option_d": "Gibberellin Promotes apical dominance",
+   "question": "Which plant hormone corresponds correctly to its function?",
+   "option_a": "Auxin: inhibits elongation of cell",
+   "option_b": "Cytokinin: initiates programmed death of cell",
+   "option_c": "Ethylene: promotes the growth of stems through elongation of cell",
+   "option_d": "Gibberellin: stimulates germination of seeds",
    "answer": "C",
    "explanation": "Abscisic acid promotes seed dormancy.",
    "image": "",
@@ -11500,7 +11478,7 @@
    "alt": ""
   },
   {
-   "question": "Which are true about the mechanism of action of peptide hormone? Activates gene expression Activates G protein Does not enter the cytoplasm Binds to the receptor in the cytoplasm",
+   "question": "Which are true about the mechanism of action of peptide hormone? I. Activates gene expression II. Activates G protein III. Does not enter the cytoplasm IV. Binds to the receptor in the cytoplasm",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -11566,7 +11544,7 @@
    "alt": ""
   },
   {
-   "question": "A short day plant will flower when placed in a dark period longer than the critical night length. However, when the dark period is interrupted by a flash of red light, the plant will not flower. What causes the plant not to flower? [ 2017/6]",
+   "question": "A short day plant will flower when placed in a dark period longer than the critical night length. However, when the dark period is interrupted by a flash of red light, the plant will not flower. What causes the plant not to flower?",
    "option_a": "No Pfr is converted to Pr",
    "option_b": "No Pr is converted to Pfr",
    "option_c": "A lot of Pfr is converted to Pr",
@@ -11632,11 +11610,11 @@
    "alt": ""
   },
   {
-   "question": "Which plant hormone corresponds to its functions? Hormone",
-   "option_a": "Auxin",
-   "option_b": "Cytokinin",
-   "option_c": "Ethylene",
-   "option_d": "Gibberellin Function Inhibits elongation of cell Initiates programmed death of cell Promotes the growth of stems through elongation of cell Stimulates germination of seeds",
+   "question": "Which plant hormone corresponds correctly to its function?",
+   "option_a": "Auxin: inhibits elongation of cell",
+   "option_b": "Cytokinin: initiates programmed death of cell",
+   "option_c": "Ethylene: promotes the growth of stems through elongation of cell",
+   "option_d": "Gibberellin: stimulates germination of seeds",
    "answer": "D",
    "explanation": "Gibberellin stimulates seed germination.",
    "image": "",
@@ -11665,7 +11643,7 @@
    "alt": ""
   },
   {
-   "question": "The following are the steps in a hormonal action. [ 2010/21] I.  Binding of the hormone to the receptor II.  Phosphorylation of enzyme III.  Conversion of ATP to cAMP Which sequence of steps is correct for the hormonal action?",
+   "question": "The following are the steps in a hormonal action. I.  Binding of the hormone to the receptor II.  Phosphorylation of enzyme III.  Conversion of ATP to cAMP Which sequence of steps is correct for the hormonal action?",
    "option_a": "I, II, III",
    "option_b": "I, III, II",
    "option_c": "II, III, I",
@@ -11687,7 +11665,7 @@
    "alt": ""
   },
   {
-   "question": "Which statement is not true of auxin? [ 2008/23]",
+   "question": "Which statement is not true of auxin?",
    "option_a": "It stimulates the division of cell in a stem.",
    "option_b": "It stimulates the elongation of coleoptile.",
    "option_c": "It promotes thf formation of lateral shoot.",
@@ -11709,7 +11687,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following is true of a non-steroid hormone? [ 2006/23]",
+   "question": "Which of the following is true of a non-steroid hormone?",
    "option_a": "It causes gene expression.",
    "option_b": "It combines with a receptor in the cytoplasm.",
    "option_c": "It causes the effect of action to be longer.",
@@ -11876,12 +11854,12 @@
    "alt": ""
   },
   {
-   "question": "The concentration of three hormones, P, Q and R, and their respective functions during pregnancy are shown below. I. II. III. Promotes maintenance of corpus luteum Inhibits contraction of uterus Prepares mammary glands for lactation Which hormones correspond correctly to its function?   P",
-   "option_a": "I",
-   "option_b": "II",
-   "option_c": "III",
-   "option_d": "I Q III III II II R II I I III",
-   "answer": "C",
+   "question": "The concentration of three hormones, P, Q and R, and their functions during pregnancy are: I. Promotes maintenance of corpus luteum II. Inhibits contraction of uterus III. Prepares mammary glands for lactation. Which hormone corresponds correctly to its function?",
+   "option_a": "P: I; Q: III; R: II",
+   "option_b": "P: III; Q: II; R: I",
+   "option_c": "P: II; Q: I; R: III",
+   "option_d": "P: I; Q: II; R: III",
+   "answer": "B",
    "explanation": "P=Oestrogen (III), Q=Progesterone (II), R=hCG (I).",
    "image": "",
    "alt": ""
@@ -11920,11 +11898,11 @@
    "alt": ""
   },
   {
-   "question": "Which are the functions of progesterone during pregnancy? I. II. III. IV. Inhibits the secretion of prolactin Inhibits the degeneration of the corpus luteum Stimulates the secretion of luteinising hormone Stimulates the development of the mammary glands",
+   "question": "Which are the functions of progesterone during pregnancy? I. Inhibits the secretion of prolactin II. Inhibits the degeneration of the corpus luteum III. Stimulates the secretion of luteinising hormone IV. Stimulates the development of the mammary glands",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
-   "option_d": "II and IV Embryonic layer I.Ectoderm II.Mesoderm III.Endoderm",
+   "option_d": "II and IV",
    "answer": "B",
    "explanation": "Progesterone inhibits prolactin (I) and develops mammary glands (IV).",
    "image": "",
@@ -11942,7 +11920,7 @@
    "alt": ""
   },
   {
-   "question": "Which are true about the extra embryonic membrane of mammalian? I. II. III. IV. The allantois forms fluid that encloses the embryo The amnion forms a sac filled with amniotic fluid that protects the embryo The chorion forms a layer that surrounds the embryo for gaseous exchange The yolk sac forms the umbilical cord that transport nutrients to the embryo",
+   "question": "Which are true about the extra-embryonic membranes of mammals? I. The allantois forms fluid that encloses the embryo II. The amnion forms a sac filled with amniotic fluid that protects the embryo III. The chorion forms a layer that surrounds the embryo for gaseous exchange IV. The yolk sac forms the umbilical cord that transports nutrients to the embryo",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -11975,7 +11953,7 @@
    "alt": ""
   },
   {
-   "question": "Which are true about gastrula? I. The presence of three germ layers II.  A hollow fluid-filled ball of cells III. IV. The blastocoel is replaced by archenteron The presence of dorsal neutral tube to the notochord",
+   "question": "Which are true about gastrula? I. The presence of three germ layers II. A hollow fluid-filled ball of cells III. The blastocoel is replaced by archenteron IV. The presence of dorsal neural tube to the notochord",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -12217,18 +12195,7 @@
    "alt": ""
   },
   {
-   "question": "Which is true of the cells found in the anther and carpel of lily flower? Diploid",
-   "option_a": "Pollen mother cells, embryo sac mother Haploid Pollen grains, embryo sac, male and female gametes cells, and fused polar-nuclei",
-   "option_b": "Pollen grains, embryo sac, male and female gametes",
-   "option_c": "Pollen mother cells, embryo sac mother Pollen mother cells, embryo sac mother cells and fused polar nuclei Pollen grains, embryo sac and fused polar-nuclei cells, male and female gametes",
-   "option_d": "Pollen grains, embryo sac and fused Polar nuclei Pollen mother cells, embryo sac mother cells, male and female gametes",
-   "answer": "A",
-   "explanation": "Diploid: mother cells & fused polar nuclei; Haploid: pollen, embryo sac, gametes.",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "Which are true about neurosecretion secreted by the neurosecretary cell in grasshopper? I. II. III. IV. Produced by the corpus luteum Stimulates the secretion of ecdysone from the prothoracic gland Stored in the corpus cardiacum Inhibits the effect of juvenile hormone",
+   "question": "Which are true about neurosecretion secreted by the neurosecretory cell in grasshopper? I. Produced by the corpus luteum II. Stimulates the secretion of ecdysone from the prothoracic gland III. Stored in the corpus cardiacum IV. Inhibits the effect of juvenile hormone",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -12250,7 +12217,7 @@
    "alt": ""
   },
   {
-   "question": "Which stages in embryonic development of a hibiscus do meiosis occur? During the formation of embryo sac from megaspore During the formation of megaspore from megasporocyte During the formation of microspore from microsporocyte During the formation of tube nucleus and generative nucleus in the pollen grain",
+   "question": "Which stages in embryonic development of a hibiscus do meiosis occur? I. During the formation of embryo sac from megaspore II. During the formation of megaspore from megasporocyte III. During the formation of microspore from microsporocyte IV. During the formation of tube nucleus and generative nucleus in the pollen grain",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -12283,8 +12250,8 @@
    "alt": ""
   },
   {
-   "question": "Which statements are true about double fertilization in angiosperms? The fertilization occurs in ovule The generative nucleus undergoes meiosis to form two haploid male gametes",
-   "option_a": "I and II I. II. One male gamete fuses with an egg cell to form a diploid zygote III. IV. One male gamete fuses with the polar nuclei to form diploid endosperm nucleus",
+   "question": "Which statements are true about double fertilization in angiosperms? I. The fertilization occurs in ovule II. The generative nucleus undergoes meiosis to form two haploid male gametes III. One male gamete fuses with an egg cell to form a diploid zygote IV. One male gamete fuses with the polar nuclei to form diploid endosperm nucleus",
+   "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
    "option_d": "III and IV",
@@ -12371,17 +12338,6 @@
    "alt": ""
   },
   {
-   "question": "The sequence of events that occurs during seed germination is shown below. Which events are represented by X and Y? X",
-   "option_a": "Embryo releases cytokinin",
-   "option_b": "Embryo releases gibberellin",
-   "option_c": "Embryo releases auxin",
-   "option_d": "Embryo releases gibberellin Y Cotyledon releases hydrolytic enzyme Cotyledon releases hydrolytic enzyme Aleurone layer synthesises digestive enzyme Aleurone layer synthesises digestive enzyme",
-   "answer": "D",
-   "explanation": "X=Embryo releases GA; Y=Aleurone synthesises enzymes.",
-   "image": "",
-   "alt": ""
-  },
-  {
    "question": "Which is not true about carpel?",
    "option_a": "Has a sticky stigma",
    "option_b": "Consists of anther and filament",
@@ -12439,7 +12395,7 @@
  ],
  "b12": [
   {
-   "question": "During vigorous exercise, a person sweats a lot. The process that regulates the internal environment is the [ 1999/28]",
+   "question": "During vigorous exercise, a person sweats a lot. The process that regulates the internal environment is the",
    "option_a": "increase in the secretion of aldosterone.",
    "option_b": "increase in the excretion of urea through kidney.",
    "option_c": "decrease in metabolic rate.",
@@ -12472,7 +12428,7 @@
    "alt": ""
   },
   {
-   "question": "The property of nephron fluid in the distal tubule is [ 2001/20]",
+   "question": "The property of nephron fluid in the distal tubule is",
    "option_a": "isotonic due to sugar and ions absorption by the cells layering the nephron tubule.",
    "option_b": "hypotonic because antidiuresis hormone causes more water to be reabsorbed.",
    "option_c": "hypotonic because most of the sugar and ions have been filtered from the blood by means of ultrafiltration.",
@@ -12549,7 +12505,7 @@
    "alt": ""
   },
   {
-   "question": "Which process takes place in the liver? [ 2009/20]",
+   "question": "Which process takes place in the liver?",
    "option_a": "Regulation of pH",
    "option_b": "Synthesis of cholesterol",
    "option_c": "Synthesis of glucagon",
@@ -12626,18 +12582,18 @@
    "alt": ""
   },
   {
-   "question": "Various adaptations for osmoregulation in plants are given below. The presence of needle-like leaves The plants can tolerate high salinity The presence of extensive root system to obtain water I. II. III. IV.  The presence of special glands on the leaves known as hydatode Which is correct for halophyte and xerophyte? Halophyte",
-   "option_a": "I, II",
-   "option_b": "I, III",
-   "option_c": "II, IV",
-   "option_d": "III, IV Xerophyte III, IV II, IV I, III I, II",
+   "question": "Various adaptations for osmoregulation in plants are given below. I. The presence of needle-like leaves II. The plants can tolerate high salinity III. The presence of extensive root system to obtain water IV. The presence of special glands on the leaves known as hydathodes Which is correct for halophyte and xerophyte?",
+   "option_a": "Halophyte: I, II; Xerophyte: III, IV",
+   "option_b": "Halophyte: I, III; Xerophyte: II, IV",
+   "option_c": "Halophyte: II, IV; Xerophyte: I, III",
+   "option_d": "Halophyte: III, IV; Xerophyte: I, II",
    "answer": "C",
    "explanation": "Halophyte: II, IV; Xerophyte: I, III.",
    "image": "",
    "alt": ""
   },
   {
-   "question": "Which statements are not true about diabetes mellitus? The secretion of ADH is low Insulin receptor is not functional β-cells fail to secrete insulin I. II. III. IV.  Causes excessive urination",
+   "question": "Which statements are not true about diabetes mellitus? I. The secretion of ADH is low II. Insulin receptor is not functional III. β-cells fail to secrete insulin IV. Causes excessive urination",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -12655,17 +12611,6 @@
    "option_d": "Stimulation of the secretion of ACTH",
    "answer": "C",
    "explanation": "Excessive sweating stimulates ADH secretion.",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "What will happen when the human body temperature increases? The rate of metabolism will decreases I. II.  The arterioles in skin will undergo vasoconstriction III. The thyroid gland will release more thyroxin IV.  The hair erector muscles will contract",
-   "option_a": "I and III",
-   "option_b": "I and IV",
-   "option_c": "II and III",
-   "option_d": "II and IV",
-   "answer": "A",
-   "explanation": "Metabolic rate decreases (I).",
    "image": "",
    "alt": ""
   },
@@ -12758,7 +12703,7 @@
    "alt": ""
   },
   {
-   "question": "Which are the effects of positive feedback mechanism? The secretion of less insulin is triggered by hunger The secretion of adrenaline increases the rate of glycogenolysis A low critical temperature decreases the metabolic rate which causes hypothermia A high critical temperature increases the metabolic rate which causes hyperthermia",
+   "question": "Which are the effects of positive feedback mechanism? I. The secretion of less insulin is triggered by hunger II. The secretion of adrenaline increases the rate of glycogenolysis III. A low critical temperature decreases the metabolic rate which causes hypothermia IV. A high critical temperature increases the metabolic rate which causes hyperthermia",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
@@ -12813,8 +12758,8 @@
    "alt": ""
   },
   {
-   "question": "Which are true about the homeostatic responses of a person who stays in a cold room for 15minutes? I. II. III. IV.",
-   "option_a": "The metabolic rate increases The activity of the muscle decreases The blood vessel of the skin constrict The heat is radiated from the surface of the skin I and III",
+   "question": "Which are true about the homeostatic responses of a person who stays in a cold room for 15 minutes? I. The metabolic rate increases II. The activity of the muscle decreases III. The blood vessel of the skin constrict IV. The heat is radiated from the surface of the skin",
+   "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
    "option_d": "II and IV",
@@ -12846,7 +12791,7 @@
    "alt": ""
   },
   {
-   "question": "Which is true about the homeostatic response of human body that loses a large volume of blood due to injury? [ 2023/10]",
+   "question": "Which is true about the homeostatic response of human body that loses a large volume of blood due to injury?",
    "option_a": "A large production of renin",
    "option_b": "A low secretion of aldosterone",
    "option_c": "A large production of hypotonic urine",
@@ -12857,11 +12802,11 @@
    "alt": ""
   },
   {
-   "question": "The adaptations of four plants are given [ 2023/13] Plant W X Y Z Adaptation Needle-like leaves Viviparous seeds Extensive root system Lenticels   Which plants and adaptations correspond correctly to their types of plants? Xerophytes",
-   "option_a": "X, Y",
-   "option_b": "X, Z",
-   "option_c": "W, Y",
-   "option_d": "W, Z Halophytes W, Z W, Y X, Z X, Y",
+   "question": "The adaptations of four plants are given. Plant W: needle-like leaves; X: viviparous seeds; Y: extensive root system; Z: lenticels. Which plants correspond correctly to their types of plants?",
+   "option_a": "Xerophytes: X, Y; Halophytes: W, Z",
+   "option_b": "Xerophytes: X, Z; Halophytes: W, Y",
+   "option_c": "Xerophytes: W, Y; Halophytes: X, Z",
+   "option_d": "Xerophytes: W, Z; Halophytes: X, Y",
    "answer": "C",
    "explanation": "Xerophytes: W, Y; Halophytes: X, Z.",
    "image": "",
@@ -13079,7 +13024,7 @@
    "alt": ""
   },
   {
-   "question": "The following are several steps in the reproductive cycle of HIV. I. II. III. IV. The formation of a provirus The transcription of viral DNA The removal of capsid proteins and the release of viral genomes The formation of DNA catalysed by reverse transcriptase enzyme Which of the following is the correct sequence of the reproductive cycle of HIV?",
+   "question": "The following are several steps in the reproductive cycle of HIV. I. The formation of a provirus II. The transcription of viral DNA III. The removal of capsid proteins and the release of viral genomes IV. The formation of DNA catalysed by reverse transcriptase enzyme Which of the following is the correct sequence of the reproductive cycle of HIV?",
    "option_a": "I, III, II, IV",
    "option_b": "II, IV, I, III",
    "option_c": "III, IV, I, II",
@@ -13090,7 +13035,7 @@
    "alt": ""
   },
   {
-   "question": "I. II. III. Three stages of defence against pathogenic bacteria are listed below: The action of T cells and antibody-producing cells. The phagocytic action of macrophages. The production of antimicrobial enzymes and Ig A by the mucous membranes. What is the correct sequence of these stages?",
+   "question": "Three stages of defence against pathogenic bacteria are listed below: I. The action of T cells and antibody-producing cells. II. The phagocytic action of macrophages. III. The production of antimicrobial enzymes and IgA by the mucous membranes. What is the correct sequence of these stages?",
    "option_a": "I, II, III",
    "option_b": "II, III, I",
    "option_c": "III, II, I",
@@ -13101,24 +13046,13 @@
    "alt": ""
   },
   {
-   "question": "Which are the functions of B cells? [ 2015/U2/13] I. II. III. IV.",
-   "option_a": "Produce memory cells Produce natural killer cells Cause lysis of infected cells Responsible for humoral response",
-   "option_b": "I and IV I and III",
+   "question": "Which are the functions of B cells? I. Produce memory cells II. Produce natural killer cells III. Cause lysis of infected cells IV. Responsible for humoral response",
+   "option_a": "I and III",
+   "option_b": "I and IV",
    "option_c": "II and III",
    "option_d": "II and IV",
    "answer": "B",
    "explanation": "Produce memory cells (I), humoral response (IV).",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "I. II. III. IV.",
-   "option_a": "Which statements are not true about diabetes mellitus? [2016/10] The secretion of ADH is low Insulin receptor is not functional β-cells fail to secrete insulin Causes excessive urination I and II",
-   "option_b": "I and IV",
-   "option_c": "II and III",
-   "option_d": "III and IV",
-   "answer": "A",
-   "explanation": "Low ADH (I) is diabetes insipidus; known ambiguous STPM question.",
    "image": "",
    "alt": ""
   },
@@ -13134,8 +13068,8 @@
    "alt": ""
   },
   {
-   "question": "Which of the following are the characteristic of humoral immune response? I. II. III. IV.",
-   "option_a": "Produces perforin Produces plasma cells Involves soluble antigens Involves cytotoxic T cells I and III",
+   "question": "Which of the following are the characteristics of humoral immune response? I. Produces perforin II. Produces plasma cells III. Involves soluble antigens IV. Involves cytotoxic T cells",
+   "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
    "option_d": "II and IV",
@@ -13163,17 +13097,6 @@
    "option_d": "IgM",
    "answer": "D",
    "explanation": "IgM involves in agglutination.",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "Which are true about foreign tissues rejection by the body? I. II. III. IV.  MHC protein markers on the surface of cells acts as a specific antigens",
-   "option_a": "I and II",
-   "option_b": "I and III",
-   "option_c": "II and IV",
-   "option_d": "III and IV The disease is easily transmitted through vectors The leucocytes attack the erythrocytes in the body of the sufferer The immune system fails to distinguish between self and non-self",
-   "answer": "C",
-   "explanation": "Cell-mediated response (II) to foreign MHC markers (IV).",
    "image": "",
    "alt": ""
   },
@@ -13334,7 +13257,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following factors could cause an outbreak of dengue fever? I. Mosquitoes become resistant to insectides I I .  Dengue parasites become resistant to antibiotics III. Climatic change",
+   "question": "Which of the following factors could cause an outbreak of dengue fever? I. Mosquitoes become resistant to insecticides II. Dengue parasites become resistant to antibiotics III. Climatic change",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and III",
@@ -13488,8 +13411,8 @@
    "alt": ""
   },
   {
-   "question": "Which statements are true of cholera? I. II. III. IV.",
-   "option_a": "I and II It is caused by protozoa It is an endemic disease It is an intestinal infection disease It is a water-borne and food-borne disease",
+   "question": "Which statements are true of cholera? I. It is caused by protozoa II. It is an endemic disease III. It is an intestinal infection disease IV. It is a water-borne and food-borne disease",
+   "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
    "option_d": "III and IV",
@@ -13609,7 +13532,7 @@
    "alt": ""
   },
   {
-   "question": "Which are the symptoms of the second infections by a dengue virus of different strain? High fever, muscle and joint aches Hemorrhagic patches in skin, gums and the gastrointestinal tract Body rashes Very low platelet counts",
+   "question": "Which are the symptoms of the second infection by a dengue virus of a different strain? I. High fever, muscle and joint aches II. Haemorrhagic patches in skin, gums and the gastrointestinal tract III. Body rashes IV. Very low platelet counts",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -13631,7 +13554,7 @@
    "alt": ""
   },
   {
-   "question": "Which statements are true about tuberculosis? It is caused by rod-shaped bacteria It is caused by comma-shaped bacteria The bacteria multiply and secrete neuraminidase The bacteria multiply inside the macrophage and forming cavities I. II. III. IV.",
+   "question": "Which statements are true about tuberculosis? I. It is caused by rod-shaped bacteria II. It is caused by comma-shaped bacteria III. The bacteria multiply and secrete neuraminidase IV. The bacteria multiply inside the macrophage and form cavities",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -13686,7 +13609,7 @@
    "alt": ""
   },
   {
-   "question": "Various methods of preventing infectious diseases are given below. Eats well cooked food I. II.  Drinks boiled and treated water III.  Vaccinates infants and children IV.  Covers mouth during sneezing and coughing Which methods are used to prevent cholera?",
+   "question": "Various methods of preventing infectious diseases are given below. I. Eats well cooked food II. Drinks boiled and treated water III. Vaccinates infants and children IV. Covers mouth during sneezing and coughing Which methods are used to prevent cholera?",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -13752,7 +13675,7 @@
    "alt": ""
   },
   {
-   "question": "Which stage of the life cycle of Plasmodium occurs in the digestive tract of mosquitoes? The division of sporozoites asexually to produce merozoites The development of merozoites into gametocytes Fertilisation of male and female gametes Formation of sporozoites I. II. III. IV.",
+   "question": "Which stages of the life cycle of Plasmodium occur in the digestive tract of mosquitoes? I. The division of sporozoites asexually to produce merozoites II. The development of merozoites into gametocytes III. Fertilisation of male and female gametes IV. Formation of sporozoites",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -14636,17 +14559,6 @@
    "alt": ""
   },
   {
-   "question": "Diagram shows a model of the plasma membrane The structure that acts in cell identification is represented by",
-   "option_a": "I",
-   "option_b": "II",
-   "option_c": "III",
-   "option_d": "V",
-   "answer": "D",
-   "explanation": "",
-   "image": "fig_16_fluid_mosaic_glycoprotein.png",
-   "alt": ""
-  },
-  {
    "question": "Which are the reasons why plasma membrane structure is referred as a fluid mosaic model? I. The phospholipids move freely within the plane. II. The presence of cholesterol within the membrane. III. The membrane proteins that are scattered in the phospholipid bilayer move laterally. IV. The position of glycoproteins and glycolipids in the outer layer of plasma membrane.",
    "option_a": "I and III",
    "option_b": "I and IV",
@@ -14735,44 +14647,11 @@
    "alt": ""
   },
   {
-   "question": "The water potential of three adjacent plant cells is shown below. In which direction does water move?",
-   "option_a": "From cell X to cells Y and Z",
-   "option_b": "From cell Y lo X and Z",
-   "option_c": "From cell Z lo cell X",
-   "option_d": "From cell Z to cell Y",
-   "answer": "A",
-   "explanation": "",
-   "image": "fig_18_c4_cell_x_y.png",
-   "alt": ""
-  },
-  {
-   "question": "Diagram shows the sequence of movement of a molecule across the membrane. The movement of the molecule in the diagram is called",
-   "option_a": "phagocytosis",
-   "option_b": "pinocytosis",
-   "option_c": "diffussion",
-   "option_d": "facilitated diffusion",
-   "answer": "D",
-   "explanation": "",
-   "image": "fig_16_fluid_mosaic_glycoprotein.png",
-   "alt": ""
-  },
-  {
-   "question": "6MPa, the cell will",
-   "option_a": "absorb the water",
-   "option_b": "plasmolyse",
-   "option_c": "lose its water",
-   "option_d": "become flaccid [2004/20]",
-   "answer": "A",
-   "explanation": "",
-   "image": "",
-   "alt": ""
-  },
-  {
    "question": "The movement of molecules or ions through a membrane against a concentration gradient is described as",
    "option_a": "diffusion",
    "option_b": "active transport",
    "option_c": "passive transport",
-   "option_d": "facilitated diffusion [2014/ 8] If a cell with an initial water potential of Ψ= - 0.8MPa is placed into a solution with a water potential of Ψ= -",
+   "option_d": "facilitated diffusion If a cell with an initial water potential of Ψ= - 0.8MPa is placed into a solution with a water potential of Ψ= -",
    "answer": "B",
    "explanation": "",
    "image": "",
@@ -15137,7 +15016,7 @@
    "option_a": "More substrates bind to the enzyme.",
    "option_b": "The speed of substrate movement increases.",
    "option_c": "The active sites of the enzyme are saturated.",
-   "option_d": "The affinity of the enzyme towards the substrate increases. [2014/10]",
+   "option_d": "The affinity of the enzyme towards the substrate increases.",
    "answer": "A",
    "explanation": "",
    "image": "",
@@ -15210,7 +15089,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following conditions can cause the enzyme to be inactive? I. II. III. IV. V. The adding of protease enzyme The incubation at 110°C The termination of catalysed reaction The lack of substrate The presence of inhibitor",
+   "question": "Which of the following conditions can cause the enzyme to be inactive? I. The adding of protease enzyme II. The incubation at 110°C III. The termination of catalysed reaction IV. The lack of substrate V. The presence of inhibitor",
    "option_a": "I, II, and III",
    "option_b": "I, II, and V",
    "option_c": "I, IV, and V",
@@ -15221,11 +15100,11 @@
    "alt": ""
   },
   {
-   "question": "Which of the following is/are factor(s) that caused the denaturation of enzyme? Extreme pH Competitive inhibitor I. II. III. Heavy metal effects IV. High temperature",
+   "question": "Which of the following is/are factor(s) that cause the denaturation of enzyme? I. Extreme pH II. Competitive inhibitor III. Heavy metal effects IV. High temperature",
    "option_a": "I and III",
    "option_b": "I and IV",
-   "option_c": "I, II, and IV",
-   "option_d": "III, and IV",
+   "option_c": "I, II and IV",
+   "option_d": "III and IV",
    "answer": "D",
    "explanation": "",
    "image": "",
@@ -15238,17 +15117,6 @@
    "option_c": "The inhibitor molecule and the substrate molecule have the same shape.",
    "option_d": "The Michaelis constant Km of an enzyme varies with changes in the substrate concentration.",
    "answer": "B",
-   "explanation": "",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "Which statements about a non-competitive inhibitor are true? Its molecular shape is the same as that of a substrate. It binds to sites other than active sites. Its effect is not influenced by increases in substrate concentration. I. II. III. IV. V V. Km varies max constant.",
-   "option_a": "II and III only",
-   "option_b": "II, III, IV, and V only",
-   "option_c": "II, III, and IV only",
-   "option_d": "I, IV, and V only",
-   "answer": "A",
    "explanation": "",
    "image": "",
    "alt": ""
@@ -15861,7 +15729,7 @@
    "alt": ""
   },
   {
-   "question": "A C3 plant is different from a C4 plant because it [ 2006/10]",
+   "question": "A C3 plant is different from a C4 plant because it",
    "option_a": "activates Calvin cycle at night",
    "option_b": "uses more energy for photosynthesis",
    "option_c": "has both cyclic and non-cyclic photophosphorylations",
@@ -16611,11 +16479,11 @@
    "alt": ""
   },
   {
-   "question": "Which tissue corresponds to its function correctly? Function Communication Protection and support Movement Tissue",
-   "option_a": "Nerve",
-   "option_b": "Muscle",
-   "option_c": "Epithelia",
-   "option_d": "Connective Lining of the body cavity [2013/6]",
+   "question": "Which tissue corresponds to its function correctly?",
+   "option_a": "Communication: nerve tissue",
+   "option_b": "Protection and support: muscle tissue",
+   "option_c": "Movement: epithelial tissue",
+   "option_d": "Lining of the body cavity: connective tissue",
    "answer": "A",
    "explanation": "",
    "image": "",
@@ -16965,7 +16833,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following shows the sequence of corboxylic acids that arc formed in Krebs cycle? [00/]",
+   "question": "Which of the following shows the sequence of corboxylic acids that arc formed in Krebs cycle?",
    "option_a": "Oxaloacetate  Citrate  α-ketoglutarate  succinate  malate  fumarate",
    "option_b": "Oxaloacetate  Citrate  succinate  α-ketoglutarate  malate  fumarate",
    "option_c": "Oxaloacetate  Citrate  malate  succinate  α-ketoglutarate  fumarate",
@@ -16976,7 +16844,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following is true about pyruvic acid? [01/]",
+   "question": "Which of the following is true about pyruvic acid?",
    "option_a": "Three carbon molecules which accumulate when oxygen is reduced",
    "option_b": "Three carbon molecules which lose one carbon when there is a Sufficient supply of oxygen",
    "option_c": "Four carbon molecules that can enter the Kreb’s cycle",
@@ -16987,7 +16855,7 @@
    "alt": ""
   },
   {
-   "question": "The diagram below shows part of the Krebs Cycle [04/] If two molecules of α-ketoglutarate are changed to form fumarate in the pathway, the total ATP formed during aerobic respiration at this stage is",
+   "question": "The diagram below shows part of the Krebs Cycle If two molecules of α-ketoglutarate are changed to form fumarate in the pathway, the total ATP formed during aerobic respiration at this stage is",
    "option_a": "1",
    "option_b": "6",
    "option_c": "10",
@@ -16998,7 +16866,7 @@
    "alt": ""
   },
   {
-   "question": "What will become of all carbons from a glucose molecule after it is completely oxidised? [05/]",
+   "question": "What will become of all carbons from a glucose molecule after it is completely oxidised?",
    "option_a": "Pyruvate",
    "option_b": "Carbohydrate",
    "option_c": "Carbon dioxide",
@@ -17007,17 +16875,6 @@
    "explanation": "",
    "image": "",
    "alt": ""
-  },
-  {
-   "question": "Phases I, II and III of the Calvin cycle are shown in the diagram below",
-   "option_a": "Which processes regarding the three phases of the Calvin cycle are correct? I Fixation of CO2 Fixation of CO2",
-   "option_b": "II Regeneration of RuBP Reduction of CO2 Fixation of CO2 Fixation of CO2 III Reduction of CO2 Regeneration of RuBP Regeneration of RuBP Reduction of CO2",
-   "option_c": "Reduction of CO2",
-   "option_d": "Regeneration of RuBP",
-   "answer": "B",
-   "explanation": "",
-   "image": "fig_11_calvin_cycle.png",
-   "alt": "Calvin cycle showing CO2 fixation, reduction, and RuBP regeneration"
   },
   {
    "question": "Which reaction occurs during the degradation of pyruvate to produce NADH and carbon dioxide in aerobic respiration?",
@@ -17163,7 +17020,7 @@
    "alt": ""
   },
   {
-   "question": "In plants, pyruvate which results from glycolysis undergoes a condition without oxygen, then [03/]",
+   "question": "In plants, pyruvate which results from glycolysis undergoes a condition without oxygen, then",
    "option_a": "it is converted into lactate",
    "option_b": "it is converted into acetaldehyde",
    "option_c": "it is converted back into PGAL",
