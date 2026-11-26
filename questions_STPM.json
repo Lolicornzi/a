@@ -14898,6 +14898,17 @@
    "explanation": "",
    "image": "sem_1_chapter_4_2026_q14.png",
    "alt": "Sem 1 Chapter 4 (2026 Q14)"
+  },
+  {
+   "question": "ATP molecules are required in the following processes in a cell except in the:",
+   "option_a": "flow of cytoplasm",
+   "option_b": "intake of steroid hormones into cell",
+   "option_c": "synthesis of enzymes",
+   "option_d": "movement of chromosome",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ],
  "b05": [
@@ -16402,17 +16413,6 @@
    "alt": ""
   },
   {
-   "question": "In mitochondria, the pH of the intermembrane space is lower than that of the matrix due to the",
-   "option_a": "High production of ATP",
-   "option_b": "High concentration of H+ due to chemiosmosis",
-   "option_c": "High concentration of pyruvic acid in the matrix",
-   "option_d": "Accumulation of lactic acid during anaerobic respiration",
-   "answer": "C",
-   "explanation": "",
-   "image": "",
-   "alt": ""
-  },
-  {
    "question": "Smooth endoplasmic reticulum is extensively developed in cells of: I. liver II. pancreas III. salivary gland IV. adrenal cortex.",
    "option_a": "I and II",
    "option_b": "I and IV",
@@ -16785,6 +16785,17 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "The longitudinal section of a plant stem is shown in the micrograph below. Which tissue is shown by the micrograph?",
+   "option_a": "Xylem",
+   "option_b": "Phloem",
+   "option_c": "Collenchyma",
+   "option_d": "Sclerenchyma",
+   "answer": "A",
+   "explanation": "",
+   "image": "sem_1_chapter_3_2015_q7.png",
+   "alt": "Micrograph of a longitudinal section of a plant stem (2015 Q7)"
   }
  ],
  "b06": [
@@ -16883,17 +16894,6 @@
    "option_c": "The release of carbon dioxide",
    "option_d": "The addition of yeast to ethanol",
    "answer": "A",
-   "explanation": "",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "ATP molecules are required in the following processes in a cell except in the:",
-   "option_a": "flow of cytoplasm",
-   "option_b": "intake of steroid hormones into cell",
-   "option_c": "synthesis of enzymes",
-   "option_d": "movement of chromosome",
-   "answer": "B",
    "explanation": "",
    "image": "",
    "alt": ""
@@ -17293,6 +17293,17 @@
    "explanation": "",
    "image": "sem_1_chapter_6_2026_q17.png",
    "alt": "Sem 1 Chapter 6 (2026 Q17)"
+  },
+  {
+   "question": "In mitochondria, the pH of the intermembrane space is lower than that of the matrix due to the",
+   "option_a": "High production of ATP",
+   "option_b": "High concentration of H+ due to chemiosmosis",
+   "option_c": "High concentration of pyruvic acid in the matrix",
+   "option_d": "Accumulation of lactic acid during anaerobic respiration",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ]
 }
