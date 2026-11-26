@@ -1377,7 +1377,7 @@ function renderPlay() {
 }
 function pick(idx) {
   if (!G || G.kind !== 'mcq' || G.locked) return;
-  G.locked = true;
+  G.locked = true; G.pk = idx;
   const q = G.qs[G.i], t = (performance.now() - G.t0) / 1000, ok = q.opts[idx] === q.a;
   G.answered++;
   const bar = document.querySelector('.tbar i'); if (bar) bar.style.animationPlayState = 'paused';
@@ -1390,7 +1390,7 @@ function pick(idx) {
   } else { G.streak = 0; head = 'Not quite'; calc = 'Streak reset. No points this time.'; }
   const last = G.i === G.qs.length - 1;
   const fb = $('#fb'); fb.hidden = false; fb.className = 'fb ' + (ok ? 'ok' : 'bad');
-  fb.innerHTML = `<h3>${head}</h3><div class="calc">${calc}</div>${ok ? '' : whyWrong(q, idx)}<div class="exp">${ok ? '' : `Answer: ${esc(q.a)}. `}${esc(q.exp)}</div><button class="btn ${ok ? 'ok' : 'bad'}" data-act="next" id="nextBtn">${last ? 'Finish lesson' : 'Continue'}</button>`;
+  fb.innerHTML = `<h3>${head}</h3><div class="calc">${calc}</div>${ok ? '' : whyWrong(q, idx)}<div class="exp">${ok ? '' : `Answer: ${esc(q.a)}. `}${esc(q.exp)}</div><button class="btn ghost" data-ai="1" style="margin-bottom:8px">🤖 Ask AI about this</button><button class="btn ${ok ? 'ok' : 'bad'}" data-act="next" id="nextBtn">${last ? 'Finish lesson' : 'Continue'}</button>`;
   $('#lstreak').textContent = '🔥 ' + G.streak; $('#lscore').textContent = '⭐ ' + G.score;
   $('#cover').style.width = (100 - Math.round(G.answered / G.qs.length * 100)) + '%';
   $('#nextBtn').focus({ preventScroll: true });
@@ -1777,8 +1777,9 @@ document.addEventListener('keydown', e => {
 
 /* "What's new" announcement: shown once per version, then remembered in this browser */
 (function () {
-  const VER = '2026-11-24';
+  const VER = '2026-11-26';
   const ITEMS = [
+    ['🤖', 'New: AI tutor', 'After you answer a question, tap “Ask AI about this” to get an explanation. It needs a free Google Gemini key, set up in 1 minute.'],
     ['🧬', 'Biology Semester 1 expanded', 'Chapters 1–7 now have far more STPM past-paper questions (25 to 55 per chapter).'],
     ['🫁', 'Chapters 8 & 9 moved to Semester 2', 'Gas Exchange and Transport in Animals and Plants now sit under Semester 2 (Physiology) with Chapters 10–14.'],
     ['✅', 'Semester 2 answers verified', 'Biology Semester 2 now uses the MPM-verified answer key, with explanations on many questions.'],
@@ -1790,7 +1791,7 @@ document.addEventListener('keydown', e => {
   function show() {
     if (seen() || document.getElementById('whatsnew')) return;
     const o = document.createElement('div'); o.className = 'overlay'; o.id = 'whatsnew';
-    o.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="What’s new"><div class="ic">🎉</div><h3>What’s new</h3><div class="sub">Updated 24 Nov 2026</div>' +
+    o.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="What’s new"><div class="ic">🎉</div><h3>What’s new</h3><div class="sub">Updated 26 Nov 2026</div>' +
       ITEMS.map(i => '<div style="display:flex;gap:12px;margin:12px 0"><div style="font-size:24px">' + i[0] + '</div><div><b>' + i[1] + '</b><div style="color:var(--ink2);font-size:14px">' + i[2] + '</div></div></div>').join('') +
       '<div class="row"><button class="btn" id="wnClose">Got it</button></div></div>';
     const close = () => { mark(); o.remove(); };
@@ -1799,6 +1800,87 @@ document.addEventListener('keydown', e => {
     o.querySelector('#wnClose').addEventListener('click', close);
   }
   if (document.readyState === 'complete') setTimeout(show, 600); else window.addEventListener('load', () => setTimeout(show, 600));
+})();
+
+/* AI tutor: ask Gemini about the question you just answered. Each student uses their own free key, stored only in this browser. */
+(function () {
+  const KEY = 'bondly:gkey', MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash'];
+  const gk = () => { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } };
+  const sk = v => { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch (e) { /* ignore */ } };
+  const E = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  let hist = [], ctxId = '', busy = false;
+  const SYS = 'You are a friendly STPM Biology (964) tutor for Malaysian Form 6 students. A student just answered a multiple-choice question and has a doubt. ' +
+    'Explain clearly and accurately using the STPM syllabus. Be concise (under 150 words unless asked for more). If the official answer seems to conflict with the science, say what the standard textbook view is, but do not invent facts. ' +
+    'Reply in the language the student writes in (English, Bahasa Malaysia or Chinese). Use plain text, no markdown tables.';
+  function ctx() {
+    const q = G && G.qs && G.qs[G.i]; if (!q) return null;
+    const pk = G.pk != null ? q.opts[G.pk] : null;
+    const L = i => 'ABCD'[i] + '. ' + q.opts[i];
+    return { id: G.i + '|' + q.q, text: 'Question: ' + q.q + '\nOptions:\n' + q.opts.map((_, i) => L(i)).join('\n') + '\nOfficial answer: ' + q.a +
+      (pk != null ? '\nStudent chose: ' + pk : '') + (q.exp ? '\nExplanation given in app: ' + q.exp : '') + (q.img ? '\n(The question has a figure that you cannot see.)' : '') };
+  }
+  function open() {
+    const c = ctx(); if (!c) return;
+    if (c.id !== ctxId) { hist = []; ctxId = c.id; }
+    let o = document.getElementById('aitutor'); if (o) o.remove();
+    o = document.createElement('div'); o.className = 'overlay'; o.id = 'aitutor';
+    document.body.appendChild(o);
+    o.addEventListener('click', e => { if (e.target === o) o.remove(); });
+    gk() ? chat(o) : setup(o);
+  }
+  function setup(o, msg) {
+    o.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="AI tutor setup"><div class="ic">🤖</div><h3>AI tutor</h3>' +
+      '<div class="sub">Ask doubts about this question. It uses Google Gemini with <b>your own free API key</b>, saved only in this browser.</div>' +
+      '<ol style="margin:0 0 12px 18px;font-size:14px;color:var(--ink2)"><li>Open <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> and sign in with Google.</li><li>Tap “Create API key” and copy it.</li><li>Paste it below.</li></ol>' +
+      (msg ? '<div style="color:#c0392b;font-size:14px;margin-bottom:8px">' + E(msg) + '</div>' : '') +
+      '<input id="aiKey" type="password" autocomplete="off" placeholder="Paste your Gemini API key" style="width:100%;padding:12px;border:2px solid var(--line);border-radius:12px;font-size:16px">' +
+      '<div class="row" style="margin-top:12px"><button class="btn" id="aiSave">Save and start</button><button class="btn ghost" id="aiX">Cancel</button></div></div>';
+    o.querySelector('#aiX').onclick = () => o.remove();
+    o.querySelector('#aiSave').onclick = () => { const v = o.querySelector('#aiKey').value.trim(); if (v.length < 20) return setup(o, 'That does not look like a valid key.'); sk(v); chat(o); };
+  }
+  function chat(o) {
+    const c = ctx(); if (!c) return o.remove();
+    o.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="AI tutor" style="display:flex;flex-direction:column;max-height:85dvh;max-height:85vh">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">🤖 AI tutor</h3><button class="btn ghost" id="aiX" style="padding:6px 14px;width:auto;flex:none">Close</button></div>' +
+      '<div id="aiLog" style="flex:1;overflow:auto;margin:10px 0;display:flex;flex-direction:column;gap:8px;min-height:120px"></div>' +
+      '<div id="aiChips" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px"></div>' +
+      '<form id="aiF" style="display:flex;gap:8px"><input id="aiQ" autocomplete="off" placeholder="Ask your doubt…" style="flex:1;padding:12px;border:2px solid var(--line);border-radius:12px;font-size:16px"><button class="btn" id="aiGo" style="padding:10px 16px">Send</button></form>' +
+      '<div style="font-size:12px;color:var(--ink2);margin-top:8px">AI can make mistakes, so check with your notes. <a href="#" id="aiKeyBtn">Change key</a></div></div>';
+    const log = o.querySelector('#aiLog');
+    const bub = (t, me) => { const d = document.createElement('div'); d.style.cssText = 'padding:10px 12px;border-radius:14px;font-size:15px;white-space:pre-wrap;max-width:92%;' + (me ? 'align-self:flex-end;background:#e3ecff' : 'align-self:flex-start;background:#f1f5f9'); d.textContent = t; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; };
+    hist.forEach(m => bub(m.parts[0].text, m.role === 'user'));
+    if (!hist.length) bub('Hi! Ask me anything about this question, for example why the other options are wrong.', false);
+    const chips = o.querySelector('#aiChips');
+    if (!hist.length) ['Explain the answer simply', 'Why are the other options wrong?', 'Give me a memory trick'].forEach(t => { const b = document.createElement('button'); b.type = 'button'; b.className = 'btn ghost'; b.style.cssText = 'padding:6px 10px;font-size:13px'; b.textContent = t; b.onclick = () => send(t); chips.appendChild(b); });
+    o.querySelector('#aiX').onclick = () => o.remove();
+    o.querySelector('#aiKeyBtn').onclick = e => { e.preventDefault(); sk(''); setup(o); };
+    async function send(t) {
+      if (busy || !t.trim()) return; busy = true; chips.innerHTML = ''; o.querySelector('#aiQ').value = '';
+      bub(t, true); hist.push({ role: 'user', parts: [{ text: t }] });
+      const w = bub('Thinking…', false);
+      try {
+        const r = await ask(c.text);
+        w.textContent = r; hist.push({ role: 'model', parts: [{ text: r }] });
+      } catch (e) {
+        hist.pop(); w.remove();
+        if (e.code === 400 || e.code === 403) return setup(o, 'Google rejected this key. Check it and paste it again.');
+        bub(e.code === 429 ? 'The free limit was reached. Wait a minute and try again.' : 'Could not reach the AI (' + (e.message || 'network error') + '). Try again.', false);
+      } finally { busy = false; log.scrollTop = log.scrollHeight; }
+    }
+    o.querySelector('#aiF').onsubmit = e => { e.preventDefault(); send(o.querySelector('#aiQ').value); };
+  }
+  async function ask(qtext) {
+    const body = { systemInstruction: { parts: [{ text: SYS + '\n\n' + qtext }] }, contents: hist, generationConfig: { temperature: 0.4, maxOutputTokens: 700 } };
+    let err;
+    for (const m of MODELS) {
+      const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + m + ':generateContent', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gk() }, body: JSON.stringify(body) });
+      if (res.ok) { const j = await res.json(); const t = j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts.map(p => p.text || '').join(''); if (t) return t.trim(); err = { code: 0, message: 'empty reply' }; continue; }
+      err = { code: res.status, message: 'error ' + res.status };
+      if (res.status !== 404) break;
+    }
+    throw err;
+  }
+  document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-ai]'); if (b) { e.preventDefault(); open(); } });
 })();
 </script>
 </body>
