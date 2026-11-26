@@ -1866,7 +1866,7 @@ document.addEventListener('keydown', e => {
       } catch (e) {
         hist.pop(); w.remove();
         if (e.code === 400 && /key/i.test(e.message || '') || e.code === 403) return setup(o, 'Google rejected this key (' + (e.message || e.code) + '). Check it and paste it again.');
-        bub(e.code === 429 ? 'The free limit was reached. Wait a minute and try again.' : 'Could not reach the AI: ' + (e.message || 'network error, check your connection') + '.', false);
+        bub(e.code === 402 ? 'This Google key has no credits left. Create a new key in a free project at aistudio.google.com/apikey (no billing), then tap “Change key” below.' : e.code === 429 ? 'The free limit was reached. Wait a minute and try again.' : 'Could not reach the AI: ' + (e.message || 'network error, check your connection') + '.', false);
       } finally { busy = false; log.scrollTop = log.scrollHeight; }
     }
     o.querySelector('#aiF').onsubmit = e => { e.preventDefault(); send(o.querySelector('#aiQ').value); };
