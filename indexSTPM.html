@@ -1804,8 +1804,10 @@ document.addEventListener('keydown', e => {
 
 /* AI tutor: ask Gemini about the question you just answered. Each student uses their own free key, stored only in this browser. */
 (function () {
+  /* Optional: paste ONE shared Gemini key here (restrict it to your site in Google AI Studio) so students need no setup. */
+  const SHARED_KEY = '';
   const KEY = 'bondly:gkey', MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash'];
-  const gk = () => { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } };
+  const gk = () => { try { return localStorage.getItem(KEY) || SHARED_KEY; } catch (e) { return SHARED_KEY; } };
   const sk = v => { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch (e) { /* ignore */ } };
   const E = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   let hist = [], ctxId = '', busy = false;
@@ -1863,8 +1865,8 @@ document.addEventListener('keydown', e => {
         w.textContent = r; hist.push({ role: 'model', parts: [{ text: r }] });
       } catch (e) {
         hist.pop(); w.remove();
-        if (e.code === 400 || e.code === 403) return setup(o, 'Google rejected this key. Check it and paste it again.');
-        bub(e.code === 429 ? 'The free limit was reached. Wait a minute and try again.' : 'Could not reach the AI (' + (e.message || 'network error') + '). Try again.', false);
+        if (e.code === 400 && /key/i.test(e.message || '') || e.code === 403) return setup(o, 'Google rejected this key (' + (e.message || e.code) + '). Check it and paste it again.');
+        bub(e.code === 429 ? 'The free limit was reached. Wait a minute and try again.' : 'Could not reach the AI: ' + (e.message || 'network error, check your connection') + '.', false);
       } finally { busy = false; log.scrollTop = log.scrollHeight; }
     }
     o.querySelector('#aiF').onsubmit = e => { e.preventDefault(); send(o.querySelector('#aiQ').value); };
@@ -1875,8 +1877,9 @@ document.addEventListener('keydown', e => {
     for (const m of MODELS) {
       const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + m + ':generateContent', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gk() }, body: JSON.stringify(body) });
       if (res.ok) { const j = await res.json(); const t = j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts.map(p => p.text || '').join(''); if (t) return t.trim(); err = { code: 0, message: 'empty reply' }; continue; }
-      err = { code: res.status, message: 'error ' + res.status };
-      if (res.status !== 404) break;
+      let gm = ''; try { gm = ((await res.json()).error || {}).message || ''; } catch (x) { /* ignore */ }
+      err = { code: res.status, message: 'error ' + res.status + (gm ? ': ' + gm.slice(0, 160) : '') };
+      if (res.status !== 404 && res.status !== 429 && res.status !== 503) break;
     }
     throw err;
   }
