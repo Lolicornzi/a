@@ -1806,7 +1806,7 @@ document.addEventListener('keydown', e => {
 (function () {
   /* Optional: paste ONE shared Gemini key here (restrict it to your site in Google AI Studio) so students need no setup. */
   const SHARED_KEY = '';
-  const KEY = 'bondly:gkey', MODELS = ['gemini-2.5-flash', 'gemini-2.0-flash'];
+  const KEY = 'bondly:gkey', MODELS = ['gemini-flash-latest', 'gemini-3.8-flash', 'gemini-2.5-flash'];
   const gk = () => { try { return localStorage.getItem(KEY) || SHARED_KEY; } catch (e) { return SHARED_KEY; } };
   const sk = v => { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch (e) { /* ignore */ } };
   const E = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -1873,12 +1873,21 @@ document.addEventListener('keydown', e => {
   }
   async function ask(qtext) {
     const body = { systemInstruction: { parts: [{ text: SYS + '\n\n' + qtext }] }, contents: hist, generationConfig: { temperature: 0.4, maxOutputTokens: 700 } };
-    let err;
-    for (const m of MODELS) {
+    let err, ms = MODELS.slice();
+    try { const s = sessionStorage.getItem('bondly:gmodel'); if (s) ms.unshift(s); } catch (x) { /* ignore */ }
+    for (let k = 0; k < ms.length; k++) {
+      const m = ms[k];
       const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + m + ':generateContent', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gk() }, body: JSON.stringify(body) });
-      if (res.ok) { const j = await res.json(); const t = j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts.map(p => p.text || '').join(''); if (t) return t.trim(); err = { code: 0, message: 'empty reply' }; continue; }
+      if (res.ok) { try { sessionStorage.setItem('bondly:gmodel', m); } catch (x) { /* ignore */ } const j = await res.json(); const t = j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts.map(p => p.text || '').join(''); if (t) return t.trim(); err = { code: 0, message: 'empty reply' }; continue; }
       let gm = ''; try { gm = ((await res.json()).error || {}).message || ''; } catch (x) { /* ignore */ }
       err = { code: res.status, message: 'error ' + res.status + (gm ? ': ' + gm.slice(0, 160) : '') };
+      if (res.status === 404 && k === ms.length - 1 && !ms.auto) {
+        ms.auto = 1;
+        try {
+          const lr = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=100', { headers: { 'x-goog-api-key': gk() } });
+          if (lr.ok) { (await lr.json()).models.filter(x => /flash/i.test(x.name) && (x.supportedGenerationMethods || []).includes('generateContent') && !/image|tts|live|audio|embed/i.test(x.name)).reverse().forEach(x => ms.push(x.name.replace('models/', ''))); }
+        } catch (x) { /* ignore */ }
+      }
       if (res.status !== 404 && res.status !== 429 && res.status !== 503) break;
     }
     throw err;
