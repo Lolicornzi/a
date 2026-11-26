@@ -6743,8 +6743,8 @@
    "option_d": "Non-polar",
    "answer": "D",
    "explanation": "",
-   "image": "sem_1_chapter_1_question_2.png",
-   "alt": "Sem 1 Chapter 1 Question 2"
+   "image": "sem_1_chapter_1_2024_q2.png",
+   "alt": "Sem 1 Chapter 1 (2024 Q2)"
   },
   {
    "question": "Which are true about amylopectin? I. Has osmotic influence in the cell II. Has more branches than amylose III. Turns to dark blue when iodine is added IV. Possesses 1,4-glycosidic and 1,6-glycosidic bonds",
@@ -7259,6 +7259,39 @@
    "option_c": "water reacts with polar amino acids of the silk at high temperature",
    "option_d": "hydrogen bonds, peptide bonds, disulphide bridges and Van der Waals forces break at high temperature",
    "answer": "C",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "What would happen to a protein during electrophoresis when the pH of the buffer solution used is below its isoelectric point?",
+   "option_a": "The protein does not move.",
+   "option_b": "The protein moves towards the anode.",
+   "option_c": "The protein moves towards the cathode.",
+   "option_d": "The protein moves towards the anode and then to the cathode.",
+   "answer": "C",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "One type of glycosidic bond, R, is shown in the diagram (two glucose units with the second unit inverted 180 degrees). Which type of glycosidic bond is represented by R?",
+   "option_a": "α-1,4",
+   "option_b": "α-1,6",
+   "option_c": "β-1,4",
+   "option_d": "β-1,6",
+   "answer": "C",
+   "explanation": "",
+   "image": "sem_1_chapter_1_2026_q2.png",
+   "alt": "Sem 1 Chapter 1 (2026 Q2)"
+  },
+  {
+   "question": "Which examples correspond correctly to its protein structures?",
+   "option_a": "Secondary: Keratin | Tertiary: Collagen | Quaternary: Haemoglobin",
+   "option_b": "Secondary: Fibroin | Tertiary: Collagen | Quaternary: Hormone",
+   "option_c": "Secondary: Keratin | Tertiary: Plasma protein | Quaternary: Enzyme",
+   "option_d": "Secondary: Fibroin | Tertiary: Plasma protein | Quaternary: Haemoglobin",
+   "answer": "D",
    "explanation": "",
    "image": "",
    "alt": ""
@@ -14500,6 +14533,17 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "The genetic codes for specific amino acids (Ala: GCU/GCC/GCA/GCG; Gly: GGU/GGC/GGA/GGG; Arg: CGU/CGC/CGA/CGG; Val: GUU/GUC/GUA/GUG) and a polypeptide (Gly-Ala-Arg-Val) are given. Which segment of DNA codes for the production of the above polypeptide?",
+   "option_a": "3' CCT CGA GCT CAG 5'",
+   "option_b": "3' GGA GCT CGA GTC 5'",
+   "option_c": "5' GGA CGA CGT CAG 3'",
+   "option_d": "5' CCT CGA GCT CTC 3'",
+   "answer": "A",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ],
  "b04": [
@@ -14566,8 +14610,8 @@
    "option_d": "P: Plasmolysed, Q: Unchanged, R: Turgid",
    "answer": "A",
    "explanation": "",
-   "image": "",
-   "alt": ""
+   "image": "sem_1_chapter_4_2025_q8.png",
+   "alt": "Sem 1 Chapter 4 (2025 Q8)"
   },
   {
    "question": "If a cell with an initial water potential of -0.8 MPa is placed into a solution with a water potential of -0.6 MPa, the cell will",
@@ -14788,6 +14832,72 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "The initial level of sucrose solutions which are separated by a semi-permeable membrane in a U-tube is shown in the diagram. What happens to the sucrose solutions after they are left for 60 minutes? I. The solution level at Y decreases II. Water moves from X to Y III. The molarities of both sucrose solutions are equal IV. The high osmotic pressure causes the sucrose to move from X to Y",
+   "option_a": "I and II",
+   "option_b": "I and III",
+   "option_c": "II and IV",
+   "option_d": "III and IV",
+   "answer": "B",
+   "explanation": "",
+   "image": "sem_1_chapter_4_2016_q8.png",
+   "alt": "Sem 1 Chapter 4 (2016 Q8)"
+  },
+  {
+   "question": "If osmotic potential of a plant cell sap is -1002 kPa, predict the water potential and the direction of net movement of water in each of the P (Ψp = 402.1 kPa, Ψs = -301.2 kPa) and Q (Ψp = 402.1 kPa, Ψs = -1213.2 kPa) cells.",
+   "option_a": "Cell P: At Ψ = -298.7 kPa, water moves into the cell. | Cell Q: At Ψ = 613.3 kPa, water moves out of the cell.",
+   "option_b": "Cell P: At Ψ = 100.9 kPa, water moves out of the cell. | Cell Q: At Ψ = -811.1 kPa, water moves out of the cell.",
+   "option_c": "Cell P: At Ψ = -298.7 kPa, water moves out of the cell. | Cell Q: At Ψ = 613.3 kPa, water moves into the cell.",
+   "option_d": "Cell P: At Ψ = 100.9 kPa, water moves into the cell. | Cell Q: At Ψ = -811.1 kPa, water moves into the cell.",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "The fluid mosaic model of membrane structure is shown in the diagram (X points to a glycolipid carbohydrate chain). Which are true about X? I. Involves in cell-cell recognition II. Involves in sticking cells in tissues III. Contributes to the amphipathic properties of the membrane lipid IV. Provides selective transport for the molecules across the membrane",
+   "option_a": "I and II",
+   "option_b": "I and IV",
+   "option_c": "II and III",
+   "option_d": "III and IV",
+   "answer": "A",
+   "explanation": "",
+   "image": "sem_1_chapter_4_2023_q7.png",
+   "alt": "Sem 1 Chapter 4 (2023 Q7)"
+  },
+  {
+   "question": "The transportation of substances in plants are given in the examples below. Which examples are involved in active transport? I. The uptake of nutrients against the concentration gradient. II. The movement of water from dilute solution to concentrated solution. III. Molecules diffuse across the plasma membrane via transport proteins. IV. The removal of substances when the external concentration of the cell is higher.",
+   "option_a": "I and II",
+   "option_b": "I and IV",
+   "option_c": "II and III",
+   "option_d": "III and IV",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "The fluid mosaic model of a cell membrane is shown in the diagram (P points to a peripheral protein attached to the cytoskeleton). Which is the function of structure P?",
+   "option_a": "Regulates membrane fluidity",
+   "option_b": "Transports molecules",
+   "option_c": "Enables cell to cell adhesion",
+   "option_d": "Supports cytoskeleton",
+   "answer": "D",
+   "explanation": "",
+   "image": "sem_1_chapter_4_2026_q13.png",
+   "alt": "Sem 1 Chapter 4 (2026 Q13)"
+  },
+  {
+   "question": "The pressure potential, Ψp, and solute potential, Ψs, of two plant cells, P (Ψp = 400 kPa, Ψs = -1800 kPa) and Q (Ψp = 600 kPa, Ψs = -1400 kPa), are shown. What is the water potential of both plant cells at equilibrium?",
+   "option_a": "-600 kPa",
+   "option_b": "-1100 kPa",
+   "option_c": "-1400 kPa",
+   "option_d": "-2200 kPa",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
   }
  ],
  "b05": [
@@ -14799,8 +14909,8 @@
    "option_d": "An increased concentration of substrate",
    "answer": "C",
    "explanation": "",
-   "image": "bio_sem1_05_Q7.png",
-   "alt": "Enzyme Rate Curves R and S"
+   "image": "sem_1_chapter_5_2017_q9.png",
+   "alt": "Sem 1 Chapter 5 (2017 Q9)"
   },
   {
    "question": "Which of the following are true of both enzymes and inorganic catalysts? I. Specific in action II. Required in small amounts III. Increase rates of reactions IV. Unable to function at high temperatures",
@@ -14821,8 +14931,8 @@
    "option_d": "P: ES complex increases; Q: Peptide bonds break",
    "answer": "C",
    "explanation": "",
-   "image": "fig_05_enzyme_temperature.png",
-   "alt": "Rate of enzyme reaction vs temperature showing rising phase P and denaturation phase Q"
+   "image": "sem_1_chapter_5_2022_q8.png",
+   "alt": "Sem 1 Chapter 5 (2022 Q8)"
   },
   {
    "question": "What is used to determine the Km value of an enzyme from the Lineweaver-Burk plot?",
@@ -15294,8 +15404,8 @@
    "option_d": "Interaction with large molecules is difficult",
    "answer": "C",
    "explanation": "",
-   "image": "fig_17_enzyme_immobilisation_entrapment.png",
-   "alt": ""
+   "image": "sem_1_chapter_5_2022_q9.png",
+   "alt": "Sem 1 Chapter 5 (2022 Q9)"
   },
   {
    "question": "Two reactions catalysed by enzymes, X and Y, are given below:\nglutamic acid + pyruvic acid --(X)--> α-ketoglutaric acid + alanine\npyruvic acid --(Y)--> ethanol + carbon dioxide\nWhat are represented by X and Y?",
@@ -15307,6 +15417,61 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "Which pair is the example of an activator and a coenzyme?",
+   "option_a": "Activator: Fe2+ | Coenzyme: NAD+",
+   "option_b": "Activator: NAD+ | Coenzyme: Fe2+",
+   "option_c": "Activator: Fe2+ | Coenzyme: Mn2+",
+   "option_d": "Activator: NAD+ | Coenzyme: Mn2+",
+   "answer": "A",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "The relationship between the rate of reaction of succinate dehydrogenase and the concentration of succinate under optimal conditions is shown in the graph. Which graph represents the result of the experiment carried out in the presence of malonate?",
+   "option_a": "Curve shifts right (higher Km) but reaches the same Vmax",
+   "option_b": "Curve plateaus at a lower Vmax",
+   "option_c": "Curve rises then drops at high substrate concentration",
+   "option_d": "Curve increases linearly without plateauing",
+   "answer": "A",
+   "explanation": "",
+   "image": "sem_1_chapter_5_2021_q11.png",
+   "alt": "Sem 1 Chapter 5 (2021 Q11)"
+  },
+  {
+   "question": "The Lineweaver-Burk plot for the rate of reactions using two enzymes, X and Y, that involved the same substrate is shown in the graph. Which statements are true about the above Lineweaver-Burk plot? I. Km value of X is higher. II. X has a higher Vmax value. III. Y has a higher affinity towards the substrate. IV. The reaction that is catalysed by X produces more products when the concentration of substrate is limited.",
+   "option_a": "I and II",
+   "option_b": "I and III",
+   "option_c": "II and IV",
+   "option_d": "III and IV",
+   "answer": "B",
+   "explanation": "",
+   "image": "sem_1_chapter_5_2023_q10.png",
+   "alt": "Sem 1 Chapter 5 (2023 Q10)"
+  },
+  {
+   "question": "The information about a class of enzyme according to the International Union of Biochemistry (IUB) classification are given: The reaction requires ATP; The enzyme catalyses the formation of bond between two substrates; An example of the enzyme is aminoacyl tRNA synthetases. Which class of enzyme has the above information?",
+   "option_a": "Hydrolase",
+   "option_b": "Ligase",
+   "option_c": "Lyase",
+   "option_d": "Transferase",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "An enzymatic reaction (conversion of glucose-6-phosphate to fructose-6-phosphate) is shown. Which class of enzyme catalyses the reaction above?",
+   "option_a": "Hydrolase",
+   "option_b": "Isomerase",
+   "option_c": "Ligase",
+   "option_d": "Transferase",
+   "answer": "B",
+   "explanation": "",
+   "image": "sem_1_chapter_5_2024_q10.png",
+   "alt": "Sem 1 Chapter 5 (2024 Q10)"
   }
  ],
  "b07": [
@@ -15340,8 +15505,8 @@
    "option_d": "P has higher adsorption towards paper",
    "answer": "C",
    "explanation": "",
-   "image": "fig_10_chromatogram.png",
-   "alt": "Paper chromatogram showing pigments P, Q, R and solvent front"
+   "image": "sem_1_chapter_7_2023_q4.png",
+   "alt": "Sem 1 Chapter 7 (2023 Q4)"
   },
   {
    "question": "Which is the correct sequence of electron carriers in photophosphorylation?",
@@ -15837,6 +16002,72 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "A process which occurs in plant is shown in the diagram. Which statements about the above diagram are true? I. Q is malate. II. X is a mesophyll cell. III. Y is a bundle sheath cell. IV. It occurs in CAM plants.",
+   "option_a": "I and III",
+   "option_b": "I and IV",
+   "option_c": "II and III",
+   "option_d": "II and IV",
+   "answer": "C",
+   "explanation": "",
+   "image": "sem_1_chapter_7_2014_q14.png",
+   "alt": "Sem 1 Chapter 7 (2014 Q14)"
+  },
+  {
+   "question": "Which statement is true of C4 plants?",
+   "option_a": "Their leaves have one type of chloroplast.",
+   "option_b": "Their process of carbon dioxide fixation occurs twice.",
+   "option_c": "Their PEP carboxylase is more active in the dark.",
+   "option_d": "Their rate of photorespiration increases in the presence of oxygen.",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "What is an action spectrum in photosynthesis?",
+   "option_a": "A graph which shows the effectiveness of chlorophyll in absorbing the visible light spectrum.",
+   "option_b": "A graph which shows the relative amount of light absorbed by photosynthetic pigments at different wavelengths.",
+   "option_c": "A graph which shows the amount of light absorbed by different photosynthetic pigments at certain wavelength.",
+   "option_d": "A graph which shows the effectiveness of different wavelengths of light to stimulate the process of photosynthesis.",
+   "answer": "D",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "The wavelengths of light absorbed by two types of photosynthetic pigments are shown in the graph. Which are the characteristics of the pigment represented by X? I. Reflects green light II. Reflects yellow light III. Absorbs blue and red lights IV. Absorbs yellow and green lights",
+   "option_a": "I and III",
+   "option_b": "I and IV",
+   "option_c": "II and III",
+   "option_d": "II and IV",
+   "answer": "A",
+   "explanation": "",
+   "image": "sem_1_chapter_7_2021_q13.png",
+   "alt": "Sem 1 Chapter 7 (2021 Q13)"
+  },
+  {
+   "question": "The characteristics of a mode of nutrition of an organism are given: Able to carry out carbon fixation; Source of carbon is carbon dioxide; Obtains energy from the oxidation of reduced inorganic molecules such as hydrogen sulphide. Which group of organisms illustrates the characteristics above?",
+   "option_a": "Photoautotroph",
+   "option_b": "Chemoautotroph",
+   "option_c": "Photoheterotroph",
+   "option_d": "Chemoheterotroph",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "The wavelengths of light absorbed by photosynthetic pigments are shown in the graph (Q is the dashed curve representing chlorophyll b). Which are true about Q? I. The photosynthetic pigment is chlorophyll a. II. The photosynthetic pigment is chlorophyll b. III. The maximum absorbance colours are red and blue. IV. The maximum absorbance colours are yellow and green.",
+   "option_a": "I and III",
+   "option_b": "I and IV",
+   "option_c": "II and III",
+   "option_d": "II and IV",
+   "answer": "C",
+   "explanation": "",
+   "image": "sem_1_chapter_7_2026_q18.png",
+   "alt": "Sem 1 Chapter 7 (2026 Q18)"
   }
  ],
  "b03": [
@@ -16431,8 +16662,8 @@
    "option_d": "X and Z",
    "answer": "A",
    "explanation": "",
-   "image": "fig_30_xylem_thickening.png",
-   "alt": ""
+   "image": "sem_1_chapter_3_2022_q6.png",
+   "alt": "Sem 1 Chapter 3 (2022 Q6)"
   },
   {
    "question": "Tissues and functions: I. Cartilage (flexibility & support) II. Bone (movement & support) III. Collenchyma (transport) IV. Sclerenchyma (storage). Correct?",
@@ -16485,6 +16716,72 @@
    "option_c": "Sclerenchyma",
    "option_d": "Tracheid",
    "answer": "C",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "Two types of specialised epithelial tissues, P and Q, with glandular functions are shown in the diagrams. Which are true of P and Q? I. P is found in ovary and testes. II. Q is found in sweat gland. III. P secretes mucous or poisons. IV. Q secretes hormone.",
+   "option_a": "I and II",
+   "option_b": "I and III",
+   "option_c": "II and IV",
+   "option_d": "III and IV",
+   "answer": "D",
+   "explanation": "",
+   "image": "sem_1_chapter_3_2017_q5.png",
+   "alt": "Sem 1 Chapter 3 (2017 Q5)"
+  },
+  {
+   "question": "Which comparisons between the prokaryotic and eukaryotic cells are true? I. Prokaryote: Some prokaryotes cannot fix atmospheric nitrogen. | Eukaryote: Some eukaryotes can fix atmospheric nitrogen. II. Prokaryote: Cell walls are made up of murein as the main strengthening compound. | Eukaryote: Cell walls are made up of cellulose or chitin as the main strengthening compound. III. Prokaryote: Genetic material consists of circular DNA. | Eukaryote: Genetic material consists of linear DNA. IV. Prokaryote: Protein synthesis occurs in 80S ribosomes. | Eukaryote: Protein synthesis occurs in 70S ribosomes.",
+   "option_a": "I and III",
+   "option_b": "I and IV",
+   "option_c": "II and III",
+   "option_d": "II and IV",
+   "answer": "C",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "The tissues and functions of living organisms are given in the table. Which tissues correspond correctly to their respective functions? I. Cartilage: Flexibility and support II. Bone: Movement and support III. Collenchyma: Transport and support IV. Sclerenchyma: Storage and support",
+   "option_a": "I and II",
+   "option_b": "I and IV",
+   "option_c": "II and III",
+   "option_d": "III and IV",
+   "answer": "A",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "Three types of muscle tissues, P, Q and R, are shown in the diagram. Which locations of the muscle tissues correspond correctly to P, Q and R?",
+   "option_a": "P: Biceps | Q: Urinary bladder | R: Walls of the heart",
+   "option_b": "P: Biceps | Q: Walls of the heart | R: Digestive tract",
+   "option_c": "P: Urinary bladder | Q: Triceps | R: Walls of the heart",
+   "option_d": "P: Walls of the heart | Q: Digestive tract | R: Triceps",
+   "answer": "A",
+   "explanation": "",
+   "image": "sem_1_chapter_3_2024_q7.png",
+   "alt": "Sem 1 Chapter 3 (2024 Q7)"
+  },
+  {
+   "question": "Which organelles do not correspond correctly to their characteristics? I. Chloroplast: Has double membrane | Contains DNA | Contains ribosomes II. Rough endoplasmic reticulum: No double membrane | No DNA | Contains ribosomes III. Mitochondrion: Has double membrane | Contains DNA | No ribosomes IV. Golgi apparatus: Has double membrane | No DNA | No ribosomes",
+   "option_a": "I and II",
+   "option_b": "I and III",
+   "option_c": "II and IV",
+   "option_d": "III and IV",
+   "answer": "D",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "Which structure does not exist in both prokaryotic and eukaryotic cells?",
+   "option_a": "Flagella",
+   "option_b": "Ribosome",
+   "option_c": "Cell wall",
+   "option_d": "Circular DNA",
+   "answer": "D",
    "explanation": "",
    "image": "",
    "alt": ""
@@ -16941,6 +17238,61 @@
    "explanation": "",
    "image": "",
    "alt": ""
+  },
+  {
+   "question": "Which is true of the fermentation process?",
+   "option_a": "FADH2 is oxidised.",
+   "option_b": "NADH + H+ are produced.",
+   "option_c": "The final electron is accepted by oxygen.",
+   "option_d": "ATP is produced by substrate level phosphorylation.",
+   "answer": "D",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "Which molecule is used by dehydrogenase enzymes during a reduction process?",
+   "option_a": "FAD",
+   "option_b": "Pyruvate",
+   "option_c": "Cytochrome",
+   "option_d": "Coenzyme A",
+   "answer": "A",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "The reaction for the conversion of pyruvate to acetyl CoA is shown: Pyruvate + P -> Acetyl CoA + CO2 (with Q produced). What are P and Q?",
+   "option_a": "P: CoA | Q: Oxidised NAD",
+   "option_b": "P: CoA | Q: Reduced NAD",
+   "option_c": "P: ATP | Q: Oxidised NAD",
+   "option_d": "P: ATP | Q: Reduced NAD",
+   "answer": "B",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "Which are true of transition phase at aerobiosis? I. NAD+ is reduced to NADH. II. Substrate level phosphorylation produces ATP. III. Decarboxylation and oxidation of pyruvate produce acetate. IV. The process takes place in the intermembrane space of mitochondria.",
+   "option_a": "I and III",
+   "option_b": "I and IV",
+   "option_c": "II and III",
+   "option_d": "II and IV",
+   "answer": "A",
+   "explanation": "",
+   "image": "",
+   "alt": ""
+  },
+  {
+   "question": "A commonly found molecule in living organisms (ATP, with W = Adenine, R = Ribose, Bond X = ester bond between ribose and first phosphate) is shown in the diagram. Which are true about the above molecule? I. R is a ribose sugar. II. The molecule acts as the immediate source of energy in cells. III. The molecule cannot be regenerated once undergoes hydrolysis. IV. Bond X between the phosphate and R is broken to release energy.",
+   "option_a": "I and II",
+   "option_b": "I and III",
+   "option_c": "II and IV",
+   "option_d": "III and IV",
+   "answer": "A",
+   "explanation": "",
+   "image": "sem_1_chapter_6_2026_q17.png",
+   "alt": "Sem 1 Chapter 6 (2026 Q17)"
   }
  ]
 }
