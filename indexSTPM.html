@@ -261,6 +261,12 @@ summary{cursor:pointer;font-weight:700;font-size:14px}
 .fmbox .av{width:84px;height:84px;margin:0 auto 8px}.fmbox h3{margin:0;font-size:22px}.fmk{font-weight:800;color:var(--accent-d);margin-top:4px}
 .fmbox p{font-size:16px;line-height:1.45;margin:10px 0 6px}.fmn{font-size:12px;opacity:.6}.fmbtns{display:flex;gap:8px;margin-top:14px}.fmbtns .btn{flex:1;width:auto}
 .av.an{background:none}.av svg{width:100%;height:100%;display:block}
+.wkcard h3{margin:0 0 6px}.wk{margin:10px 0}.wkh{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.wkp{font-size:12px;font-weight:800;white-space:nowrap}
+.wkp.bad{color:#d33}.wkp.mid{color:#c77700}.wkp.good{color:#1a8f5a}.wkb{height:8px;border-radius:99px;background:#e6ebf1;margin:5px 0;overflow:hidden}.wkb i{display:block;height:100%;border-radius:99px}
+.wkb i.bad{background:#e5484d}.wkb i.mid{background:#f5a524}.wkb i.good{background:#1a8f5a}.wkm{font-size:12px;color:var(--ink2)}
+.frrow{display:flex;gap:8px}.frrow input{flex:1;min-width:0;padding:11px 12px;border:2px solid var(--line);border-radius:12px;font-size:16px}
+.pg2{margin:16px 0 8px;font-size:16px}.lb small{color:var(--ink2);font-weight:600}.lb .rm{border:0;background:none;color:var(--ink2);font-size:16px;cursor:pointer;padding:4px 8px}
+.frq{display:flex;gap:8px;align-items:center;padding:8px 12px}.frq .nm{flex:1;font-weight:700}
 .hdr{display:flex;align-items:center;gap:8px;margin:0 0 12px}.hdr .progbar{flex:1;margin:0}
 .bell{position:relative;flex:none;width:44px;height:44px;border-radius:50%;border:2px solid var(--line);background:#fff;color:var(--ink);display:grid;place-items:center;cursor:pointer}
 .bell .nb{position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;padding:0 5px;border-radius:99px;background:#e5484d;color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center;border:2px solid #fff}
@@ -1156,7 +1162,7 @@ function allTotals() {
 }
 function totals() { return allTotals()[PROG]; }   /* this section's score */
 /* the player's leaderboard row: both sections plus the overall sum (root chem/bio/total = overall, so server ordering still works) */
-function myRow() { const t = allTotals(); return { pid: S.user.pid, name: S.user.name, stpm: t.stpm, alevel: t.alevel, chem: t.stpm.chem + t.alevel.chem, bio: t.stpm.bio + t.alevel.bio, total: t.stpm.total + t.alevel.total, av: S.user.thumb || '', ts: Date.now() }; }
+function myRow() { const t = allTotals(); return { pid: S.user.pid, name: S.user.name, stpm: t.stpm, alevel: t.alevel, chem: t.stpm.chem + t.alevel.chem, bio: t.stpm.bio + t.alevel.bio, total: t.stpm.total + t.alevel.total, av: S.user.thumb || '', un: S.user.username || '', ts: Date.now() }; }
 /* score of a row for a section ('stpm' | 'alevel' | 'all') and subject ('total' | 'chem' | 'bio'); rows saved before the split count in Overall only */
 const scoreOf = (r, prog, f) => (r.stpm || r.alevel) ? (prog === 'all' ? ['stpm', 'alevel'] : [prog]).reduce((n, p) => n + ((r[p] || {})[f] || 0), 0) : (prog === 'all' ? r[f] || 0 : 0);
 async function saveUser() { const ok = await DB.set('user:' + S.user.id, S.user, false); if (!ok) toast('Could not save your progress. Check your connection.', 'bad'); return ok; }
@@ -1290,6 +1296,120 @@ function reviewsHTML() {
       <a class="btn" href="mailto:${FEEDBACK_EMAIL}?subject=${enc('Bondly enquiry')}" target="_blank" rel="noopener" style="text-decoration:none">✉️ Email us</a></div>`;
 }
 
+
+/* ---- weak spots: tracks every answer, finds the chapters you miss most ---- */
+const mcqUnits = () => Object.keys(LESSONS).filter(k => LESSONS[k].kind === 'mcq');
+function recStat(unit, q, ok) {
+  const u = S.user; if (!u || q.by || !unit || !LESSONS[unit]) return;
+  const st = u.qstat = u.qstat || {}, s = st[unit] = st[unit] || { a: 0, c: 0 }; s.a++; if (ok) s.c++;
+  const m = u.qmiss = u.qmiss || {}, a = m[unit] = m[unit] || [], k = qh(q.q), i = a.indexOf(k);
+  if (ok && i >= 0) a.splice(i, 1); else if (!ok && i < 0) a.push(k);
+}
+function weakStats() {
+  const st = (S.user && S.user.qstat) || {}, ms = (S.user && S.user.qmiss) || {};
+  const live = k => { const cur = new Set(unitQs(k)); return (ms[k] || []).filter(x => cur.has(x)).length; };
+  const rows = mcqUnits().filter(k => st[k] && st[k].a >= 5).map(k => ({ id: k, a: st[k].a, c: st[k].c, acc: st[k].c / st[k].a, miss: live(k) }));
+  rows.sort((x, y) => x.acc - y.acc || y.miss - x.miss);
+  return { rows, missTotal: mcqUnits().reduce((n, k) => n + live(k), 0) };
+}
+function weakHTML() {
+  const w = weakStats(), pc = r => Math.round(r.acc * 100);
+  const sub = s => { const r = w.rows.filter(x => LESSONS[x.id].subject === s), a = r.reduce((n, x) => n + x.a, 0), c = r.reduce((n, x) => n + x.c, 0); return a ? Math.round(c / a * 100) + '%' : '–'; };
+  if (!w.rows.length) return `<div class="card wkcard"><h3>Weak spots</h3><p class="sub" style="margin:0">Answer at least 5 questions in a chapter and we will show which chapters need more practice.</p></div>`;
+  const cls = r => pc(r) < 60 ? 'bad' : pc(r) < 80 ? 'mid' : 'good', lab = r => pc(r) < 60 ? 'Needs work' : pc(r) < 80 ? 'Getting there' : 'Strong';
+  const list = w.rows.slice(0, 5).map(r => `<div class="wk"><div class="wkh"><b>${esc(LESSONS[r.id].title)}</b><span class="wkp ${cls(r)}">${pc(r)}% · ${lab(r)}</span></div><div class="wkb"><i class="${cls(r)}" style="width:${Math.max(3, pc(r))}%"></i></div><div class="wkm">${r.a} answered · ${r.miss} to review · ${LESSONS[r.id].subject === 'bio' ? 'Biology' : 'Chemistry'}</div></div>`).join('');
+  const best = w.rows.length > 1 ? w.rows[w.rows.length - 1] : null, worst = w.rows[0];
+  return `<div class="card wkcard"><h3>Weak spots</h3>
+    <p class="sub" style="margin:0 0 10px">Accuracy: Biology ${sub('bio')} · Chemistry ${sub('chem')}. ${pc(worst) < 80 ? 'Start with <b>' + esc(LESSONS[worst.id].title) + '</b>.' : 'You are doing well everywhere.'}${best && best.id !== worst.id ? ' Strongest: ' + esc(LESSONS[best.id].title) + ' (' + pc(best) + '%).' : ''}</p>
+    ${list}
+    ${w.missTotal ? `<button class="btn" data-act="practiseWeak" style="margin-top:10px">Practise my mistakes (${w.missTotal})</button>` : '<p class="fine">No missed questions waiting for review.</p>'}</div>`;
+}
+function startWeak() {
+  const ms = S.user.qmiss || {}, w = weakStats().rows, rank = {}; w.forEach((r, i) => rank[r.id] = i);
+  let pool = [];
+  mcqUnits().forEach(k => { const set = new Set(ms[k] || []); (QUESTIONS[k] || []).forEach(q => { if (set.has(qh(q[0]))) pool.push({ unit: k, q: q[0], a: q[1], opts: [q[1], q[2], q[3], q[4]], exp: q[5], by: '', img: q[6] || '', alt: q[7] || '', diff: q[8] || '', why: q[9] || null }); }); });
+  if (!pool.length) { toast('No missed questions to review yet.'); return; }
+  pool = shuffle(pool).sort((x, y) => (rank[x.unit] ?? 99) - (rank[y.unit] ?? 99)).slice(0, 10);
+  const qs = shuffle(pool).map(x => { const lv = levelOf(x); return { ...x, opts: shuffle(x.opts), level: lv, limit: TIME_BY_LEVEL[lv] }; });
+  G = { kind: 'mcq', id: 'weak', weak: true, qs, i: 0, correct: 0, answered: 0, streak: 0, bestStreak: 0, score: 0, t0: 0, locked: false, started: Date.now() };
+  S.sheet = null; S.screen = 'play'; render();
+}
+
+/* ---- friends (by username) ---- */
+const FR_OK = () => DB.mode === 'online';
+async function claimUsername(un) {
+  if (!FR_OK()) return toast('Usernames need the online version.', 'bad');
+  if (!/^[a-z0-9_]{3,15}$/.test(un)) return toast('Use 3 to 15 letters, numbers or underscores.', 'bad');
+  if (un === S.user.username) return;
+  try {
+    const g = await DB.get('un:' + un, true);
+    if (g && g.pid !== S.user.pid) return toast('That username is taken.', 'bad');
+    if (!(await DB.set('un:' + un, { pid: S.user.pid, name: S.user.name, un }, true))) throw 0;
+    const old = S.user.username; if (old) await DB.del('un:' + old, true);
+    S.user.username = un; await saveUser(); await pushScore(); toast('Username saved: @' + un); render();
+  } catch (e) { toast('Could not save the username. Try again.', 'bad'); }
+}
+async function loadFriends() {
+  if (!S.user || S.friendsBusy) return;
+  S.friendsBusy = true;
+  if (FR_OK()) try {
+    const me = S.user.pid;
+    const [reqs, oks] = await Promise.all([DB.listValues('frq:' + me + ':', true, { limit: 50 }), DB.listValues('fok:' + me + ':', true, { limit: 200 })]);
+    const fl = S.user.friends = S.user.friends || [], rm = new Set(S.user.removed || []), dc = new Set(S.user.declined || []); let changed = false;
+    oks.forEach(o => { if (o && o.pid && !fl.some(f => f.pid === o.pid) && !rm.has(o.pid)) { fl.push({ pid: o.pid, name: o.name, un: o.un }); changed = true; } });
+    S.friendReq = reqs.filter(r => r && r.from && r.to === me && !fl.some(f => f.pid === r.from) && !dc.has(r.from));
+    const bm = new Map((S.board || []).map(r => [r.pid, r]));
+    const rows = await Promise.all(fl.slice(0, 60).map(f => bm.get(f.pid) || DB.get('lb:' + f.pid, true).catch(() => null)));
+    S.friendRows = {}; rows.forEach((r, i) => { if (r) S.friendRows[fl[i].pid] = r; });
+    if (changed) await saveUser();
+  } catch (e) { /* keep what we had */ }
+  S.friendsBusy = false; S.friendsLoaded = true;
+  if (S.screen === 'main') { const b = document.getElementById('bellBtn'); if (b) b.outerHTML = bellHTML(); if (S.tab === 'board' && S.boardView === 'friends' && !document.activeElement.matches('input')) render(); }
+}
+async function sendFriendReq() {
+  const un = (($('#frUn') || {}).value || '').trim().toLowerCase().replace(/^@/, '');
+  if (!S.user.username) return toast('Choose your own username first.', 'bad');
+  if (!un) return;
+  try {
+    const g = await DB.get('un:' + un, true);
+    if (!g) return toast('No player with that username.', 'bad');
+    if (g.pid === S.user.pid) return toast("That's you!", 'bad');
+    if ((S.user.friends || []).some(f => f.pid === g.pid)) return toast('You are already friends.');
+    if ((S.friendReq || []).some(r => r.from === g.pid)) return acceptFriend(g.pid);
+    S.user.removed = (S.user.removed || []).filter(x => x !== g.pid);
+    const ok = await DB.set(`frq:${g.pid}:${S.user.pid}`, { from: S.user.pid, fromName: S.user.name, fromUn: S.user.username, to: g.pid, ts: Date.now() }, true);
+    toast(ok ? 'Friend request sent to @' + un : 'Could not send the request.', ok ? '' : 'bad');
+    if (ok && $('#frUn')) $('#frUn').value = '';
+  } catch (e) { toast('Could not send the request.', 'bad'); }
+}
+async function acceptFriend(pid) {
+  const r = (S.friendReq || []).find(x => x.from === pid); if (!r) return;
+  const fl = S.user.friends = S.user.friends || []; if (!fl.some(f => f.pid === pid)) fl.push({ pid, name: r.fromName, un: r.fromUn });
+  S.user.removed = (S.user.removed || []).filter(x => x !== pid);
+  S.friendReq = S.friendReq.filter(x => x.from !== pid);
+  await DB.set(`fok:${pid}:${S.user.pid}`, { pid: S.user.pid, name: S.user.name, un: S.user.username || '' }, true);
+  await saveUser(); toast('You and ' + r.fromName + ' are now friends'); S.friendsLoaded = false; loadFriends();
+}
+async function declineFriend(pid) { S.user.declined = [...(S.user.declined || []), pid]; S.friendReq = (S.friendReq || []).filter(x => x.from !== pid); await saveUser(); render(); }
+async function removeFriend(pid) { S.user.friends = (S.user.friends || []).filter(f => f.pid !== pid); S.user.removed = [...(S.user.removed || []), pid]; await saveUser(); render(); }
+function friendsHTML() {
+  if (!FR_OK()) return `<div class="empty">Friends need the online version of Bondly.</div>`;
+  const me = S.user.pid, un = S.user.username, sc = r => scoreOf(r, 'all', 'total');
+  const reqs = (S.friendReq || []).map(r => `<li class="frq"><span class="nm">${esc(r.fromName)} <small>@${esc(r.fromUn || '')}</small></span><button class="btn" style="width:auto;padding:6px 12px" data-act="frAccept" data-pid="${esc(r.from)}">Accept</button><button class="btn ghost" style="width:auto;padding:6px 12px" data-act="frDecline" data-pid="${esc(r.from)}">Decline</button></li>`).join('');
+  const people = [{ pid: me, name: S.user.name, un, av: S.user.avatar || S.user.thumb, s: sc(myRow()), me: true }, ...(S.user.friends || []).map(f => { const r = (S.friendRows || {})[f.pid]; return { pid: f.pid, name: (r && r.name) || f.name, un: f.un, av: r && r.av, s: r ? sc(r) : 0 }; })].sort((a, b) => b.s - a.s);
+  const medal = i => i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : i + 1;
+  const list = people.map((r, i) => `<li class="${r.me ? 'me' : ''}"><span class="rk">${medal(i)}</span>${avHTML(r.av, r.name, 'sm')}<span class="nm">${esc(String(r.name || 'Player').slice(0, 20))}${r.me ? ' (you)' : ''}${r.un ? ` <small>@${esc(r.un)}</small>` : ''}</span><span class="sc">${r.s}</span>${r.me ? '' : `<button class="rm" data-act="frRemove" data-pid="${esc(r.pid)}" aria-label="Remove ${esc(r.name)}">✕</button>`}</li>`).join('');
+  return `<div class="card"><h3 style="margin:0 0 6px">${un ? 'Your username: @' + esc(un) : 'Choose a username'}</h3>
+      <p class="sub" style="margin:0 0 8px">${un ? 'Friends find you by this name.' : 'Friends find you by username. 3 to 15 letters, numbers or underscores.'}</p>
+      <div class="frrow"><input id="unIn" placeholder="${un ? 'New username' : 'e.g. alex_88'}" maxlength="15" autocomplete="off"><button class="btn" data-act="setUn" style="width:auto">${un ? 'Change' : 'Save'}</button></div></div>
+    <div class="card"><h3 style="margin:0 0 6px">Add a friend</h3><div class="frrow"><input id="frUn" placeholder="Their username" maxlength="16" autocomplete="off" autocapitalize="off"><button class="btn" data-act="addFriend" style="width:auto">Send request</button></div></div>
+    ${reqs ? `<h3 class="pg2">Friend requests</h3><ul class="lb">${reqs}</ul>` : ''}
+    <h3 class="pg2">Friends leaderboard</h3>
+    ${people.length > 1 ? `<ul class="lb">${list}</ul>` : '<div class="empty">No friends yet. Send a request by username to start comparing scores.</div>'}
+    <p class="fine">Friends see your display name, picture, username and score.</p>`;
+}
+const viewSeg = () => { const v = S.boardView || 'all', n = (S.friendReq || []).length; return `<div class="pills" style="margin-bottom:8px"><button class="${v === 'all' ? 'on' : ''}" data-act="boardView" data-v="all">Everyone</button><button class="${v === 'friends' ? 'on' : ''}" data-act="boardView" data-v="friends">Friends${n ? ' · ' + n : ''}</button></div>`; };
+
 /* ---- notifications (announcements now; friend requests will use S.user.inbox) ---- */
 const ANNOUNCE_FALLBACK = [{ id: '2026-11-27-completed', date: '2026-11-27', icon: '✅', title: 'Completed questions', body: 'Each chapter now shows how many questions you have answered correctly. New questions come first.' }];
 async function loadAnnounce() {
@@ -1302,7 +1422,7 @@ async function loadAnnounce() {
   S.announceBusy = false;
   if (S.screen === 'main') { const b = document.getElementById('bellBtn'); if (b) b.outerHTML = bellHTML(); }
 }
-const allNotifs = () => [...((S.user && S.user.inbox) || []), ...(S.announce || [])].sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+const allNotifs = () => [...((S.user && S.user.inbox) || []), ...(S.friendReq || []).map(r => ({ id: 'frq:' + r.from, date: new Date(r.ts || Date.now()).toISOString().slice(0, 10), icon: '👋', title: r.fromName + ' sent you a friend request', body: '@' + (r.fromUn || 'player'), friendPid: r.from })), ...(S.announce || [])].sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
 const readSet = () => new Set((S.user && S.user.nread) || []);
 const unreadCount = () => { const r = readSet(); return allNotifs().filter(n => !r.has(n.id)).length; };
 const bellHTML = () => { const n = unreadCount(); return `<button class="bell" id="bellBtn" data-act="notif" aria-label="Notifications${n ? ', ' + n + ' unread' : ''}"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>${n ? `<span class="nb">${n > 9 ? '9+' : n}</span>` : ''}</button>`; };
@@ -1312,11 +1432,12 @@ function openNotif() {
   o = document.createElement('div'); o.className = 'overlay'; o.id = 'notifpanel';
   o.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-label="Notifications" style="display:flex;flex-direction:column;max-height:80dvh;max-height:80vh">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h3 style="margin:0">Notifications</h3><button class="btn ghost" id="nClose" style="padding:6px 14px;width:auto;flex:none">Close</button></div>
-    <div style="overflow:auto;margin:10px 0;display:flex;flex-direction:column;gap:8px">${list.length ? list.map(n => `<div class="nitem${rd.has(n.id) ? '' : ' new'}"><div class="ni">${esc(n.icon || '📣')}</div><div><b>${esc(n.title || '')}</b><div class="nd">${esc(n.date || '')}${rd.has(n.id) ? '' : ' · New'}</div><p>${esc(n.body || '')}</p></div></div>`).join('') : '<p class="sub">No notifications yet.</p>'}</div></div>`;
+    <div style="overflow:auto;margin:10px 0;display:flex;flex-direction:column;gap:8px">${list.length ? list.map(n => `<div class="nitem${rd.has(n.id) ? '' : ' new'}"><div class="ni">${esc(n.icon || '📣')}</div><div><b>${esc(n.title || '')}</b><div class="nd">${esc(n.date || '')}${rd.has(n.id) ? '' : ' · New'}</div><p>${esc(n.body || '')}</p>${n.friendPid ? `<div class="row" style="margin-top:8px;gap:8px"><button class="btn" data-fa="acc" data-pid="${esc(n.friendPid)}" style="padding:6px 12px">Accept</button><button class="btn ghost" data-fa="dec" data-pid="${esc(n.friendPid)}" style="padding:6px 12px">Decline</button></div>` : ''}</div></div>`).join('') : '<p class="sub">No notifications yet.</p>'}</div></div>`;
   document.body.appendChild(o);
   const close = () => { o.remove(); const b = document.getElementById('bellBtn'); if (b) b.outerHTML = bellHTML(); };
   o.addEventListener('click', e => { if (e.target === o) close(); });
   o.querySelector('#nClose').onclick = close;
+  o.addEventListener('click', async e => { const b = e.target.closest('[data-fa]'); if (!b) return; b.disabled = true; if (b.dataset.fa === 'acc') await acceptFriend(b.dataset.pid); else await declineFriend(b.dataset.pid); openNotif(); });
   const ids = list.map(n => n.id), cur = (S.user && S.user.nread) || [];
   if (S.user && ids.some(i => cur.indexOf(i) < 0)) { S.user.nread = Array.from(new Set([...cur, ...ids])); saveUser(); }
 }
@@ -1324,6 +1445,7 @@ function openNotif() {
 function mainHTML() {
   const body0 = S.tab === 'learn' ? learnHTML() : S.tab === 'board' ? boardHTML() : S.tab === 'bank' ? bankHTML() : S.tab === 'reviews' ? reviewsHTML() : meHTML();
   if (!S.announce && !S.announceBusy) loadAnnounce();
+  if (!S.friendsLoaded && !S.friendsBusy && S.user) loadFriends();
   return `<div class="main"><div class="hdr">${progBarHTML()}${bellHTML()}</div>${body0}</div>${tabsHTML()}${S.sheet ? sheetHTML() : ''}`;
 }
 
@@ -1363,6 +1485,7 @@ function sheetHTML() {
 }
 
 function boardHTML() {
+  if (S.boardView === 'friends') return `<h2 class="pg">Leaderboard</h2>${viewSeg()}${friendsHTML()}`;
   const f = S.boardFilter, pg = S.boardProg, me = S.user.pid, sc = r => scoreOf(r, pg, f);
   const rows = S.board.map(r => r.pid === me ? { ...myRow(), ts: r.ts } : r);
   const all = rows.filter(r => sc(r) > 0).sort((a, b) => sc(b) - sc(a) || (a.ts || 0) - (b.ts || 0));
@@ -1373,7 +1496,7 @@ function boardHTML() {
   const note = (DB.mode === 'cloud' || DB.mode === 'online') ? 'Shared with every player. Only display names, pictures and scores are public.' : 'This board only shows players on this device. Fill in CONFIG at the top of the code to connect Supabase and make it global.';
   const pill = (list, cur, act, key) => list.map(x => `<button class="${cur === x[0] ? 'on' : ''}" data-act="${act}" data-${key}="${x[0]}">${x[1]}</button>`).join('');
   const where = pg === 'all' ? 'Overall adds your STPM and A-Level scores together.' : PROGS[pg] + ' section only.';
-  return `<h2 class="pg">Leaderboard</h2><p class="sub">Score = best run on each lesson: speed × streak × accuracy. ${where}</p>
+  return `<h2 class="pg">Leaderboard</h2>${viewSeg()}<p class="sub">Score = best run on each lesson: speed × streak × accuracy. ${where}</p>
     <div class="pills">${pill([['all', 'Overall'], ['stpm', 'STPM'], ['alevel', 'A-Level']], pg, 'boardProg', 'p')}<button data-act="refreshBoard" style="margin-left:auto">Refresh</button></div>
     <div class="pills" style="margin-top:8px">${pill([['total', 'All subjects'], ['chem', 'Chemistry'], ['bio', 'Biology']], f, 'boardFilter', 'f')}</div>
     ${items ? `<ul class="lb">${items}</ul>` : `<div class="empty">No scores yet${pg === 'all' ? '' : ' in ' + PROGS[pg]}. Finish a lesson to put the first name on the board.</div>`}
@@ -1391,6 +1514,7 @@ function meHTML() {
     <div class="grid2"><div class="stat"><b>${T.total}</b><span>${pl} score</span></div><div class="stat"><b>${r ? '#' + r : '–'}</b><span>${pl} rank</span></div>
       <div class="stat"><b>${T.chem}</b><span>Chemistry score</span></div><div class="stat"><b>${T.bio}</b><span>Biology score</span></div>
       <div class="stat"><b>${Object.keys(LESSONS).filter(k => LESSONS[k].kind === 'mcq').reduce((n, k) => n + qProgress(k).done, 0)}</b><span>Questions completed</span></div><div class="stat"><b>${done}</b><span>Lessons completed</span></div><div class="stat"><b>${bs}</b><span>Best streak</span></div><div class="stat"><b>${A.stpm.total + A.alevel.total}</b><span>Overall score</span></div><div class="stat"><b>${ro ? '#' + ro : '–'}</b><span>Overall rank</span></div></div>
+    ${weakHTML()}
     <button class="btn ghost" data-act="signout">Sign out</button>
     <p class="fine">Progress is saved automatically to this email. Sign in with the same email to continue. Profile pictures are cropped to a square and shrunk before saving.</p>`;
 }
@@ -1410,7 +1534,7 @@ function markDone(unit, q) {
 function startMCQ(id) {
   const core = (QUESTIONS[id] || []).map(q => ({ q: q[0], a: q[1], opts: [q[1], q[2], q[3], q[4]], exp: q[5], by: '', img: q[6] || '', alt: q[7] || '', diff: q[8] || '', why: q[9] || null }));
   const com = S.community.filter(c => c.unit === id).map(c => ({ q: c.q, a: c.opts[c.c], opts: c.opts, exp: c.exp || '', by: c.by || 'a player', img: c.img || '', alt: c.alt || '' }));
-  const ds = doneSet(id), tag = x => ({ ...x, was: !x.by && ds.has(qh(x.q)) }), pool = [...core, ...com].map(tag);
+  const ds = doneSet(id), tag = x => ({ ...x, unit: id, was: !x.by && ds.has(qh(x.q)) }), pool = [...core, ...com].map(tag);
   const qs = [...shuffle(pool.filter(x => !x.was)), ...shuffle(pool.filter(x => x.was))].slice(0, 10).map(x => { const lv = levelOf(x); return { ...x, opts: shuffle(x.opts), level: lv, limit: TIME_BY_LEVEL[lv] }; });
   G = { kind: 'mcq', id, qs, i: 0, correct: 0, answered: 0, streak: 0, bestStreak: 0, score: 0, t0: 0, locked: false, started: Date.now() };
   S.sheet = null; S.screen = 'play'; render();
@@ -1432,12 +1556,12 @@ function pick(idx) {
   if (!G || G.kind !== 'mcq' || G.locked) return;
   G.locked = true; G.pk = idx;
   const q = G.qs[G.i], t = (performance.now() - G.t0) / 1000, ok = q.opts[idx] === q.a;
-  G.answered++;
+  G.answered++; recStat(q.unit || G.id, q, ok);
   const bar = document.querySelector('.tbar i'); if (bar) bar.style.animationPlayState = 'paused';
   document.querySelectorAll('.opt').forEach((b, i) => { b.disabled = true; if (q.opts[i] === q.a) b.classList.add('ok'); else if (i === idx) b.classList.add('bad'); else b.classList.add('dim'); });
   let head, calc = '';
   if (ok) {
-    G.correct++; G.streak++; G.bestStreak = Math.max(G.bestStreak, G.streak); markDone(G.id, q);
+    G.correct++; G.streak++; G.bestStreak = Math.max(G.bestStreak, G.streak); markDone(q.unit || G.id, q);
     const sc = calcPoints(t, q.limit, G.streak, G.correct, G.answered); G.score += sc.pts;
     head = `Correct, +${sc.pts}`; calc = `⚡ speed ${sc.speed} × 🔥 streak ${sc.streak} × 🎯 accuracy ${sc.acc.toFixed(2)}`;
   } else { G.streak = 0; head = 'Not quite'; calc = 'Streak reset. No points this time.'; }
@@ -1517,6 +1641,11 @@ function mmPlace(chipId) {
 
 /* ---- finish and results ---- */
 async function finishRun() {
+  if (G.weak) {
+    const acc = G.answered ? G.correct / G.answered : 0;
+    S.result = { weak: true, id: 'weak', acc, fixed: G.correct, n: G.answered, time: Math.round((Date.now() - G.started) / 1000) };
+    G = null; S.screen = 'result'; render(); await saveUser(); return;
+  }
   const acc = G.answered ? G.correct / G.answered : 0, stars = acc >= .9 ? 3 : acc >= .7 ? 2 : 1;
   const prev = S.user.progress[G.id] || { best: 0, plays: 0 };
   const isBest = G.score > (prev.best || 0);
@@ -1528,7 +1657,12 @@ async function finishRun() {
   if (S.screen === 'result' && S.result) { S.result.rank = rankOf(PROG, 'total'); render(); }
 }
 function resultHTML() {
-  const R = S.result, L = LESSONS[R.id];
+  const R = S.result;
+  if (R.weak) return `<div class="result"><div class="st">🎯</div><h2>Mistakes reviewed</h2><div class="lab">Practice only, no leaderboard points</div>
+    <div class="stats"><div class="stat"><b>${R.fixed}/${R.n}</b><span>Now correct</span></div><div class="stat"><b>${Math.round(R.acc * 100)}%</b><span>Accuracy</span></div><div class="stat"><b>${R.time}s</b><span>Time</span></div></div>
+    <p class="sub" style="margin-bottom:16px">Questions you got right are removed from your review list.</p>
+    <div class="row"><button class="btn ghost" data-act="practiseWeak">Review more</button><button class="btn" data-act="toProfile">Back to profile</button></div></div>`;
+  const L = LESSONS[R.id];
   const head = R.stars === 3 ? 'Flawless' : R.stars === 2 ? 'Solid run' : 'Lesson complete';
   return `<div class="result"><div class="st" aria-label="${R.stars} of 3 stars">${'★'.repeat(R.stars)}${'☆'.repeat(3 - R.stars)}</div>
     <h2>${head}</h2><div class="lab">${esc(L.title)}</div>
@@ -1758,6 +1892,14 @@ const ACT = {
   overlay: (el, e) => { if (e.target === el) { S.sheet = null; render(); } },
   closeSheet: () => { S.sheet = null; render(); },
   notif: () => openNotif(),
+  boardView: el => { S.boardView = el.dataset.v; render(); if (el.dataset.v === 'friends') { S.friendsBusy = false; loadFriends(); } },
+  setUn: () => claimUsername((($('#unIn') || {}).value || '').trim().toLowerCase()),
+  addFriend: () => sendFriendReq(),
+  frAccept: el => acceptFriend(el.dataset.pid),
+  frDecline: el => declineFriend(el.dataset.pid),
+  frRemove: el => { if (confirm('Remove this friend?')) removeFriend(el.dataset.pid); },
+  practiseWeak: () => { S.result = null; startWeak(); },
+  toProfile: () => { S.result = null; S.screen = 'main'; S.tab = 'me'; render(); },
   start: el => { const id = el.dataset.id; LESSONS[id].kind === 'mm' ? startMM(id) : startMCQ(id); },
   again: el => { const id = el.dataset.id; S.result = null; LESSONS[id].kind === 'mm' ? startMM(id) : startMCQ(id); },
   home: () => { S.result = null; S.screen = 'main'; S.tab = 'learn'; render(); },
@@ -1833,6 +1975,7 @@ document.addEventListener('keydown', e => {
 (function () {
   const VER = '2026-11-27';
   const ITEMS = [
+    ['👋', 'Friends and weak spots', 'Add friends by username (Leaderboard, Friends). On your Profile, see your weakest chapters and practise your mistakes.'],
     ['✅', 'Completed questions', 'Each chapter now shows how many questions you have answered correctly. New questions come first, and ones you have done before are marked “Done before”.'],
     ['🤖', 'New: AI tutor', 'After you answer a question, tap “Ask AI about this” to get an explanation. It needs a free Google Gemini key, set up in 1 minute.'],
     ['🧬', 'Biology Semester 1 expanded', 'Chapters 1–7 now have far more STPM past-paper questions (25 to 55 per chapter).'],
