@@ -1234,6 +1234,7 @@ function render() {
   const app = $('#app');
   if (!S.ready) { app.innerHTML = '<div class="loading">Loading…</div>'; return; }
   if (S.screen === 'login') app.innerHTML = loginHTML();
+  else if (S.screen === 'access') app.innerHTML = accessHTML();
   else if (S.screen === 'main') app.innerHTML = mainHTML();
   else if (S.screen === 'play') renderPlay();
   else if (S.screen === 'mm') renderMM();
@@ -1411,6 +1412,83 @@ function friendsHTML() {
 }
 const viewSeg = () => { const v = S.boardView || 'all', n = (S.friendReq || []).length; return `<div class="pills" style="margin-bottom:8px"><button class="${v === 'all' ? 'on' : ''}" data-act="boardView" data-v="all">Everyone</button><button class="${v === 'friends' ? 'on' : ''}" data-act="boardView" data-v="friends">Friends${n ? ' · ' + n : ''}</button></div>`; };
 
+
+/* ---- access whitelist: people request access and an admin approves them ----
+   Turned on by putting the admin's user ID in access.json ({"adminUids":["..."]}). Approvals only count if the row was written by an admin. */
+let ACCESS = null;
+async function accessCfg() {
+  if (ACCESS) return ACCESS;
+  ACCESS = { adminUids: [] };
+  try { if (/^https?:$/.test(location.protocol)) { const j = await (await fetch('access.json?v=' + Date.now(), { cache: 'no-store' })).json(); if (j && Array.isArray(j.adminUids)) ACCESS = j; } } catch (e) { /* gate stays off */ }
+  return ACCESS;
+}
+const isAdmin = () => !!(S.user && ACCESS && ACCESS.adminUids.includes(S.user.pid));
+async function accessStatus() {
+  const uid = S.user.pid, adm = ACCESS.adminUids;
+  const rows = await sb(`/rest/v1/kv?scope=eq.s&key=like.${enc('acc:')}*:${enc(uid)}&select=key,owner&limit=20`);
+  const has = (pre, byAdmin) => rows.some(r => r.key === pre + uid && (byAdmin ? adm.includes(r.owner) : r.owner === uid));
+  return has('acc:ok:', true) ? 'ok' : has('acc:no:', true) ? 'declined' : has('acc:req:', false) ? 'pending' : 'none';
+}
+async function passGate() {
+  if (DB.mode !== 'online') return true;
+  const cfg = await accessCfg(); if (!cfg.adminUids.length || cfg.adminUids.includes(S.user.pid)) return true;
+  let st; try { st = await accessStatus(); } catch (e) { st = 'error'; }
+  if (st === 'ok') return true;
+  S.access = st; S.screen = 'access'; return false;
+}
+function accessHTML() {
+  const st = S.access, maskE = e => String(e || '').replace(/^(.).*(@.*)$/, '$1***$2');
+  let body;
+  if (st === 'pending') body = `<p class="sub">Your request was sent. You can use Bondly as soon as the admin approves it.</p><button class="btn" data-act="accCheck">Check again</button>`;
+  else if (st === 'declined') body = `<p class="sub">Your request was not approved. Contact the admin if you think this is a mistake.</p><button class="btn ghost" data-act="accCheck">Check again</button>`;
+  else if (st === 'error') body = `<p class="sub">Could not check your access. Check your connection.</p><button class="btn" data-act="accCheck">Try again</button>`;
+  else body = `<p class="sub" style="margin:0 0 8px">Bondly is invite-only. Tell the admin who you are and request access.</p>
+    <label class="f" for="accNote">Your name, school or class</label><input id="accNote" type="text" maxlength="80" placeholder="e.g. Aisyah, Form 6 Science">
+    <button class="btn" data-act="accRequest" style="margin-top:12px">Request access</button>`;
+  return `<div class="login">${RING}<h1>Bondly</h1><p class="tag">Request access</p>${body}<button class="btn ghost" data-act="signout" style="margin-top:12px">Sign out</button><p class="fine">Signed in as ${esc(maskE(S.user.email))}</p></div>`;
+}
+async function accRequest() {
+  const note = (($('#accNote') || {}).value || '').trim();
+  const ok = await DB.set('acc:req:' + S.user.pid, { pid: S.user.pid, name: S.user.name, email: String(S.user.email || '').replace(/^(.).*(@.*)$/, '$1***$2'), note, ts: Date.now() }, true);
+  if (!ok) return toast('Could not send the request. Try again.', 'bad');
+  S.access = 'pending'; render();
+}
+async function accCheck() {
+  const was = S.access; try { S.access = await accessStatus(); } catch (e) { S.access = 'error'; }
+  if (S.access === 'ok') { busyEnter(); return; }
+  render(); if (S.access === was && was !== 'error') toast('Not approved yet.');
+}
+async function busyEnter() { await Promise.all([loadBoard(), loadCommunity()]); await pushScore(); S.screen = 'main'; S.tab = 'learn'; render(); }
+async function loadAdmin() {
+  S.admBusy = true;
+  try {
+    const rows = await sb(`/rest/v1/kv?scope=eq.s&key=like.${enc('acc:')}*&select=key,owner,value&limit=1000`), adm = ACCESS.adminUids;
+    const okSet = new Set(rows.filter(r => r.key.startsWith('acc:ok:') && adm.includes(r.owner)).map(r => r.key.slice(7)));
+    const noSet = new Set(rows.filter(r => r.key.startsWith('acc:no:') && adm.includes(r.owner)).map(r => r.key.slice(7)));
+    const reqs = rows.filter(r => r.key.startsWith('acc:req:') && r.value && r.value.pid === r.key.slice(8) && r.owner === r.value.pid).map(r => r.value).sort((a, b) => b.ts - a.ts);
+    S.adm = { pending: reqs.filter(r => !okSet.has(r.pid) && !noSet.has(r.pid)), approved: reqs.filter(r => okSet.has(r.pid)), okCount: okSet.size };
+  } catch (e) { S.adm = { pending: [], approved: [], okCount: 0, err: true }; }
+  S.admBusy = false; if (S.screen === 'main' && S.tab === 'me') render();
+}
+function adminHTML() {
+  if (!isAdmin()) return '';
+  if (!S.adm && !S.admBusy) loadAdmin();
+  const A = S.adm; if (!A) return `<div class="card"><h3 style="margin:0">Admin: access requests</h3><p class="sub" style="margin:6px 0 0">Loading…</p></div>`;
+  const rowH = (r, btns) => `<li class="frq"><span class="nm">${esc(r.name || 'Player')} <small>${esc(r.email || '')}</small>${r.note ? `<br><small>${esc(r.note)}</small>` : ''}</span>${btns}</li>`;
+  return `<div class="card"><h3 style="margin:0 0 6px">Admin: access requests</h3>
+    ${A.err ? '<p class="sub">Could not load requests.</p>' : ''}
+    ${A.pending.length ? `<ul class="lb">${A.pending.map(r => rowH(r, `<button class="btn" style="width:auto;padding:6px 12px" data-act="accOk" data-pid="${esc(r.pid)}">Approve</button><button class="btn ghost" style="width:auto;padding:6px 12px" data-act="accNo" data-pid="${esc(r.pid)}">Decline</button>`)).join('')}</ul>` : '<p class="sub" style="margin:0 0 8px">No pending requests.</p>'}
+    <button class="btn ghost" data-act="accAll" style="margin-top:8px">Approve all current players</button>
+    ${A.approved.length ? `<h3 class="pg2">Approved (${A.approved.length})</h3><ul class="lb">${A.approved.map(r => rowH(r, `<button class="rm" data-act="accRevoke" data-pid="${esc(r.pid)}" aria-label="Revoke">✕</button>`)).join('')}</ul>` : ''}</div>`;
+}
+const admDo = async f => { await f(); S.adm = null; loadAdmin(); };
+async function accAll() {
+  if (!confirm('Approve every player already on the leaderboard? Do this once when you turn the whitelist on.')) return;
+  const rows = await DB.listValues('lb:', true, { limit: 1000 }); let n = 0;
+  for (const r of rows) { if (r && r.pid && await DB.set('acc:ok:' + r.pid, { pid: r.pid, ts: Date.now() }, true)) n++; }
+  toast(n + ' players approved'); S.adm = null; loadAdmin();
+}
+
 /* ---- notifications (announcements now; friend requests will use S.user.inbox) ---- */
 const ANNOUNCE_FALLBACK = [{ id: '2026-11-27-completed', date: '2026-11-27', icon: '✅', title: 'Completed questions', body: 'Each chapter now shows how many questions you have answered correctly. New questions come first.' }];
 async function loadAnnounce() {
@@ -1515,8 +1593,9 @@ function meHTML() {
     <div class="grid2"><div class="stat"><b>${T.total}</b><span>${pl} score</span></div><div class="stat"><b>${r ? '#' + r : '–'}</b><span>${pl} rank</span></div>
       <div class="stat"><b>${T.chem}</b><span>Chemistry score</span></div><div class="stat"><b>${T.bio}</b><span>Biology score</span></div>
       <div class="stat"><b>${Object.keys(LESSONS).filter(k => LESSONS[k].kind === 'mcq').reduce((n, k) => n + qProgress(k).done, 0)}</b><span>Questions completed</span></div><div class="stat"><b>${done}</b><span>Lessons completed</span></div><div class="stat"><b>${bs}</b><span>Best streak</span></div><div class="stat"><b>${A.stpm.total + A.alevel.total}</b><span>Overall score</span></div><div class="stat"><b>${ro ? '#' + ro : '–'}</b><span>Overall rank</span></div></div>
+    ${adminHTML()}
     ${weakHTML()}
-    <button class="btn ghost" data-act="signout">Sign out</button>
+    <button class="btn ghost" data-act="signout">Sign out</button><p class="fine" style="word-break:break-all">User ID: ${esc(S.user.pid)}</p>
     <p class="fine">Progress is saved automatically to this email. Sign in with the same email to continue. Profile pictures are cropped to a square and shrunk before saving.</p>`;
 }
 
@@ -1821,6 +1900,7 @@ async function enterApp(name) {
     u = { id: uid, email, name, pid: uid, progress: {}, created: Date.now() };
   } else { if (name && name.length >= 2) u.name = name; u.pid = uid; u.email = email; }
   S.user = u; await saveUser();
+  if (!(await passGate())) { render(); return; }
   await Promise.all([loadBoard(), loadCommunity()]); await pushScore();
   S.screen = 'main'; S.tab = 'learn'; render();
 }
@@ -1894,6 +1974,10 @@ const ACT = {
   overlay: (el, e) => { if (e.target === el) { S.sheet = null; render(); } },
   closeSheet: () => { S.sheet = null; render(); },
   notif: () => openNotif(),
+  accRequest: () => accRequest(), accCheck: () => accCheck(), accAll: () => accAll(),
+  accOk: el => admDo(async () => { await DB.set('acc:ok:' + el.dataset.pid, { pid: el.dataset.pid, ts: Date.now() }, true); await DB.del('acc:no:' + el.dataset.pid, true); }),
+  accNo: el => admDo(async () => { await DB.set('acc:no:' + el.dataset.pid, { pid: el.dataset.pid, ts: Date.now() }, true); await DB.del('acc:ok:' + el.dataset.pid, true); }),
+  accRevoke: el => { if (confirm('Remove this person\'s access?')) admDo(async () => { await DB.del('acc:ok:' + el.dataset.pid, true); }); },
   boardView: el => { S.boardView = el.dataset.v; render(); if (el.dataset.v === 'friends') { S.friendsBusy = false; loadFriends(); } },
   setUn: () => claimUsername((($('#unIn') || {}).value || '').trim().toLowerCase()),
   addFriend: () => sendFriendReq(),
@@ -1960,7 +2044,7 @@ document.addEventListener('keydown', e => {
     if (DB.mode === 'online') {
       if (Auth.s && await Auth.fresh()) {
         const u = await DB.get('user:' + Auth.s.user.id, false);
-        if (u) { u.pid = Auth.s.user.id; S.user = u; await Promise.all([loadBoard(), loadCommunity()]); S.screen = 'main'; }
+        if (u) { u.pid = Auth.s.user.id; S.user = u; if (!(await passGate())) { S.ready = true; render(); return; } await Promise.all([loadBoard(), loadCommunity()]); S.screen = 'main'; }
       }
     } else {
       const sess = await DB.get('session', false);
