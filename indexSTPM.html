@@ -2059,7 +2059,7 @@ document.addEventListener('keydown', e => {
       bub(t, true); hist.push({ role: 'user', parts: [{ text: t }] });
       const w = bub('Thinking…', false);
       try {
-        const r = await ask(c.text);
+        const r = await ask(c.text, t => { w.textContent = t; log.scrollTop = log.scrollHeight; });
         w.textContent = r; hist.push({ role: 'model', parts: [{ text: r }] });
       } catch (e) {
         hist.pop(); w.remove();
@@ -2069,14 +2069,33 @@ document.addEventListener('keydown', e => {
     }
     o.querySelector('#aiF').onsubmit = e => { e.preventDefault(); send(o.querySelector('#aiQ').value); };
   }
-  async function ask(qtext) {
-    const body = { systemInstruction: { parts: [{ text: SYS + '\n\n' + qtext }] }, contents: hist, generationConfig: { temperature: 0.4, maxOutputTokens: 700 } };
+  let noThink = false;
+  async function ask(qtext, onText) {
+    const mk = () => ({ systemInstruction: { parts: [{ text: SYS + '\n\n' + qtext }] }, contents: hist, generationConfig: Object.assign({ temperature: 0.4, maxOutputTokens: 600 }, noThink ? {} : { thinkingConfig: { thinkingBudget: 0 } }) });
     let err, ms = MODELS.slice();
     try { const s = sessionStorage.getItem('bondly:gmodel'); if (s) ms.unshift(s); } catch (x) { /* ignore */ }
     for (let k = 0; k < ms.length; k++) {
       const m = ms[k];
-      const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + m + ':generateContent', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gk() }, body: JSON.stringify(body) });
-      if (res.ok) { try { sessionStorage.setItem('bondly:gmodel', m); } catch (x) { /* ignore */ } const j = await res.json(); const t = j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts.map(p => p.text || '').join(''); if (t) return t.trim(); err = { code: 0, message: 'empty reply' }; continue; }
+      let res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + m + ':streamGenerateContent?alt=sse', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gk() }, body: JSON.stringify(mk()) });
+      if (res.status === 400 && !noThink) { // this model may not accept the "no thinking" setting; retry once without it
+        let gm0 = ''; try { gm0 = ((await res.clone().json()).error || {}).message || ''; } catch (x) { /* ignore */ }
+        if (/think/i.test(gm0)) { noThink = true; res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + m + ':streamGenerateContent?alt=sse', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': gk() }, body: JSON.stringify(mk()) }); }
+      }
+      if (res.ok && res.body) {
+        try { sessionStorage.setItem('bondly:gmodel', m); } catch (x) { /* ignore */ }
+        const rd = res.body.getReader(), dec = new TextDecoder(); let buf = '', out = '';
+        for (;;) {
+          const { done, value } = await rd.read(); if (done) break;
+          buf += dec.decode(value, { stream: true });
+          let nl; while ((nl = buf.indexOf('\n')) >= 0) {
+            const line = buf.slice(0, nl).trim(); buf = buf.slice(nl + 1);
+            if (!line.startsWith('data:')) continue;
+            try { const j = JSON.parse(line.slice(5)), t = j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts.map(q => q.text || '').join(''); if (t) { out += t; onText(out); } } catch (x) { /* partial line */ }
+          }
+        }
+        if (out.trim()) return out.trim();
+        err = { code: 0, message: 'empty reply' }; continue;
+      }
       let gm = ''; try { gm = ((await res.json()).error || {}).message || ''; } catch (x) { /* ignore */ }
       err = { code: res.status, message: 'error ' + res.status + (gm ? ': ' + gm.slice(0, 160) : '') };
       if (res.status === 404 && k === ms.length - 1 && !ms.auto) {
