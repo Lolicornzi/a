@@ -261,6 +261,7 @@ summary{cursor:pointer;font-weight:700;font-size:14px}
 .fmbox .av{width:84px;height:84px;margin:0 auto 8px}.fmbox h3{margin:0;font-size:22px}.fmk{font-weight:800;color:var(--accent-d);margin-top:4px}
 .fmbox p{font-size:16px;line-height:1.45;margin:10px 0 6px}.fmn{font-size:12px;opacity:.6}.fmbtns{display:flex;gap:8px;margin-top:14px}.fmbtns .btn{flex:1;width:auto}
 .av.an{background:none}.av svg{width:100%;height:100%;display:block}
+.cm{padding:9px 12px;border:2px solid var(--line);border-radius:14px;background:#fff}.cm.rp{border-color:#f5a524;background:#fff8ea}.cm.sub2{margin-left:22px}.cmh{display:flex;justify-content:space-between;gap:8px;font-size:13px}.cmh span{color:var(--ink2)}.cmt{margin:4px 0;font-size:15px;white-space:pre-wrap;word-break:break-word}.cma{display:flex;gap:12px}.cma button{border:0;background:none;color:var(--ink2);font-size:13px;font-weight:700;cursor:pointer;padding:0}
 .wkcard h3{margin:0 0 6px}.wk{margin:10px 0}.wkh{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.wkp{font-size:12px;font-weight:800;white-space:nowrap}
 .wkp.bad{color:#d33}.wkp.mid{color:#c77700}.wkp.good{color:#1a8f5a}.wkb{height:8px;border-radius:99px;background:#e6ebf1;margin:5px 0;overflow:hidden}.wkb i{display:block;height:100%;border-radius:99px}
 .wkb i.bad{background:#e5484d}.wkb i.mid{background:#f5a524}.wkb i.good{background:#1a8f5a}.wkm{font-size:12px;color:var(--ink2)}
@@ -1567,10 +1568,11 @@ function pick(idx) {
   } else { G.streak = 0; head = 'Not quite'; calc = 'Streak reset. No points this time.'; }
   const last = G.i === G.qs.length - 1;
   const fb = $('#fb'); fb.hidden = false; fb.className = 'fb ' + (ok ? 'ok' : 'bad');
-  fb.innerHTML = `<h3>${head}</h3><div class="calc">${calc}</div>${ok ? '' : whyWrong(q, idx)}<div class="exp">${ok ? '' : `Answer: ${esc(q.a)}. `}${esc(q.exp)}</div><button class="btn ghost" data-ai="1" style="margin-bottom:8px">🤖 Ask AI about this</button><button class="btn ${ok ? 'ok' : 'bad'}" data-act="next" id="nextBtn">${last ? 'Finish lesson' : 'Continue'}</button>`;
+  fb.innerHTML = `<h3>${head}</h3><div class="calc">${calc}</div>${ok ? '' : whyWrong(q, idx)}<div class="exp">${ok ? '' : `Answer: ${esc(q.a)}. `}${esc(q.exp)}</div><div class="row" style="gap:8px;margin-bottom:8px"><button class="btn ghost" data-ai="1">🤖 Ask AI about this</button><button class="btn ghost" data-dc="1">💬 Discuss</button></div><button class="btn ${ok ? 'ok' : 'bad'}" data-act="next" id="nextBtn">${last ? 'Finish lesson' : 'Continue'}</button>`;
   $('#lstreak').textContent = '🔥 ' + G.streak; $('#lscore').textContent = '⭐ ' + G.score;
   $('#cover').style.width = (100 - Math.round(G.answered / G.qs.length * 100)) + '%';
   $('#nextBtn').focus({ preventScroll: true });
+  if (window.dcPrefetch) dcPrefetch(q);
 }
 function nextQ() { if (!G || !G.locked) return; G.i++; if (G.i >= G.qs.length) finishRun(); else renderPlay(); }
 
@@ -1975,6 +1977,7 @@ document.addEventListener('keydown', e => {
 (function () {
   const VER = '2026-11-27';
   const ITEMS = [
+    ['💬', 'Question discussions', 'After answering, tap “Discuss” to ask a doubt or report a wrong answer, question or diagram.'],
     ['👋', 'Friends and weak spots', 'Add friends by username (Leaderboard, Friends). On your Profile, see your weakest chapters and practise your mistakes.'],
     ['✅', 'Completed questions', 'Each chapter now shows how many questions you have answered correctly. New questions come first, and ones you have done before are marked “Done before”.'],
     ['🤖', 'New: AI tutor', 'After you answer a question, tap “Ask AI about this” to get an explanation. It needs a free Google Gemini key, set up in 1 minute.'],
@@ -2110,6 +2113,72 @@ document.addEventListener('keydown', e => {
     throw err;
   }
   document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-ai]'); if (b) { e.preventDefault(); open(); } });
+})();
+
+/* Question discussion: every question has a public thread for doubts and for reporting wrong answers, questions or diagrams. */
+(function () {
+  const KINDS = [['doubt', '❓ Doubt'], ['answer', '⚠️ Answer looks wrong'], ['question', '⚠️ Question has an error'], ['diagram', '⚠️ Diagram problem']];
+  const LAB = { doubt: 'Doubt', answer: 'Answer wrong?', question: 'Question error', diagram: 'Diagram problem', reply: 'Reply' };
+  const E = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  let cache = {}, last = 0;
+  const key = q => qh(q.q);
+  const ago = t => { const s = Math.max(1, Math.round((Date.now() - t) / 1000)); return s < 60 ? 'just now' : s < 3600 ? Math.round(s / 60) + 'm ago' : s < 86400 ? Math.round(s / 3600) + 'h ago' : Math.round(s / 86400) + 'd ago'; };
+  async function load(q) {
+    const rows = await DB.listValues('cm:' + key(q) + ':', true, { limit: 200, order: 'value->ts.asc' });
+    const list = rows.filter(r => r && r.id && r.text).sort((a, b) => a.ts - b.ts);
+    cache[key(q)] = list; return list;
+  }
+  window.dcPrefetch = async function (q) {
+    if (DB.mode !== 'online' || q.by) return;
+    try { const n = (await load(q)).length; const b = document.querySelector('[data-dc]'); if (b && G && G.qs[G.i] === q) b.textContent = '💬 Discuss' + (n ? ' (' + n + ')' : ''); } catch (e) { /* ignore */ }
+  };
+  function open() {
+    const q = G && G.qs && G.qs[G.i]; if (!q) return;
+    let o = document.getElementById('discpanel'); if (o) o.remove();
+    o = document.createElement('div'); o.className = 'overlay'; o.id = 'discpanel'; document.body.appendChild(o);
+    o.addEventListener('click', e => { if (e.target === o) o.remove(); });
+    let kind = 'doubt', to = null;
+    const me = () => S.user && S.user.pid;
+    o.innerHTML = '<div class="sheet" role="dialog" aria-modal="true" aria-label="Question discussion" style="display:flex;flex-direction:column;max-height:88dvh;max-height:88vh">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h3 style="margin:0">💬 Discussion</h3><button class="btn ghost" id="dX" style="padding:6px 14px;width:auto;flex:none">Close</button></div>' +
+      '<div class="sub" style="margin:6px 0">Ask your doubt, or report a wrong answer, question or diagram. Everyone can see this.</div>' +
+      '<div id="dList" style="flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;min-height:80px;margin-bottom:8px"></div>' +
+      '<div id="dTo" class="fine" style="display:none"></div>' +
+      '<div id="dKinds" class="pills" style="margin-bottom:8px"></div>' +
+      '<form id="dF" style="display:flex;gap:8px"><textarea id="dT" rows="2" maxlength="500" placeholder="Write here…" style="flex:1;padding:10px 12px;border:2px solid var(--line);border-radius:12px;font-size:16px;resize:none;font-family:inherit"></textarea><button class="btn" style="width:auto;padding:10px 16px;align-self:flex-end">Post</button></form></div>';
+    const list = o.querySelector('#dList');
+    o.querySelector('#dX').onclick = () => o.remove();
+    if (DB.mode !== 'online' || q.by) { list.innerHTML = '<div class="empty">Discussion needs the online version of Bondly.</div>'; o.querySelector('#dF').style.display = 'none'; o.querySelector('#dKinds').style.display = 'none'; return; }
+    const drawKinds = () => { o.querySelector('#dKinds').innerHTML = KINDS.map(k => `<button type="button" class="${kind === k[0] ? 'on' : ''}" data-k="${k[0]}" style="border-radius:12px;padding:8px 10px;font-size:13px;line-height:1.2">${k[1]}</button>`).join(''); };
+    drawKinds();
+    o.querySelector('#dKinds').onclick = e => { const b = e.target.closest('[data-k]'); if (b) { kind = b.dataset.k; drawKinds(); } };
+    const item = c => `<div class="cm${c.kind && c.kind !== 'doubt' && c.kind !== 'reply' ? ' rp' : ''}${c.to ? ' sub2' : ''}"><div class="cmh"><b>${E(c.name || 'Player')}</b><span>${ago(c.ts)}${c.kind && c.kind !== 'reply' && c.kind !== 'doubt' ? ' · <em>' + LAB[c.kind] + '</em>' : ''}</span></div><div class="cmt">${E(c.text)}</div><div class="cma">${c.to ? '' : `<button type="button" data-r="${E(c.id)}">Reply</button>`}${c.pid === me() ? `<button type="button" data-d="${E(c.id)}">Delete</button>` : ''}</div></div>`;
+    const draw = () => {
+      const all = cache[key(q)] || [], tops = all.filter(c => !c.to), reps = all.filter(c => c.to);
+      const flags = all.filter(c => c.kind && c.kind !== 'doubt' && c.kind !== 'reply' && !c.to).length;
+      list.innerHTML = (flags ? `<div class="fine" style="margin:0">⚠️ ${flags} report${flags > 1 ? 's' : ''} on this question</div>` : '') + (tops.length ? tops.map(c => item(c) + reps.filter(r => r.to === c.id).map(item).join('')).join('') : '<div class="empty" style="padding:14px">No discussion yet. Be the first to ask.</div>');
+      list.scrollTop = list.scrollHeight;
+    };
+    list.onclick = async e => {
+      const r = e.target.closest('[data-r]'), d = e.target.closest('[data-d]');
+      if (r) { to = r.dataset.r; const c = (cache[key(q)] || []).find(x => x.id === to); const t = o.querySelector('#dTo'); t.style.display = 'block'; t.innerHTML = 'Replying to ' + E(c ? c.name : '') + ' · <a href="#" id="dNo">cancel</a>'; o.querySelector('#dNo').onclick = ev => { ev.preventDefault(); to = null; t.style.display = 'none'; }; o.querySelector('#dT').focus(); }
+      if (d) { if (!confirm('Delete your comment?')) return; await DB.del('cm:' + key(q) + ':' + d.dataset.d, true); cache[key(q)] = (cache[key(q)] || []).filter(x => x.id !== d.dataset.d && x.to !== d.dataset.d); draw(); }
+    };
+    o.querySelector('#dF').onsubmit = async e => {
+      e.preventDefault();
+      const ta = o.querySelector('#dT'), text = ta.value.trim(); if (!text) return;
+      if (Date.now() - last < 8000) return toast('Please wait a few seconds between posts.', 'bad');
+      last = Date.now();
+      const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+      const c = { id, qh: key(q), unit: q.unit || G.id, pid: me(), name: S.user.name, kind: to ? 'reply' : kind, to: to || '', text, ts: Date.now() };
+      const ok = await DB.set('cm:' + key(q) + ':' + id, c, true);
+      if (!ok) return toast('Could not post. Check your connection.', 'bad');
+      (cache[key(q)] = cache[key(q)] || []).push(c); ta.value = ''; to = null; o.querySelector('#dTo').style.display = 'none'; draw();
+    };
+    list.innerHTML = '<div class="empty" style="padding:14px">Loading…</div>';
+    load(q).then(draw).catch(() => { list.innerHTML = '<div class="empty">Could not load the discussion.</div>'; });
+  }
+  document.addEventListener('click', e => { const b = e.target.closest && e.target.closest('[data-dc]'); if (b) { e.preventDefault(); open(); } });
 })();
 </script>
 </body>

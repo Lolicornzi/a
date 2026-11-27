@@ -1,5 +1,12 @@
 [
   {
+    "id": "2026-11-27-discuss",
+    "date": "2026-11-27",
+    "icon": "💬",
+    "title": "Question discussions",
+    "body": "After you answer a question, tap “Discuss” to ask a doubt or report a wrong answer, question or diagram. Everyone can see and reply."
+  },
+  {
     "id": "2026-11-27-friends",
     "date": "2026-11-27",
     "icon": "👋",
