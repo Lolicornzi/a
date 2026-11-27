@@ -1,0 +1,30 @@
+[
+  {
+    "id": "2026-11-27-completed",
+    "date": "2026-11-27",
+    "icon": "✅",
+    "title": "Completed questions",
+    "body": "Each chapter now shows how many questions you have answered correctly. New questions come first, and ones you have done before are marked “Done before”."
+  },
+  {
+    "id": "2026-11-27-fixes",
+    "date": "2026-11-27",
+    "icon": "🛠️",
+    "title": "Biology question fixes",
+    "body": "We repaired Biology questions that had missing statements, wrong figures or stray tags, and corrected the 2015 Q6 answer. Questions we could not recover were removed."
+  },
+  {
+    "id": "2026-11-26-ai-tutor",
+    "date": "2026-11-26",
+    "icon": "🤖",
+    "title": "New: AI tutor",
+    "body": "After you answer a question, tap “Ask AI about this” to get an explanation. It needs a free Google Gemini key, set up in about a minute."
+  },
+  {
+    "id": "2026-11-24-biology",
+    "date": "2026-11-24",
+    "icon": "🧬",
+    "title": "Biology Semester 1 and 2 expanded",
+    "body": "Chapters 1 to 14 now include many more past-year questions with figures. Chapters 8 and 9 are now in Semester 2."
+  }
+]
