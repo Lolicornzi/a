@@ -126,6 +126,9 @@ textarea{resize:vertical;min-height:84px}
 .tbar{height:6px;background:#dfe6ef;border-radius:9px;overflow:hidden;margin:16px 0 22px}
 .tbar i{display:block;height:100%;width:100%;background:var(--accent);animation:drain linear forwards}
 @keyframes drain{from{width:100%}to{width:0}}
+.wasdone{color:var(--ok,#1a8f5a);font-weight:800}
+.qcount{font-size:11px;font-weight:700;color:var(--ink2,#667);margin-top:2px}
+.qcount.full{color:var(--ok,#1a8f5a)}
 .qtag{font-size:13px;font-weight:700;color:var(--accent-d);margin-bottom:6px}
 .qtext{font-size:23px;font-weight:800;font-family:'Bricolage Grotesque','DM Sans',sans-serif;line-height:1.22;margin-bottom:22px}
 .q-figure{display:block;max-width:100%;max-height:260px;object-fit:contain;margin:0 auto 18px;border-radius:12px;background:#fff;border:2px solid var(--line)}
@@ -1295,7 +1298,7 @@ function learnHTML() {
       const L = LESSONS[id], p = S.user.progress[id], open = unlocked(sec, i), done = p && p.done;
       const soon = !hasQ(id), state = !open ? 'locked' : soon ? 'soon' : done ? 'done' : 'current';
       const st = done ? '★'.repeat(p.stars || 1) + '☆'.repeat(3 - (p.stars || 1)) : '';
-      return `<div class="step" style="--dx:${OFFS[i % OFFS.length]}px"><button class="hex ${state}" data-act="open" data-id="${id}" aria-label="${esc(L.title)}${open ? '' : ' (locked)'}"><span class="hb"></span><span class="hf">${open ? L.icon : '🔒'}</span></button><div class="sl">${esc(L.title)}</div>${soon ? '<div class="soonlbl">Coming soon</div>' : ''}${st ? `<div class="stars" aria-label="${p.stars} of 3 stars">${st}</div>` : ''}</div>`;
+      return `<div class="step" style="--dx:${OFFS[i % OFFS.length]}px"><button class="hex ${state}" data-act="open" data-id="${id}" aria-label="${esc(L.title)}${open ? '' : ' (locked)'}"><span class="hb"></span><span class="hf">${open ? L.icon : '🔒'}</span></button><div class="sl">${esc(L.title)}</div>${(!soon && L.kind === 'mcq' && open) ? (q => `<div class="qcount${q.total && q.done >= q.total ? ' full' : ''}">${q.done}/${q.total} done</div>`)(qProgress(id)) : ''}${soon ? '<div class="soonlbl">Coming soon</div>' : ''}${st ? `<div class="stars" aria-label="${p.stars} of 3 stars">${st}</div>` : ''}</div>`;
     }).join('');
     return head + `<div class="path">${steps}</div>`;
   }).join('');
@@ -1312,7 +1315,8 @@ function sheetHTML() {
   let info;
   if (L.kind === 'mcq') {
     const core = (QUESTIONS[L.id] || []).length, com = S.community.filter(c => c.unit === L.id).length;
-    info = core + com === 0 ? 'Questions for this chapter are coming soon.' : `Up to ${Math.min(10, core + com)} questions${com ? `, including ${com} from the community` : ''}. Faster answers and longer streaks score more, and harder questions get a slower timer.`;
+    const qp = qProgress(L.id);
+    info = core + com === 0 ? 'Questions for this chapter are coming soon.' : `${qp.done} of ${qp.total} questions completed. New questions come first. Up to ${Math.min(10, core + com)} questions${com ? `, including ${com} from the community` : ''}. Faster answers and longer streaks score more, and harder questions get a slower timer.`;
   } else info = L.id === 'mm9' ? 'Ten random reactions from the whole map. Fill every gap.' : 'Each row is a reaction arrow, read left to right. Tap a ? to choose a slot, then pick the missing answer from the bank. ★ marks the hub compound.';
   return `<div class="overlay" data-act="overlay"><div class="sheet" role="dialog" aria-label="${esc(L.title)}">
     <div class="ic">${L.icon}</div><h3>${esc(L.title)}</h3><div class="sub">${esc(L.group)}</div>
@@ -1349,16 +1353,28 @@ function meHTML() {
     <div class="avrow"><button class="btn ghost" data-act="pickAvatar">${S.user.avatar ? 'Change photo' : 'Add a photo'}</button>${S.user.avatar ? '<button class="btn ghost" data-act="removeAvatar">Remove</button>' : ''}</div>
     <div class="grid2"><div class="stat"><b>${T.total}</b><span>${pl} score</span></div><div class="stat"><b>${r ? '#' + r : '–'}</b><span>${pl} rank</span></div>
       <div class="stat"><b>${T.chem}</b><span>Chemistry score</span></div><div class="stat"><b>${T.bio}</b><span>Biology score</span></div>
-      <div class="stat"><b>${done}</b><span>Lessons completed</span></div><div class="stat"><b>${bs}</b><span>Best streak</span></div><div class="stat"><b>${A.stpm.total + A.alevel.total}</b><span>Overall score</span></div><div class="stat"><b>${ro ? '#' + ro : '–'}</b><span>Overall rank</span></div></div>
+      <div class="stat"><b>${Object.keys(LESSONS).filter(k => LESSONS[k].kind === 'mcq').reduce((n, k) => n + qProgress(k).done, 0)}</b><span>Questions completed</span></div><div class="stat"><b>${done}</b><span>Lessons completed</span></div><div class="stat"><b>${bs}</b><span>Best streak</span></div><div class="stat"><b>${A.stpm.total + A.alevel.total}</b><span>Overall score</span></div><div class="stat"><b>${ro ? '#' + ro : '–'}</b><span>Overall rank</span></div></div>
     <button class="btn ghost" data-act="signout">Sign out</button>
     <p class="fine">Progress is saved automatically to this email. Sign in with the same email to continue. Profile pictures are cropped to a square and shrunk before saving.</p>`;
+}
+
+/* ---- per-question completion (saved with the user's profile) ---- */
+const qh = s => { let x = 5381; s = String(s); for (let i = 0; i < s.length; i++) x = ((x << 5) + x + s.charCodeAt(i)) | 0; return (x >>> 0).toString(36); };
+const doneSet = unit => new Set(((S.user && S.user.qdone) || {})[unit] || []);
+const unitQs = unit => (QUESTIONS[unit] || []).map(q => qh(q[0]));
+function qProgress(unit) { const ds = doneSet(unit), all = unitQs(unit); return { done: all.filter(h => ds.has(h)).length, total: all.length }; }
+function markDone(unit, q) {
+  if (!S.user || !unit || q.by) return;
+  const d = S.user.qdone = S.user.qdone || {}, a = d[unit] = d[unit] || [], k = qh(q.q);
+  if (a.indexOf(k) < 0) a.push(k);
 }
 
 /* ---- lesson (multiple choice) ---- */
 function startMCQ(id) {
   const core = (QUESTIONS[id] || []).map(q => ({ q: q[0], a: q[1], opts: [q[1], q[2], q[3], q[4]], exp: q[5], by: '', img: q[6] || '', alt: q[7] || '', diff: q[8] || '', why: q[9] || null }));
   const com = S.community.filter(c => c.unit === id).map(c => ({ q: c.q, a: c.opts[c.c], opts: c.opts, exp: c.exp || '', by: c.by || 'a player', img: c.img || '', alt: c.alt || '' }));
-  const qs = shuffle([...core, ...com]).slice(0, 10).map(x => { const lv = levelOf(x); return { ...x, opts: shuffle(x.opts), level: lv, limit: TIME_BY_LEVEL[lv] }; });
+  const ds = doneSet(id), tag = x => ({ ...x, was: !x.by && ds.has(qh(x.q)) }), pool = [...core, ...com].map(tag);
+  const qs = [...shuffle(pool.filter(x => !x.was)), ...shuffle(pool.filter(x => x.was))].slice(0, 10).map(x => { const lv = levelOf(x); return { ...x, opts: shuffle(x.opts), level: lv, limit: TIME_BY_LEVEL[lv] }; });
   G = { kind: 'mcq', id, qs, i: 0, correct: 0, answered: 0, streak: 0, bestStreak: 0, score: 0, t0: 0, locked: false, started: Date.now() };
   S.sheet = null; S.screen = 'play'; render();
 }
@@ -1368,7 +1384,7 @@ function renderPlay() {
   $('#app').innerHTML = `<div class="play">
     <div class="ptop"><button class="x" data-act="quit" aria-label="Leave lesson">✕</button><div class="spectrum" role="progressbar" aria-valuenow="${pct}"><div class="cover" id="cover" style="width:${100 - pct}%"></div></div>${liveHTML()}</div>
     <div class="tbar" aria-hidden="true"><i style="animation-duration:${q.limit}s"></i></div>
-    <div class="qtag">Question ${G.i + 1} of ${G.qs.length}<span class="lvl l${q.level}">${LEVEL_NAME[q.level]} · ${q.limit}s</span>${q.by ? ` · from ${esc(q.by)}` : ''}</div>
+    <div class="qtag">Question ${G.i + 1} of ${G.qs.length}<span class="lvl l${q.level}">${LEVEL_NAME[q.level]} · ${q.limit}s</span>${q.by ? ` · from ${esc(q.by)}` : ''}${q.was ? ' · <span class="wasdone">✓ Done before</span>' : ''}</div>
     <div class="qtext">${esc(q.q)}</div>
     ${figSrc(q.img) ? `<img class="q-figure" src="${figSrc(q.img)}" alt="${esc(q.alt)}" onerror="figErr(this)">` : ''}
     <div class="opts">${q.opts.map((o, i) => `<button class="opt" data-act="pick" data-i="${i}"><span class="k">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`).join('')}</div>
@@ -1384,7 +1400,7 @@ function pick(idx) {
   document.querySelectorAll('.opt').forEach((b, i) => { b.disabled = true; if (q.opts[i] === q.a) b.classList.add('ok'); else if (i === idx) b.classList.add('bad'); else b.classList.add('dim'); });
   let head, calc = '';
   if (ok) {
-    G.correct++; G.streak++; G.bestStreak = Math.max(G.bestStreak, G.streak);
+    G.correct++; G.streak++; G.bestStreak = Math.max(G.bestStreak, G.streak); markDone(G.id, q);
     const sc = calcPoints(t, q.limit, G.streak, G.correct, G.answered); G.score += sc.pts;
     head = `Correct, +${sc.pts}`; calc = `⚡ speed ${sc.speed} × 🔥 streak ${sc.streak} × 🎯 accuracy ${sc.acc.toFixed(2)}`;
   } else { G.streak = 0; head = 'Not quite'; calc = 'Streak reset. No points this time.'; }
@@ -1777,8 +1793,9 @@ document.addEventListener('keydown', e => {
 
 /* "What's new" announcement: shown once per version, then remembered in this browser */
 (function () {
-  const VER = '2026-11-26';
+  const VER = '2026-11-27';
   const ITEMS = [
+    ['✅', 'Completed questions', 'Each chapter now shows how many questions you have answered correctly. New questions come first, and ones you have done before are marked “Done before”.'],
     ['🤖', 'New: AI tutor', 'After you answer a question, tap “Ask AI about this” to get an explanation. It needs a free Google Gemini key, set up in 1 minute.'],
     ['🧬', 'Biology Semester 1 expanded', 'Chapters 1–7 now have far more STPM past-paper questions (25 to 55 per chapter).'],
     ['🫁', 'Chapters 8 & 9 moved to Semester 2', 'Gas Exchange and Transport in Animals and Plants now sit under Semester 2 (Physiology) with Chapters 10–14.'],
