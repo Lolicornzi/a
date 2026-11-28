@@ -7821,15 +7821,6 @@
    "explanation": ""
   },
   {
-   "question": "All ecosystems are dependent on energy input because",
-   "option_a": "the carnivores have a greater biomass than the producers do",
-   "option_b": "the producers have a greater biomass than the consumers do",
-   "option_c": "the decomposers process the greatest amount of energy in an ecosystem",
-   "option_d": "the energy transformation results in a loss of the usable energy to the environment",
-   "answer": "D",
-   "explanation": ""
-  },
-  {
    "question": "Which of the following are true of an ecosystem? I. Phytoplanktons are producers. II. The last consumer obtains the highest energy III. Ecosystem is an open system with input and output of energies IV. Heterotrophs include herbivores, carnivores, omnivores, decomposers and detritivores.",
    "option_a": "I and II",
    "option_b": "Ill and IV",
@@ -16023,17 +16014,6 @@
    "option_c": "Organising microtubules to form spindle fibres",
    "option_d": "Holding sister chromatids together",
    "answer": "C",
-   "explanation": "",
-   "image": "",
-   "alt": ""
-  },
-  {
-   "question": "Which organelle contains DNA, ribosomes, and NADP reductase?",
-   "option_a": "Nucleus",
-   "option_b": "Chloroplast",
-   "option_c": "Mitochondrion",
-   "option_d": "Endoplasmic reticulum",
-   "answer": "B",
    "explanation": "",
    "image": "",
    "alt": ""
