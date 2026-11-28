@@ -7658,7 +7658,7 @@
    "explanation": ""
   },
   {
-   "question": "To protect the endangered species of flora and fauna, the government has assisted in the establishment of the following conservation parks: I. The National Elephant Conservation centre in Kuala Gandah, Pahang II. The Marine Park in Payar Island, Kedah III. The Royal Belum Rorest Reserve in Banding, Perak IV. The Sepilok Orang Utan Rehabilitation Centre in Sandakan, Sabah Which parks correspond correctly to the in situ and ex situ conservations? ex situ in situ",
+   "question": "To protect the endangered species of flora and fauna, the government has assisted in the establishment of the following conservation parks: I. The National Elephant Conservation centre in Kuala Gandah, Pahang II. The Marine Park in Payar Island, Kedah III. The Royal Belum Forest Reserve in Banding, Perak IV. The Sepilok Orang Utan Rehabilitation Centre in Sandakan, Sabah Which parks correspond correctly to the in situ and ex situ conservations?",
    "option_a": "ex situ: I, II; in situ: III, IV",
    "option_b": "ex situ: I, IV; in situ: II, III",
    "option_c": "ex situ: II, III; in situ: I, IV",
@@ -8409,7 +8409,7 @@
    "explanation": ""
   },
   {
-   "question": "In 1930, 20 sambar deers were introduced to an enclosed 10ha 2 forest reserve in X. After 30years, the population size increased to 2000. However, in 1980 the number of sambar deers had sharply decreased, and in 1990, there were only five left. Which limiting factors are involved in the above situation? I. Space II. Overhunting III. Food resources IV. Carrying capacity",
+   "question": "In 1930, 20 sambar deers were introduced to an enclosed 10 ha forest reserve in X. After 30 years, the population size increased to 2000. However, in 1980 the number of sambar deers had sharply decreased, and in 1990, there were only five left. Which limiting factors are involved in the above situation? I. Space II. Overhunting III. Food resources IV. Carrying capacity",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
@@ -8478,7 +8478,7 @@
    "explanation": "Weathering (R) releases phosphate from rocks; leaching (S) washes phosphate from soil into oceans; decomposition (T) returns phosphate from dead plankton to ocean water; sedimentation (U) deposits ocean phosphate into sedimentary rocks."
   },
   {
-   "question": "The types and generalised characteristics of survivorship curves are given below. Type I survivorship curve Type III survivorship curve I. Low natality High natality II. Constant mortality at all ages Low mortality at reproductive age III. Does not take care of their offspring Take care of their offspring IV. Follows K strategy Follows r strategy Which are true about type I and type III survivorship curves?",
+   "question": "The types and generalised characteristics of survivorship curves are given below. Which are true about type I and type III survivorship curves?\n|  | Type I survivorship curve | Type III survivorship curve |\n| I | Low natality | High natality |\n| II | Constant mortality at all ages | Low mortality at reproductive age |\n| III | Does not take care of their offspring | Take care of their offspring |\n| IV | Follows K strategy | Follows r strategy |",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -9261,7 +9261,7 @@
    "explanation": ""
   },
   {
-   "question": "A plasmid map is shown in the diagram below. EcoRI is used to cut the plasmid and then relegates using DNA ligase. The plasmid is transformed and the bacterial cells are cultured in nutrient broth with different antibiotics, as shown in the table below. Medium Antibiotic I Tetracycline and Streptomycin II Ampicilin and Streptomycin III Tetracycline IV Ampicilin In which media would the bacterial cells containing the recombinant plasmid grow?",
+   "question": "A plasmid map is shown in the diagram below. EcoRI is used to cut the plasmid and then religates using DNA ligase. The plasmid is transformed and the bacterial cells are cultured in nutrient broth with different antibiotics, as shown in the table below. In which media would the bacterial cells containing the recombinant plasmid grow?\n| Medium | Antibiotic |\n| I | Tetracycline and Streptomycin |\n| II | Ampicillin and Streptomycin |\n| III | Tetracycline |\n| IV | Ampicillin |",
    "image": "bio_sem3_rdna_27.png",
    "alt": "Diagram or photograph referred to in the question.",
    "option_a": "I and II",
@@ -9483,7 +9483,7 @@
    "explanation": ""
   },
   {
-   "question": "In the natural population, three types of natural selection can be identified. The diagram below shows a series of normal dispersion curves that describe how the three types of selection work. What is the type of natural selection illustrated by the series of normal dispersion I, II and III above? Disruptive selection Directional selection Stabilising selection",
+   "question": "In the natural population, three types of natural selection can be identified. The diagram below shows a series of normal distribution curves that describe how the three types of selection work. What is the type of natural selection illustrated by the series of normal distribution curves I, II and III above?",
    "image": "bio_sem3_spec_20.png",
    "alt": "Diagram or photograph referred to in the question.",
    "option_a": "Disruptive selection: I; Directional selection: III; Stabilising selection: II",
@@ -10088,7 +10088,7 @@
    "alt": ""
   },
   {
-   "question": "The events that lead to the closing of stomata are as follows: The transfer of Ca2+ ions from the vacuole to the cytoplasm I. The loss of K+ ions from the cells II.  The loss of Cl- ions from the cells III. IV.  The binding of abscisic acid to receptors on the surface of the plasma membrane of the guard cells Which sequence of events is correct for the closing of the stomata?",
+   "question": "The events that lead to the closing of stomata are as follows: I. The loss of K⁺ ions from the cells II. The loss of Cl⁻ ions from the cells III. The transfer of Ca²⁺ ions from the vacuole to the cytoplasm IV. The binding of abscisic acid to receptors on the surface of the plasma membrane of the guard cells. Which sequence of events is correct for the closing of the stomata?",
    "option_a": "I, II, III, IV",
    "option_b": "I, III, IV, II",
    "option_c": "IV, I, II, III",
@@ -10352,7 +10352,7 @@
    "alt": ""
   },
   {
-   "question": "The following reaction occurs in the human blood. Oxyhemoglobin  ↔  hemoglobin + oxygen I.  The reaction shifts to the right when II.  blood flows through the capillaries in the lung. III.  blood flows through the capillaries in the liver. IV. V. the concentration of hydrogen ion in the blood increases the partial pressure of carbon dioxide in the blood decreases.",
+   "question": "The following reaction occurs in the human blood: Oxyhaemoglobin ⇌ haemoglobin + oxygen. The reaction shifts to the right when: I. blood flows through the capillaries in the lung II. blood flows through the capillaries in the liver III. the concentration of hydrogen ion in the blood increases IV. the partial pressure of carbon dioxide in the blood decreases",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "I and IV",
@@ -11808,7 +11808,7 @@
    "alt": ""
   },
   {
-   "question": "Which of the following statements about the effect of phytochromes is true? I.  High concentration of PFR activates florigens in long-day plants II.  High concentration of PfR activates florigens in short-day plants III.  Low concentration of PFR activates florigens in long-day plants IV.  Low concentration of PFR activates florigens in short-day plants",
+   "question": "Which of the following statements about the effect of phytochromes is true? I.  High concentration of PFR activates florigens in long-day plants II.  High concentration of PFR activates florigens in short-day plants III.  Low concentration of PFR activates florigens in long-day plants IV.  Low concentration of PFR activates florigens in short-day plants",
    "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -12349,8 +12349,8 @@
    "alt": ""
   },
   {
-   "question": "Which statements are true about seed germination of corns? I.  The imbibition process causes the seed coat cracks II.  Maltase hydrolyses stored starch into maltose for the growth and development of embryo III.  The embryo produces gibberellic acid that signals the aleurone layer to produce -amylase IV.  The conversion of food stored in the cotyledon into ATP by anaerobic respiration supplies the energy",
-   "option_a": "I and II I",
+   "question": "Which statements are true about seed germination of corns? I.  The imbibition process causes the seed coat cracks II.  Maltase hydrolyses stored starch into maltose for the growth and development of embryo III.  The embryo produces gibberellic acid that signals the aleurone layer to produce α-amylase IV.  The conversion of food stored in the cotyledon into ATP by anaerobic respiration supplies the energy",
+   "option_a": "I and II",
    "option_b": "I and IV",
    "option_c": "II and III",
    "option_d": "II and IV",
