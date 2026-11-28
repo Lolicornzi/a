@@ -16404,11 +16404,11 @@
   {
    "question": "Which of the following statements about compact bone is not true?",
    "option_a": "It consists of dead cells embedded in a matrix comprising mainly of calcium phosphate",
-   "option_b": "Osteoblasts become less active to change into oesteocystes",
-   "option_c": "Canaculi connects lacunae to each other",
-   "option_d": "It is made up of numerous Haversian system called osteon.",
-   "answer": "B",
-   "explanation": "",
+   "option_b": "Osteoblasts become less active to change into osteocytes",
+   "option_c": "Canaliculi connect lacunae to each other",
+   "option_d": "It is made up of numerous Haversian systems called osteons.",
+   "answer": "A",
+   "explanation": "Compact bone contains living osteocytes in lacunae, linked by canaliculi, so \"dead cells\" is the false statement. The matrix is mainly calcium phosphate, but the cells are alive.",
    "image": "",
    "alt": ""
   },
