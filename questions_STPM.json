@@ -7282,8 +7282,8 @@
    "option_d": "β-1,6",
    "answer": "C",
    "explanation": "",
-   "image": "sem_1_chapter_1_2026_q2.png",
-   "alt": "Sem 1 Chapter 1 (2026 Q2)"
+   "image": "sem_1_chapter_1_2026_q2_v2.png",
+   "alt": "Two glucose units joined by glycosidic bond R, second unit inverted 180 degrees"
   },
   {
    "question": "Which examples correspond correctly to its protein structures?",
@@ -14724,7 +14724,7 @@
    "alt": "Sem 1 Chapter 4 (2016 Q8)"
   },
   {
-   "question": "If osmotic potential of a plant cell sap is -1002 kPa, predict the water potential and the direction of net movement of water in each of the P (Ψp = 402.1 kPa, Ψs = -301.2 kPa) and Q (Ψp = 402.1 kPa, Ψs = -1213.2 kPa) cells.",
+   "question": "If osmotic potential of a plant cell sap is -1002 kPa, predict the water potential and the direction of net movement of water in each of the P and Q cells.\n| Cell | Ψp (kPa) | Ψs (kPa) |\n| P | 402.1 | -301.2 |\n| Q | 402.1 | -1213.2 |",
    "option_a": "Cell P: At Ψ = -298.7 kPa, water moves into the cell. | Cell Q: At Ψ = 613.3 kPa, water moves out of the cell.",
    "option_b": "Cell P: At Ψ = 100.9 kPa, water moves out of the cell. | Cell Q: At Ψ = -811.1 kPa, water moves out of the cell.",
    "option_c": "Cell P: At Ψ = -298.7 kPa, water moves out of the cell. | Cell Q: At Ψ = 613.3 kPa, water moves into the cell.",
@@ -16457,15 +16457,15 @@
    "alt": ""
   },
   {
-   "question": "A transverse section of an axon is shown in diagram below/ What does P represent?",
+   "question": "A transverse section of an axon is shown in the diagram below. What does P represent?",
    "option_a": "Axoplasm",
    "option_b": "Neurilemma",
    "option_c": "Schwann cell",
    "option_d": "Myelin sheath",
    "answer": "C",
    "explanation": "",
-   "image": "fig_28_neurone_myelin.png",
-   "alt": ""
+   "image": "fig_28c_axon_cs.png",
+   "alt": "Transverse section of a myelinated axon, P points to the Schwann cell"
   },
   {
    "question": "The structure of a neurone is shown in the diagram below. Which structure speeds up the transmission of impulse?",
@@ -16475,8 +16475,8 @@
    "option_d": "S",
    "answer": "B",
    "explanation": "",
-   "image": "fig_28_neurone_myelin.png",
-   "alt": ""
+   "image": "fig_28b_neurone_psqr.png",
+   "alt": "Neurone with structures labelled P, Q, R and S"
   },
   {
    "question": "Which tissue corresponds to its function correctly?",
@@ -16600,7 +16600,7 @@
    "alt": "Sem 1 Chapter 3 (2017 Q5)"
   },
   {
-   "question": "Which comparisons between the prokaryotic and eukaryotic cells are true? I. Prokaryote: Some prokaryotes cannot fix atmospheric nitrogen. | Eukaryote: Some eukaryotes can fix atmospheric nitrogen. II. Prokaryote: Cell walls are made up of murein as the main strengthening compound. | Eukaryote: Cell walls are made up of cellulose or chitin as the main strengthening compound. III. Prokaryote: Genetic material consists of circular DNA. | Eukaryote: Genetic material consists of linear DNA. IV. Prokaryote: Protein synthesis occurs in 80S ribosomes. | Eukaryote: Protein synthesis occurs in 70S ribosomes.",
+   "question": "Which comparisons between the prokaryotic and eukaryotic cells are true?\n|  | Prokaryote | Eukaryote |\n| I | Some prokaryotes cannot fix atmospheric nitrogen | Some eukaryotes can fix atmospheric nitrogen |\n| II | Cell walls are made up of murein as the main strengthening compound | Cell walls are made up of cellulose or chitin as the main strengthening compound |\n| III | Genetic material consists of circular DNA | Genetic material consists of linear DNA |\n| IV | Protein synthesis occurs in 80S ribosomes | Protein synthesis occurs in 70S ribosomes |",
    "option_a": "I and III",
    "option_b": "I and IV",
    "option_c": "II and III",
@@ -16633,7 +16633,7 @@
    "alt": "Sem 1 Chapter 3 (2024 Q7)"
   },
   {
-   "question": "Which organelles do not correspond correctly to their characteristics? I. Chloroplast: Has double membrane | Contains DNA | Contains ribosomes II. Rough endoplasmic reticulum: No double membrane | No DNA | Contains ribosomes III. Mitochondrion: Has double membrane | Contains DNA | No ribosomes IV. Golgi apparatus: Has double membrane | No DNA | No ribosomes",
+   "question": "Which organelles do not correspond correctly to their characteristics?\n|  | Organelle | Membrane | DNA | Ribosomes |\n| I | Chloroplast | Has double membrane | Contains DNA | Contains ribosomes |\n| II | Rough endoplasmic reticulum | No double membrane | No DNA | Contains ribosomes |\n| III | Mitochondrion | Has double membrane | Contains DNA | No ribosomes |\n| IV | Golgi apparatus | Has double membrane | No DNA | No ribosomes |",
    "option_a": "I and II",
    "option_b": "I and III",
    "option_c": "II and IV",
