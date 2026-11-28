@@ -16259,13 +16259,13 @@
    "alt": ""
   },
   {
-   "question": "Which of the following organelles and their functions do not match? Organelle",
-   "option_a": "Centriole",
-   "option_b": "Golgi body",
-   "option_c": "Microfilament Muscular contraction",
-   "option_d": "Microtubule Movement of cilia and flagella Function Formation of spindle Synthesis of lipid",
+   "question": "Which of the following organelles and their functions do not match?\n| Organelle | Function |\n| A. Centriole | Formation of spindle |\n| B. Golgi body | Synthesis of lipid |\n| C. Microfilament | Muscular contraction |\n| D. Microtubule | Movement of cilia and flagella |",
+   "option_a": "A",
+   "option_b": "B",
+   "option_c": "C",
+   "option_d": "D",
    "answer": "B",
-   "explanation": "",
+   "explanation": "The Golgi body modifies, sorts and packages proteins and lipids; lipid synthesis is done by the smooth endoplasmic reticulum.",
    "image": "",
    "alt": ""
   },
